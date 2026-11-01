@@ -1,0 +1,63 @@
+{
+    "resource_pack_name": "ae_sg",
+    "texture_name": "atlas.items",
+    "texture_data": {
+        "ae_sg_grave_finder": {
+            "textures": "textures/ae_sg/items/grave_finder_0"
+        },
+        "ae_sg_grave_finder_nether": {
+            "textures": "textures/ae_sg/items/grave_finder_nether"
+        },
+        "ae_sg_grave_finder_end": {
+            "textures": "textures/ae_sg/items/grave_finder_end"
+        },
+        "ae_sg_grave_finder_0": {
+            "textures": "textures/ae_sg/items/grave_finder_0"
+        },
+        "ae_sg_grave_finder_1": {
+            "textures": "textures/ae_sg/items/grave_finder_1"
+        },
+        "ae_sg_grave_finder_2": {
+            "textures": "textures/ae_sg/items/grave_finder_2"
+        },
+        "ae_sg_grave_finder_3": {
+            "textures": "textures/ae_sg/items/grave_finder_3"
+        },
+        "ae_sg_grave_finder_4": {
+            "textures": "textures/ae_sg/items/grave_finder_4"
+        },
+        "ae_sg_grave_finder_5": {
+            "textures": "textures/ae_sg/items/grave_finder_5"
+        },
+        "ae_sg_grave_finder_6": {
+            "textures": "textures/ae_sg/items/grave_finder_6"
+        },
+        "ae_sg_grave_finder_7": {
+            "textures": "textures/ae_sg/items/grave_finder_7"
+        },
+        "ae_sg_grave_finder_8": {
+            "textures": "textures/ae_sg/items/grave_finder_8"
+        },
+        "ae_sg_grave_finder_9": {
+            "textures": "textures/ae_sg/items/grave_finder_9"
+        },
+        "ae_sg_grave_finder_10": {
+            "textures": "textures/ae_sg/items/grave_finder_10"
+        },
+        "ae_sg_grave_finder_11": {
+            "textures": "textures/ae_sg/items/grave_finder_11"
+        },
+        "ae_sg_grave_finder_12": {
+            "textures": "textures/ae_sg/items/grave_finder_12"
+        },
+        "ae_sg_grave_finder_13": {
+            "textures": "textures/ae_sg/items/grave_finder_13"
+        },
+        "ae_sg_grave_finder_14": {
+            "textures": "textures/ae_sg/items/grave_finder_14"
+        },
+        "ae_sg_grave_finder_15": {
+            "textures": "textures/ae_sg/items/grave_finder_15"
+        }
+    }
+}

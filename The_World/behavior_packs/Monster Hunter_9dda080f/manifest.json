@@ -1,0 +1,58 @@
+{
+    "format_version": 2,
+    "header": {
+        "min_engine_version": [
+            1,
+            26,
+            30
+        ],
+        "name": "Monster Hunter",
+        "description": "Hunter NPC, Mob Hunting Quests, Mob Head Taxidermy.",
+        "uuid": "9dda080f-02bd-402c-b6e4-7ed92db21aa3",
+        "version": [
+            1,
+            0,
+            0
+        ]
+    },
+    "modules": [
+        {
+            "type": "data",
+            "uuid": "2951bb02-5f30-4693-85e9-b8889bb3469a",
+            "version": [
+                1,
+                0,
+                0
+            ]
+        },
+        {
+            "type": "script",
+            "language": "javascript",
+            "entry": "scripts/index.js",
+            "uuid": "0a1eaece-48f1-4ab3-8b87-80fc5869f31e",
+            "version": [
+                1,
+                0,
+                0
+            ]
+        }
+    ],
+    "dependencies": [
+        {
+            "uuid": "d1912aeb-b134-41c6-98ac-cd156729b002",
+            "version": [
+                1,
+                0,
+                0
+            ]
+        },
+        {
+            "module_name": "@minecraft/server",
+            "version": "2.0.0"
+        },
+        {
+            "module_name": "@minecraft/server-ui",
+            "version": "2.0.0"
+        }
+    ]
+}

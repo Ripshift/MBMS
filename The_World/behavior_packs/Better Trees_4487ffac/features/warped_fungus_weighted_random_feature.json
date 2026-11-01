@@ -1,0 +1,62 @@
+{
+	"format_version": "1.21.90",
+	"minecraft:weighted_random_feature": {
+		"description": {
+			"identifier": "daniye:warped_fungus_weighted_random_feature"
+		},
+		"features": [
+			[
+				"daniye:warped_fungus_01_mcstructure",
+				10
+			],
+			[
+				"daniye:warped_fungus_02_mcstructure",
+				10
+			],
+			[
+				"daniye:warped_fungus_03_mcstructure",
+				10
+			],
+			[
+				"daniye:warped_fungus_04_mcstructure",
+				5
+			],
+			[
+				"daniye:warped_fungus_05_mcstructure",
+				5
+			],
+			[
+				"daniye:warped_fungus_06_mcstructure",
+				5
+			],
+			[
+				"daniye:warped_fungus_06_mcstructure",
+				12
+			],
+			[
+				"daniye:warped_fungus_07_mcstructure",
+				12
+			],
+			[
+				"daniye:warped_fungus_08_mcstructure",
+				12
+			],
+			[
+				"daniye:warped_fungus_09_mcstructure",
+				12
+			],
+			[
+				"daniye:warped_fungus_10_mcstructure",
+				12
+			],
+			[
+				"daniye:warped_fungus_11_mcstructure",
+				12
+			],
+			[
+				"daniye:warped_fungus_12_mcstructure",
+				12
+			]
+		]
+	}
+}

@@ -1,0 +1,134 @@
+{
+   "content" : [
+      {
+         "path" : "blocks.json"
+      },
+      {
+         "path" : "contents.json"
+      },
+      {
+         "path" : "manifest.json"
+      },
+      {
+         "path" : "pack_icon.png"
+      },
+      {
+         "path" : "texts/en_US.lang"
+      },
+      {
+         "path" : "texts/languages.json"
+      },
+      {
+         "path" : "textures/blocks/ancientend_chiseled_end_stone_bricks.texture_set.json"
+      },
+      {
+         "path" : "textures/blocks/ancientend_chiseled_end_stone_bricks.tga"
+      },
+      {
+         "path" : "textures/blocks/ancientend_chiseled_end_stone_bricks_heightmap.tga"
+      },
+      {
+         "path" : "textures/blocks/ancientend_chiseled_end_stone_bricks_mers.tga"
+      },
+      {
+         "path" : "textures/blocks/ancientend_chiseled_purpur.texture_set.json"
+      },
+      {
+         "path" : "textures/blocks/ancientend_chiseled_purpur.tga"
+      },
+      {
+         "path" : "textures/blocks/ancientend_chiseled_purpur_heightmap.tga"
+      },
+      {
+         "path" : "textures/blocks/ancientend_chiseled_purpur_mers.tga"
+      },
+      {
+         "path" : "textures/blocks/ancientend_cracked_end_stone_bricks.texture_set.json"
+      },
+      {
+         "path" : "textures/blocks/ancientend_cracked_end_stone_bricks.tga"
+      },
+      {
+         "path" : "textures/blocks/ancientend_cracked_end_stone_bricks_heightmap.tga"
+      },
+      {
+         "path" : "textures/blocks/ancientend_cracked_end_stone_bricks_mers.tga"
+      },
+      {
+         "path" : "textures/blocks/ancientend_cracked_purpur_bricks.texture_set.json"
+      },
+      {
+         "path" : "textures/blocks/ancientend_cracked_purpur_bricks.tga"
+      },
+      {
+         "path" : "textures/blocks/ancientend_cracked_purpur_bricks_heightmap.tga"
+      },
+      {
+         "path" : "textures/blocks/ancientend_cracked_purpur_bricks_mers.tga"
+      },
+      {
+         "path" : "textures/blocks/ancientend_end_stone_pillar_side.texture_set.json"
+      },
+      {
+         "path" : "textures/blocks/ancientend_end_stone_pillar_side.tga"
+      },
+      {
+         "path" : "textures/blocks/ancientend_end_stone_pillar_side_heightmap.tga"
+      },
+      {
+         "path" : "textures/blocks/ancientend_end_stone_pillar_side_mers.tga"
+      },
+      {
+         "path" : "textures/blocks/ancientend_end_stone_pillar_top.texture_set.json"
+      },
+      {
+         "path" : "textures/blocks/ancientend_end_stone_pillar_top.tga"
+      },
+      {
+         "path" : "textures/blocks/ancientend_end_stone_pillar_top_heightmap.tga"
+      },
+      {
+         "path" : "textures/blocks/ancientend_end_stone_pillar_top_mers.tga"
+      },
+      {
+         "path" : "textures/blocks/ancientend_polished_end_stone.texture_set.json"
+      },
+      {
+         "path" : "textures/blocks/ancientend_polished_end_stone.tga"
+      },
+      {
+         "path" : "textures/blocks/ancientend_polished_end_stone_heightmap.tga"
+      },
+      {
+         "path" : "textures/blocks/ancientend_polished_end_stone_mers.tga"
+      },
+      {
+         "path" : "textures/blocks/ancientend_polished_purpur.texture_set.json"
+      },
+      {
+         "path" : "textures/blocks/ancientend_polished_purpur.tga"
+      },
+      {
+         "path" : "textures/blocks/ancientend_polished_purpur_heightmap.tga"
+      },
+      {
+         "path" : "textures/blocks/ancientend_polished_purpur_mers.tga"
+      },
+      {
+         "path" : "textures/blocks/ancientend_purpur_bricks.texture_set.json"
+      },
+      {
+         "path" : "textures/blocks/ancientend_purpur_bricks.tga"
+      },
+      {
+         "path" : "textures/blocks/ancientend_purpur_bricks_heightmap.tga"
+      },
+      {
+         "path" : "textures/blocks/ancientend_purpur_bricks_mers.tga"
+      },
+      {
+         "path" : "textures/terrain_texture.json"
+      }
+   ],
+   "version" : 1
+}

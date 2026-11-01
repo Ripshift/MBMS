@@ -1,0 +1,32 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "crafting:brewstand"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "#B#",
+      "___"
+    ],
+    "key": {
+      "#": {
+        "item": "minecraft:iron_bars"
+      },
+      "B": {
+        "item": "minecraft:bucket"
+      },
+      "_": {
+        "item": "minecraft:stone_slab",
+        "data": 0
+      }
+    },
+    "result": {
+      "item": "minecraft:brewing_stand",
+      "count": 1
+    },
+    "priority": -2
+  }
+}

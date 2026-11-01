@@ -1,0 +1,3 @@
+entity.apiary:beekeeper.name=Beekeeper
+item.spawn_egg.entity.apiary:beekeeper.name=Spawn Beekeeper
+item.apiary:honeycake.name=Honey Cake

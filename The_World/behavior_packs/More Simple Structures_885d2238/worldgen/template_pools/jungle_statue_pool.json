@@ -1,0 +1,37 @@
+{
+  "format_version": "1.21.20",
+  "minecraft:template_pool": {
+    "description": {
+      "identifier": "wypnt_mss:jungle_statue_pool"
+    },
+    "elements": [
+      {
+        "element": {
+          "element_type": "minecraft:single_pool_element",
+          "location": "wypnt_mss/jungle_statue_1",
+          "processors": "wypnt_mss:processor_list",
+          "projection": "rigid"   
+        },
+        "weight": 1
+      },
+      {
+        "element": {
+          "element_type": "minecraft:single_pool_element",
+          "location": "wypnt_mss/jungle_statue_2",
+          "processors": "wypnt_mss:processor_list",
+          "projection": "rigid"   
+        },
+        "weight": 4
+      },
+      {
+        "element": {
+          "element_type": "minecraft:single_pool_element",
+          "location": "wypnt_mss/jungle_statue_3",
+          "processors": "wypnt_mss:processor_list",
+          "projection": "rigid"   
+        },
+        "weight": 4
+      }
+    ]
+  }
+}

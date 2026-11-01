@@ -1,0 +1,46 @@
+{
+  "format_version": "1.21.20",
+  "minecraft:template_pool": {
+    "description": {
+      "identifier": "wypnt_mss:abandoned_house_pool"
+    },
+    "elements": [
+      {
+        "element": {
+          "element_type": "minecraft:single_pool_element",
+          "location": "wypnt_mss/abandoned_house_1",
+          "processors": "wypnt_mss:processor_list",
+          "projection": "rigid"   
+        },
+        "weight": 4
+      },
+      {
+        "element": {
+          "element_type": "minecraft:single_pool_element",
+          "location": "wypnt_mss/abandoned_house_ruin1",
+          "processors": "wypnt_mss:processor_list",
+          "projection": "rigid"   
+        },
+        "weight": 4
+      },
+      {
+        "element": {
+          "element_type": "minecraft:single_pool_element",
+          "location": "wypnt_mss/abandoned_house_ruin2",
+          "processors": "wypnt_mss:processor_list",
+          "projection": "rigid"   
+        },
+        "weight": 4
+      },
+      {
+        "element": {
+          "element_type": "minecraft:single_pool_element",
+          "location": "wypnt_mss/abandoned_house_ruin3",
+          "processors": "wypnt_mss:processor_list",
+          "projection": "rigid"   
+        },
+        "weight": 1
+      }
+    ]
+  }
+}

@@ -1,0 +1,99 @@
+
+{
+	"format_version": "1.26.0",
+	"minecraft:block": {
+		"description": {
+			"identifier": "wypnt_mss:spike_trap",
+			"menu_category": {
+				"category": "nature"
+			},
+			"states": {
+		  "wypnt_mss:spike": [false, true] // State for the spike visually
+		}
+		},
+		"permutations": [
+			{
+				"condition": "query.block_state('wypnt_mss:spike')",
+				"components": {
+					"minecraft:precipitation_interactions": {
+				"precipitation_behavior": "obstruct_rain"
+				},
+				"minecraft:connection_rule": {
+                "accepts_connections_from": "none"
+            },
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "wypnt_mss:spike_trap_spikes",
+					"render_method": "alpha_test"
+				}
+			},
+			"minecraft:geometry": "geometry.wypnt_mss.spike_trap_spikes",
+      "minecraft:liquid_detection": {
+			"detection_rules": [
+			{
+			"can_contain_liquid": true,
+			"liquid_type": "water",
+			"on_liquid_touches": "no_reaction"
+			          }
+				]
+			},
+			"minecraft:loot": "loot_tables/empty.json",
+			"minecraft:placement_filter": {
+				"conditions": [
+					{
+						"block_filter": [
+							"wypnt_mss:spike_trap"
+						],
+						"allowed_faces": [
+							"up"
+						]
+					}
+				]
+			},
+			"minecraft:collision_box": false,
+			"minecraft:selection_box": false
+				}
+			}
+		],
+		"components": {
+			"minecraft:geometry": "minecraft:geometry.full_block",
+			"minecraft:redstone_consumer": {
+				"min_power": 0,
+				"propagates_power": true
+			},
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "sandstone_side",
+					"render_method": "opaque",
+					"ambient_occlusion": true,
+				    "face_dimming": true
+				},
+				"down": {
+					"texture": "sandstone_bottom",
+					"render_method": "opaque",
+					"ambient_occlusion": true,
+				    "face_dimming": true
+					},
+					"up": {
+					"texture": "wypnt_mss:spike_trap",
+					"render_method": "opaque",
+					"ambient_occlusion": true,
+				    "face_dimming": true
+					}
+			},
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 4
+			},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 0.8
+			},
+			"wypnt_mss:trap": {
+				"soundOn": "tile.piston.in", // Sound when trap is activated
+				"soundOff": "tile.piston.out", // Sound when trap is deactivated
+				"spike": "wypnt_mss:spike_trap", // Spike block ID, in this case it is the same as this one
+				"damage": 10, // Damage in half hearts that the spikes will cause 
+				"particle": "minecraft:basic_smoke_particle" // Particle emitted from each hole when the spikes rise
+			}
+		}
+	}
+}

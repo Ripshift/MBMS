@@ -1,0 +1,35 @@
+{
+  "format_version": 2,
+  "header": {
+    "description": "Adds a lot of recipes.",
+    "name": "Recipe Book",
+    "uuid": "513f77f8-9774-4873-8a2f-0ebbe7b734a3",
+    "version": [
+      1,
+      0,
+      1
+    ],
+    "min_engine_version": [
+      1,
+      26,
+      50
+    ]
+  },
+  "modules": [
+    {
+      "description": "Adds a lot of recipes.",
+      "type": "data",
+      "uuid": "d20109dd-4211-4661-b40d-c85ad1658fd3",
+      "version": [
+        1,
+        0,
+        1
+      ]
+    }
+  ],
+  "metadata": {
+    "authors": [
+      "Dolled"
+    ]
+  }
+}

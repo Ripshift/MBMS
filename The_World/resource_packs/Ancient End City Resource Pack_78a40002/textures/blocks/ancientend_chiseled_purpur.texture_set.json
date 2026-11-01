@@ -1,0 +1,8 @@
+{
+  "format_version": "1.21.30",
+  "minecraft:texture_set": {
+    "color": "ancientend_chiseled_purpur",
+    "metalness_emissive_roughness_subsurface": "ancientend_chiseled_purpur_mers",
+    "heightmap": "ancientend_chiseled_purpur_heightmap"
+  }
+}

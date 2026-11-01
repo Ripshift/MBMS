@@ -1,0 +1,10 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.mh_head_layer2": {
+      "geometry": "Geometry.layer_2",
+      "materials": [ { "*": "Material.layer_2" } ],
+      "textures": [ "Texture.layer_2" ]
+    }
+  }
+}

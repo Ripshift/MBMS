@@ -1,0 +1,11 @@
+//bridge-file-version: #56
+{
+	"format_version": [
+		1,
+		1,
+		0
+	],
+	"wypnt_mss:spike_trap": {
+		"sound": "stone"
+	}
+}

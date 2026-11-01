@@ -1,0 +1,38 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.bapa_acc_lava": {
+      "geometry": "Geometry.lava",
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "textures": [
+        "Texture.lava"
+      ]
+    },
+    "controller.render.bapa_acc_lamp": {
+      "geometry": "Geometry.lamp",
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "textures": [
+        "Texture.lamp"
+      ]
+    },
+    "controller.render.bapa_acc_soul": {
+      "geometry": "Geometry.soul",
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "textures": [
+        "Texture.soul"
+      ]
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+	"format_version": "1.20.30",
+	"minecraft:scatter_feature": {
+		"description": {
+			"identifier": "vaen:biomes/block_picker_end_2"
+		},
+		"places_feature": "vaen:biomes/end_desert",
+		"iterations": "t.biome_idx == 1",
+		"x": 0,
+		"y": 0,
+		"z": 0
+	}
+}

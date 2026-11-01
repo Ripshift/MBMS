@@ -1,0 +1,61 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Vitalli Nether Boats - BP",
+    "description": "Adds fireproof Crimson and Warped boats and chest boats that navigate on water and lava. By ArthuroVitalli.",
+    "uuid": "3cbac668-340f-4e65-bd10-90869acbb2a3",
+    "version": [
+      1,
+      1,
+      14
+    ],
+    "min_engine_version": [
+      1,
+      26,
+      0
+    ],
+    "pack_scope": "world"
+  },
+  "modules": [
+    {
+      "type": "data",
+      "uuid": "2be5fad8-ff18-4b2a-a9be-d95d3a813f55",
+      "version": [
+        1,
+        1,
+        14
+      ]
+    },
+    {
+      "type": "script",
+      "language": "javascript",
+      "uuid": "e2f9b64e-fdc3-4faa-a0cf-807befbc3996",
+      "version": [
+        1,
+        1,
+        14
+      ],
+      "entry": "scripts/nether_boats.js"
+    }
+  ],
+  "dependencies": [
+    {
+      "uuid": "d1ccb64e-a5c1-4fc1-9f31-eeaae2ff2f62",
+      "version": [
+        1,
+        1,
+        14
+      ]
+    },
+    {
+      "module_name": "@minecraft/server",
+      "version": "2.6.0"
+    }
+  ],
+  "metadata": {
+    "authors": [
+      "ArthuroVitalli"
+    ],
+    "product_type": "addon"
+  }
+}

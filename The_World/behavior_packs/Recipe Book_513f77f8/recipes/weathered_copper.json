@@ -1,0 +1,18 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_furnace": {
+    "description": {
+      "identifier": "recipes:weathered_copper"
+    },
+    "tags": [
+      "furnace"
+    ],
+    "input": {
+      "item": "minecraft:exposed_copper"
+    },
+    "output": {
+      "item": "minecraft:weathered_copper"
+    },
+    "group": "recipes"
+  }
+}

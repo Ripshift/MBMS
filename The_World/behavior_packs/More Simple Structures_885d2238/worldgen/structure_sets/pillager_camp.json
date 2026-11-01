@@ -1,0 +1,21 @@
+{
+  "format_version": "1.21.20",
+  "minecraft:structure_set": {
+    "description": {
+      "identifier": "wypnt_mss:pillager_camp"
+    },
+    "placement": {
+      "type": "minecraft:random_spread",
+      "salt": 72343594,
+      "spacing": 32,
+      "separation": 15,
+      "spread_type": "linear"
+    },
+    "structures": [
+      {
+        "structure": "wypnt_mss:pillager_camp",
+        "weight": 1
+      }
+    ]
+  }
+}

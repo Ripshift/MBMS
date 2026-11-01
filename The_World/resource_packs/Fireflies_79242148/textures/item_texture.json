@@ -1,0 +1,16 @@
+{
+	"resource_pack_name": "bridgeRP",
+	"texture_name": "atlas.items",
+	"texture_data": {
+		"korbonff:firefly_jar_item": {
+			"textures": [
+				"textures/items/firefly_jar_item"
+			]
+		},
+		"korbonff:firefly_jar_empty_item": {
+			"textures": [
+				"textures/items/firefly_jar_empty_item"
+			]
+		}
+	}
+}

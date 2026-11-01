@@ -1,0 +1,29 @@
+{
+    "format_version": 2,
+    "header": {
+        "name": "Improved Dungeons",
+        "description": "Adds skeleton, spider and zombie dungeon rooms underground. Namespace: imdu. Based on Improved Vanilla Dungeons by The Big Onion Institute.",
+        "uuid": "fca1fea4-99c9-4c5d-81fa-2fd50a049193",
+        "version": [
+            1,
+            1,
+            0
+        ],
+        "min_engine_version": [
+            1,
+            26,
+            0
+        ]
+    },
+    "modules": [
+        {
+            "type": "data",
+            "uuid": "d33f71ec-595f-4d29-a5bb-0ea231f9351c",
+            "version": [
+                1,
+                1,
+                0
+            ]
+        }
+    ]
+}

@@ -1,0 +1,20 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "daniye:jungle_tree",
+			"materials": {
+				"default": "entity_alphatest"
+			},
+			"textures": {
+				"default": "textures/entity/jungle_tree"
+			},
+			"geometry": {
+				"default": "geometry.jungle_tree"
+			},
+			"render_controllers": [
+				"controller.render.jungle_tree"
+			]
+		}
+	}
+}

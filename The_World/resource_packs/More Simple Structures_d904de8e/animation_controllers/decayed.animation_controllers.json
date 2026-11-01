@@ -1,0 +1,79 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.coreblockstudios_mss.decayed.attack_bare_hand": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "is_bare_hand": "variable.is_holding_left != 1.0"
+            }
+          ]
+        },
+        "is_bare_hand": {
+          "animations": [
+            {
+							"zombie_attack_bare_hand": "!query.is_baby || !query.is_item_equipped(0) || query.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:bow')"
+						},
+						{
+							"baby_zombie_attack_bare_hand": "query.is_baby && query.is_item_equipped(0) && !query.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:bow')"
+						}
+          ],
+          "transitions": [
+            {
+              "default": "variable.is_holding_left == 1.0"
+            }
+          ]
+        }
+      }
+    },
+		"controller.animation.coreblockstudios_mss.decayed.move": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [
+						{
+							"move": "query.modified_move_speed"
+						}
+					],
+					"transitions": [
+						{
+							"has_target": "query.has_target"
+						}
+					],
+					"blend_transition": 0.1
+				},
+				"has_target": {
+					"animations": [
+						{
+							"zombie_attack_bare_hand": "!query.is_baby || !query.is_item_equipped(0) || query.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:bow')"
+						},
+						{
+							"baby_zombie_attack_bare_hand": "query.is_baby && query.is_item_equipped(0) && !query.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:bow')"
+						},
+						{
+							"move": "query.modified_move_speed"
+						}
+					],
+					"transitions": [
+						{
+							"default": "!query.has_target"
+						}
+					],
+					"blend_transition": 0.1
+				}
+			}
+		},
+		"controller.animation.coreblockstudios_mss.decayed.bob": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [
+						"bob"
+					]
+				}
+			}
+		}
+	}
+}

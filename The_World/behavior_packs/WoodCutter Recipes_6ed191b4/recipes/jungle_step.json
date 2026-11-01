@@ -1,0 +1,24 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "crafting:jungle_step"
+    },
+    "groups": [
+      "crafting"
+    ],
+    "priority": 0,
+    "tags": [
+      "stonecutter"
+    ],
+    "ingredients": [
+      {
+        "item": "minecraft:jungle_planks"
+      }
+    ],
+    "result": {
+      "item": "minecraft:jungle_stairs",
+      "count": 1
+    }
+  }
+}

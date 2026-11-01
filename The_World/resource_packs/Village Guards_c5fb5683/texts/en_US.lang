@@ -1,0 +1,15 @@
+##bridge-file-version: #0
+pack.name=Village Guards
+pack.description=Adds guards to your villages!
+villageguard.demote.villager=Demote guard to villager
+villageguard.promote.villager=Promote villager to guard
+entity.villageguards:guard.name=Village Guard Swordsman
+item.spawn_egg.entity.villageguards:guard.name=Spawn Village Guard Swordsman
+entity.villageguards:archer.name=Village Guard Archer
+item.spawn_egg.entity.villageguards:archer.name=Spawn Village Guard Archer
+entity.villageguards:axeman.name=Village Guard Axeman
+item.spawn_egg.entity.villageguards:axeman.name=Spawn Village Guard Axeman
+entity.villageguards:crossbowman.name=Village Guard Crossbowman
+item.spawn_egg.entity.villageguards:crossbowman.name=Spawn Village Guard Crossbowman
+entity.villageguards:shieldman.name=Village Guard Shieldman
+item.spawn_egg.entity.villageguards:shieldman.name=Spawn Village Guard Shieldman

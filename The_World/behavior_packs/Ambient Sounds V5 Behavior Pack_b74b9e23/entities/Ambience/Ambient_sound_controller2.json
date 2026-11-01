@@ -1,0 +1,1182 @@
+//bridge-file-version: #187
+{
+	"format_version": "1.13.0",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "boi:ambient_sound_controller2",
+			"is_spawnable": true,
+			"is_summonable": true,
+			"is_experimental": false,
+			"scripts": {
+				"animate": [
+					"bridge_execute_commands"
+				]
+			},
+			"animations": {
+				"bridge_execute_commands": "controller.animation.bridge_Ambient_sound_controller2.execute_commands"
+			}
+		},
+		"components": {
+			"minecraft:health": {
+				"value": 1
+			},
+			"minecraft:physics": {},
+			"minecraft:collision_box": {
+				"width": 0,
+				"height": 0
+			},
+			"minecraft:damage_sensor": {
+				"triggers": [
+					{
+						"cause": "all",
+						"deals_damage": false
+					}
+				]
+			},
+			"minecraft:environment_sensor": {
+				"triggers": {
+					"filters": {
+						"test": "distance_to_nearest_player",
+						"value": 10,
+						"operator": "<"
+					},
+					"event": "sound"
+				}
+			},
+			"minecraft:timer": {
+				"looping": true,
+				"time": 0.2,
+				"time_down_event": {
+					"event": "despawn"
+				}
+			}
+		},
+		"component_groups": {
+			"despawn": {
+				"minecraft:despawn": {}
+			},
+			"bridge:execute_command_id_1": {
+				"minecraft:skin_id": {
+					"value": 1
+				}
+			},
+			"bridge:execute_no_command": {
+				"minecraft:skin_id": {
+					"value": 0
+				}
+			},
+			"bridge:execute_command_id_2": {
+				"minecraft:skin_id": {
+					"value": 2
+				}
+			},
+			"bridge:execute_command_id_3": {
+				"minecraft:skin_id": {
+					"value": 3
+				}
+			},
+			"bridge:execute_command_id_4": {
+				"minecraft:skin_id": {
+					"value": 4
+				}
+			},
+			"bridge:execute_command_id_5": {
+				"minecraft:skin_id": {
+					"value": 5
+				}
+			},
+			"bridge:execute_command_id_6": {
+				"minecraft:skin_id": {
+					"value": 6
+				}
+			},
+			"bridge:execute_command_id_7": {
+				"minecraft:skin_id": {
+					"value": 7
+				}
+			},
+			"bridge:execute_command_id_8": {
+				"minecraft:skin_id": {
+					"value": 8
+				}
+			},
+			"bridge:execute_command_id_9": {
+				"minecraft:skin_id": {
+					"value": 9
+				}
+			},
+			"bridge:execute_command_id_10": {
+				"minecraft:skin_id": {
+					"value": 10
+				}
+			},
+			"bridge:execute_command_id_11": {
+				"minecraft:skin_id": {
+					"value": 11
+				}
+			},
+			"bridge:execute_command_id_12": {
+				"minecraft:skin_id": {
+					"value": 12
+				}
+			},
+			"bridge:execute_command_id_13": {
+				"minecraft:skin_id": {
+					"value": 13
+				}
+			},
+			"bridge:execute_command_id_14": {
+				"minecraft:skin_id": {
+					"value": 14
+				}
+			},
+			"bridge:execute_command_id_15": {
+				"minecraft:skin_id": {
+					"value": 15
+				}
+			},
+			"bridge:execute_command_id_16": {
+				"minecraft:skin_id": {
+					"value": 16
+				}
+			},
+			"bridge:execute_command_id_17": {
+				"minecraft:skin_id": {
+					"value": 17
+				}
+			},
+			"bridge:execute_command_id_18": {
+				"minecraft:skin_id": {
+					"value": 18
+				}
+			},
+			"bridge:execute_command_id_19": {
+				"minecraft:skin_id": {
+					"value": 19
+				}
+			},
+			"bridge:execute_command_id_20": {
+				"minecraft:skin_id": {
+					"value": 20
+				}
+			},
+			"bridge:execute_command_id_21": {
+				"minecraft:skin_id": {
+					"value": 21
+				}
+			},
+			"bridge:execute_command_id_22": {
+				"minecraft:skin_id": {
+					"value": 22
+				}
+			}
+		},
+		"events": {
+			"sound": {
+				"sequence": [
+					{
+						"filters": {
+							"all_of": [
+								{
+									"test": "is_altitude",
+									"value": 58,
+									"operator": ">="
+								},
+								{
+									"test": "is_underground",
+									"value": false,
+									"operator": "equals"
+								}
+							]
+						},
+						"add": {
+							"component_groups": [
+								"bridge:execute_command_id_1"
+							]
+						}
+					},
+					{
+						"filters": {
+							"all_of": [
+								{
+									"test": "is_altitude",
+									"value": 58,
+									"operator": ">="
+								},
+								{
+									"test": "is_daytime",
+									"value": true,
+									"operator": "equals"
+								},
+								{
+									"test": "weather_at_position",
+									"value": "clear",
+									"operator": "equals"
+								},
+								{
+									"any_of": [
+										{
+											"test": "has_biome_tag",
+											"operator": "equals",
+											"value": "plains"
+										},
+										{
+											"test": "has_biome_tag",
+											"operator": "equals",
+											"value": "forest"
+										},
+										{
+											"test": "has_biome_tag",
+											"operator": "equals",
+											"value": "taiga"
+										},
+										{
+											"test": "has_biome_tag",
+											"operator": "equals",
+											"value": "dark_oak"
+										},
+										{
+											"test": "has_biome_tag",
+											"operator": "equals",
+											"value": "savanna"
+										},
+										{
+											"test": "has_biome_tag",
+											"operator": "equals",
+											"value": "birch"
+										},
+										{
+											"test": "has_biome_tag",
+											"operator": "equals",
+											"value": "flower_forest"
+										}
+									]
+								},
+								{
+									"test": "is_altitude",
+									"value": 132,
+									"operator": "<"
+								}
+							]
+						},
+						"add": {
+							"component_groups": [
+								"bridge:execute_command_id_2"
+							]
+						}
+					},
+					{
+						"filters": {
+							"all_of": [
+								{
+									"test": "is_altitude",
+									"value": 58,
+									"operator": ">="
+								},
+								{
+									"test": "is_daytime",
+									"value": false,
+									"operator": "equals"
+								},
+								{
+									"test": "weather_at_position",
+									"value": "clear",
+									"operator": "equals"
+								},
+								{
+									"any_of": [
+										{
+											"test": "has_biome_tag",
+											"operator": "equals",
+											"value": "plains"
+										},
+										{
+											"test": "has_biome_tag",
+											"operator": "equals",
+											"value": "forest"
+										},
+										{
+											"test": "has_biome_tag",
+											"operator": "equals",
+											"value": "dark_oak"
+										},
+										{
+											"test": "has_biome_tag",
+											"operator": "equals",
+											"value": "savanna"
+										},
+										{
+											"test": "has_biome_tag",
+											"operator": "equals",
+											"value": "birch"
+										},
+										{
+											"test": "has_biome_tag",
+											"operator": "equals",
+											"value": "flower_forest"
+										}
+									]
+								},
+								{
+									"test": "is_altitude",
+									"value": 132,
+									"operator": "<"
+								}
+							]
+						},
+						"add": {
+							"component_groups": [
+								"bridge:execute_command_id_3"
+							]
+						}
+					},
+					{
+						"randomize": [
+							{
+								"weight": 15,
+								"add": {
+									"component_groups": [
+										"bridge:execute_command_id_4"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"bridge:execute_command_id_5"
+									]
+								}
+							},
+							{
+								"weight": 15,
+								"add": {
+									"component_groups": [
+										"bridge:execute_command_id_6"
+									]
+								}
+							}
+						],
+						"filters": {
+							"all_of": [
+								{
+									"test": "is_altitude",
+									"value": 50,
+									"operator": "<="
+								},
+								{
+									"test": "in_nether",
+									"operator": "equals",
+									"value": false
+								},
+								{
+									"test": "has_biome_tag",
+									"value": "nether",
+									"operator": "not"
+								},
+								{
+									"test": "is_underwater",
+									"value": false,
+									"operator": "equals"
+								},
+								{
+									"test": "is_underground",
+									"value": true
+								}
+							]
+						}
+					},
+					{
+						"filters": {
+							"all_of": [
+								{
+									"test": "is_altitude",
+									"value": 58,
+									"operator": ">="
+								},
+								{
+									"test": "is_daytime",
+									"value": true,
+									"operator": "equals"
+								},
+								{
+									"test": "weather_at_position",
+									"value": "clear",
+									"operator": "equals"
+								},
+								{
+									"any_of": [
+										{
+											"test": "has_biome_tag",
+											"operator": "equals",
+											"value": "desert"
+										},
+										{
+											"test": "has_biome_tag",
+											"operator": "equals",
+											"value": "mesa"
+										}
+									]
+								},
+								{
+									"test": "is_altitude",
+									"value": 132,
+									"operator": "<"
+								}
+							]
+						},
+						"add": {
+							"component_groups": [
+								"bridge:execute_command_id_7"
+							]
+						}
+					},
+					{
+						"filters": {
+							"all_of": [
+								{
+									"test": "is_altitude",
+									"value": 58,
+									"operator": ">="
+								},
+								{
+									"test": "is_daytime",
+									"value": true,
+									"operator": "equals"
+								},
+								{
+									"test": "has_biome_tag",
+									"value": "jungle",
+									"operator": "equals"
+								},
+								{
+									"test": "is_altitude",
+									"value": 128,
+									"operator": "<"
+								}
+							]
+						},
+						"add": {
+							"component_groups": [
+								"bridge:execute_command_id_8"
+							]
+						}
+					},
+					{
+						"filters": {
+							"all_of": [
+								{
+									"test": "is_altitude",
+									"value": 58,
+									"operator": ">="
+								},
+								{
+									"test": "is_daytime",
+									"value": false,
+									"operator": "equals"
+								},
+								{
+									"test": "has_biome_tag",
+									"value": "jungle",
+									"operator": "equals"
+								},
+								{
+									"test": "is_altitude",
+									"value": 148,
+									"operator": "<"
+								}
+							]
+						},
+						"add": {
+							"component_groups": [
+								"bridge:execute_command_id_9"
+							]
+						}
+					},
+					{
+						"filters": {
+							"all_of": [
+								{
+									"test": "is_altitude",
+									"value": 58,
+									"operator": ">="
+								},
+								{
+									"any_of": [
+										{
+											"test": "has_biome_tag",
+											"operator": "equals",
+											"value": "cold"
+										},
+										{
+											"test": "has_biome_tag",
+											"operator": "equals",
+											"value": "frozen"
+										}
+									]
+								}
+							]
+						},
+						"add": {
+							"component_groups": [
+								"bridge:execute_command_id_10"
+							]
+						}
+					},
+					{
+						"filters": {
+							"all_of": [
+								{
+									"test": "is_altitude",
+									"value": 58,
+									"operator": ">="
+								},
+								{
+									"any_of": [
+										{
+											"test": "has_biome_tag",
+											"operator": "equals",
+											"value": "cold"
+										},
+										{
+											"test": "has_biome_tag",
+											"operator": "equals",
+											"value": "frozen"
+										}
+									]
+								},
+								{
+									"test": "is_underground",
+									"value": true,
+									"operator": "equals"
+								}
+							]
+						},
+						"add": {
+							"component_groups": [
+								"bridge:execute_command_id_11"
+							]
+						}
+					},
+					{
+						"filters": {
+							"all_of": [
+								{
+									"test": "is_altitude",
+									"value": 58,
+									"operator": ">="
+								},
+								{
+									"test": "is_daytime",
+									"value": true,
+									"operator": "equals"
+								},
+								{
+									"test": "weather_at_position",
+									"value": "clear",
+									"operator": "equals"
+								},
+								{
+									"any_of": [
+										{
+											"test": "has_biome_tag",
+											"operator": "equals",
+											"value": "beach"
+										}
+									]
+								},
+								{
+									"test": "is_altitude",
+									"value": 132,
+									"operator": "<"
+								}
+							]
+						},
+						"add": {
+							"component_groups": [
+								"bridge:execute_command_id_12"
+							]
+						}
+					},
+					{
+						"filters": {
+							"any_of": [
+								{
+									"all_of": [
+										{
+											"test": "is_altitude",
+											"value": 58,
+											"operator": ">="
+										},
+										{
+											"test": "is_daytime",
+											"value": false,
+											"operator": "equals"
+										},
+										{
+											"any_of": [
+												{
+													"test": "has_biome_tag",
+													"operator": "equals",
+													"value": "ocean"
+												},
+												{
+													"test": "has_biome_tag",
+													"operator": "equals",
+													"value": "beach"
+												}
+											]
+										},
+										{
+											"test": "is_altitude",
+											"value": 132,
+											"operator": "<"
+										}
+									]
+								},
+								{
+									"all_of": [
+										{
+											"test": "is_altitude",
+											"value": 58,
+											"operator": ">="
+										},
+										{
+											"test": "is_daytime",
+											"value": true,
+											"operator": "equals"
+										},
+										{
+											"any_of": [
+												{
+													"test": "has_biome_tag",
+													"operator": "equals",
+													"value": "ocean"
+												}
+											]
+										},
+										{
+											"test": "is_altitude",
+											"value": 132,
+											"operator": "<"
+										}
+									]
+								}
+							]
+						},
+						"add": {
+							"component_groups": [
+								"bridge:execute_command_id_13"
+							]
+						}
+					},
+					{
+						"filters": {
+							"all_of": [
+								{
+									"test": "is_altitude",
+									"value": 58,
+									"operator": ">="
+								},
+								{
+									"test": "is_daytime",
+									"value": true,
+									"operator": "equals"
+								},
+								{
+									"test": "has_biome_tag",
+									"value": "swamp",
+									"operator": "equals"
+								},
+								{
+									"test": "is_altitude",
+									"value": 132,
+									"operator": "<"
+								}
+							]
+						},
+						"add": {
+							"component_groups": [
+								"bridge:execute_command_id_14"
+							]
+						}
+					},
+					{
+						"filters": {
+							"all_of": [
+								{
+									"test": "is_altitude",
+									"value": 58,
+									"operator": ">="
+								},
+								{
+									"test": "is_daytime",
+									"value": false,
+									"operator": "equals"
+								},
+								{
+									"test": "has_biome_tag",
+									"value": "swamp",
+									"operator": "equals"
+								},
+								{
+									"test": "is_altitude",
+									"value": 132,
+									"operator": "<"
+								}
+							]
+						},
+						"add": {
+							"component_groups": [
+								"bridge:execute_command_id_15"
+							]
+						}
+					},
+					{
+						"randomize": [
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"bridge:execute_command_id_16"
+									]
+								}
+							},
+							{
+								"weight": 3,
+								"add": {
+									"component_groups": [
+										"bridge:execute_command_id_17"
+									]
+								}
+							}
+						],
+						"filters": {
+							"all_of": [
+								{
+									"test": "in_nether",
+									"operator": "equals",
+									"value": true
+								}
+							]
+						}
+					},
+					{
+						"filters": {
+							"all_of": [
+								{
+									"test": "has_biome_tag",
+									"value": "the_end",
+									"operator": "equals"
+								}
+							]
+						},
+						"add": {
+							"component_groups": [
+								"bridge:execute_command_id_18"
+							]
+						}
+					},
+					{
+						"filters": {
+							"all_of": [
+								{
+									"test": "is_altitude",
+									"value": 58,
+									"operator": ">="
+								},
+								{
+									"test": "is_daytime",
+									"value": false,
+									"operator": "equals"
+								},
+								{
+									"test": "weather_at_position",
+									"value": "clear",
+									"operator": "equals"
+								},
+								{
+									"test": "is_altitude",
+									"value": 132,
+									"operator": "<"
+								},
+								{
+									"test": "has_biome_tag",
+									"operator": "equals",
+									"value": "taiga"
+								},
+								{
+									"test": "has_biome_tag",
+									"operator": "not",
+									"value": "cold"
+								}
+							]
+						},
+						"add": {
+							"component_groups": [
+								"bridge:execute_command_id_19"
+							]
+						}
+					},
+					{
+						"filters": {
+							"all_of": [
+								{
+									"test": "is_altitude",
+									"value": 58,
+									"operator": ">="
+								},
+								{
+									"any_of": [
+										{
+											"test": "has_biome_tag",
+											"operator": "equals",
+											"value": "river"
+										}
+									]
+								},
+								{
+									"test": "is_altitude",
+									"value": 132,
+									"operator": "<"
+								}
+							]
+						},
+						"add": {
+							"component_groups": [
+								"bridge:execute_command_id_20"
+							]
+						}
+					},
+					{
+						"filters": {
+							"all_of": [
+								{
+									"test": "is_altitude",
+									"value": 58,
+									"operator": ">="
+								},
+								{
+									"any_of": [
+										{
+											"test": "has_biome_tag",
+											"operator": "equals",
+											"value": "decay"
+										}
+									]
+								},
+								{
+									"test": "is_altitude",
+									"value": 132,
+									"operator": "<"
+								}
+							]
+						},
+						"add": {
+							"component_groups": [
+								"bridge:execute_command_id_21"
+							]
+						}
+					},
+					{
+						"filters": {
+							"all_of": [
+								{
+									"test": "is_altitude",
+									"value": 50,
+									"operator": "<="
+								},
+								{
+									"test": "has_biome_tag",
+									"value": "decay",
+									"operator": "=="
+								},
+								{
+									"test": "is_underwater",
+									"value": false,
+									"operator": "equals"
+								}
+							]
+						},
+						"add": {
+							"component_groups": [
+								"bridge:execute_command_id_22"
+							]
+						}
+					}
+				]
+			},
+			"despawn": {
+				"add": {
+					"component_groups": [
+						"despawn"
+					]
+				}
+			},
+			"bridge:remove_command_id_1": {
+				"add": {
+					"component_groups": [
+						"bridge:execute_no_command"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"bridge:execute_command_id_1"
+					]
+				}
+			},
+			"bridge:remove_command_id_2": {
+				"add": {
+					"component_groups": [
+						"bridge:execute_no_command"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"bridge:execute_command_id_2"
+					]
+				}
+			},
+			"bridge:remove_command_id_3": {
+				"add": {
+					"component_groups": [
+						"bridge:execute_no_command"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"bridge:execute_command_id_3"
+					]
+				}
+			},
+			"bridge:remove_command_id_4": {
+				"add": {
+					"component_groups": [
+						"bridge:execute_no_command"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"bridge:execute_command_id_4"
+					]
+				}
+			},
+			"bridge:remove_command_id_5": {
+				"add": {
+					"component_groups": [
+						"bridge:execute_no_command"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"bridge:execute_command_id_5"
+					]
+				}
+			},
+			"bridge:remove_command_id_6": {
+				"add": {
+					"component_groups": [
+						"bridge:execute_no_command"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"bridge:execute_command_id_6"
+					]
+				}
+			},
+			"bridge:remove_command_id_7": {
+				"add": {
+					"component_groups": [
+						"bridge:execute_no_command"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"bridge:execute_command_id_7"
+					]
+				}
+			},
+			"bridge:remove_command_id_8": {
+				"add": {
+					"component_groups": [
+						"bridge:execute_no_command"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"bridge:execute_command_id_8"
+					]
+				}
+			},
+			"bridge:remove_command_id_9": {
+				"add": {
+					"component_groups": [
+						"bridge:execute_no_command"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"bridge:execute_command_id_9"
+					]
+				}
+			},
+			"bridge:remove_command_id_10": {
+				"add": {
+					"component_groups": [
+						"bridge:execute_no_command"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"bridge:execute_command_id_10"
+					]
+				}
+			},
+			"bridge:remove_command_id_11": {
+				"add": {
+					"component_groups": [
+						"bridge:execute_no_command"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"bridge:execute_command_id_11"
+					]
+				}
+			},
+			"bridge:remove_command_id_12": {
+				"add": {
+					"component_groups": [
+						"bridge:execute_no_command"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"bridge:execute_command_id_12"
+					]
+				}
+			},
+			"bridge:remove_command_id_13": {
+				"add": {
+					"component_groups": [
+						"bridge:execute_no_command"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"bridge:execute_command_id_13"
+					]
+				}
+			},
+			"bridge:remove_command_id_14": {
+				"add": {
+					"component_groups": [
+						"bridge:execute_no_command"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"bridge:execute_command_id_14"
+					]
+				}
+			},
+			"bridge:remove_command_id_15": {
+				"add": {
+					"component_groups": [
+						"bridge:execute_no_command"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"bridge:execute_command_id_15"
+					]
+				}
+			},
+			"bridge:remove_command_id_16": {
+				"add": {
+					"component_groups": [
+						"bridge:execute_no_command"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"bridge:execute_command_id_16"
+					]
+				}
+			},
+			"bridge:remove_command_id_17": {
+				"add": {
+					"component_groups": [
+						"bridge:execute_no_command"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"bridge:execute_command_id_17"
+					]
+				}
+			},
+			"bridge:remove_command_id_18": {
+				"add": {
+					"component_groups": [
+						"bridge:execute_no_command"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"bridge:execute_command_id_18"
+					]
+				}
+			},
+			"bridge:remove_command_id_19": {
+				"add": {
+					"component_groups": [
+						"bridge:execute_no_command"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"bridge:execute_command_id_19"
+					]
+				}
+			},
+			"bridge:remove_command_id_20": {
+				"add": {
+					"component_groups": [
+						"bridge:execute_no_command"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"bridge:execute_command_id_20"
+					]
+				}
+			},
+			"bridge:remove_command_id_21": {
+				"add": {
+					"component_groups": [
+						"bridge:execute_no_command"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"bridge:execute_command_id_21"
+					]
+				}
+			},
+			"bridge:remove_command_id_22": {
+				"add": {
+					"component_groups": [
+						"bridge:execute_no_command"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"bridge:execute_command_id_22"
+					]
+				}
+			}
+		}
+	}
+}

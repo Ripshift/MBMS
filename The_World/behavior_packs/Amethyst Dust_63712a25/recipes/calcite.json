@@ -1,0 +1,20 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_furnace": {
+    "description": {
+      "identifier": "dust:calcite"
+    },
+    "groups": [
+      "dust"
+    ],
+    "tags": [
+      "blast_furnace"
+    ],
+    "input": {
+      "item": "minecraft:bone_block"
+    },
+    "output": {
+      "item": "minecraft:calcite"
+    }
+  }
+}

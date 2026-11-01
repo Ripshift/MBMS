@@ -1,0 +1,52 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "recipes:player_head"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "012",
+      "345",
+      "678"
+    ],
+    "key": {
+      "0": {
+        "item": "minecraft:experience_bottle"
+      },
+      "1": {
+        "item": "minecraft:dragon_breath"
+      },
+      "2": {
+        "item": "minecraft:experience_bottle"
+      },
+      "3": {
+        "item": "minecraft:dragon_breath"
+      },
+      "4": {
+        "item": "minecraft:skull",
+        "data": 0
+      },
+      "5": {
+        "item": "minecraft:dragon_breath"
+      },
+      "6": {
+        "item": "minecraft:experience_bottle"
+      },
+      "7": {
+        "item": "minecraft:dragon_breath"
+      },
+      "8": {
+        "item": "minecraft:experience_bottle"
+      }
+    },
+    "result": {
+      "item": "minecraft:skull",
+      "data": 3,
+      "count": 1
+    },
+    "group": "recipes"
+  }
+}

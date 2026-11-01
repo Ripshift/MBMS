@@ -1,0 +1,26 @@
+{
+    "format_version": "1.12",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "crafting:ironbars"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "i  ",
+            "i  ",
+            "i  "
+        ],
+        "key": {
+            "i": {
+                "item": "minecraft:iron_ingot"
+            }
+        },
+        "result": {
+            "item": "minecraft:iron_bars",
+            "count": 9
+        },
+    "priority": -2
+    }
+}

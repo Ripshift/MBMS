@@ -1,0 +1,21 @@
+{
+  "format_version": "1.21.20",
+  "minecraft:structure_set": {
+    "description": {
+      "identifier": "apiary:beekeeper_camp_birch"
+    },
+    "placement": {
+      "type": "minecraft:random_spread",
+      "salt": 91274611,
+      "spacing": 10,
+      "separation": 4,
+      "spread_type": "linear"
+    },
+    "structures": [
+      {
+        "structure": "apiary:beekeeper_camp_birch",
+        "weight": 1
+      }
+    ]
+  }
+}

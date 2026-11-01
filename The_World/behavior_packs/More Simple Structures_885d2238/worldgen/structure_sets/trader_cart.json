@@ -1,0 +1,21 @@
+{
+  "format_version": "1.21.20",
+  "minecraft:structure_set": {
+    "description": {
+      "identifier": "wypnt_mss:trader_cart"
+    },
+    "placement": {
+      "type": "minecraft:random_spread",
+      "salt": 96243716,
+      "spacing": 80,
+      "separation": 30,
+      "spread_type": "linear"
+    },
+    "structures": [
+      {
+        "structure": "wypnt_mss:trader_cart",
+        "weight": 1
+      }
+    ]
+  }
+}

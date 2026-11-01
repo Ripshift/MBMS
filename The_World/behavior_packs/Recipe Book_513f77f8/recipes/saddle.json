@@ -1,0 +1,50 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "recipes:saddle"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "012",
+      "345",
+      "678"
+    ],
+    "key": {
+      "0": {
+        "item": "minecraft:lead"
+      },
+      "1": {
+        "item": "minecraft:wool"
+      },
+      "2": {
+        "item": "minecraft:wool"
+      },
+      "3": {
+        "item": "minecraft:leather"
+      },
+      "4": {
+        "item": "minecraft:leather"
+      },
+      "5": {
+        "item": "minecraft:leather"
+      },
+      "6": {
+        "item": "minecraft:leather"
+      },
+      "7": {
+        "item": "minecraft:iron_ingot"
+      },
+      "8": {
+        "item": "minecraft:leather"
+      }
+    },
+    "result": {
+      "item": "minecraft:saddle",
+      "count": 1
+    },
+    "group": "recipes"
+  }
+}

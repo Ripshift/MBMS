@@ -1,0 +1,59 @@
+{
+    "format_version": 2,
+    "header": {
+        "name": "More Simple Structures",
+        "description": "Adds more simple structures to the game.",
+        "uuid": "885d2238-e587-4063-b0a9-044f4ab0c893",
+        "pack_scope": "world",
+        "version": [
+            1,
+            1,
+            0
+        ],
+        "min_engine_version": [
+            1,
+            26,
+            13
+        ]
+    },
+    "modules": [
+        {
+            "type": "data",
+            "uuid": "1cf3f28e-2474-4174-a974-6f51dd718ce6",
+            "version": [
+                1,
+                1,
+                0
+            ]
+        },
+        {
+            "type": "script",
+            "uuid": "20db6292-772e-4bae-9584-89bb7cc4b847",
+            "version": [
+                1,
+                1,
+                0
+            ],
+            "entry": "scripts/main.js",
+            "language": "javascript"
+        }
+    ],
+    "dependencies": [
+        {
+            "uuid": "d904de8e-b5cc-4639-92c0-2a4b20d31b84",
+            "version": [
+                1,
+                1,
+                0
+            ]
+        },
+        {
+            "module_name": "@minecraft/server",
+            "version": "2.0.0"
+        }
+    ],
+    "metadata": {
+        "product_type": "addon",
+        "authors": []
+    }
+}

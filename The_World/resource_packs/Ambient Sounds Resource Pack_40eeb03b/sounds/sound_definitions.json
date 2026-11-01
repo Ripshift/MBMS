@@ -1,0 +1,761 @@
+//bridge-file-version: #67
+{
+	"ambient.weather.thunder": {
+		"category": "weather",
+		"min_distance": 100,
+		"sounds": [
+			{
+				"name": "sounds/ambient/weather/thunder1",
+				"load_on_low_memory": true
+			},
+			"sounds/ambient/weather/thunder2",
+			"sounds/ambient/weather/thunder3"
+		]
+	},
+	"ambient.weather.lightning.impact": {
+		"category": "weather",
+		"min_distance": 100,
+		"sounds": [
+			"sounds/random/explode1",
+			"sounds/random/explode2",
+			"sounds/random/explode3",
+			"sounds/random/explode4"
+		]
+	},
+	"ambient.weather.rain": {
+		"category": "weather",
+		"min_distance": 100,
+		"sounds": [
+			{
+				"name": "sounds/ambient/weather/rain1",
+				"volume": 0.02,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/weather/rain2",
+				"volume": 0.02
+			},
+			{
+				"name": "sounds/ambient/weather/rain3",
+				"volume": 0.02
+			},
+			{
+				"name": "sounds/ambient/weather/rain4",
+				"volume": 0.02
+			}
+		]
+	},
+	"boi.amb.bird": {
+		"category": "music",
+		"min_distance": 100,
+		"sounds": [
+			{
+				"name": "sounds/ambient/boi/bird0",
+				"volume": 1,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/bird1",
+				"volume": 1,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/bird2",
+				"volume": 1,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/bird3",
+				"volume": 1,
+				"load_on_low_memory": true
+			}
+		]
+	},
+	"boi.amb.cave": {
+		"category": "music",
+		"min_distance": 100,
+		"sounds": [
+			{
+				"name": "sounds/ambient/boi/cave_amb0",
+				"volume": 0.2,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/cave_amb1",
+				"volume": 0.2,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/cave_amb2",
+				"volume": 0.2,
+				"load_on_low_memory": true
+			}
+		]
+	},
+	"boi.amb.cave_sounds": {
+		"category": "music",
+		"min_distance": 100,
+		"sounds": [
+			"sounds/cave/cave1",
+			"sounds/cave/cave2",
+			"sounds/cave/cave3",
+			"sounds/cave/cave4",
+			"sounds/cave/cave5",
+			"sounds/cave/cave6",
+			"sounds/cave/cave7",
+			"sounds/cave/cave8",
+			"sounds/cave/cave9",
+			"sounds/cave/cave10",
+			"sounds/cave/cave11",
+			"sounds/cave/cave12",
+			"sounds/cave/cave13",
+			"sounds/cave/cave14",
+			"sounds/cave/cave15",
+			"sounds/cave/cave16",
+			"sounds/cave/cave17",
+			"sounds/cave/cave18",
+			"sounds/cave/cave19",
+			{
+				"name": "sounds/ambient/boi/cave20",
+				"volume": 0.5,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/cave21",
+				"volume": 0.5,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/cave22",
+				"volume": 0.5,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/CC_cavedrip0",
+				"volume": 0.5,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/CC_cavedrip1",
+				"volume": 0.5,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/CC_cavedrip2",
+				"volume": 0.5,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/CC_cavedrip3",
+				"volume": 0.5,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/CC_echo",
+				"volume": 0.5,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/CC_howl",
+				"volume": 0.5,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/CC_reverse",
+				"volume": 0.5,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/CC_reverse1",
+				"volume": 0.5,
+				"load_on_low_memory": true
+			}
+		]
+	},
+	"boi.amb.cave_sounds2": {
+		"category": "music",
+		"min_distance": 100,
+		"sounds": [
+			{
+				"name": "sounds/ambient/boi/CC_cavedrip0",
+				"volume": 0.5,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/CC_cavedrip1",
+				"volume": 0.3,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/CC_cavedrip2",
+				"volume": 0.3,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/CC_cavedrip3",
+				"volume": 0.3,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/CC_echo",
+				"volume": 0.5,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/CC_howl",
+				"volume": 0.2,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/CC_reverse",
+				"volume": 0.5,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/CC_reverse1",
+				"volume": 0.5,
+				"load_on_low_memory": true
+			}
+		]
+	},
+	"ambient.cave": {
+		"__use_legacy_max_distance": true,
+		"category": "ambient",
+		"sounds": [
+			"sounds/cave/cave1",
+			"sounds/cave/cave2",
+			"sounds/cave/cave3",
+			"sounds/cave/cave4",
+			"sounds/cave/cave5",
+			"sounds/cave/cave6",
+			"sounds/cave/cave7",
+			"sounds/cave/cave8",
+			"sounds/cave/cave9",
+			"sounds/cave/cave10",
+			"sounds/cave/cave11",
+			"sounds/cave/cave12",
+			"sounds/cave/cave13",
+			"sounds/cave/cave14",
+			"sounds/cave/cave15",
+			"sounds/cave/cave16",
+			"sounds/cave/cave17",
+			"sounds/cave/cave18",
+			"sounds/cave/cave19",
+			{
+				"name": "sounds/ambient/boi/cave20",
+				"volume": 0.5,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/cave21",
+				"volume": 0.5,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/cave22",
+				"volume": 0.5,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/CC_cavedrip0",
+				"volume": 0.5,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/CC_cavedrip1",
+				"volume": 1,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/CC_cavedrip2",
+				"volume": 1,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/CC_cavedrip3",
+				"volume": 1,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/CC_echo",
+				"volume": 0.5,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/CC_howl",
+				"volume": 0.5,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/CC_reverse",
+				"volume": 0.5,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/CC_reverse1",
+				"volume": 0.5,
+				"load_on_low_memory": true
+			}
+		]
+	},
+	"boi.amb.forest_ambience": {
+		"category": "music",
+		"min_distance": 100,
+		"sounds": [
+			{
+				"name": "sounds/ambient/boi/forest1",
+				"volume": 1.7,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/forest3",
+				"volume": 1.7,
+				"load_on_low_memory": true
+			}
+		]
+	},
+	"boi.amb.waves": {
+		"category": "music",
+		"min_distance": 100,
+		"sounds": [
+			{
+				"name": "sounds/ambient/boi/waves1",
+				"volume": 0.1,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/waves2",
+				"volume": 0.1,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/waves3",
+				"volume": 0.1,
+				"load_on_low_memory": true
+			}
+		]
+	},
+	"boi.amb.waves_night": {
+		"category": "music",
+		"min_distance": 100,
+		"sounds": [
+			{
+				"name": "sounds/ambient/boi/waves1",
+				"volume": 0.1,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/waves2",
+				"volume": 0.1,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/waves3",
+				"volume": 0.1,
+				"load_on_low_memory": true
+			}
+		]
+	},
+	"boi.amb.jungle": {
+		"category": "music",
+		"min_distance": 100,
+		"sounds": [
+			{
+				"name": "sounds/ambient/boi/jungle1",
+				"volume": 0.05,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/jungle2",
+				"volume": 0.05,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/jungle3",
+				"volume": 0.05,
+				"load_on_low_memory": true
+			}
+		]
+	},
+	"boi.amb.jungle_night": {
+		"category": "music",
+		"min_distance": 100,
+		"sounds": [
+			{
+				"name": "sounds/ambient/boi/jungle_night1",
+				"volume": 0.2,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/jungle_night2",
+				"volume": 0.2,
+				"load_on_low_memory": true
+			}
+		]
+	},
+	"boi.amb.desert": {
+		"category": "music",
+		"min_distance": 100,
+		"sounds": [
+			{
+				"name": "sounds/ambient/boi/desert4",
+				"volume": 1.4,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/desert1",
+				"volume": 1.4,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/desert5",
+				"volume": 1.4,
+				"load_on_low_memory": true
+			}
+		]
+	},
+	"boi.amb.nether": {
+		"category": "music",
+		"min_distance": 100,
+		"sounds": [
+			{
+				"name": "sounds/ambient/boi/nether1_short",
+				"volume": 0.7,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/nether2_long",
+				"volume": 0.5,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/nether3_wind",
+				"volume": 0.7,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/nether4_ghast",
+				"volume": 0.5,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/nether5",
+				"volume": 0.4,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/nether6",
+				"volume": 0.3,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/nether7",
+				"volume": 0.5,
+				"load_on_low_memory": true
+			}
+		]
+	},
+	"boi.amb.end": {
+		"category": "music",
+		"min_distance": 100,
+		"sounds": [
+			{
+				"name": "sounds/ambient/boi/nether1_short",
+				"volume": 0.07,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/nether2_long",
+				"volume": 0.03,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/nether3_wind",
+				"volume": 0.6,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/end1",
+				"volume": 0.3,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/end2",
+				"volume": 0.3,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/end3",
+				"volume": 0.3,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/end4",
+				"volume": 0.6,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/end5",
+				"volume": 0.6,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/end6",
+				"volume": 0.15,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/end7",
+				"volume": 0.7,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/end8",
+				"volume": 0.08,
+				"load_on_low_memory": true
+			}
+		]
+	},
+	"boi.amb.forestnight_ambience": {
+		"1": {
+			"name": "sounds/ambient/boi/forest_night3",
+			"volume": 0.08,
+			"load_on_low_memory": true
+		},
+		"category": "music",
+		"min_distance": 100,
+		"sounds": [
+			{
+				"name": "sounds/ambient/boi/forest_night1",
+				"volume": 0.08,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/forest_night2",
+				"volume": 0.08,
+				"load_on_low_memory": true
+			}
+		]
+	},
+	"boi.amb.cold": {
+		"category": "music",
+		"min_distance": 100,
+		"sounds": [
+			{
+				"name": "sounds/ambient/boi/cold1",
+				"volume": 1.3,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/cold2",
+				"volume": 1.3,
+				"load_on_low_memory": true
+			}
+		]
+	},
+	"boi.amb.cold_indoors": {
+		"category": "music",
+		"min_distance": 100,
+		"sounds": [
+			{
+				"name": "sounds/ambient/boi/cold_indoors",
+				"volume": 0.8,
+				"load_on_low_memory": true
+			}
+		]
+	},
+	"boi.amb.generic_sound": {
+		"category": "music",
+		"min_distance": 100,
+		"sounds": [
+			{
+				"name": "sounds/ambient/boi/generic_night1",
+				"volume": 1,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/generic_night2",
+				"volume": 1,
+				"load_on_low_memory": true
+			}
+		]
+	},
+	"boi.amb.swamp": {
+		"category": "music",
+		"min_distance": 100,
+		"sounds": [
+			{
+				"name": "sounds/ambient/boi/swamp1",
+				"volume": 0.2,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/swamp2",
+				"volume": 0.2,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/swamp3",
+				"volume": 0.2,
+				"load_on_low_memory": true
+			}
+		]
+	},
+	"boi.amb.swamp_night": {
+		"category": "music",
+		"min_distance": 100,
+		"sounds": [
+			{
+				"name": "sounds/ambient/boi/swamp_night1",
+				"volume": 1,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/swamp_night2",
+				"volume": 1,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/swamp_night3",
+				"volume": 1,
+				"load_on_low_memory": true
+			}
+		]
+	},
+	"boi.amb.taiga_day": {
+		"category": "music",
+		"min_distance": 100,
+		"sounds": [
+			{
+				"name": "sounds/ambient/boi/taiga_day0",
+				"volume": 0.5,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/taiga_day1",
+				"volume": 0.5,
+				"load_on_low_memory": true
+			}
+		]
+	},
+	"boi.amb.taiga": {
+		"category": "music",
+		"min_distance": 100,
+		"sounds": [
+			{
+				"name": "sounds/ambient/boi/taiga1",
+				"volume": 0.25,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/taiga2",
+				"volume": 0.25,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/taiga3",
+				"volume": 0.25,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/taiga4",
+				"volume": 0.15,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/silence1",
+				"volume": 0.5,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/silence2",
+				"volume": 0.5,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/silence3",
+				"volume": 0.5,
+				"load_on_low_memory": true
+			}
+		]
+	},
+	"boi.amb.river": {
+		"category": "music",
+		"min_distance": 100,
+		"sounds": [
+			{
+				"name": "sounds/ambient/boi/river1",
+				"volume": 0.03,
+				"load_on_low_memory": true
+			}
+		]
+	},
+	"boi.amb.underwater": {
+		"category": "music",
+		"min_distance": 100,
+		"sounds": [
+			{
+				"name": "sounds/ambient/boi/Underwater0",
+				"volume": 5,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/Underwater1",
+				"volume": 5,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/Underwater2",
+				"volume": 5,
+				"load_on_low_memory": true
+			}
+		]
+	},
+	"boi.amb.mushroom": {
+		"category": "music",
+		"min_distance": 100,
+		"sounds": [
+			{
+				"name": "sounds/ambient/boi/mushroom0",
+				"volume": 0.5,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/mushroom1",
+				"volume": 0.5,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/mushroom2",
+				"volume": 0.5,
+				"load_on_low_memory": true
+			}
+		]
+	},
+	"boi.amb.mush_random": {
+		"category": "music",
+		"min_distance": 100,
+		"sounds": [
+			{
+				"name": "sounds/ambient/boi/mush_random0",
+				"volume": 0.5,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/mush_random1",
+				"volume": 0.5,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/mush_random2",
+				"volume": 0.5,
+				"load_on_low_memory": true
+			},
+			{
+				"name": "sounds/ambient/boi/mush_random3",
+				"volume": 0.2,
+				"load_on_low_memory": true
+			}
+		]
+	}
+}

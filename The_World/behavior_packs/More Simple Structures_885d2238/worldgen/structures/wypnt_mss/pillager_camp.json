@@ -1,0 +1,161 @@
+{
+  "format_version": "1.21.20",
+  "minecraft:jigsaw": {
+    "description": {
+      "identifier": "wypnt_mss:pillager_camp"
+    },
+    "biome_filters": [
+				{
+					"all_of": [
+						{
+							"test": "has_biome_tag",
+							"operator": "!=",
+							"value": "ocean"
+						},
+						{
+							"test": "has_biome_tag",
+							"operator": "!=",
+							"value": "river"
+						},
+						{
+							"test": "has_biome_tag",
+							"operator": "!=",
+							"value": "wypnt_mss:prevent_pillager_camp"
+						},
+						{
+							"any_of": [
+								{
+									"test": "has_biome_tag",
+									"operator": "==",
+									"value": "plains"
+								},
+								{
+									"test": "has_biome_tag",
+									"operator": "==",
+									"value": "savanna"
+								},
+								{
+									"test": "has_biome_tag",
+									"operator": "==",
+									"value": "forest"
+								},
+								{
+									"test": "has_biome_tag",
+									"operator": "==",
+									"value": "meadow"
+								},
+								{
+									"test": "has_biome_tag",
+									"operator": "==",
+									"value": "grove"
+								},
+								{
+									"test": "has_biome_tag",
+									"operator": "==",
+									"value": "bop_ks:is_plains"
+								},
+								{
+									"test": "has_biome_tag",
+									"operator": "==",
+									"value": "bop_ks:grassland"
+								},
+								{
+									"test": "has_biome_tag",
+									"operator": "==",
+									"value": "bop_ks:prairie"
+								},
+								{
+									"test": "has_biome_tag",
+									"operator": "==",
+									"value": "bop_ks:lush_savanna"
+								},
+								{
+									"test": "has_biome_tag",
+									"operator": "==",
+									"value": "bop_ks:shrubland"
+								},
+								{
+									"test": "has_biome_tag",
+									"operator": "==",
+									"value": "bop_ks:coniferous_forest"
+								},
+								{
+									"test": "has_biome_tag",
+									"operator": "==",
+									"value": "taiga"
+								},
+								{
+            "test": "has_biome_tag",
+            "operator": "==",
+            "value": "wypnt_mss:has_structure_pillager_camp"
+          },
+{
+"test": "has_biome_tag",
+"operator": "==",
+"value": "wypnt_bab:aspen_forest"
+},
+{
+"test": "has_biome_tag",
+"operator": "==",
+"value": "wypnt_bab:autumn_plains"
+},
+{
+"test": "has_biome_tag",
+"operator": "==",
+"value": "wypnt_bab:baobab_savanna"
+},
+{
+"test": "has_biome_tag",
+"operator": "==",
+"value": "wypnt_bab:cloverfield"
+},
+{
+"test": "has_biome_tag",
+"operator": "==",
+"value": "wypnt_bab:deciduous_forest"
+},
+{
+"test": "has_biome_tag",
+"operator": "==",
+"value": "wypnt_bab:lavender_plains"
+},
+{
+"test": "has_biome_tag",
+"operator": "==",
+"value": "wypnt_bab:pasture"
+},
+{
+"test": "has_biome_tag",
+"operator": "==",
+"value": "wypnt_bab:prairie"
+},
+{
+"test": "has_biome_tag",
+"operator": "==",
+"value": "wypnt_bab:standing_oak_forest"
+}
+							]
+						}
+					]
+				}
+    ],
+    "step": "surface_structures",
+    "terrain_adaptation": "beard_thin",
+    "start_pool": "wypnt_mss:pillager_camp_center_pool",
+    "start_height": {
+        "type": "constant",
+        "value": { "absolute": 0 } 
+    },
+    "max_depth": 13,
+    "heightmap_projection": "world_surface",
+    "max_distance_from_center": {
+      "horizontal": 48,
+      "vertical": 20
+    },
+    "dimension_padding": {
+      "top": 10,
+      "bottom": 5
+    },
+    "liquid_settings": "apply_waterlogging"
+  }
+}

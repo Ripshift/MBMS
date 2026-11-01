@@ -1,0 +1,21 @@
+{
+  "format_version": "1.21.20",
+  "minecraft:structure_set": {
+    "description": {
+      "identifier": "wypnt_mss:camp"
+    },
+    "placement": {
+      "type": "minecraft:random_spread",
+      "salt": 70246183,
+      "spacing": 120,
+      "separation": 48,
+      "spread_type": "linear"
+    },
+    "structures": [
+      {
+        "structure": "wypnt_mss:camp",
+        "weight": 1
+      }
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "format_version": "1.21.20",
+  "minecraft:template_pool": {
+    "description": {
+      "identifier": "wypnt_mss:pirate_ship_pool_top"
+    },
+    "elements": [
+      {
+        "element": {
+          "element_type": "minecraft:single_pool_element",
+          "location": "wypnt_mss/pirate_ship_bottom",
+          "processors": "wypnt_mss:processor_list",
+          "projection": "rigid"   
+        },
+        "weight": 1
+      }
+    ]
+  }
+}

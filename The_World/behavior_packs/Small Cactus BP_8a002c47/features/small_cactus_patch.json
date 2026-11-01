@@ -1,0 +1,26 @@
+{
+  "format_version": "1.13.0",
+  "minecraft:scatter_feature": {
+    "description": {
+      "identifier": "smallcactus:small_cactus_patch"
+    },
+    "iterations": 10,
+    "x": {
+      "distribution": "uniform",
+      "extent": [
+        -5,
+        5
+      ]
+    },
+    "y": 0,
+    "z": {
+      "distribution": "uniform",
+      "extent": [
+        -5,
+        5
+      ]
+    },
+    "project_input_to_floor": true,
+    "places_feature": "smallcactus:small_cactus_single"
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "format_version": "1.21.20",
+  "minecraft:jigsaw": {
+    "description": {
+      "identifier": "wypnt_mss:jungle_statue"
+    },
+    "biome_filters": [
+  {
+    "all_of": [
+      {
+        "test": "has_biome_tag",
+        "operator": "!=",
+        "value": "ocean"
+      },
+      {
+        "test": "has_biome_tag",
+        "operator": "!=",
+        "value": "river"
+      },
+      {
+        "test": "has_biome_tag",
+        "operator": "!=",
+        "value": "wypnt_mss:prevent_jungle_statue"
+      },
+      {
+        "any_of": [
+          {
+            "all_of": [
+              { "test": "has_biome_tag", "operator": "!=", "value": "edge" },
+              { "test": "has_biome_tag", "operator": "!=", "value": "bamboo" }
+            ]
+          },
+          {
+            "test": "has_biome_tag",
+            "operator": "==",
+            "value": "wypnt_mss:has_structure_jungle_statue"
+          },
+{
+"test": "has_biome_tag",
+"operator": "==",
+"value": "wypnt_bab:tropical_jungle"
+}
+        ]
+      },
+      {
+        "any_of": [
+          {
+            "test": "has_biome_tag",
+            "operator": "==",
+            "value": "jungle"
+          },
+          {
+            "test": "has_biome_tag",
+            "operator": "==",
+            "value": "wypnt_mss:has_structure_jungle_statue"
+          },
+          {
+            "test": "has_biome_tag",
+            "operator": "==",
+            "value": "bop_ks:is_lush"
+          },
+          {
+            "test": "has_biome_tag",
+            "operator": "==",
+            "value": "bop_ks:rainforest"
+          },
+          {
+            "test": "has_biome_tag",
+            "operator": "==",
+            "value": "bop_ks:tropics"
+          },
+          {
+            "test": "has_biome_tag",
+            "operator": "==",
+            "value": "bop_ks:fungal_jungle"
+          }
+        ]
+      }
+    ]
+  }
+],
+    "step": "surface_structures",
+    "terrain_adaptation": "beard_thin",
+    "start_pool": "wypnt_mss:jungle_statue_pool",
+    "start_height": {
+        "type": "constant",
+        "value": { "absolute": 0 } 
+    },
+    "max_depth": 4,
+    "heightmap_projection": "world_surface",
+    "dimension_padding": {
+      "top": 10,
+      "bottom": 5
+    },
+    "liquid_settings": "apply_waterlogging"
+  }
+}

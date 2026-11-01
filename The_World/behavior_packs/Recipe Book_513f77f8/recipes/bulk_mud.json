@@ -1,0 +1,35 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "recipes:bulk_mud"
+    },
+    "group": "recipes",
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "DDD",
+      "DWD",
+      "DDD"
+    ],
+    "key": {
+      "D": {
+        "item": "minecraft:dirt"
+      },
+      "W": {
+        "item": "minecraft:water_bucket"
+      }
+    },
+    "result": [
+      {
+        "item": "minecraft:mud",
+        "count": 16
+      },
+      {
+        "item": "minecraft:bucket",
+        "count": 1
+      }
+    ]
+  }
+}

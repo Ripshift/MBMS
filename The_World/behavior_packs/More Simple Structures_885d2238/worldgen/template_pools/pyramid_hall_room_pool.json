@@ -1,0 +1,19 @@
+{
+  "format_version": "1.21.20",
+  "minecraft:template_pool": {
+    "description": {
+      "identifier": "wypnt_mss:pyramid_hall_room_pool"
+    },
+    "elements": [
+      {
+        "element": {
+          "element_type": "minecraft:single_pool_element",
+          "location": "wypnt_mss/desert_pyramid/desert_pyramid_hall_0a",
+          "processors": "wypnt_mss:desert_pyramid_hall_processor",
+          "projection": "rigid"   
+        },
+        "weight": 1
+      }
+    ]
+  }
+}

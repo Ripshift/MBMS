@@ -1,0 +1,28 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "hay:hay_carpet"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "###"
+    ],
+    "unlock": [
+      {
+        "item": "hay:hay_slab"
+      }
+    ],
+    "key": {
+      "#": {
+        "item": "hay:hay_slab"
+      }
+    },
+    "result": {
+      "item": "hay:hay_carpet",
+      "count": 6
+    }
+  }
+}

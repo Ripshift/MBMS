@@ -1,0 +1,34 @@
+{
+	"entity_sounds": {
+		"entities": {
+			"korbonff:firefly": {
+				"events": {
+					"hurt": {
+						"sound": "none",
+						"volume": [
+							0,
+							0
+						],
+						"pitch": [
+							0,
+							0
+						]
+					},
+					"death": {
+						"sound": "none",
+						"volume": [
+							0,
+							0
+						],
+						"pitch": [
+							0,
+							0
+						]
+					}
+				},
+				"volume": 0,
+				"pitch": 0
+			}
+		}
+	}
+}

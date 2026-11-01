@@ -1,0 +1,35 @@
+{
+  "format_version": 2,
+  "header": {
+    "description": "Overhauls the Wandering Trader trades.",
+    "name": "Wanderer Trademan Resource Pack",
+    "uuid": "f8bad7b9-b5b1-3bcd-82f7-2d05ca9e6fca",
+    "version": [
+      1,
+      0,
+      3
+    ],
+    "min_engine_version": [
+      1,
+      26,
+      50
+    ]
+  },
+  "modules": [
+    {
+      "description": "Overhauls the Wandering Trader trades.",
+      "type": "resources",
+      "uuid": "39051d0b-1965-3ada-af5b-2fd2b3c237a9",
+      "version": [
+        1,
+        0,
+        3
+      ]
+    }
+  ],
+  "metadata": {
+    "authors": [
+      "DolledUp"
+    ]
+  }
+}

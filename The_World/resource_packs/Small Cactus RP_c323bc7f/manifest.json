@@ -1,0 +1,29 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Small Cactus RP",
+    "description": "A miniature cactus block.",
+    "uuid": "c323bc7f-c411-4de3-9f2e-a4ec8b91631a",
+    "version": [
+      1,
+      0,
+      11
+    ],
+    "min_engine_version": [
+      1,
+      26,
+      0
+    ]
+  },
+  "modules": [
+    {
+      "type": "resources",
+      "uuid": "252afb7b-9948-4e6d-8c03-901a3a2eb509",
+      "version": [
+        1,
+        0,
+        11
+      ]
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "format_version": "1.20.50",
+  "minecraft:item": {
+    "description": {
+      "identifier": "fato:farmers_hat",
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.helmet"
+      }
+    },
+    "components": {
+      "minecraft:max_stack_size": 1,
+      "minecraft:icon": "fato:farmers_hat",
+      "minecraft:wearable": {
+        "slot": "slot.armor.head",
+        "protection": 2
+      },
+      "minecraft:enchantable": {
+        "slot": "armor_head",
+        "value": 10
+      },
+      "minecraft:durability": {
+        "max_durability": 66
+      },
+      "minecraft:repairable": {
+        "repair_items": [
+          {
+            "items": ["wheat"],
+            "repair_amount": 16
+          }
+        ]
+      }
+    }
+  }
+}

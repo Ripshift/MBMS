@@ -1,0 +1,21 @@
+{
+  "format_version": "1.21.20",
+  "minecraft:structure_set": {
+    "description": {
+      "identifier": "wypnt_mss:watch_tower"
+    },
+    "placement": {
+      "type": "minecraft:random_spread",
+      "salt": 17429510,
+      "spacing": 70,
+      "separation": 30,
+      "spread_type": "linear"
+    },
+    "structures": [
+      {
+        "structure": "wypnt_mss:watch_tower",
+        "weight": 1
+      }
+    ]
+  }
+}

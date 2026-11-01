@@ -1,0 +1,13 @@
+{
+	"format_version": "1.20.30",
+	"minecraft:scatter_feature": {
+		"description": {
+			"identifier": "vaen:biomes/block_picker_end"
+		},
+		"places_feature": "vaen:biomes/purpur_wastes",
+		"iterations": "t.biome_idx == 2",
+		"x": 0,
+		"y": 0,
+		"z": 0
+	}
+}

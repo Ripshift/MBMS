@@ -1,0 +1,107 @@
+{
+   "content" : [
+      {
+         "path" : "blocks/chiseled_end_stone_bricks.json"
+      },
+      {
+         "path" : "blocks/chiseled_purpur.json"
+      },
+      {
+         "path" : "blocks/cracked_end_stone_bricks.json"
+      },
+      {
+         "path" : "blocks/cracked_purpur_bricks.json"
+      },
+      {
+         "path" : "blocks/end_stone_pillar.json"
+      },
+      {
+         "path" : "blocks/polished_end_stone.json"
+      },
+      {
+         "path" : "blocks/polished_purpur.json"
+      },
+      {
+         "path" : "blocks/purpur_bricks.json"
+      },
+      {
+         "path" : "contents.json"
+      },
+      {
+         "path" : "entities/city_marker.json"
+      },
+      {
+         "path" : "loot_tables/blocks/chiseled_end_stone_bricks.json"
+      },
+      {
+         "path" : "loot_tables/blocks/chiseled_purpur.json"
+      },
+      {
+         "path" : "loot_tables/blocks/cracked_end_stone_bricks.json"
+      },
+      {
+         "path" : "loot_tables/blocks/cracked_purpur_bricks.json"
+      },
+      {
+         "path" : "loot_tables/blocks/end_stone_pillar.json"
+      },
+      {
+         "path" : "loot_tables/blocks/polished_end_stone.json"
+      },
+      {
+         "path" : "loot_tables/blocks/polished_purpur.json"
+      },
+      {
+         "path" : "loot_tables/blocks/purpur_bricks.json"
+      },
+      {
+         "path" : "manifest.json"
+      },
+      {
+         "path" : "pack_icon.png"
+      },
+      {
+         "path" : "recipes/chiseled_end_stone_bricks_from_stonecutter.json"
+      },
+      {
+         "path" : "recipes/chiseled_purpur_from_stonecutter.json"
+      },
+      {
+         "path" : "recipes/cracked_end_stone_bricks_from_furnace.json"
+      },
+      {
+         "path" : "recipes/cracked_purpur_bricks_from_furnace.json"
+      },
+      {
+         "path" : "recipes/end_stone_pillar_from_crafting.json"
+      },
+      {
+         "path" : "recipes/end_stone_pillar_from_stonecutter.json"
+      },
+      {
+         "path" : "recipes/polished_end_stone_from_furnace.json"
+      },
+      {
+         "path" : "recipes/polished_purpur_from_furnace.json"
+      },
+      {
+         "path" : "recipes/purpur_bricks_from_crafting.json"
+      },
+      {
+         "path" : "recipes/purpur_bricks_from_stonecutter.json"
+      },
+      {
+         "path" : "scripts/index.js"
+      },
+      {
+         "path" : "structures/ancientendcity/ancientendcity.mcstructure"
+      },
+      {
+         "path" : "texts/en_US.lang"
+      },
+      {
+         "path" : "texts/languages.json"
+      }
+   ],
+   "version" : 1
+}

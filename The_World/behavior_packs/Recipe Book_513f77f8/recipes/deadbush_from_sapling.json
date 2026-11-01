@@ -1,0 +1,18 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_furnace": {
+    "description": {
+      "identifier": "recipes:deadbush_from_sapling"
+    },
+    "tags": [
+      "furnace"
+    ],
+    "input": {
+      "item": "minecraft:sapling"
+    },
+    "output": {
+      "item": "minecraft:deadbush"
+    },
+    "group": "recipes"
+  }
+}

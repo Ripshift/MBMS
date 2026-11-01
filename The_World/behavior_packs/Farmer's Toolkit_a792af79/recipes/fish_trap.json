@@ -1,0 +1,18 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": { "identifier": "fato:fish_trap" },
+    "tags": ["crafting_table"],
+    "pattern": ["XXX", "XIX", "X X"],
+    "key": {
+      "X": { "tag": "minecraft:planks" },
+      "I": { "item": "minecraft:iron_ingot" }
+    },
+    "unlock": [
+      {
+        "tag": "minecraft:planks"
+      }
+    ],
+    "result": { "item": "fato:fish_trap" }
+  }
+}

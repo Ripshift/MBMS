@@ -1,0 +1,46 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Backpacker RP",
+    "description": "Backpacker resource pack (server edition)",
+    "uuid": "c1e5c0e4-6906-4abb-91d5-825bab9fae93",
+    "version": [
+      1,
+      0,
+      0
+    ],
+    "min_engine_version": [
+      1,
+      26,
+      0
+    ]
+  },
+  "metadata": {
+    "authors": [
+      "Behold Studio (original BackpackPlus)",
+      "Backpacker server edition"
+    ]
+  },
+  "modules": [
+    {
+      "description": "Backpacker resources",
+      "type": "resources",
+      "uuid": "f09d7e2e-86bf-4c3f-a381-7b8c0a109055",
+      "version": [
+        1,
+        0,
+        0
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "uuid": "1f91015e-d2ae-45cb-bc71-1fbe71df1e90",
+      "version": [
+        1,
+        0,
+        0
+      ]
+    }
+  ]
+}

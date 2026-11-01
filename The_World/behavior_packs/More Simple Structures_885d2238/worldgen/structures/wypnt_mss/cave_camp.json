@@ -1,0 +1,52 @@
+{
+  "format_version": "1.21.20",
+  "minecraft:jigsaw": {
+    "description": {
+      "identifier": "wypnt_mss:cave_camp"
+    },
+    "biome_filters": [
+				{
+					"all_of": [
+					   {
+							"test": "has_biome_tag",
+							"operator": "!=",
+							"value": "deep_dark"
+						},
+						{
+							"test": "has_biome_tag",
+							"operator": "!=",
+							"value": "wypnt_mss:prevent_cave_camp"
+						},
+						{
+							"any_of": [
+								{
+									"test": "has_biome_tag",
+									"operator": "==",
+									"value": "overworld"
+								}
+							]
+						}
+					]
+				}
+    ],
+    "step": "underground_structures",
+    "terrain_adaptation": "beard_thin",
+    "start_pool": "wypnt_mss:cave_camp_pool",
+    "start_height": {
+        "type": "uniform",
+  "min": {
+    "above_bottom": -30
+  },
+  "max": {
+    "above_bottom": 30
+  } 
+    },
+    "max_depth": 4,
+    "heightmap_projection": "world_surface",
+    "dimension_padding": {
+      "top": 10,
+      "bottom": 5
+    },
+    "liquid_settings": "apply_waterlogging"
+  }
+}

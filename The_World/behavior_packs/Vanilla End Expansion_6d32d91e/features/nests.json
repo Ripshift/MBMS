@@ -1,0 +1,19 @@
+{
+    "format_version": "1.13.0",
+
+    "minecraft:ore_feature": {
+        "description": {
+            "identifier": "vaen:nests"
+        },
+
+        "count": 8,
+        "replace_rules": [
+            {
+                "places_block": "vaen:endermite_nest",
+                "may_replace": [
+                    "vaen:end_sand"
+                ]
+            }
+        ]
+    }
+}

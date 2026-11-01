@@ -1,0 +1,60 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Apiary - Beekeeper",
+    "description": "A beekeeper villager found at hive camps, plus the Honey Cake. Trade for honey goods; promote a jobless villager by crouching and using honeycomb.",
+    "uuid": "e824698f-3683-4fbd-98d0-adc3b5706d86",
+    "version": [
+      1,
+      3,
+      4
+    ],
+    "min_engine_version": [
+      1,
+      21,
+      60
+    ]
+  },
+  "modules": [
+    {
+      "type": "data",
+      "uuid": "a5e96ba6-1702-4e7e-b924-9d3bbb631302",
+      "version": [
+        1,
+        3,
+        4
+      ],
+      "description": ""
+    },
+    {
+      "type": "script",
+      "language": "javascript",
+      "entry": "scripts/main.js",
+      "uuid": "d2030f9d-67a7-431b-ba1a-aac4b3927054",
+      "version": [
+        1,
+        3,
+        4
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "uuid": "96f12ab7-5fd9-4145-b329-26cfd38cef81",
+      "version": [
+        1,
+        3,
+        4
+      ]
+    },
+    {
+      "module_name": "@minecraft/server",
+      "version": "1.16.0"
+    }
+  ],
+  "metadata": {
+    "authors": [
+      "DolledUp"
+    ]
+  }
+}

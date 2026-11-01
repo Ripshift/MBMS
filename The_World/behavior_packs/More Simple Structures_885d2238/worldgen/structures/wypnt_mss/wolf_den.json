@@ -1,0 +1,140 @@
+{
+  "format_version": "1.21.20",
+  "minecraft:jigsaw": {
+    "description": {
+      "identifier": "wypnt_mss:wolf_den"
+    },
+    "biome_filters": [
+				{
+					"all_of": [
+						{
+							"test": "has_biome_tag",
+							"operator": "!=",
+							"value": "ocean"
+						},
+						{
+							"test": "has_biome_tag",
+							"operator": "!=",
+							"value": "river"
+						},
+						{
+							"test": "has_biome_tag",
+							"operator": "!=",
+							"value": "wypnt_mss:prevent_wolf_den"
+						},
+						{
+							"any_of": [
+								{
+									"test": "has_biome_tag",
+									"operator": "==",
+									"value": "forest"
+								},
+								{
+									"test": "has_biome_tag",
+									"operator": "==",
+									"value": "savanna"
+								},
+								{
+									"test": "has_biome_tag",
+									"operator": "==",
+									"value": "taiga"								},
+								{
+									"test": "has_biome_tag",
+									"operator": "==",
+									"value": "bop_ks:coniferous_forest"
+								},
+								{
+									"test": "has_biome_tag",
+									"operator": "==",
+									"value": "bop_ks:seasonal_forest"
+								},
+								{
+									"test": "has_biome_tag",
+									"operator": "==",
+									"value": "bop_ks:woodland"
+								},
+								{
+									"test": "has_biome_tag",
+									"operator": "==",
+									"value": "bop_ks:redwood_forest"
+								},
+								{
+									"test": "has_biome_tag",
+									"operator": "==",
+									"value": "bop_ks:tundra"								},
+								{
+									"test": "has_biome_tag",
+									"operator": "==",
+									"value": "savanna"
+								},
+								{
+									"test": "has_biome_tag",
+									"operator": "==",
+									"value": "jungle_edge"
+								},
+								{
+									"test": "has_biome_tag",
+									"operator": "==",
+									"value": "grove"
+								},
+								{
+            "test": "has_biome_tag",
+            "operator": "==",
+            "value": "wypnt_mss:has_structure_wolf_den"
+          },
+{
+"test": "has_biome_tag",
+"operator": "==",
+"value": "wypnt_bab:cold_fir_forest"
+},
+{
+"test": "has_biome_tag",
+"operator": "==",
+"value": "wypnt_bab:fir_forest"
+},
+{
+"test": "has_biome_tag",
+"operator": "==",
+"value": "wypnt_bab:foxgrove"
+},
+{
+"test": "has_biome_tag",
+"operator": "==",
+"value": "wypnt_bab:maple_woods"
+},
+{
+"test": "has_biome_tag",
+"operator": "==",
+"value": "wypnt_bab:redwood_forest"
+},
+{
+"test": "has_biome_tag",
+"operator": "==",
+"value": "wypnt_bab:taiga_pines"
+},
+{
+"test": "has_biome_tag",
+"operator": "==",
+"value": "wypnt_bab:tundra"
+}
+							]
+						}
+					]
+				}
+    ],
+    "step": "surface_structures",
+    "terrain_adaptation": "beard_box",
+    "start_pool": "wypnt_mss:wolf_den_bottom_pool", // Yes, it really is upside down.
+    "start_height": {
+        "type": "constant",
+        "value": { "absolute": 0 } 
+    },
+    "max_depth": 4,
+    "heightmap_projection": "world_surface",
+    "dimension_padding": {
+      "top": 10,
+      "bottom": 5
+    },
+    "liquid_settings": "apply_waterlogging"
+  }
+}

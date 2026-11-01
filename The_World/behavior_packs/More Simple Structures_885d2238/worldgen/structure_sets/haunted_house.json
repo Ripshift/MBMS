@@ -1,0 +1,21 @@
+{
+  "format_version": "1.21.20",
+  "minecraft:structure_set": {
+    "description": {
+      "identifier": "wypnt_mss:haunted_house"
+    },
+    "placement": {
+      "type": "minecraft:random_spread",
+      "salt": 63729610,
+      "spacing": 95,
+      "separation": 38,
+      "spread_type": "linear"
+    },
+    "structures": [
+      {
+        "structure": "wypnt_mss:haunted_house",
+        "weight": 1
+      }
+    ]
+  }
+}

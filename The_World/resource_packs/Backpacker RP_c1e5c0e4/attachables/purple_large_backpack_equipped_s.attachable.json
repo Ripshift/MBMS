@@ -1,0 +1,38 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:attachable": {
+    "description": {
+      "identifier": "bapa:purple_large_backpack_equipped_s.attachable",
+      "item": "bapa:purple_large_backpack_equipped_s",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/bapa/big_backpack_purple",
+        "soul": "textures/blocks/soul_lantern"
+      },
+      "geometry": {
+        "default": "geometry.bapa_big_backpack_wear",
+        "soul": "geometry.bapa_big_backpack_soul"
+      },
+      "animations": {
+        "sway": "animation.bapa.backpack.sway",
+        "hide_first_person": "animation.bapa.backpack.hide_first_person",
+        "offset": "animation.bapa.backpack.offset"
+      },
+      "scripts": {
+        "animate": [
+          "offset",
+          "sway",
+          {
+            "hide_first_person": "context.is_first_person == 1.0"
+          }
+        ]
+      },
+      "render_controllers": [
+        "controller.render.default",
+        "controller.render.bapa_acc_soul"
+      ]
+    }
+  }
+}

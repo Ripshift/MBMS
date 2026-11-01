@@ -1,0 +1,59 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "recipes:wither_rose_from_skull"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "012",
+      "345",
+      "678"
+    ],
+    "key": {
+      "0": {
+        "item": "minecraft:double_plant",
+        "data": 4
+      },
+      "1": {
+        "item": "minecraft:double_plant",
+        "data": 4
+      },
+      "2": {
+        "item": "minecraft:double_plant",
+        "data": 4
+      },
+      "3": {
+        "item": "minecraft:double_plant",
+        "data": 4
+      },
+      "4": {
+        "item": "minecraft:skull",
+        "data": 1
+      },
+      "5": {
+        "item": "minecraft:double_plant",
+        "data": 4
+      },
+      "6": {
+        "item": "minecraft:double_plant",
+        "data": 4
+      },
+      "7": {
+        "item": "minecraft:double_plant",
+        "data": 4
+      },
+      "8": {
+        "item": "minecraft:double_plant",
+        "data": 4
+      }
+    },
+    "result": {
+      "item": "minecraft:wither_rose",
+      "count": 4
+    },
+    "group": "recipes"
+  }
+}

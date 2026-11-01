@@ -1,0 +1,136 @@
+{
+    "format_version": "1.26.0",
+    "minecraft:block": {
+        "description": {
+            "identifier": "ae_sg:default_gravestone",
+            "menu_category": {
+                "category": "nature"
+            },
+            "traits": {
+                "minecraft:placement_direction": {
+                    "enabled_states": [
+                        "minecraft:cardinal_direction"
+                    ]
+                }
+            }
+        },
+        "components": {
+            "minecraft:collision_box": [
+                {
+                    "origin": [
+                        -8,
+                        0,
+                        -8
+                    ],
+                    "size": [
+                        16,
+                        1,
+                        16
+                    ]
+                },
+                {
+                    "origin": [
+                        -6,
+                        1,
+                        3
+                    ],
+                    "size": [
+                        12,
+                        13,
+                        3
+                    ]
+                },
+                {
+                    "origin": [
+                        -4,
+                        14,
+                        3
+                    ],
+                    "size": [
+                        8,
+                        2,
+                        3
+                    ]
+                }
+            ],
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 0.1665
+            },
+            "tag:minecraft:is_shovel_item_destructible": {},
+            "minecraft:liquid_detection": {
+                "detection_rules": [
+                    {
+                        "can_contain_liquid": true,
+                        "on_liquid_touches": "blocking",
+                        "liquid_type": "water"
+                    }
+                ]
+            },
+            "minecraft:destructible_by_explosion": true,
+            "minecraft:geometry": {
+                "identifier": "geometry.ae_sg.gravestone"
+            },
+            "minecraft:destruction_particles": {
+                "texture": "dirt_with_roots"
+            },
+            "minecraft:material_instances": {
+                "gravestone": {
+                    "texture": "ae_sg:gravestone"
+                },
+                "platform": {
+                    "texture": "dirt_with_roots"
+                }
+            }
+        },
+        "permutations": [
+            {
+                "condition": "q.block_state('minecraft:cardinal_direction') == 'north'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            180,
+                            0
+                        ]
+                    }
+                }
+            },
+            {
+                "condition": "q.block_state('minecraft:cardinal_direction') == 'south'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            0,
+                            0
+                        ]
+                    }
+                }
+            },
+            {
+                "condition": "q.block_state('minecraft:cardinal_direction') == 'east'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            90,
+                            0
+                        ]
+                    }
+                }
+            },
+            {
+                "condition": "q.block_state('minecraft:cardinal_direction') == 'west'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            270,
+                            0
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}

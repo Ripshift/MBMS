@@ -1,0 +1,74 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.mh_armadillo_head_attachable",
+				"texture_width": 64,
+				"texture_height": 64,
+				"visible_bounds_width": 4,
+				"visible_bounds_height": 3.5,
+				"visible_bounds_offset": [0, 1.25, 0]
+			},
+			"bones": [
+				{
+					"name": "head",
+					"pivot": [0, 0, 0]
+				},
+				{
+					"name": "up_0",
+					"parent": "head",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{
+							"origin": [-4.75, 6.35833, -16.25],
+							"size": [9.5, 12.66667, 3.16667],
+							"pivot": [0, 3.19167, -9.91667],
+							"rotation": [-90, 0, 0],
+							"uv": {
+								"north": {"uv": [45, 18], "uv_size": [3, 4]},
+								"east": {"uv": [45, 18], "uv_size": [1, 4]},
+								"south": {"uv": [50, 18], "uv_size": [3, 4]},
+								"west": {"uv": [47, 18], "uv_size": [1, 4]},
+								"up": {"uv": [45, 17], "uv_size": [3, 1]},
+								"down": {"uv": [48, 17], "uv_size": [3, -1], "material_instance": "custom_down"}
+							}
+						},
+						{
+							"origin": [-10.925, 0.11541, 4.98877],
+							"size": [6.33333, 15.83333, 0],
+							"pivot": [-7.75833, 8.03208, 4.98877],
+							"rotation": [-46.35707, -12.27659, 12.56853],
+							"uv": {
+								"north": {"uv": [43, 10], "uv_size": [2, 5]}
+							}
+						},
+						{
+							"origin": [4.59167, 0.11541, 4.98877],
+							"size": [6.33333, 15.83333, 0],
+							"pivot": [7.75833, 8.03208, 4.98877],
+							"rotation": [-46.35707, 12.27659, -12.56853],
+							"uv": {
+								"north": {"uv": [45, 10], "uv_size": [-2, 5]}
+							}
+						},
+						{
+							"origin": [-4.75, 6.35833, -13.08333],
+							"size": [9.5, 12.66667, 6.33333],
+							"pivot": [0, 3.19167, -9.91667],
+							"rotation": [-90, 0, 0],
+							"uv": {
+								"north": {"uv": [45, 18], "uv_size": [3, 4]},
+								"east": {"uv": [43, 18], "uv_size": [2, 4]},
+								"south": {"uv": [50, 18], "uv_size": [3, 4]},
+								"west": {"uv": [48, 18], "uv_size": [2, 4]},
+								"up": {"uv": [45, 15], "uv_size": [3, 2]},
+								"down": {"uv": [48, 17], "uv_size": [3, -2], "material_instance": "custom_down"}
+							}
+						}
+					]
+				}
+			]
+		}
+	]
+}

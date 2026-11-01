@@ -1,0 +1,173 @@
+{
+  "format_version": "1.21.100",
+  "minecraft:block": {
+    "description": {
+      "identifier": "bapa:red_backpack_equipped",
+      "menu_category": {
+        "category": "none"
+      },
+      "traits": {
+        "minecraft:placement_direction": {
+          "enabled_states": [
+            "minecraft:cardinal_direction"
+          ]
+        }
+      },
+      "states": {
+        "bapa:lava": [
+          0,
+          1
+        ],
+        "bapa:lamp": [
+          0,
+          1,
+          2
+        ],
+        "bapa:dark": [
+          0,
+          1
+        ]
+      }
+    },
+    "components": {
+      "minecraft:collision_box": {
+        "origin": [
+          -5,
+          0,
+          -5
+        ],
+        "size": [
+          10,
+          11,
+          11
+        ]
+      },
+      "minecraft:selection_box": {
+        "origin": [
+          -5,
+          0,
+          -5
+        ],
+        "size": [
+          10,
+          11,
+          11
+        ]
+      },
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 0
+      },
+      "minecraft:destructible_by_explosion": {
+        "explosion_resistance": 30
+      },
+      "minecraft:geometry": {
+        "identifier": "geometry.bapa_backpack",
+        "bone_visibility": {
+          "lava_acc": "q.block_state('bapa:lava') == 1",
+          "lantern_acc": "q.block_state('bapa:lamp') == 1",
+          "soul_acc": "q.block_state('bapa:lamp') == 2"
+        }
+      },
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "red_backpack",
+          "render_method": "alpha_test"
+        },
+        "acc": {
+          "texture": "bapa_acc",
+          "render_method": "alpha_test"
+        },
+        "lantern": {
+          "texture": "bapa_lantern",
+          "render_method": "alpha_test"
+        },
+        "soul_lantern": {
+          "texture": "bapa_soul_lantern",
+          "render_method": "alpha_test"
+        }
+      },
+      "minecraft:map_color": "#ffffff",
+      "minecraft:display_name": "tile.bapa:red_backpack.name"
+    },
+    "permutations": [
+      {
+        "condition": "q.block_state('minecraft:cardinal_direction') == 'north' ",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [
+              0,
+              180,
+              0
+            ]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:cardinal_direction') == 'south' ",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:cardinal_direction') == 'east' ",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [
+              0,
+              90,
+              0
+            ]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:cardinal_direction') == 'west' ",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [
+              0,
+              270,
+              0
+            ]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('bapa:dark') == 0 && q.block_state('bapa:lava') == 1 && q.block_state('bapa:lamp') == 0",
+        "components": {
+          "minecraft:light_emission": 10
+        }
+      },
+      {
+        "condition": "q.block_state('bapa:dark') == 0 && q.block_state('bapa:lava') == 0 && q.block_state('bapa:lamp') == 1",
+        "components": {
+          "minecraft:light_emission": 12
+        }
+      },
+      {
+        "condition": "q.block_state('bapa:dark') == 0 && q.block_state('bapa:lava') == 0 && q.block_state('bapa:lamp') == 2",
+        "components": {
+          "minecraft:light_emission": 8
+        }
+      },
+      {
+        "condition": "q.block_state('bapa:dark') == 0 && q.block_state('bapa:lava') == 1 && q.block_state('bapa:lamp') == 1",
+        "components": {
+          "minecraft:light_emission": 15
+        }
+      },
+      {
+        "condition": "q.block_state('bapa:dark') == 0 && q.block_state('bapa:lava') == 1 && q.block_state('bapa:lamp') == 2",
+        "components": {
+          "minecraft:light_emission": 12
+        }
+      }
+    ]
+  }
+}

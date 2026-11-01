@@ -1,0 +1,31 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shapeless": {
+        "description": {
+            "identifier": "mh:hunter_journal"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "ingredients": [
+            {
+                "item": "minecraft:book"
+            },
+            {
+                "item": "minecraft:rotten_flesh"
+            },
+            {
+                "item": "minecraft:bone"
+            }
+        ],
+        "unlock": [
+            {
+                "item": "minecraft:rotten_flesh"
+            }
+        ],
+        "result": {
+            "item": "mh:hunter_journal",
+            "count": 1
+        }
+    }
+}

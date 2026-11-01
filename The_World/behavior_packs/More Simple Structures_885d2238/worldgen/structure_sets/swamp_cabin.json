@@ -1,0 +1,21 @@
+{
+  "format_version": "1.21.20",
+  "minecraft:structure_set": {
+    "description": {
+      "identifier": "wypnt_mss:swamp_cabin"
+    },
+    "placement": {
+      "type": "minecraft:random_spread",
+      "salt": 72590441,
+      "spacing": 70,
+      "separation": 25,
+      "spread_type": "linear"
+    },
+    "structures": [
+      {
+        "structure": "wypnt_mss:swamp_cabin",
+        "weight": 1
+      }
+    ]
+  }
+}

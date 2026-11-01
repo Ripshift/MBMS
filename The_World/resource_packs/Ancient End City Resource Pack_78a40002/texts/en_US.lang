@@ -1,0 +1,11 @@
+pack.name=Ancient End
+pack.description=Ancient End - Resource Pack (required by the Ancient End behavior pack)
+
+tile.ancientend:polished_purpur.name=Polished Purpur
+tile.ancientend:chiseled_purpur.name=Chiseled Purpur
+tile.ancientend:purpur_bricks.name=Purpur Bricks
+tile.ancientend:cracked_purpur_bricks.name=Cracked Purpur Bricks
+tile.ancientend:chiseled_end_stone_bricks.name=Chiseled End Stone Bricks
+tile.ancientend:cracked_end_stone_bricks.name=Cracked End Stone Bricks
+tile.ancientend:polished_end_stone.name=Polished End Stone
+tile.ancientend:end_stone_pillar.name=End Stone Pillar

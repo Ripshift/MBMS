@@ -1,0 +1,30 @@
+{
+    "format_version": "1.21.0",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "bapa:dye_base_recipe"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "#",
+            "u"
+        ],
+        "key": {
+            "#": {
+                "item": "minecraft:dried_kelp"
+            },
+            "u": {
+                "item": "minecraft:water_bucket"
+            }
+        },
+        "result": {
+            "item": "bapa:dye_base",
+            "count": 4
+        },
+        "unlock": {
+            "context": "AlwaysUnlocked"
+        }
+    }
+}

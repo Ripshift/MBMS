@@ -1,0 +1,35 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "labo:crimson_chest_boat",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/boats/crimson_chest_boat"
+      },
+      "geometry": {
+        "default": "geometry.labo_chest_boat"
+      },
+      "animations": {
+        "body_turn": "animation.labo_nether_boat.body_turn",
+        "paddles": "animation.labo_nether_boat.paddles",
+        "hurt": "animation.labo_nether_boat.hurt"
+      },
+      "scripts": {
+        "animate": [
+          "body_turn",
+          "paddles",
+          "hurt"
+        ],
+        "pre_animation": [
+          "variable.labo_motion = math.clamp(math.sqrt(math.pow(query.position_delta(0), 2.0) + math.pow(query.position_delta(2), 2.0)) * 20.0, 0.0, 1.0);"
+        ]
+      },
+      "render_controllers": [
+        "controller.render.labo_nether_boat"
+      ]
+    }
+  }
+}

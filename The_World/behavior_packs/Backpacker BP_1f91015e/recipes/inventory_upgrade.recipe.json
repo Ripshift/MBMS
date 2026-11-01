@@ -1,0 +1,37 @@
+{
+    "format_version": "1.21.0",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "bapa:inventory_upgrade_recipe"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "L L",
+            "B#B",
+            "#l#"
+        ],
+        "key": {
+            "L": {
+                "item": "minecraft:lead"
+            },
+            "B": {
+                "item": "minecraft:bundle"
+            },
+            "#": {
+                "item": "minecraft:string"
+            },
+            "l": {
+                "item": "minecraft:leather"
+            }
+        },
+        "result": {
+            "item": "bapa:inventory_upgrade",
+            "count": 1
+        },
+        "unlock": {
+            "context": "AlwaysUnlocked"
+        }
+    }
+}

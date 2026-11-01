@@ -1,0 +1,61 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Backpacker BP",
+    "description": "Backpacker behavior pack (server edition)",
+    "uuid": "1f91015e-d2ae-45cb-bc71-1fbe71df1e90",
+    "version": [
+      1,
+      0,
+      0
+    ],
+    "min_engine_version": [
+      1,
+      26,
+      0
+    ]
+  },
+  "metadata": {
+    "authors": [
+      "Behold Studio (original BackpackPlus)",
+      "Backpacker server edition"
+    ]
+  },
+  "modules": [
+    {
+      "description": "Backpacker behavior",
+      "type": "data",
+      "uuid": "3611da42-106e-49da-9961-025ebfa949b5",
+      "version": [
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "type": "script",
+      "language": "javascript",
+      "uuid": "b92fb06f-3c93-4480-9ba1-fa539a4c4240",
+      "version": [
+        1,
+        0,
+        0
+      ],
+      "entry": "scripts/main.js"
+    }
+  ],
+  "dependencies": [
+    {
+      "uuid": "c1e5c0e4-6906-4abb-91d5-825bab9fae93",
+      "version": [
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "module_name": "@minecraft/server",
+      "version": "2.6.0"
+    }
+  ]
+}

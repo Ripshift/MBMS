@@ -1,0 +1,28 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "labo:warped_chest_boat_recipe"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "ingredients": [
+      {
+        "item": "labo:warped_boat"
+      },
+      {
+        "item": "minecraft:chest"
+      }
+    ],
+    "unlock": [
+      {
+        "item": "labo:warped_boat"
+      }
+    ],
+    "result": {
+      "item": "labo:warped_chest_boat",
+      "count": 1
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{ 
+  "format_version": "1.21.20", 
+  "minecraft:structure_set": { 
+    "description": { 
+      "identifier": "wypnt_mss:piglin_fortress" 
+    }, 
+    "placement": { 
+      "type": "minecraft:random_spread", 
+      "salt": 39630389, 
+      "spacing": 115,
+      "separation": 42,
+      "spread_type": "linear" 
+    }, 
+    "structures": [ 
+      { 
+        "structure": "wypnt_mss:piglin_fortress", 
+        "weight": 1 
+      }
+    ] 
+  } 
+}

@@ -1,0 +1,32 @@
+{
+    "format_version": "1.16",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "bt:notch_apple"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "priority": 0,
+        "result": {
+            "item": "minecraft:appleenchanted",
+            "count": 1
+        },
+        "pattern": [
+            "DED",
+            "E#E",
+            "DED"
+        ],
+        "key": {
+            "D": {
+                "item": "minecraft:diamond"
+            },
+            "E": {
+                "item": "minecraft:experience_bottle"
+            },
+            "#": {
+                "item": "minecraft:golden_apple"
+            }
+        }
+    }
+}

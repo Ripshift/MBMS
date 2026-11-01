@@ -1,0 +1,12 @@
+item.labo:crimson_boat.name=Bote Carmesí
+item.labo:warped_boat.name=Bote Distorsionado
+entity.labo:crimson_boat.name=Bote Carmesí
+entity.labo:warped_boat.name=Bote Distorsionado
+item.labo:crimson_chest_boat.name=Bote Carmesí con Cofre
+item.labo:warped_chest_boat.name=Bote Distorsionado con Cofre
+entity.labo:crimson_chest_boat.name=Bote Carmesí con Cofre
+entity.labo:warped_chest_boat.name=Bote Distorsionado con Cofre
+action.hint.exit.labo:warped_boat=Toca saltar para salir del bote
+action.hint.exit.labo:warped_chest_boat=Toca saltar para salir del bote
+action.hint.exit.labo:crimson_boat=Toca saltar para salir del bote
+action.hint.exit.labo:crimson_chest_boat=Toca saltar para salir del bote

@@ -1,0 +1,35 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Apiary - Beekeeper (Resources)",
+    "description": "Beekeeper villager skin, spawn egg and sounds.",
+    "uuid": "96f12ab7-5fd9-4145-b329-26cfd38cef81",
+    "version": [
+      1,
+      3,
+      4
+    ],
+    "min_engine_version": [
+      1,
+      21,
+      60
+    ]
+  },
+  "modules": [
+    {
+      "type": "resources",
+      "uuid": "f452eb49-3a58-4636-b5ad-f6efb9bbb62a",
+      "version": [
+        1,
+        3,
+        4
+      ],
+      "description": ""
+    }
+  ],
+  "metadata": {
+    "authors": [
+      "DolledUp"
+    ]
+  }
+}

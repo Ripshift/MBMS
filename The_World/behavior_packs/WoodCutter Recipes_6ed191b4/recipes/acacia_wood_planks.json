@@ -1,0 +1,24 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "crafting:acacia_wood_planks"
+    },
+    "groups": [
+      "crafting"
+    ],
+    "priority": 0,
+    "tags": [
+      "stonecutter"
+    ],
+    "ingredients": [
+      {
+        "item": "minecraft:acacia_wood"
+      }
+    ],
+    "result": {
+      "item": "minecraft:acacia_planks",
+      "count": 6
+    }
+  }
+}

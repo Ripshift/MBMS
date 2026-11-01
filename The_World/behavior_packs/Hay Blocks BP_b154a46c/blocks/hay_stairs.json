@@ -1,0 +1,1577 @@
+{
+  "format_version": "1.26.0",
+  "minecraft:block": {
+    "description": {
+      "identifier": "hay:hay_stairs",
+      "menu_category": {
+        "category": "construction"
+      },
+      "traits": {
+        "minecraft:placement_direction": {
+          "enabled_states": [
+            "minecraft:corner_and_cardinal_direction"
+          ],
+          "blocks_to_corner_with": [
+            {
+              "tags": "q.any_tag('minecraft:cornerable_stairs')"
+            }
+          ]
+        },
+        "minecraft:placement_position": {
+          "enabled_states": [
+            "minecraft:vertical_half"
+          ]
+        }
+      }
+    },
+    "components": {
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "hay_stairs_side",
+          "render_method": "opaque"
+        },
+        "fb": {
+          "texture": "hay_stairs_side",
+          "render_method": "opaque"
+        },
+        "lr": {
+          "texture": "hay_stairs_side",
+          "render_method": "opaque"
+        },
+        "tb_ns": {
+          "texture": "hay_stairs_top",
+          "render_method": "opaque"
+        },
+        "tb_ew": {
+          "texture": "hay_stairs_top",
+          "render_method": "opaque"
+        }
+      },
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 0.5
+      },
+      "minecraft:destructible_by_explosion": {
+        "explosion_resistance": 0.5
+      },
+      "minecraft:flammable": {
+        "catch_chance_modifier": 60,
+        "destroy_chance_modifier": 20
+      },
+      "minecraft:map_color": "#E5E533",
+      "minecraft:geometry": "geometry.hay_hay_stairs_north_none_bottom",
+      "minecraft:collision_box": [
+        {
+          "origin": [
+            -8,
+            0,
+            -8
+          ],
+          "size": [
+            16,
+            8,
+            16
+          ]
+        },
+        {
+          "origin": [
+            -8,
+            8,
+            -8
+          ],
+          "size": [
+            16,
+            8,
+            8
+          ]
+        }
+      ],
+      "minecraft:selection_box": {
+        "origin": [
+          -8,
+          0,
+          -8
+        ],
+        "size": [
+          16,
+          16,
+          16
+        ]
+      },
+      "tag:minecraft:cornerable_stairs": {}
+    },
+    "permutations": [
+      {
+        "condition": "query.block_state('minecraft:cardinal_direction') == 'north' && query.block_state('minecraft:corner') == 'none' && query.block_state('minecraft:vertical_half') == 'bottom'",
+        "components": {
+          "minecraft:geometry": "geometry.hay_hay_stairs_north_none_bottom",
+          "minecraft:collision_box": [
+            {
+              "origin": [
+                -8,
+                0,
+                -8
+              ],
+              "size": [
+                16,
+                8,
+                16
+              ]
+            },
+            {
+              "origin": [
+                -8,
+                8,
+                -8
+              ],
+              "size": [
+                16,
+                8,
+                8
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "condition": "query.block_state('minecraft:cardinal_direction') == 'north' && query.block_state('minecraft:corner') == 'none' && query.block_state('minecraft:vertical_half') == 'top'",
+        "components": {
+          "minecraft:geometry": "geometry.hay_hay_stairs_north_none_top",
+          "minecraft:collision_box": [
+            {
+              "origin": [
+                -8,
+                8,
+                -8
+              ],
+              "size": [
+                16,
+                8,
+                16
+              ]
+            },
+            {
+              "origin": [
+                -8,
+                0,
+                -8
+              ],
+              "size": [
+                16,
+                8,
+                8
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "condition": "query.block_state('minecraft:cardinal_direction') == 'east' && query.block_state('minecraft:corner') == 'none' && query.block_state('minecraft:vertical_half') == 'bottom'",
+        "components": {
+          "minecraft:geometry": "geometry.hay_hay_stairs_east_none_bottom",
+          "minecraft:collision_box": [
+            {
+              "origin": [
+                -8,
+                0,
+                -8
+              ],
+              "size": [
+                16,
+                8,
+                16
+              ]
+            },
+            {
+              "origin": [
+                -8,
+                8,
+                -8
+              ],
+              "size": [
+                8,
+                8,
+                16
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "condition": "query.block_state('minecraft:cardinal_direction') == 'east' && query.block_state('minecraft:corner') == 'none' && query.block_state('minecraft:vertical_half') == 'top'",
+        "components": {
+          "minecraft:geometry": "geometry.hay_hay_stairs_east_none_top",
+          "minecraft:collision_box": [
+            {
+              "origin": [
+                -8,
+                8,
+                -8
+              ],
+              "size": [
+                16,
+                8,
+                16
+              ]
+            },
+            {
+              "origin": [
+                -8,
+                0,
+                -8
+              ],
+              "size": [
+                8,
+                8,
+                16
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "condition": "query.block_state('minecraft:cardinal_direction') == 'south' && query.block_state('minecraft:corner') == 'none' && query.block_state('minecraft:vertical_half') == 'bottom'",
+        "components": {
+          "minecraft:geometry": "geometry.hay_hay_stairs_south_none_bottom",
+          "minecraft:collision_box": [
+            {
+              "origin": [
+                -8,
+                0,
+                -8
+              ],
+              "size": [
+                16,
+                8,
+                16
+              ]
+            },
+            {
+              "origin": [
+                -8,
+                8,
+                0
+              ],
+              "size": [
+                16,
+                8,
+                8
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "condition": "query.block_state('minecraft:cardinal_direction') == 'south' && query.block_state('minecraft:corner') == 'none' && query.block_state('minecraft:vertical_half') == 'top'",
+        "components": {
+          "minecraft:geometry": "geometry.hay_hay_stairs_south_none_top",
+          "minecraft:collision_box": [
+            {
+              "origin": [
+                -8,
+                8,
+                -8
+              ],
+              "size": [
+                16,
+                8,
+                16
+              ]
+            },
+            {
+              "origin": [
+                -8,
+                0,
+                0
+              ],
+              "size": [
+                16,
+                8,
+                8
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "condition": "query.block_state('minecraft:cardinal_direction') == 'west' && query.block_state('minecraft:corner') == 'none' && query.block_state('minecraft:vertical_half') == 'bottom'",
+        "components": {
+          "minecraft:geometry": "geometry.hay_hay_stairs_west_none_bottom",
+          "minecraft:collision_box": [
+            {
+              "origin": [
+                -8,
+                0,
+                -8
+              ],
+              "size": [
+                16,
+                8,
+                16
+              ]
+            },
+            {
+              "origin": [
+                0,
+                8,
+                -8
+              ],
+              "size": [
+                8,
+                8,
+                16
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "condition": "query.block_state('minecraft:cardinal_direction') == 'west' && query.block_state('minecraft:corner') == 'none' && query.block_state('minecraft:vertical_half') == 'top'",
+        "components": {
+          "minecraft:geometry": "geometry.hay_hay_stairs_west_none_top",
+          "minecraft:collision_box": [
+            {
+              "origin": [
+                -8,
+                8,
+                -8
+              ],
+              "size": [
+                16,
+                8,
+                16
+              ]
+            },
+            {
+              "origin": [
+                0,
+                0,
+                -8
+              ],
+              "size": [
+                8,
+                8,
+                16
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "condition": "query.block_state('minecraft:cardinal_direction') == 'north' && query.block_state('minecraft:corner') == 'outer_right' && query.block_state('minecraft:vertical_half') == 'bottom'",
+        "components": {
+          "minecraft:geometry": "geometry.hay_hay_stairs_north_outer_left_bottom",
+          "minecraft:collision_box": [
+            {
+              "origin": [
+                -8,
+                0,
+                -8
+              ],
+              "size": [
+                16,
+                8,
+                16
+              ]
+            },
+            {
+              "origin": [
+                -8,
+                8,
+                -8
+              ],
+              "size": [
+                8,
+                8,
+                8
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "condition": "query.block_state('minecraft:cardinal_direction') == 'north' && query.block_state('minecraft:corner') == 'outer_right' && query.block_state('minecraft:vertical_half') == 'top'",
+        "components": {
+          "minecraft:geometry": "geometry.hay_hay_stairs_north_outer_left_top",
+          "minecraft:collision_box": [
+            {
+              "origin": [
+                -8,
+                8,
+                -8
+              ],
+              "size": [
+                16,
+                8,
+                16
+              ]
+            },
+            {
+              "origin": [
+                -8,
+                0,
+                -8
+              ],
+              "size": [
+                8,
+                8,
+                8
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "condition": "query.block_state('minecraft:cardinal_direction') == 'east' && query.block_state('minecraft:corner') == 'outer_right' && query.block_state('minecraft:vertical_half') == 'bottom'",
+        "components": {
+          "minecraft:geometry": "geometry.hay_hay_stairs_east_outer_left_bottom",
+          "minecraft:collision_box": [
+            {
+              "origin": [
+                -8,
+                0,
+                -8
+              ],
+              "size": [
+                16,
+                8,
+                16
+              ]
+            },
+            {
+              "origin": [
+                -8,
+                8,
+                0
+              ],
+              "size": [
+                8,
+                8,
+                8
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "condition": "query.block_state('minecraft:cardinal_direction') == 'east' && query.block_state('minecraft:corner') == 'outer_right' && query.block_state('minecraft:vertical_half') == 'top'",
+        "components": {
+          "minecraft:geometry": "geometry.hay_hay_stairs_east_outer_left_top",
+          "minecraft:collision_box": [
+            {
+              "origin": [
+                -8,
+                8,
+                -8
+              ],
+              "size": [
+                16,
+                8,
+                16
+              ]
+            },
+            {
+              "origin": [
+                -8,
+                0,
+                0
+              ],
+              "size": [
+                8,
+                8,
+                8
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "condition": "query.block_state('minecraft:cardinal_direction') == 'south' && query.block_state('minecraft:corner') == 'outer_right' && query.block_state('minecraft:vertical_half') == 'bottom'",
+        "components": {
+          "minecraft:geometry": "geometry.hay_hay_stairs_south_outer_left_bottom",
+          "minecraft:collision_box": [
+            {
+              "origin": [
+                -8,
+                0,
+                -8
+              ],
+              "size": [
+                16,
+                8,
+                16
+              ]
+            },
+            {
+              "origin": [
+                0,
+                8,
+                0
+              ],
+              "size": [
+                8,
+                8,
+                8
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "condition": "query.block_state('minecraft:cardinal_direction') == 'south' && query.block_state('minecraft:corner') == 'outer_right' && query.block_state('minecraft:vertical_half') == 'top'",
+        "components": {
+          "minecraft:geometry": "geometry.hay_hay_stairs_south_outer_left_top",
+          "minecraft:collision_box": [
+            {
+              "origin": [
+                -8,
+                8,
+                -8
+              ],
+              "size": [
+                16,
+                8,
+                16
+              ]
+            },
+            {
+              "origin": [
+                0,
+                0,
+                0
+              ],
+              "size": [
+                8,
+                8,
+                8
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "condition": "query.block_state('minecraft:cardinal_direction') == 'west' && query.block_state('minecraft:corner') == 'outer_right' && query.block_state('minecraft:vertical_half') == 'bottom'",
+        "components": {
+          "minecraft:geometry": "geometry.hay_hay_stairs_west_outer_left_bottom",
+          "minecraft:collision_box": [
+            {
+              "origin": [
+                -8,
+                0,
+                -8
+              ],
+              "size": [
+                16,
+                8,
+                16
+              ]
+            },
+            {
+              "origin": [
+                0,
+                8,
+                -8
+              ],
+              "size": [
+                8,
+                8,
+                8
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "condition": "query.block_state('minecraft:cardinal_direction') == 'west' && query.block_state('minecraft:corner') == 'outer_right' && query.block_state('minecraft:vertical_half') == 'top'",
+        "components": {
+          "minecraft:geometry": "geometry.hay_hay_stairs_west_outer_left_top",
+          "minecraft:collision_box": [
+            {
+              "origin": [
+                -8,
+                8,
+                -8
+              ],
+              "size": [
+                16,
+                8,
+                16
+              ]
+            },
+            {
+              "origin": [
+                0,
+                0,
+                -8
+              ],
+              "size": [
+                8,
+                8,
+                8
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "condition": "query.block_state('minecraft:cardinal_direction') == 'north' && query.block_state('minecraft:corner') == 'outer_left' && query.block_state('minecraft:vertical_half') == 'bottom'",
+        "components": {
+          "minecraft:geometry": "geometry.hay_hay_stairs_north_outer_right_bottom",
+          "minecraft:collision_box": [
+            {
+              "origin": [
+                -8,
+                0,
+                -8
+              ],
+              "size": [
+                16,
+                8,
+                16
+              ]
+            },
+            {
+              "origin": [
+                0,
+                8,
+                -8
+              ],
+              "size": [
+                8,
+                8,
+                8
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "condition": "query.block_state('minecraft:cardinal_direction') == 'north' && query.block_state('minecraft:corner') == 'outer_left' && query.block_state('minecraft:vertical_half') == 'top'",
+        "components": {
+          "minecraft:geometry": "geometry.hay_hay_stairs_north_outer_right_top",
+          "minecraft:collision_box": [
+            {
+              "origin": [
+                -8,
+                8,
+                -8
+              ],
+              "size": [
+                16,
+                8,
+                16
+              ]
+            },
+            {
+              "origin": [
+                0,
+                0,
+                -8
+              ],
+              "size": [
+                8,
+                8,
+                8
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "condition": "query.block_state('minecraft:cardinal_direction') == 'east' && query.block_state('minecraft:corner') == 'outer_left' && query.block_state('minecraft:vertical_half') == 'bottom'",
+        "components": {
+          "minecraft:geometry": "geometry.hay_hay_stairs_east_outer_right_bottom",
+          "minecraft:collision_box": [
+            {
+              "origin": [
+                -8,
+                0,
+                -8
+              ],
+              "size": [
+                16,
+                8,
+                16
+              ]
+            },
+            {
+              "origin": [
+                -8,
+                8,
+                -8
+              ],
+              "size": [
+                8,
+                8,
+                8
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "condition": "query.block_state('minecraft:cardinal_direction') == 'east' && query.block_state('minecraft:corner') == 'outer_left' && query.block_state('minecraft:vertical_half') == 'top'",
+        "components": {
+          "minecraft:geometry": "geometry.hay_hay_stairs_east_outer_right_top",
+          "minecraft:collision_box": [
+            {
+              "origin": [
+                -8,
+                8,
+                -8
+              ],
+              "size": [
+                16,
+                8,
+                16
+              ]
+            },
+            {
+              "origin": [
+                -8,
+                0,
+                -8
+              ],
+              "size": [
+                8,
+                8,
+                8
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "condition": "query.block_state('minecraft:cardinal_direction') == 'south' && query.block_state('minecraft:corner') == 'outer_left' && query.block_state('minecraft:vertical_half') == 'bottom'",
+        "components": {
+          "minecraft:geometry": "geometry.hay_hay_stairs_south_outer_right_bottom",
+          "minecraft:collision_box": [
+            {
+              "origin": [
+                -8,
+                0,
+                -8
+              ],
+              "size": [
+                16,
+                8,
+                16
+              ]
+            },
+            {
+              "origin": [
+                -8,
+                8,
+                0
+              ],
+              "size": [
+                8,
+                8,
+                8
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "condition": "query.block_state('minecraft:cardinal_direction') == 'south' && query.block_state('minecraft:corner') == 'outer_left' && query.block_state('minecraft:vertical_half') == 'top'",
+        "components": {
+          "minecraft:geometry": "geometry.hay_hay_stairs_south_outer_right_top",
+          "minecraft:collision_box": [
+            {
+              "origin": [
+                -8,
+                8,
+                -8
+              ],
+              "size": [
+                16,
+                8,
+                16
+              ]
+            },
+            {
+              "origin": [
+                -8,
+                0,
+                0
+              ],
+              "size": [
+                8,
+                8,
+                8
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "condition": "query.block_state('minecraft:cardinal_direction') == 'west' && query.block_state('minecraft:corner') == 'outer_left' && query.block_state('minecraft:vertical_half') == 'bottom'",
+        "components": {
+          "minecraft:geometry": "geometry.hay_hay_stairs_west_outer_right_bottom",
+          "minecraft:collision_box": [
+            {
+              "origin": [
+                -8,
+                0,
+                -8
+              ],
+              "size": [
+                16,
+                8,
+                16
+              ]
+            },
+            {
+              "origin": [
+                0,
+                8,
+                0
+              ],
+              "size": [
+                8,
+                8,
+                8
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "condition": "query.block_state('minecraft:cardinal_direction') == 'west' && query.block_state('minecraft:corner') == 'outer_left' && query.block_state('minecraft:vertical_half') == 'top'",
+        "components": {
+          "minecraft:geometry": "geometry.hay_hay_stairs_west_outer_right_top",
+          "minecraft:collision_box": [
+            {
+              "origin": [
+                -8,
+                8,
+                -8
+              ],
+              "size": [
+                16,
+                8,
+                16
+              ]
+            },
+            {
+              "origin": [
+                0,
+                0,
+                0
+              ],
+              "size": [
+                8,
+                8,
+                8
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "condition": "query.block_state('minecraft:cardinal_direction') == 'north' && query.block_state('minecraft:corner') == 'inner_right' && query.block_state('minecraft:vertical_half') == 'bottom'",
+        "components": {
+          "minecraft:geometry": "geometry.hay_hay_stairs_north_inner_left_bottom",
+          "minecraft:collision_box": [
+            {
+              "origin": [
+                -8,
+                0,
+                -8
+              ],
+              "size": [
+                16,
+                8,
+                16
+              ]
+            },
+            {
+              "origin": [
+                -8,
+                8,
+                -8
+              ],
+              "size": [
+                16,
+                8,
+                8
+              ]
+            },
+            {
+              "origin": [
+                -8,
+                8,
+                0
+              ],
+              "size": [
+                8,
+                8,
+                8
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "condition": "query.block_state('minecraft:cardinal_direction') == 'north' && query.block_state('minecraft:corner') == 'inner_right' && query.block_state('minecraft:vertical_half') == 'top'",
+        "components": {
+          "minecraft:geometry": "geometry.hay_hay_stairs_north_inner_left_top",
+          "minecraft:collision_box": [
+            {
+              "origin": [
+                -8,
+                8,
+                -8
+              ],
+              "size": [
+                16,
+                8,
+                16
+              ]
+            },
+            {
+              "origin": [
+                -8,
+                0,
+                -8
+              ],
+              "size": [
+                16,
+                8,
+                8
+              ]
+            },
+            {
+              "origin": [
+                -8,
+                0,
+                0
+              ],
+              "size": [
+                8,
+                8,
+                8
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "condition": "query.block_state('minecraft:cardinal_direction') == 'east' && query.block_state('minecraft:corner') == 'inner_right' && query.block_state('minecraft:vertical_half') == 'bottom'",
+        "components": {
+          "minecraft:geometry": "geometry.hay_hay_stairs_east_inner_left_bottom",
+          "minecraft:collision_box": [
+            {
+              "origin": [
+                -8,
+                0,
+                -8
+              ],
+              "size": [
+                16,
+                8,
+                16
+              ]
+            },
+            {
+              "origin": [
+                -8,
+                8,
+                -8
+              ],
+              "size": [
+                8,
+                8,
+                16
+              ]
+            },
+            {
+              "origin": [
+                0,
+                8,
+                0
+              ],
+              "size": [
+                8,
+                8,
+                8
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "condition": "query.block_state('minecraft:cardinal_direction') == 'east' && query.block_state('minecraft:corner') == 'inner_right' && query.block_state('minecraft:vertical_half') == 'top'",
+        "components": {
+          "minecraft:geometry": "geometry.hay_hay_stairs_east_inner_left_top",
+          "minecraft:collision_box": [
+            {
+              "origin": [
+                -8,
+                8,
+                -8
+              ],
+              "size": [
+                16,
+                8,
+                16
+              ]
+            },
+            {
+              "origin": [
+                -8,
+                0,
+                -8
+              ],
+              "size": [
+                8,
+                8,
+                16
+              ]
+            },
+            {
+              "origin": [
+                0,
+                0,
+                0
+              ],
+              "size": [
+                8,
+                8,
+                8
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "condition": "query.block_state('minecraft:cardinal_direction') == 'south' && query.block_state('minecraft:corner') == 'inner_right' && query.block_state('minecraft:vertical_half') == 'bottom'",
+        "components": {
+          "minecraft:geometry": "geometry.hay_hay_stairs_south_inner_left_bottom",
+          "minecraft:collision_box": [
+            {
+              "origin": [
+                -8,
+                0,
+                -8
+              ],
+              "size": [
+                16,
+                8,
+                16
+              ]
+            },
+            {
+              "origin": [
+                -8,
+                8,
+                0
+              ],
+              "size": [
+                16,
+                8,
+                8
+              ]
+            },
+            {
+              "origin": [
+                0,
+                8,
+                -8
+              ],
+              "size": [
+                8,
+                8,
+                8
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "condition": "query.block_state('minecraft:cardinal_direction') == 'south' && query.block_state('minecraft:corner') == 'inner_right' && query.block_state('minecraft:vertical_half') == 'top'",
+        "components": {
+          "minecraft:geometry": "geometry.hay_hay_stairs_south_inner_left_top",
+          "minecraft:collision_box": [
+            {
+              "origin": [
+                -8,
+                8,
+                -8
+              ],
+              "size": [
+                16,
+                8,
+                16
+              ]
+            },
+            {
+              "origin": [
+                -8,
+                0,
+                0
+              ],
+              "size": [
+                16,
+                8,
+                8
+              ]
+            },
+            {
+              "origin": [
+                0,
+                0,
+                -8
+              ],
+              "size": [
+                8,
+                8,
+                8
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "condition": "query.block_state('minecraft:cardinal_direction') == 'west' && query.block_state('minecraft:corner') == 'inner_right' && query.block_state('minecraft:vertical_half') == 'bottom'",
+        "components": {
+          "minecraft:geometry": "geometry.hay_hay_stairs_west_inner_left_bottom",
+          "minecraft:collision_box": [
+            {
+              "origin": [
+                -8,
+                0,
+                -8
+              ],
+              "size": [
+                16,
+                8,
+                16
+              ]
+            },
+            {
+              "origin": [
+                0,
+                8,
+                -8
+              ],
+              "size": [
+                8,
+                8,
+                16
+              ]
+            },
+            {
+              "origin": [
+                -8,
+                8,
+                -8
+              ],
+              "size": [
+                8,
+                8,
+                8
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "condition": "query.block_state('minecraft:cardinal_direction') == 'west' && query.block_state('minecraft:corner') == 'inner_right' && query.block_state('minecraft:vertical_half') == 'top'",
+        "components": {
+          "minecraft:geometry": "geometry.hay_hay_stairs_west_inner_left_top",
+          "minecraft:collision_box": [
+            {
+              "origin": [
+                -8,
+                8,
+                -8
+              ],
+              "size": [
+                16,
+                8,
+                16
+              ]
+            },
+            {
+              "origin": [
+                0,
+                0,
+                -8
+              ],
+              "size": [
+                8,
+                8,
+                16
+              ]
+            },
+            {
+              "origin": [
+                -8,
+                0,
+                -8
+              ],
+              "size": [
+                8,
+                8,
+                8
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "condition": "query.block_state('minecraft:cardinal_direction') == 'north' && query.block_state('minecraft:corner') == 'inner_left' && query.block_state('minecraft:vertical_half') == 'bottom'",
+        "components": {
+          "minecraft:geometry": "geometry.hay_hay_stairs_north_inner_right_bottom",
+          "minecraft:collision_box": [
+            {
+              "origin": [
+                -8,
+                0,
+                -8
+              ],
+              "size": [
+                16,
+                8,
+                16
+              ]
+            },
+            {
+              "origin": [
+                -8,
+                8,
+                -8
+              ],
+              "size": [
+                16,
+                8,
+                8
+              ]
+            },
+            {
+              "origin": [
+                0,
+                8,
+                0
+              ],
+              "size": [
+                8,
+                8,
+                8
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "condition": "query.block_state('minecraft:cardinal_direction') == 'north' && query.block_state('minecraft:corner') == 'inner_left' && query.block_state('minecraft:vertical_half') == 'top'",
+        "components": {
+          "minecraft:geometry": "geometry.hay_hay_stairs_north_inner_right_top",
+          "minecraft:collision_box": [
+            {
+              "origin": [
+                -8,
+                8,
+                -8
+              ],
+              "size": [
+                16,
+                8,
+                16
+              ]
+            },
+            {
+              "origin": [
+                -8,
+                0,
+                -8
+              ],
+              "size": [
+                16,
+                8,
+                8
+              ]
+            },
+            {
+              "origin": [
+                0,
+                0,
+                0
+              ],
+              "size": [
+                8,
+                8,
+                8
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "condition": "query.block_state('minecraft:cardinal_direction') == 'east' && query.block_state('minecraft:corner') == 'inner_left' && query.block_state('minecraft:vertical_half') == 'bottom'",
+        "components": {
+          "minecraft:geometry": "geometry.hay_hay_stairs_east_inner_right_bottom",
+          "minecraft:collision_box": [
+            {
+              "origin": [
+                -8,
+                0,
+                -8
+              ],
+              "size": [
+                16,
+                8,
+                16
+              ]
+            },
+            {
+              "origin": [
+                -8,
+                8,
+                -8
+              ],
+              "size": [
+                8,
+                8,
+                16
+              ]
+            },
+            {
+              "origin": [
+                0,
+                8,
+                -8
+              ],
+              "size": [
+                8,
+                8,
+                8
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "condition": "query.block_state('minecraft:cardinal_direction') == 'east' && query.block_state('minecraft:corner') == 'inner_left' && query.block_state('minecraft:vertical_half') == 'top'",
+        "components": {
+          "minecraft:geometry": "geometry.hay_hay_stairs_east_inner_right_top",
+          "minecraft:collision_box": [
+            {
+              "origin": [
+                -8,
+                8,
+                -8
+              ],
+              "size": [
+                16,
+                8,
+                16
+              ]
+            },
+            {
+              "origin": [
+                -8,
+                0,
+                -8
+              ],
+              "size": [
+                8,
+                8,
+                16
+              ]
+            },
+            {
+              "origin": [
+                0,
+                0,
+                -8
+              ],
+              "size": [
+                8,
+                8,
+                8
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "condition": "query.block_state('minecraft:cardinal_direction') == 'south' && query.block_state('minecraft:corner') == 'inner_left' && query.block_state('minecraft:vertical_half') == 'bottom'",
+        "components": {
+          "minecraft:geometry": "geometry.hay_hay_stairs_south_inner_right_bottom",
+          "minecraft:collision_box": [
+            {
+              "origin": [
+                -8,
+                0,
+                -8
+              ],
+              "size": [
+                16,
+                8,
+                16
+              ]
+            },
+            {
+              "origin": [
+                -8,
+                8,
+                0
+              ],
+              "size": [
+                16,
+                8,
+                8
+              ]
+            },
+            {
+              "origin": [
+                -8,
+                8,
+                -8
+              ],
+              "size": [
+                8,
+                8,
+                8
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "condition": "query.block_state('minecraft:cardinal_direction') == 'south' && query.block_state('minecraft:corner') == 'inner_left' && query.block_state('minecraft:vertical_half') == 'top'",
+        "components": {
+          "minecraft:geometry": "geometry.hay_hay_stairs_south_inner_right_top",
+          "minecraft:collision_box": [
+            {
+              "origin": [
+                -8,
+                8,
+                -8
+              ],
+              "size": [
+                16,
+                8,
+                16
+              ]
+            },
+            {
+              "origin": [
+                -8,
+                0,
+                0
+              ],
+              "size": [
+                16,
+                8,
+                8
+              ]
+            },
+            {
+              "origin": [
+                -8,
+                0,
+                -8
+              ],
+              "size": [
+                8,
+                8,
+                8
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "condition": "query.block_state('minecraft:cardinal_direction') == 'west' && query.block_state('minecraft:corner') == 'inner_left' && query.block_state('minecraft:vertical_half') == 'bottom'",
+        "components": {
+          "minecraft:geometry": "geometry.hay_hay_stairs_west_inner_right_bottom",
+          "minecraft:collision_box": [
+            {
+              "origin": [
+                -8,
+                0,
+                -8
+              ],
+              "size": [
+                16,
+                8,
+                16
+              ]
+            },
+            {
+              "origin": [
+                0,
+                8,
+                -8
+              ],
+              "size": [
+                8,
+                8,
+                16
+              ]
+            },
+            {
+              "origin": [
+                -8,
+                8,
+                0
+              ],
+              "size": [
+                8,
+                8,
+                8
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "condition": "query.block_state('minecraft:cardinal_direction') == 'west' && query.block_state('minecraft:corner') == 'inner_left' && query.block_state('minecraft:vertical_half') == 'top'",
+        "components": {
+          "minecraft:geometry": "geometry.hay_hay_stairs_west_inner_right_top",
+          "minecraft:collision_box": [
+            {
+              "origin": [
+                -8,
+                8,
+                -8
+              ],
+              "size": [
+                16,
+                8,
+                16
+              ]
+            },
+            {
+              "origin": [
+                0,
+                0,
+                -8
+              ],
+              "size": [
+                8,
+                8,
+                16
+              ]
+            },
+            {
+              "origin": [
+                -8,
+                0,
+                0
+              ],
+              "size": [
+                8,
+                8,
+                8
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

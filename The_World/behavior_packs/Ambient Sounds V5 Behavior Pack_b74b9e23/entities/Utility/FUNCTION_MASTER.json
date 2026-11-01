@@ -1,0 +1,55 @@
+//bridge-file-version: #5
+{
+	"format_version": "1.8.0",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "boi:function_master",
+			"is_spawnable": false,
+			"is_summonable": true,
+			"is_experimental": false,
+			"scripts": {
+				"animate": [
+					"walk"
+				]
+			},
+			"animations": {
+				"walk": "controller.animation.function_master"
+			}
+		},
+		"components": {
+			"minecraft:health": {
+				"value": 1
+			},
+			"minecraft:spawn_entity": {
+				"min_wait_time": 1,
+				"max_wait_time": 1,
+				"spawn_sound": "plop",
+				"spawn_entity": "boi:cave_master_dungeon",
+				"single_use": true
+			},
+			"minecraft:physics": {},
+			"minecraft:damage_sensor": {
+				"triggers": [
+					{
+						"cause": "all",
+						"deals_damage": false
+					}
+				]
+			},
+			"minecraft:despawn": {
+				"filters": {
+					"test": "has_tag",
+					"operator": "==",
+					"value": "despawn"
+				}
+			},
+			"minecraft:type_family": {
+				"family": [
+					"inanimate"
+				]
+			}
+		},
+		"component_groups": {},
+		"events": {}
+	}
+}

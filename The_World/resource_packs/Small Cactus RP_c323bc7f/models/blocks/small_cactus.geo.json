@@ -1,0 +1,323 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:geometry": [
+    {
+      "description": {
+        "identifier": "geometry.small_cactus",
+        "texture_width": 16,
+        "texture_height": 16,
+        "visible_bounds_width": 2,
+        "visible_bounds_height": 2,
+        "visible_bounds_offset": [
+          0,
+          0.5,
+          0
+        ]
+      },
+      "bones": [
+        {
+          "name": "cactus",
+          "pivot": [
+            0,
+            0,
+            0
+          ],
+          "cubes": [
+            {
+              "origin": [
+                -4,
+                0,
+                -4
+              ],
+              "size": [
+                8,
+                7,
+                8
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    4.0,
+                    9
+                  ],
+                  "uv_size": [
+                    8,
+                    7
+                  ],
+                  "material_instance": "side"
+                },
+                "south": {
+                  "uv": [
+                    4.0,
+                    9
+                  ],
+                  "uv_size": [
+                    8,
+                    7
+                  ],
+                  "material_instance": "side"
+                },
+                "east": {
+                  "uv": [
+                    4.0,
+                    9
+                  ],
+                  "uv_size": [
+                    8,
+                    7
+                  ],
+                  "material_instance": "side"
+                },
+                "west": {
+                  "uv": [
+                    4.0,
+                    9
+                  ],
+                  "uv_size": [
+                    8,
+                    7
+                  ],
+                  "material_instance": "side"
+                },
+                "up": {
+                  "uv": [
+                    4.0,
+                    4.0
+                  ],
+                  "uv_size": [
+                    8,
+                    8
+                  ],
+                  "material_instance": "up"
+                },
+                "down": {
+                  "uv": [
+                    4.0,
+                    4.0
+                  ],
+                  "uv_size": [
+                    8,
+                    8
+                  ],
+                  "material_instance": "down"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": {
+        "identifier": "geometry.small_cactus_top",
+        "texture_width": 16,
+        "texture_height": 16,
+        "visible_bounds_width": 2,
+        "visible_bounds_height": 2,
+        "visible_bounds_offset": [
+          0,
+          0.5,
+          0
+        ]
+      },
+      "bones": [
+        {
+          "name": "cactus",
+          "pivot": [
+            0,
+            0,
+            0
+          ],
+          "cubes": [
+            {
+              "origin": [
+                -4,
+                0,
+                -4
+              ],
+              "size": [
+                8,
+                2,
+                8
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    4,
+                    14
+                  ],
+                  "uv_size": [
+                    8,
+                    2
+                  ],
+                  "material_instance": "side"
+                },
+                "south": {
+                  "uv": [
+                    4,
+                    14
+                  ],
+                  "uv_size": [
+                    8,
+                    2
+                  ],
+                  "material_instance": "side"
+                },
+                "east": {
+                  "uv": [
+                    4,
+                    14
+                  ],
+                  "uv_size": [
+                    8,
+                    2
+                  ],
+                  "material_instance": "side"
+                },
+                "west": {
+                  "uv": [
+                    4,
+                    14
+                  ],
+                  "uv_size": [
+                    8,
+                    2
+                  ],
+                  "material_instance": "side"
+                },
+                "up": {
+                  "uv": [
+                    4,
+                    4
+                  ],
+                  "uv_size": [
+                    8,
+                    8
+                  ],
+                  "material_instance": "up"
+                },
+                "down": {
+                  "uv": [
+                    4,
+                    4
+                  ],
+                  "uv_size": [
+                    8,
+                    8
+                  ],
+                  "material_instance": "down"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": {
+        "identifier": "geometry.small_cactus_full",
+        "texture_width": 16,
+        "texture_height": 16,
+        "visible_bounds_width": 2,
+        "visible_bounds_height": 2,
+        "visible_bounds_offset": [
+          0,
+          0.5,
+          0
+        ]
+      },
+      "bones": [
+        {
+          "name": "cactus",
+          "pivot": [
+            0,
+            0,
+            0
+          ],
+          "cubes": [
+            {
+              "origin": [
+                -4,
+                0,
+                -4
+              ],
+              "size": [
+                8,
+                16,
+                8
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    4.0,
+                    0
+                  ],
+                  "uv_size": [
+                    8,
+                    16
+                  ],
+                  "material_instance": "side"
+                },
+                "south": {
+                  "uv": [
+                    4.0,
+                    0
+                  ],
+                  "uv_size": [
+                    8,
+                    16
+                  ],
+                  "material_instance": "side"
+                },
+                "east": {
+                  "uv": [
+                    4.0,
+                    0
+                  ],
+                  "uv_size": [
+                    8,
+                    16
+                  ],
+                  "material_instance": "side"
+                },
+                "west": {
+                  "uv": [
+                    4.0,
+                    0
+                  ],
+                  "uv_size": [
+                    8,
+                    16
+                  ],
+                  "material_instance": "side"
+                },
+                "up": {
+                  "uv": [
+                    4.0,
+                    4.0
+                  ],
+                  "uv_size": [
+                    8,
+                    8
+                  ],
+                  "material_instance": "up"
+                },
+                "down": {
+                  "uv": [
+                    4.0,
+                    4.0
+                  ],
+                  "uv_size": [
+                    8,
+                    8
+                  ],
+                  "material_instance": "down"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

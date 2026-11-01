@@ -1,0 +1,61 @@
+{
+	"format_version": 2,
+	"header": {
+		"name": "Fireflies",
+		"description": "Adds fireflies to swamp biomes.",
+		"uuid": "9ff8e73f-ba8c-43fd-9e4c-cea877c46cb0",
+		"version": [
+			1,
+			1,
+			0
+		],
+		"min_engine_version": [
+			1,
+			21,
+			60
+		]
+	},
+	"modules": [
+		{
+			"type": "data",
+			"uuid": "558d0ddc-51ef-4a57-91d7-60b4c4e67022",
+			"version": [
+				1,
+				0,
+				0
+			]
+		},
+		{
+			"type": "script",
+			"language": "javascript",
+			"uuid": "b3d1c7a2-5e48-4f0a-9c63-2a7e1d9f4b85",
+			"version": [
+				1,
+				0,
+				0
+			],
+			"entry": "scripts/main.js"
+		}
+	],
+	"metadata": {
+		"generated_with": {
+			"bridge": [
+				"1.8.4"
+			]
+		}
+	},
+	"dependencies": [
+		{
+			"uuid": "79242148-0c8a-467b-a9e2-ce46923aaf2b",
+			"version": [
+				1,
+				1,
+				0
+			]
+		},
+		{
+			"module_name": "@minecraft/server",
+			"version": "1.16.0"
+		}
+	]
+}

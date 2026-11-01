@@ -1,0 +1,14 @@
+{
+  "format_version": "1.13.0",
+  "minecraft:aggregate_feature": {
+    "description": {
+      "identifier": "vaen:biomes/end_desert"
+    },
+    "features": [
+      "vaen:biomes/end_sand",
+      "vaen:scatter_desert_rocks",
+      "vaen:scatter_blackstone",
+      "vaen:scatter_nests"
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+{
+	"resource_pack_name": "moresimplestructures",
+	"texture_name": "atlas.items",
+	"texture_data": {
+		"wypnt_mss:spawn_egg_mummy": {
+			"textures": "textures/cbs/mss/items/spawn_egg_mummy"
+		  },
+		  "wypnt_mss:spawn_egg_pharaoh": {
+			"textures": "textures/cbs/mss/items/spawn_egg_pharaoh"
+		  },
+		  "wypnt_mss:spawn_egg_spirit": {
+			"textures": "textures/cbs/mss/items/spawn_egg_spirit"
+		  },
+		  "wypnt_mss:spawn_egg_decayed": {
+			"textures": "textures/cbs/mss/items/spawn_egg_decayed"
+		  },
+		  "wypnt_mss:spawn_egg_queenspider": {
+			"textures": "textures/cbs/mss/items/spawn_egg_queenspider"
+		  }
+	}
+}

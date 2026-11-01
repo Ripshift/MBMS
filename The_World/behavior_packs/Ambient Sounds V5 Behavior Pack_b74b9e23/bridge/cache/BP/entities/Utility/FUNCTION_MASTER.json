@@ -1,0 +1,348 @@
+{
+	"file_path": "C:\\Users\\fiddy\\AppData\\Local\\Packages\\Microsoft.MinecraftUWP_8wekyb3d8bbwe\\LocalState\\games\\com.mojang\\development_behavior_packs\\AmbientSoundsBP\\entities\\Utility\\FUNCTION_MASTER.json",
+	"file_type": "entity",
+	"format_version": 1,
+	"file_uuid": "256e78cd_64b3_40f3_8fcd_107cd9051654",
+	"file_version": 5,
+	"cache_content": {
+		"children": [
+			{
+				"data": "1.8.0",
+				"key": "format_version"
+			},
+			{
+				"open": {
+					"format_version": "1.8.0",
+					"minecraft:entity": {
+						"description": {
+							"identifier": "boi:function_master",
+							"is_spawnable": false,
+							"is_summonable": true,
+							"is_experimental": false,
+							"scripts": {
+								"animate": [
+									"walk"
+								]
+							},
+							"animations": {
+								"walk": "controller.animation.function_master"
+							}
+						},
+						"components": {
+							"minecraft:health": {
+								"value": 1
+							},
+							"minecraft:spawn_entity": {
+								"min_wait_time": 1,
+								"max_wait_time": 1,
+								"spawn_sound": "plop",
+								"spawn_entity": "boi:cave_master_dungeon",
+								"single_use": true
+							},
+							"minecraft:physics": {},
+							"minecraft:damage_sensor": {
+								"triggers": [
+									{
+										"cause": "all",
+										"deals_damage": false
+									}
+								]
+							},
+							"minecraft:despawn": {
+								"filters": {
+									"test": "has_tag",
+									"operator": "==",
+									"value": "despawn"
+								}
+							},
+							"minecraft:type_family": {
+								"family": [
+									"inanimate"
+								]
+							}
+						},
+						"component_groups": {},
+						"events": {}
+					}
+				},
+				"key": "minecraft:entity",
+				"children": [
+					{
+						"open": {
+							"description": {
+								"identifier": "boi:function_master",
+								"is_spawnable": false,
+								"is_summonable": true,
+								"is_experimental": false,
+								"scripts": {
+									"animate": [
+										"walk"
+									]
+								},
+								"animations": {
+									"walk": "controller.animation.function_master"
+								}
+							},
+							"components": {
+								"minecraft:health": {
+									"value": 1
+								},
+								"minecraft:spawn_entity": {
+									"min_wait_time": 1,
+									"max_wait_time": 1,
+									"spawn_sound": "plop",
+									"spawn_entity": "boi:cave_master_dungeon",
+									"single_use": true
+								},
+								"minecraft:physics": {},
+								"minecraft:damage_sensor": {
+									"triggers": [
+										{
+											"cause": "all",
+											"deals_damage": false
+										}
+									]
+								},
+								"minecraft:despawn": {
+									"filters": {
+										"test": "has_tag",
+										"operator": "==",
+										"value": "despawn"
+									}
+								},
+								"minecraft:type_family": {
+									"family": [
+										"inanimate"
+									]
+								}
+							},
+							"component_groups": {},
+							"events": {}
+						},
+						"key": "description",
+						"is_minified": true,
+						"children": {
+							"identifier": "boi:function_master",
+							"is_spawnable": false,
+							"is_summonable": true,
+							"is_experimental": false,
+							"scripts": {
+								"animate": [
+									"walk"
+								]
+							},
+							"animations": {
+								"walk": "controller.animation.function_master"
+							}
+						}
+					},
+					{
+						"open": {
+							"description": {
+								"identifier": "boi:function_master",
+								"is_spawnable": false,
+								"is_summonable": true,
+								"is_experimental": false,
+								"scripts": {
+									"animate": [
+										"walk"
+									]
+								},
+								"animations": {
+									"walk": "controller.animation.function_master"
+								}
+							},
+							"components": {
+								"minecraft:health": {
+									"value": 1
+								},
+								"minecraft:spawn_entity": {
+									"min_wait_time": 1,
+									"max_wait_time": 1,
+									"spawn_sound": "plop",
+									"spawn_entity": "boi:cave_master_dungeon",
+									"single_use": true
+								},
+								"minecraft:physics": {},
+								"minecraft:damage_sensor": {
+									"triggers": [
+										{
+											"cause": "all",
+											"deals_damage": false
+										}
+									]
+								},
+								"minecraft:despawn": {
+									"filters": {
+										"test": "has_tag",
+										"operator": "==",
+										"value": "despawn"
+									}
+								},
+								"minecraft:type_family": {
+									"family": [
+										"inanimate"
+									]
+								}
+							},
+							"component_groups": {},
+							"events": {}
+						},
+						"key": "components",
+						"children": [
+							{
+								"key": "minecraft:health",
+								"is_minified": true,
+								"children": {
+									"value": 1
+								}
+							},
+							{
+								"key": "minecraft:spawn_entity",
+								"is_minified": true,
+								"children": {
+									"min_wait_time": 1,
+									"max_wait_time": 1,
+									"spawn_sound": "plop",
+									"spawn_entity": "boi:cave_master_dungeon",
+									"single_use": true
+								}
+							},
+							{
+								"key": "minecraft:physics",
+								"is_minified": true,
+								"children": {}
+							},
+							{
+								"key": "minecraft:damage_sensor",
+								"is_minified": true,
+								"children": {
+									"triggers": [
+										{
+											"cause": "all",
+											"deals_damage": false
+										}
+									]
+								}
+							},
+							{
+								"open": {
+									"minecraft:health": {
+										"value": 1
+									},
+									"minecraft:spawn_entity": {
+										"min_wait_time": 1,
+										"max_wait_time": 1,
+										"spawn_sound": "plop",
+										"spawn_entity": "boi:cave_master_dungeon",
+										"single_use": true
+									},
+									"minecraft:physics": {},
+									"minecraft:damage_sensor": {
+										"triggers": [
+											{
+												"cause": "all",
+												"deals_damage": false
+											}
+										]
+									},
+									"minecraft:despawn": {
+										"filters": {
+											"test": "has_tag",
+											"operator": "==",
+											"value": "despawn"
+										}
+									},
+									"minecraft:type_family": {
+										"family": [
+											"inanimate"
+										]
+									}
+								},
+								"key": "minecraft:despawn",
+								"children": [
+									{
+										"open": {
+											"filters": {
+												"test": "has_tag",
+												"operator": "==",
+												"value": "despawn"
+											}
+										},
+										"key": "filters",
+										"is_minified": true,
+										"children": {
+											"test": "has_tag",
+											"operator": "==",
+											"value": "despawn"
+										}
+									}
+								]
+							},
+							{
+								"open": {
+									"minecraft:health": {
+										"value": 1
+									},
+									"minecraft:spawn_entity": {
+										"min_wait_time": 1,
+										"max_wait_time": 1,
+										"spawn_sound": "plop",
+										"spawn_entity": "boi:cave_master_dungeon",
+										"single_use": true
+									},
+									"minecraft:physics": {},
+									"minecraft:damage_sensor": {
+										"triggers": [
+											{
+												"cause": "all",
+												"deals_damage": false
+											}
+										]
+									},
+									"minecraft:despawn": {
+										"filters": {
+											"test": "has_tag",
+											"operator": "==",
+											"value": "despawn"
+										}
+									},
+									"minecraft:type_family": {
+										"family": [
+											"inanimate"
+										]
+									}
+								},
+								"key": "minecraft:type_family",
+								"children": [
+									{
+										"open": {
+											"family": [
+												"inanimate"
+											]
+										},
+										"key": "family",
+										"is_minified": true,
+										"children": [
+											"inanimate"
+										]
+									}
+								]
+							}
+						]
+					},
+					{
+						"key": "component_groups",
+						"is_minified": true,
+						"children": {}
+					},
+					{
+						"key": "events",
+						"is_minified": true,
+						"children": {}
+					}
+				]
+			}
+		]
+	}
+}
