@@ -1,0 +1,24 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "crafting:pale_oak_slab"
+    },
+    "groups": [
+      "crafting"
+    ],
+    "priority": 0,
+    "tags": [
+      "stonecutter"
+    ],
+    "ingredients": [
+      {
+        "item": "minecraft:pale_oak_planks"
+      }
+    ],
+    "result": {
+      "item": "minecraft:pale_oak_slab",
+      "count": 2
+    }
+  }
+}

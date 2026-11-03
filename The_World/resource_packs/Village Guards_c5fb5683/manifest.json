@@ -1,0 +1,30 @@
+//bridge-file-version: #5
+{
+	"format_version": 2,
+	"header": {
+		"name": "Village Guards",
+		"description": "Adds Village Guards",
+		"uuid": "c5fb5683-0b35-470e-b9ed-d611677b6c4c",
+		"version": [
+			1,
+			16,
+			1
+		],
+		"min_engine_version": [
+			1,
+			13,
+			0
+		]
+	},
+	"modules": [
+		{
+			"type": "resources",
+			"uuid": "83066ab9-cb79-40fb-a278-2e9e6f545533",
+			"version": [
+				1,
+				16,
+				1
+			]
+		}
+	]
+}

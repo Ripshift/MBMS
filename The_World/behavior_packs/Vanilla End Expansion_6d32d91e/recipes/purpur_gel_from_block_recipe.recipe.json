@@ -1,0 +1,20 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "vaen:purpur_gel_from_block_recipe"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "ingredients": [
+      {
+        "item": "vaen:purpur_gel_block"
+      }
+    ],
+    "result": {
+      "item": "vaen:purpur_gel",
+      "count": 9
+    }
+  }
+}

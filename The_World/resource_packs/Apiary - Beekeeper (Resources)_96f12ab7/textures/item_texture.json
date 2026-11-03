@@ -1,0 +1,15 @@
+{
+  "resource_pack_name": "apiary",
+  "texture_name": "atlas.items",
+  "texture_data": {
+    "apiary_beekeeper_spawn_egg": {
+      "textures": "textures/items/spawn_eggs/apiary_beekeeper_spawn_egg"
+    },
+    "apiary_honeycake": {
+      "textures": "textures/items/honeycake"
+    },
+    "honey_bottle": {
+      "textures": "textures/items/honey_bottle"
+    }
+  }
+}

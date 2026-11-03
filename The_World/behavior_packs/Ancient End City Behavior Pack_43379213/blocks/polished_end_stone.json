@@ -1,0 +1,37 @@
+{
+  "format_version": "1.21.60",
+  "minecraft:block": {
+    "description": {
+      "identifier": "ancientend:polished_end_stone",
+      "menu_category": {
+        "category": "construction"
+      }
+    },
+    "components": {
+      "minecraft:geometry": "minecraft:geometry.full_block",
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "ancientend_polished_end_stone",
+          "render_method": "opaque"
+        }
+      },
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 3.0
+      },
+      "minecraft:destructible_by_explosion": {
+        "explosion_resistance": 9
+      },
+      "minecraft:map_color": "#EAEEB9",
+      "minecraft:collision_box": true,
+      "minecraft:selection_box": true,
+      "minecraft:friction": 0.4,
+      "minecraft:light_dampening": 15,
+      "minecraft:redstone_conductivity": {
+        "allows_wire_to_step_down": true,
+        "redstone_conductor": true
+      },
+      "minecraft:loot": "loot_tables/blocks/polished_end_stone.json",
+      "tag:minecraft:is_pickaxe_item_destructible": {}
+    }
+  }
+}

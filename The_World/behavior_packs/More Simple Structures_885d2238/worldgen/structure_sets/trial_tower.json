@@ -1,0 +1,21 @@
+{
+  "format_version": "1.21.20",
+  "minecraft:structure_set": {
+    "description": {
+      "identifier": "wypnt_mss:trial_tower"
+    },
+    "placement": {
+      "type": "minecraft:random_spread",
+      "salt": 12476320,
+      "spacing": 110,
+      "separation": 45,
+      "spread_type": "linear"
+    },
+    "structures": [
+      {
+        "structure": "wypnt_mss:trial_tower",
+        "weight": 1
+      }
+    ]
+  }
+}

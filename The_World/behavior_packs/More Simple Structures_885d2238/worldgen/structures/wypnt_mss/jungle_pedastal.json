@@ -1,0 +1,87 @@
+{
+  "format_version": "1.21.20",
+  "minecraft:jigsaw": {
+    "description": {
+      "identifier": "wypnt_mss:jungle_pedastal"
+    },
+    "biome_filters": [
+				{
+					"all_of": [
+						{
+							"test": "has_biome_tag",
+							"operator": "!=",
+							"value": "edge"
+						},
+						{
+							"test": "has_biome_tag",
+							"operator": "!=",
+							"value": "bamboo"
+						},
+						{
+							"test": "has_biome_tag",
+							"operator": "!=",
+							"value": "wypnt_mss:prevent_jungle_pedastal"
+						},
+						{
+							"any_of": [
+								{
+							"test": "has_biome_tag",
+							"operator": "==",
+							"value": "jungle"
+						},
+								{
+            "test": "has_biome_tag",
+            "operator": "==",
+            "value": "wypnt_mss:has_structure_jungle_pedastal"
+          },
+								{
+									"test": "has_biome_tag",
+									"operator": "==",
+									"value": "bop_ks:is_lush"
+								},
+								{
+									"test": "has_biome_tag",
+									"operator": "==",
+									"value": "bop_ks:rainforest"
+								},
+								{
+									"test": "has_biome_tag",
+									"operator": "==",
+									"value": "bop_ks:tropics"
+								},
+								{
+									"test": "has_biome_tag",
+									"operator": "==",
+									"value": "bop_ks:fungal_jungle"
+								},
+{
+"test": "has_biome_tag",
+"operator": "==",
+"value": "wypnt_bab:tropical_jungle"
+},
+{
+"test": "has_biome_tag",
+"operator": "==",
+"value": "wypnt_bab:shroom_caves"
+}
+							]
+						}
+					]
+				}
+    ],
+    "step": "surface_structures",
+    "terrain_adaptation": "beard_thin",
+    "start_pool": "wypnt_mss:jungle_pedastal_pool",
+    "start_height": {
+        "type": "constant",
+        "value": { "absolute": 0 } 
+    },
+    "max_depth": 4,
+    "heightmap_projection": "world_surface",
+    "dimension_padding": {
+      "top": 10,
+      "bottom": 5
+    },
+    "liquid_settings": "apply_waterlogging"
+  }
+}

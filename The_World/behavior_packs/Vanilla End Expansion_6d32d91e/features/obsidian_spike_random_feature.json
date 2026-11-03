@@ -1,0 +1,16 @@
+{
+    "format_version": "1.13.0",
+
+    "minecraft:weighted_random_feature": {
+        "description": {
+            "identifier": "vaen:obsidian_spike_random_feature"
+        },
+
+        "features": [
+            ["vaen:obsidian_spike_1", 2],
+            ["vaen:obsidian_spike_2", 2],
+            ["vaen:obsidian_spike_3", 3],
+            ["vaen:obsidian_spike_4", 3]
+        ]
+    }
+}

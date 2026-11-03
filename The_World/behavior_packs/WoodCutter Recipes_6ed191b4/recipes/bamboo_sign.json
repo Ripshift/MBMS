@@ -1,0 +1,23 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "crafting:bamboo_sign"
+    },
+    "groups": [
+      "crafting"
+    ],
+    "priority": 0,
+    "tags": [
+      "stonecutter"
+    ],
+    "ingredients": [
+      {
+        "item": "minecraft:bamboo_planks"
+      }
+    ],
+    "result": {
+      "item": "minecraft:bamboo_sign"
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:attachable": {
+    "description": {
+      "identifier": "bapa:green_large_backpack_equipped_n.attachable",
+      "item": "bapa:green_large_backpack_equipped_n",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/bapa/big_backpack_green",
+        "lamp": "textures/blocks/lantern"
+      },
+      "geometry": {
+        "default": "geometry.bapa_big_backpack_wear",
+        "lamp": "geometry.bapa_big_backpack_lamp"
+      },
+      "animations": {
+        "sway": "animation.bapa.backpack.sway",
+        "hide_first_person": "animation.bapa.backpack.hide_first_person",
+        "offset": "animation.bapa.backpack.offset"
+      },
+      "scripts": {
+        "animate": [
+          "offset",
+          "sway",
+          {
+            "hide_first_person": "context.is_first_person == 1.0"
+          }
+        ]
+      },
+      "render_controllers": [
+        "controller.render.default",
+        "controller.render.bapa_acc_lamp"
+      ]
+    }
+  }
+}

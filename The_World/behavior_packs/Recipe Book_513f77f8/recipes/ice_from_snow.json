@@ -1,0 +1,50 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "rebo:ice_from_snow"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "012",
+      "345",
+      "678"
+    ],
+    "key": {
+      "0": {
+        "item": "minecraft:snow"
+      },
+      "1": {
+        "item": "minecraft:snow"
+      },
+      "2": {
+        "item": "minecraft:snow"
+      },
+      "3": {
+        "item": "minecraft:snow"
+      },
+      "4": {
+        "item": "minecraft:snow"
+      },
+      "5": {
+        "item": "minecraft:snow"
+      },
+      "6": {
+        "item": "minecraft:snow"
+      },
+      "7": {
+        "item": "minecraft:snow"
+      },
+      "8": {
+        "item": "minecraft:snow"
+      }
+    },
+    "result": {
+      "item": "minecraft:ice",
+      "count": 1
+    },
+    "group": "nature"
+  }
+}

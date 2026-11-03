@@ -1,0 +1,23 @@
+{
+  "resource_pack_name": "vanilla",
+  "texture_name": "atlas.terrain",
+  "padding": 8,
+  "num_mip_levels": 4,
+  "texture_data": {
+    "fato_rabbit_trap_empty": {
+      "textures": "textures/blocks/rabbit_trap_empty"
+    },
+    "fato_rabbit_trap_baited": {
+      "textures": "textures/blocks/rabbit_trap_baited"
+    },
+    "fato_rabbit_trap_trapped": {
+      "textures": "textures/blocks/rabbit_trap_trapped"
+    },
+    "fato_fish_trap_empty": {
+      "textures": "textures/blocks/fish_trap_empty"
+    },
+    "fato_fish_trap_full": {
+      "textures": "textures/blocks/fish_trap_full"
+    }
+  }
+}

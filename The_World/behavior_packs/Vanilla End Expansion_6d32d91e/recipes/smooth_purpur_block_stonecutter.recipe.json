@@ -1,0 +1,20 @@
+{
+    "format_version": "1.12",
+    "minecraft:recipe_shapeless": {
+        "description": {
+            "identifier": "vaen:smooth_purpur_block_stonecutter"
+        },
+        "tags": [
+            "stonecutter"
+        ],
+        "ingredients": [
+            {
+                "item": "minecraft:purpur_block"
+            }
+        ],
+        "result": {
+            "item": "vaen:smooth_purpur_block",
+            "count": 1
+        }
+    }
+}

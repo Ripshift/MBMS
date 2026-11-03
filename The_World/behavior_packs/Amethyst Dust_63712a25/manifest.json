@@ -1,0 +1,45 @@
+{
+  "format_version": 2,
+  "header": {
+    "description": "§d Adds Amethyst Dust and Recipes for Shards and Calcite.",
+    "name": "Amethyst Dust",
+    "uuid": "63712a25-d63e-3879-b112-cc6dc2641526",
+    "version": [
+      1,
+      1,
+      1
+    ],
+    "min_engine_version": [
+      1,
+      26,
+      0
+    ]
+  },
+  "modules": [
+    {
+      "description": "§d Adds Amethyst Dust and Recipes for Shards and Calcite.",
+      "type": "data",
+      "uuid": "efb37e5b-0854-330f-89aa-b5ea53763c4e",
+      "version": [
+        1,
+        1,
+        1
+      ]
+    }
+  ],
+  "metadata": {
+    "authors": [
+      "Dolled"
+    ]
+  },
+  "dependencies": [
+    {
+      "uuid": "d9085d22-e896-3a8b-90fa-e2f532a01b8c",
+      "version": [
+        1,
+        1,
+        1
+      ]
+    }
+  ]
+}

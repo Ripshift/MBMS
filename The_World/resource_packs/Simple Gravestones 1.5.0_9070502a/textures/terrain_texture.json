@@ -1,0 +1,467 @@
+{
+    "texture_name": "atlas.terrain",
+    "texture_data": {
+        "ae_sg:gravestone": {
+            "textures": "textures/ae_sg/blocks/gravestone"
+        },
+        "ae_sg:platform_overworld": {
+            "textures": "textures/blocks/dirt_with_roots"
+        },
+        "ae_sg:plat_0": {
+            "textures": "textures/blocks/dirt"
+        },
+        "ae_sg:plat_1": {
+            "textures": "textures/blocks/coarse_dirt"
+        },
+        "ae_sg:plat_2": {
+            "textures": "textures/blocks/dirt_podzol_top"
+        },
+        "ae_sg:plat_3": {
+            "textures": "textures/blocks/mycelium_top"
+        },
+        "ae_sg:plat_4": {
+            "textures": "textures/blocks/farmland_wet"
+        },
+        "ae_sg:plat_5": {
+            "textures": "textures/blocks/moss_block"
+        },
+        "ae_sg:plat_6": {
+            "textures": "textures/blocks/mud"
+        },
+        "ae_sg:plat_7": {
+            "textures": "textures/blocks/packed_mud"
+        },
+        "ae_sg:plat_8": {
+            "textures": "textures/blocks/mud_bricks"
+        },
+        "ae_sg:plat_9": {
+            "textures": "textures/blocks/clay"
+        },
+        "ae_sg:plat_10": {
+            "textures": "textures/blocks/sand"
+        },
+        "ae_sg:plat_11": {
+            "textures": "textures/blocks/red_sand"
+        },
+        "ae_sg:plat_12": {
+            "textures": "textures/blocks/gravel"
+        },
+        "ae_sg:plat_13": {
+            "textures": "textures/blocks/sandstone_top"
+        },
+        "ae_sg:plat_14": {
+            "textures": "textures/blocks/red_sandstone_top"
+        },
+        "ae_sg:plat_15": {
+            "textures": "textures/blocks/stone"
+        },
+        "ae_sg:plat_16": {
+            "textures": "textures/blocks/cobblestone"
+        },
+        "ae_sg:plat_17": {
+            "textures": "textures/blocks/cobblestone_mossy"
+        },
+        "ae_sg:plat_18": {
+            "textures": "textures/blocks/stonebrick"
+        },
+        "ae_sg:plat_19": {
+            "textures": "textures/blocks/stonebrick_mossy"
+        },
+        "ae_sg:plat_20": {
+            "textures": "textures/blocks/stonebrick_cracked"
+        },
+        "ae_sg:plat_21": {
+            "textures": "textures/blocks/stonebrick_carved"
+        },
+        "ae_sg:plat_22": {
+            "textures": "textures/blocks/stone_slab_top"
+        },
+        "ae_sg:plat_23": {
+            "textures": "textures/blocks/stone_andesite"
+        },
+        "ae_sg:plat_24": {
+            "textures": "textures/blocks/stone_andesite_smooth"
+        },
+        "ae_sg:plat_25": {
+            "textures": "textures/blocks/stone_diorite"
+        },
+        "ae_sg:plat_26": {
+            "textures": "textures/blocks/stone_diorite_smooth"
+        },
+        "ae_sg:plat_27": {
+            "textures": "textures/blocks/stone_granite"
+        },
+        "ae_sg:plat_28": {
+            "textures": "textures/blocks/stone_granite_smooth"
+        },
+        "ae_sg:plat_29": {
+            "textures": "textures/blocks/tuff"
+        },
+        "ae_sg:plat_30": {
+            "textures": "textures/blocks/polished_tuff"
+        },
+        "ae_sg:plat_31": {
+            "textures": "textures/blocks/tuff_bricks"
+        },
+        "ae_sg:plat_32": {
+            "textures": "textures/blocks/calcite"
+        },
+        "ae_sg:plat_33": {
+            "textures": "textures/blocks/dripstone_block"
+        },
+        "ae_sg:plat_34": {
+            "textures": "textures/blocks/deepslate/deepslate_top"
+        },
+        "ae_sg:plat_35": {
+            "textures": "textures/blocks/deepslate/cobbled_deepslate"
+        },
+        "ae_sg:plat_36": {
+            "textures": "textures/blocks/deepslate/polished_deepslate"
+        },
+        "ae_sg:plat_37": {
+            "textures": "textures/blocks/deepslate/deepslate_bricks"
+        },
+        "ae_sg:plat_38": {
+            "textures": "textures/blocks/deepslate/deepslate_tiles"
+        },
+        "ae_sg:plat_39": {
+            "textures": "textures/blocks/deepslate/chiseled_deepslate"
+        },
+        "ae_sg:plat_40": {
+            "textures": "textures/blocks/bedrock"
+        },
+        "ae_sg:plat_41": {
+            "textures": "textures/blocks/obsidian"
+        },
+        "ae_sg:plat_42": {
+            "textures": "textures/blocks/crying_obsidian"
+        },
+        "ae_sg:plat_43": {
+            "textures": "textures/blocks/netherrack"
+        },
+        "ae_sg:plat_44": {
+            "textures": "textures/blocks/cracked_nether_bricks"
+        },
+        "ae_sg:plat_45": {
+            "textures": "textures/blocks/chiseled_nether_bricks"
+        },
+        "ae_sg:plat_46": {
+            "textures": "textures/blocks/soul_sand"
+        },
+        "ae_sg:plat_47": {
+            "textures": "textures/blocks/soul_soil"
+        },
+        "ae_sg:plat_48": {
+            "textures": "textures/blocks/basalt_top"
+        },
+        "ae_sg:plat_49": {
+            "textures": "textures/blocks/polished_basalt_top"
+        },
+        "ae_sg:plat_50": {
+            "textures": "textures/blocks/smooth_basalt"
+        },
+        "ae_sg:plat_51": {
+            "textures": "textures/blocks/blackstone_top"
+        },
+        "ae_sg:plat_52": {
+            "textures": "textures/blocks/polished_blackstone"
+        },
+        "ae_sg:plat_53": {
+            "textures": "textures/blocks/polished_blackstone_bricks"
+        },
+        "ae_sg:plat_54": {
+            "textures": "textures/blocks/gilded_blackstone"
+        },
+        "ae_sg:plat_55": {
+            "textures": "textures/blocks/crimson_nylium_top"
+        },
+        "ae_sg:plat_56": {
+            "textures": "textures/blocks/warped_nylium_top"
+        },
+        "ae_sg:plat_57": {
+            "textures": "textures/blocks/nether_wart_block"
+        },
+        "ae_sg:plat_58": {
+            "textures": "textures/blocks/warped_wart_block"
+        },
+        "ae_sg:plat_59": {
+            "textures": "textures/blocks/magma"
+        },
+        "ae_sg:plat_60": {
+            "textures": "textures/blocks/glowstone"
+        },
+        "ae_sg:plat_61": {
+            "textures": "textures/blocks/shroomlight"
+        },
+        "ae_sg:plat_62": {
+            "textures": "textures/blocks/end_stone"
+        },
+        "ae_sg:plat_63": {
+            "textures": "textures/blocks/end_bricks"
+        },
+        "ae_sg:plat_64": {
+            "textures": "textures/blocks/purpur_block"
+        },
+        "ae_sg:plat_65": {
+            "textures": "textures/blocks/purpur_pillar_top"
+        },
+        "ae_sg:plat_66": {
+            "textures": "textures/blocks/snow"
+        },
+        "ae_sg:plat_67": {
+            "textures": "textures/blocks/powder_snow"
+        },
+        "ae_sg:plat_68": {
+            "textures": "textures/blocks/ice"
+        },
+        "ae_sg:plat_69": {
+            "textures": "textures/blocks/ice_packed"
+        },
+        "ae_sg:plat_70": {
+            "textures": "textures/blocks/blue_ice"
+        },
+        "ae_sg:plat_71": {
+            "textures": "textures/blocks/hardened_clay_stained_white"
+        },
+        "ae_sg:plat_72": {
+            "textures": "textures/blocks/hardened_clay_stained_orange"
+        },
+        "ae_sg:plat_73": {
+            "textures": "textures/blocks/hardened_clay_stained_magenta"
+        },
+        "ae_sg:plat_74": {
+            "textures": "textures/blocks/hardened_clay_stained_light_blue"
+        },
+        "ae_sg:plat_75": {
+            "textures": "textures/blocks/hardened_clay_stained_yellow"
+        },
+        "ae_sg:plat_76": {
+            "textures": "textures/blocks/hardened_clay_stained_lime"
+        },
+        "ae_sg:plat_77": {
+            "textures": "textures/blocks/hardened_clay_stained_pink"
+        },
+        "ae_sg:plat_78": {
+            "textures": "textures/blocks/hardened_clay_stained_gray"
+        },
+        "ae_sg:plat_79": {
+            "textures": "textures/blocks/hardened_clay_stained_silver"
+        },
+        "ae_sg:plat_80": {
+            "textures": "textures/blocks/hardened_clay_stained_cyan"
+        },
+        "ae_sg:plat_81": {
+            "textures": "textures/blocks/hardened_clay_stained_purple"
+        },
+        "ae_sg:plat_82": {
+            "textures": "textures/blocks/hardened_clay_stained_blue"
+        },
+        "ae_sg:plat_83": {
+            "textures": "textures/blocks/hardened_clay_stained_brown"
+        },
+        "ae_sg:plat_84": {
+            "textures": "textures/blocks/hardened_clay_stained_green"
+        },
+        "ae_sg:plat_85": {
+            "textures": "textures/blocks/hardened_clay_stained_red"
+        },
+        "ae_sg:plat_86": {
+            "textures": "textures/blocks/hardened_clay_stained_black"
+        },
+        "ae_sg:plat_87": {
+            "textures": "textures/blocks/planks_oak"
+        },
+        "ae_sg:plat_88": {
+            "textures": "textures/blocks/planks_spruce"
+        },
+        "ae_sg:plat_89": {
+            "textures": "textures/blocks/planks_birch"
+        },
+        "ae_sg:plat_90": {
+            "textures": "textures/blocks/planks_jungle"
+        },
+        "ae_sg:plat_91": {
+            "textures": "textures/blocks/planks_acacia"
+        },
+        "ae_sg:plat_92": {
+            "textures": "textures/blocks/planks_big_oak"
+        },
+        "ae_sg:plat_93": {
+            "textures": "textures/blocks/mangrove_planks"
+        },
+        "ae_sg:plat_94": {
+            "textures": "textures/blocks/cherry_planks"
+        },
+        "ae_sg:plat_95": {
+            "textures": "textures/blocks/bamboo_planks"
+        },
+        "ae_sg:plat_96": {
+            "textures": "textures/blocks/huge_fungus/crimson_planks"
+        },
+        "ae_sg:plat_97": {
+            "textures": "textures/blocks/huge_fungus/warped_planks"
+        },
+        "ae_sg:plat_98": {
+            "textures": "textures/blocks/pale_oak_planks"
+        },
+        "ae_sg:plat_99": {
+            "textures": "textures/blocks/quartz_block_top"
+        },
+        "ae_sg:plat_100": {
+            "textures": "textures/blocks/quartz_block_bottom"
+        },
+        "ae_sg:plat_101": {
+            "textures": "textures/blocks/coal_block"
+        },
+        "ae_sg:plat_102": {
+            "textures": "textures/blocks/iron_block"
+        },
+        "ae_sg:plat_103": {
+            "textures": "textures/blocks/gold_block"
+        },
+        "ae_sg:plat_104": {
+            "textures": "textures/blocks/copper_block"
+        },
+        "ae_sg:plat_105": {
+            "textures": "textures/blocks/cut_copper"
+        },
+        "ae_sg:plat_106": {
+            "textures": "textures/blocks/exposed_copper"
+        },
+        "ae_sg:plat_107": {
+            "textures": "textures/blocks/weathered_copper"
+        },
+        "ae_sg:plat_108": {
+            "textures": "textures/blocks/oxidized_copper"
+        },
+        "ae_sg:plat_109": {
+            "textures": "textures/blocks/netherite_block"
+        },
+        "ae_sg:plat_110": {
+            "textures": "textures/blocks/prismarine_rough"
+        },
+        "ae_sg:plat_111": {
+            "textures": "textures/blocks/prismarine_bricks"
+        },
+        "ae_sg:plat_112": {
+            "textures": "textures/blocks/prismarine_dark"
+        },
+        "ae_sg:plat_113": {
+            "textures": "textures/blocks/concrete_white"
+        },
+        "ae_sg:plat_114": {
+            "textures": "textures/blocks/concrete_orange"
+        },
+        "ae_sg:plat_115": {
+            "textures": "textures/blocks/concrete_red"
+        },
+        "ae_sg:plat_116": {
+            "textures": "textures/blocks/concrete_lime"
+        },
+        "ae_sg:plat_117": {
+            "textures": "textures/blocks/concrete_cyan"
+        },
+        "ae_sg:plat_118": {
+            "textures": "textures/blocks/concrete_blue"
+        },
+        "ae_sg:plat_119": {
+            "textures": "textures/blocks/concrete_black"
+        },
+        "ae_sg:plat_120": {
+            "textures": "textures/blocks/concrete_gray"
+        },
+        "ae_sg:plat_121": {
+            "textures": "textures/blocks/wool_colored_white"
+        },
+        "ae_sg:plat_122": {
+            "textures": "textures/blocks/wool_colored_brown"
+        },
+        "ae_sg:plat_123": {
+            "textures": "textures/blocks/bone_block_top"
+        },
+        "ae_sg:plat_124": {
+            "textures": "textures/blocks/hay_block_top"
+        },
+        "ae_sg:plat_125": {
+            "textures": "textures/blocks/log_oak_top"
+        },
+        "ae_sg:plat_126": {
+            "textures": "textures/blocks/log_spruce_top"
+        },
+        "ae_sg:plat_127": {
+            "textures": "textures/blocks/log_birch_top"
+        },
+        "ae_sg:plat_128": {
+            "textures": "textures/blocks/log_jungle_top"
+        },
+        "ae_sg:plat_129": {
+            "textures": "textures/blocks/log_acacia_top"
+        },
+        "ae_sg:plat_130": {
+            "textures": "textures/blocks/log_big_oak_top"
+        },
+        "ae_sg:plat_131": {
+            "textures": "textures/blocks/mangrove_log_top"
+        },
+        "ae_sg:plat_132": {
+            "textures": "textures/blocks/cherry_log_top"
+        },
+        "ae_sg:plat_133": {
+            "textures": "textures/blocks/huge_fungus/crimson_log_top"
+        },
+        "ae_sg:plat_134": {
+            "textures": "textures/blocks/huge_fungus/warped_stem_top"
+        },
+        "ae_sg:plat_135": {
+            "textures": "textures/blocks/pale_moss_block"
+        },
+        "ae_sg:plat_136": {
+            "textures": "textures/blocks/resin_block"
+        },
+        "ae_sg:plat_137": {
+            "textures": "textures/blocks/coal_ore"
+        },
+        "ae_sg:plat_138": {
+            "textures": "textures/blocks/iron_ore"
+        },
+        "ae_sg:plat_139": {
+            "textures": "textures/blocks/gold_ore"
+        },
+        "ae_sg:plat_140": {
+            "textures": "textures/blocks/diamond_ore"
+        },
+        "ae_sg:plat_141": {
+            "textures": "textures/blocks/deepslate/deepslate_coal_ore"
+        },
+        "ae_sg:plat_142": {
+            "textures": "textures/blocks/deepslate/deepslate_iron_ore"
+        },
+        "ae_sg:plat_143": {
+            "textures": "textures/blocks/ancient_debris_top"
+        },
+        "ae_sg:plat_144": {
+            "textures": "textures/blocks/grass_carried"
+        },
+        "ae_sg:plat_145": {
+            "textures": "textures/blocks/dirt_with_roots"
+        },
+        "ae_sg:plat_146": {
+            "textures": "textures/blocks/grass_path_top"
+        },
+        "ae_sg:plat_147": {
+            "textures": "textures/blocks/nether_brick"
+        },
+        "ae_sg:plat_148": {
+            "textures": "textures/blocks/red_nether_brick"
+        },
+        "ae_sg:plat_149": {
+            "textures": "textures/blocks/brick"
+        },
+        "ae_sg:plat_150": {
+            "textures": "textures/blocks/hardened_clay"
+        },
+        "ae_sg:platform_none": {
+            "textures": "textures/ae_sg/blocks/platform_none"
+        }
+    }
+}

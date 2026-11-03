@@ -1,0 +1,24 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "minecraft:wandering_trader",
+      "textures": {
+        "default": "textures/entity/wandering_trader/wandering_trader0",
+        "default2": "textures/entity/wandering_trader/wandering_trader1",
+        "default3": "textures/entity/wandering_trader/wandering_trader2",
+        "default4": "textures/entity/wandering_trader/wandering_trader3",
+        "default5": "textures/entity/wandering_trader/wandering_trader4",
+        "default6": "textures/entity/wandering_trader/wandering_trader5"
+      },
+      "render_controllers": [
+        "controller.render.wandering_trader"
+      ],
+      "scripts": {
+        "initialize": [
+          "v.Xvar = math.random_integer(0, 5);"
+        ]
+      }
+    }
+  }
+}

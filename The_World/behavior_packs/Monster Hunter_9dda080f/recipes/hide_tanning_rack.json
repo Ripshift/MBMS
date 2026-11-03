@@ -1,0 +1,33 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "mh:hide_tanning_rack"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "SSS",
+            "LSL",
+            "S S"
+        ],
+        "key": {
+            "S": {
+                "item": "minecraft:stick"
+            },
+            "L": {
+                "item": "minecraft:leather"
+            }
+        },
+        "unlock": [
+            {
+                "item": "minecraft:leather"
+            }
+        ],
+        "result": {
+            "item": "mh:hide_tanning_rack",
+            "count": 1
+        }
+    }
+}

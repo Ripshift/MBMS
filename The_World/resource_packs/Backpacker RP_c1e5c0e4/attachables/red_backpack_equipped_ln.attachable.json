@@ -1,0 +1,41 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:attachable": {
+    "description": {
+      "identifier": "bapa:red_backpack_equipped_ln.attachable",
+      "item": "bapa:red_backpack_equipped_ln",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/bapa/backpack_red",
+        "lava": "textures/entity/bapa/bapa_acc",
+        "lamp": "textures/blocks/lantern"
+      },
+      "geometry": {
+        "default": "geometry.bapa_backpack_wear",
+        "lava": "geometry.bapa_backpack_acc",
+        "lamp": "geometry.bapa_backpack_lamp"
+      },
+      "animations": {
+        "sway": "animation.bapa.backpack.sway",
+        "hide_first_person": "animation.bapa.backpack.hide_first_person",
+        "offset": "animation.bapa.backpack.offset"
+      },
+      "scripts": {
+        "animate": [
+          "offset",
+          "sway",
+          {
+            "hide_first_person": "context.is_first_person == 1.0"
+          }
+        ]
+      },
+      "render_controllers": [
+        "controller.render.default",
+        "controller.render.bapa_acc_lava",
+        "controller.render.bapa_acc_lamp"
+      ]
+    }
+  }
+}

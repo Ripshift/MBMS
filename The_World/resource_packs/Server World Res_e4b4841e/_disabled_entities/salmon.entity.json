@@ -1,0 +1,28 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "minecraft:salmon",
+      "textures": {
+        "default": "textures/entity/salmon/salmon0",
+        "default2": "textures/entity/salmon/salmon1",
+        "default3": "textures/entity/salmon/salmon2",
+        "default4": "textures/entity/salmon/salmon3",
+        "default5": "textures/entity/salmon/salmon4",
+        "default6": "textures/entity/salmon/salmon5",
+        "default7": "textures/entity/salmon/salmon6",
+        "default8": "textures/entity/salmon/salmon7",
+        "default9": "textures/entity/salmon/salmon8",
+        "default10": "textures/entity/salmon/salmon9"
+      },
+      "render_controllers": [
+        "controller.render.salmon"
+      ],
+      "scripts": {
+        "initialize": [
+          "v.Xvar = math.random_integer(0, 9);"
+        ]
+      }
+    }
+  }
+}

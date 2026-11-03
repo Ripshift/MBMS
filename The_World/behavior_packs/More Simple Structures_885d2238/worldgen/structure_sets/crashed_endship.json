@@ -1,0 +1,21 @@
+{ 
+  "format_version": "1.21.20", 
+  "minecraft:structure_set": { 
+    "description": { 
+      "identifier": "wypnt_mss:crashed_endship" 
+    }, 
+    "placement": { 
+      "type": "minecraft:random_spread", 
+      "salt": 85030389, 
+      "spacing": 75,
+      "separation": 32,
+      "spread_type": "linear" 
+    }, 
+    "structures": [ 
+      { 
+        "structure": "wypnt_mss:crashed_endship", 
+        "weight": 1 
+      }
+    ] 
+  } 
+}

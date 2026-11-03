@@ -1,0 +1,87 @@
+{
+  "format_version": "1.21.20",
+  "minecraft:jigsaw": {
+    "description": {
+      "identifier": "wypnt_mss:swamp_cabin"
+    },
+    "biome_filters": [
+				{
+					"all_of": [
+						{
+							"test": "has_biome_tag",
+							"operator": "!=",
+							"value": "ocean"
+						},
+						{
+							"test": "has_biome_tag",
+							"operator": "!=",
+							"value": "river"
+						},
+						{
+							"test": "has_biome_tag",
+							"operator": "!=",
+							"value": "wypnt_mss:prevent_swamp_cabin"
+						},
+						{
+							"any_of": [
+								{
+									"test": "has_biome_tag",
+									"operator": "==",
+									"value": "swamp"
+								},
+								{
+									"test": "has_biome_tag",
+									"operator": "==",
+									"value": "swampland"
+								},
+								{
+            "test": "has_biome_tag",
+            "operator": "==",
+            "value": "wypnt_mss:has_structure_swamp_cabin"
+          },
+								{
+									"test": "has_biome_tag",
+									"operator": "==",
+									"value": "bop_ks:is_swamp"
+								},
+								{
+									"test": "has_biome_tag",
+									"operator": "==",
+									"value": "bop_ks:bayou"
+								},
+								{
+									"test": "has_biome_tag",
+									"operator": "==",
+									"value": "bop_ks:bog"
+								},
+								{
+									"test": "has_biome_tag",
+									"operator": "==",
+									"value": "bop_ks:wetland"
+								},
+{
+"test": "has_biome_tag",
+"operator": "==",
+"value": "wypnt_bab:bog_swamp"
+}
+							]
+						}
+					]
+				}
+    ],
+    "step": "surface_structures",
+    "terrain_adaptation": "beard_thin",
+    "start_pool": "wypnt_mss:swamp_cabin_pool",
+    "start_height": {
+        "type": "constant",
+        "value": { "absolute": 0 } 
+    },
+    "max_depth": 4,
+    "heightmap_projection": "world_surface",
+    "dimension_padding": {
+      "top": 10,
+      "bottom": 5
+    },
+    "liquid_settings": "apply_waterlogging"
+  }
+}

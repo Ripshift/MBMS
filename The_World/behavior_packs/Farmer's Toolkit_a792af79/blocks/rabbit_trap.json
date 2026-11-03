@@ -1,0 +1,55 @@
+{
+  "format_version": "1.21.50",
+  "minecraft:block": {
+    "description": {
+      "identifier": "fato:rabbit_trap",
+      "menu_category": { "category": "equipment" },
+      "states": {
+        "fato:stage": ["empty", "baited", "trapped"]
+      }
+    },
+    "components": {
+      "minecraft:item_visual": {
+        "geometry": "geometry.fato_rabbit_trap_trapped",
+        "material_instances": {
+          "*": { "texture": "fato_rabbit_trap_empty", "render_method": "alpha_test" }
+        }
+      },
+      "minecraft:custom_components": ["fato:rabbit_trap_behavior"],
+      "minecraft:tick": { "interval_range": [20, 40], "looping": true },
+      "minecraft:geometry": "geometry.fato_rabbit_trap",
+      "minecraft:collision_box": {
+        "origin": [-8, 0, -8],
+        "size": [16, 16, 16]
+      },
+      "minecraft:selection_box": {
+        "origin": [-8, 0, -8],
+        "size": [16, 16, 16]
+      },
+      "minecraft:destructible_by_mining": { "seconds_to_destroy": 0.5 },
+      "minecraft:loot": "loot_tables/blocks/rabbit_trap.json",
+      "minecraft:material_instances": {
+        "*": { "texture": "fato_rabbit_trap_empty", "render_method": "alpha_test" }
+      }
+    },
+    "permutations": [
+      {
+        "condition": "q.block_state('fato:stage') == 'baited'",
+        "components": {
+          "minecraft:material_instances": {
+            "*": { "texture": "fato_rabbit_trap_baited", "render_method": "alpha_test" }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('fato:stage') == 'trapped'",
+        "components": {
+          "minecraft:geometry": "geometry.fato_rabbit_trap_trapped",
+          "minecraft:material_instances": {
+            "*": { "texture": "fato_rabbit_trap_empty", "render_method": "alpha_test" }
+          }
+        }
+      }
+    ]
+  }
+}

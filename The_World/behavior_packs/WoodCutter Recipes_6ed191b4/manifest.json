@@ -1,0 +1,35 @@
+{
+  "format_version": 2,
+  "header": {
+    "description": "§6 Adds stonecutter recipes to wooden slabs for stairs, fences, gates, signs, doors and trapdoors.",
+    "name": "WoodCutter Recipes",
+    "uuid": "6ed191b4-420b-358a-9719-e3bcf60ce818",
+    "version": [
+      1,
+      3,
+      0
+    ],
+    "min_engine_version": [
+      1,
+      19,
+      0
+    ]
+  },
+  "modules": [
+    {
+      "description": "§6 Adds stonecutter recipes to wooden slabs for stairs, fences, gates, signs, doors and trapdoors.",
+      "type": "data",
+      "uuid": "9a465946-4178-32ba-986d-e7e68ef27ff5",
+      "version": [
+        1,
+        0,
+        0
+      ]
+    }
+  ],
+  "metadata": {
+    "authors": [
+      "DolledUp"
+    ]
+  }
+}

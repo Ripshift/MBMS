@@ -1,0 +1,59 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.mh_phantom_head_attachable",
+				"texture_width": 64,
+				"texture_height": 64,
+				"visible_bounds_width": 3,
+				"visible_bounds_height": 3.5,
+				"visible_bounds_offset": [0, 1.25, 0]
+			},
+			"bones": [
+				{
+					"name": "head",
+					"pivot": [0, 0, 0]
+				},
+				{
+					"name": "up_0",
+					"parent": "head",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{
+							"origin": [-5.9375, 0.01, -5.9375],
+							"size": [11.875, 9.5, 2.375],
+							"uv": {
+								"north": {"uv": [6, 4], "uv_size": [5, 4]},
+								"east": {"uv": [5, 4], "uv_size": [1, 4]},
+								"west": {"uv": [11, 4], "uv_size": [1, 4]},
+								"up": {"uv": [6, 4], "uv_size": [5, 1]},
+								"down": {"uv": [13, 5], "uv_size": [5, -1], "material_instance": "custom_down"}
+							}
+						},
+						{
+							"origin": [-5.9375, 0.01, -3.5625],
+							"size": [11.875, 7.125, 9.5],
+							"uv": {
+								"east": {"uv": [1, 5], "uv_size": [4, 3]},
+								"south": {"uv": [18, 5], "uv_size": [5, 3]},
+								"west": {"uv": [12, 5], "uv_size": [4, 3]},
+								"down": {"uv": [13, 4], "uv_size": [5, -4], "material_instance": "custom_down"}
+							}
+						},
+						{
+							"origin": [-5.9375, 7.135, -3.5625],
+							"size": [11.875, 2.375, 9.5],
+							"uv": {
+								"east": {"uv": [12, 4], "uv_size": [4, 1]},
+								"south": {"uv": [18, 5], "uv_size": [5, 1]},
+								"west": {"uv": [15, 4], "uv_size": [4, 1]},
+								"up": {"uv": [6, 0], "uv_size": [5, 4]}
+							}
+						}
+					]
+				}
+			]
+		}
+	]
+}

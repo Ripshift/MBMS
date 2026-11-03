@@ -1,0 +1,37 @@
+
+{
+	"format_version": "1.21.100",
+	"minecraft:block": {
+		"description": {
+			"identifier": "wypnt_mss:spawn_mobs",
+			"menu_category": {
+				"category": "none"
+			},
+			"states": {
+		  "wypnt_mss:structure": ["piglin_boat", "piglin_outpost"]
+		}
+		},
+		"components": {
+			"wypnt_mss:spawn_mobs": {},
+			"minecraft:geometry": "minecraft:geometry.full_block",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "sandstone_side",
+					"render_method": "opaque"
+				}
+			},
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 1 
+			},
+			"minecraft:tick": {
+				"interval_range": [
+					1,
+					1
+				]
+			},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 1
+			}
+		}
+	}
+}

@@ -1,0 +1,19 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_furnace": {
+    "description": {
+      "identifier": "rebo:iron_from_bucket"
+    },
+    "tags": [
+      "furnace"
+    ],
+    "input": {
+      "item": "minecraft:bucket"
+    },
+    "output": {
+      "item": "minecraft:iron_ingot",
+      "count": 2
+    },
+    "group": "nature"
+  }
+}

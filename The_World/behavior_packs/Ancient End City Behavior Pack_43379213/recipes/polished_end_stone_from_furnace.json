@@ -1,0 +1,13 @@
+{
+  "format_version": "1.17.0",
+  "minecraft:recipe_furnace": {
+    "description": {
+      "identifier": "ancientend:polished_end_stone_from_furnace"
+    },
+    "tags": [
+      "furnace"
+    ],
+    "input": "minecraft:end_stone",
+    "output": "ancientend:polished_end_stone"
+  }
+}

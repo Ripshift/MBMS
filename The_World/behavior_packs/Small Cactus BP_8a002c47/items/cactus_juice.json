@@ -1,0 +1,31 @@
+{
+  "format_version": "1.21.60",
+  "minecraft:item": {
+    "description": {
+      "identifier": "smallcactus:cactus_juice",
+      "menu_category": {
+        "category": "items",
+        "group": "minecraft:itemGroup.name.potion"
+      }
+    },
+    "components": {
+      "minecraft:icon": {
+        "textures": {
+          "default": "smallcactus_cactus_juice"
+        }
+      },
+      "minecraft:max_stack_size": 16,
+      "minecraft:use_animation": "drink",
+      "minecraft:use_modifiers": {
+        "use_duration": 1.6,
+        "movement_modifier": 0.35
+      },
+      "minecraft:food": {
+        "nutrition": 3,
+        "saturation_modifier": 0.3,
+        "can_always_eat": true,
+        "using_converts_to": "minecraft:glass_bottle"
+      }
+    }
+  }
+}

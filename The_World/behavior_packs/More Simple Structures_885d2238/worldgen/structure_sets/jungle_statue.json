@@ -1,0 +1,21 @@
+{ 
+  "format_version": "1.21.20", 
+  "minecraft:structure_set": { 
+    "description": { 
+      "identifier": "wypnt_mss:jungle_statue" 
+    }, 
+    "placement": { 
+      "type": "minecraft:random_spread", 
+      "salt": 84153830, 
+      "spacing": 40,
+      "separation": 18,
+      "spread_type": "linear" 
+    }, 
+    "structures": [ 
+      { 
+        "structure": "wypnt_mss:jungle_statue", 
+        "weight": 1 
+      } 
+    ] 
+  } 
+}

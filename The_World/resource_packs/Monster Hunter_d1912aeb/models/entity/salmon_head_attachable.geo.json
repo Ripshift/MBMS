@@ -1,0 +1,40 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.mh_salmon_head_attachable",
+				"texture_width": 32,
+				"texture_height": 32,
+				"visible_bounds_width": 3,
+				"visible_bounds_height": 3.5,
+				"visible_bounds_offset": [0, 1.25, 0]
+			},
+			"bones": [
+				{
+					"name": "head",
+					"pivot": [0, 0, 0]
+				},
+				{
+					"name": "up_0",
+					"parent": "head",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{
+							"origin": [-4.75, 0.01, -4.75],
+							"size": [9.5, 9.5, 9.5],
+							"uv": {
+								"north": {"uv": [25, 3], "uv_size": [2, 3]},
+								"east": {"uv": [22, 3], "uv_size": [3, 3]},
+								"south": {"uv": [30, 3], "uv_size": [2, 4]},
+								"west": {"uv": [27, 3], "uv_size": [3, 3]},
+								"up": {"uv": [25, 0], "uv_size": [2, 3]},
+								"down": {"uv": [27, 3], "uv_size": [2, -3], "material_instance": "custom_down"}
+							}
+						}
+					]
+				}
+			]
+		}
+	]
+}

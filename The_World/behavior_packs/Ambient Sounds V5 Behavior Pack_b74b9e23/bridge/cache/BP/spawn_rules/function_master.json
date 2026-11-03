@@ -1,0 +1,758 @@
+{
+	"file_path": "C:\\Users\\Ian\\AppData\\Local\\Packages\\Microsoft.MinecraftUWP_8wekyb3d8bbwe\\LocalState\\games\\com.mojang\\development_behavior_packs\\AmbientB\\spawn_rules\\function_master.json",
+	"file_type": "spawn_rule",
+	"format_version": 1,
+	"file_uuid": "8ac94745_bdb0_43f7_bdad_3e8a2ee69378",
+	"file_version": 19,
+	"cache_content": {
+		"children": [
+			{
+				"data": "1.8.0",
+				"key": "format_version"
+			},
+			{
+				"open": {
+					"format_version": "1.8.0",
+					"minecraft:spawn_rules": {
+						"description": {
+							"identifier": "boi:function_master_spawn",
+							"population_control": "pillager"
+						},
+						"conditions": [
+							{
+								"minecraft:spawns_on_surface": {},
+								"minecraft:spawns_underground": {},
+								"minecraft:brightness_filter": {
+									"min": 0,
+									"max": 15,
+									"adjust_for_weather": true
+								},
+								"minecraft:density_limit": {
+									"surface": 1
+								},
+								"minecraft:weight": {
+									"default": 300
+								},
+								"minecraft:herd": {
+									"min_size": 1,
+									"max_size": 1
+								},
+								"minecraft:biome_filter": {
+									"any_of": [
+										{
+											"test": "has_biome_tag",
+											"operator": "==",
+											"value": "monster"
+										},
+										{
+											"test": "has_biome_tag",
+											"value": "frozen",
+											"operator": "=="
+										}
+									]
+								}
+							},
+							{
+								"minecraft:spawns_on_surface": {},
+								"minecraft:spawns_underground": {},
+								"minecraft:brightness_filter": {
+									"min": 0,
+									"max": 15,
+									"adjust_for_weather": true
+								},
+								"minecraft:density_limit": {
+									"surface": 1
+								},
+								"minecraft:weight": {
+									"default": 200
+								},
+								"minecraft:herd": {
+									"min_size": 1,
+									"max_size": 1
+								},
+								"minecraft:biome_filter": {
+									"any_of": [
+										{
+											"test": "has_biome_tag",
+											"value": "nether",
+											"operator": "=="
+										}
+									]
+								}
+							},
+							{
+								"minecraft:spawns_on_surface": {},
+								"minecraft:spawns_underground": {},
+								"minecraft:brightness_filter": {
+									"min": 0,
+									"max": 15,
+									"adjust_for_weather": true
+								},
+								"minecraft:density_limit": {
+									"surface": 1
+								},
+								"minecraft:weight": {
+									"default": 15
+								},
+								"minecraft:herd": {
+									"min_size": 1,
+									"max_size": 1
+								},
+								"minecraft:biome_filter": {
+									"any_of": [
+										{
+											"test": "has_biome_tag",
+											"operator": "==",
+											"value": "the_end"
+										}
+									]
+								}
+							}
+						]
+					}
+				},
+				"key": "minecraft:spawn_rules",
+				"children": [
+					{
+						"key": "description",
+						"is_minified": true,
+						"children": {
+							"identifier": "boi:function_master_spawn",
+							"population_control": "pillager"
+						}
+					},
+					{
+						"open": {
+							"description": {
+								"identifier": "boi:function_master_spawn",
+								"population_control": "pillager"
+							},
+							"conditions": [
+								{
+									"minecraft:spawns_on_surface": {},
+									"minecraft:spawns_underground": {},
+									"minecraft:brightness_filter": {
+										"min": 0,
+										"max": 15,
+										"adjust_for_weather": true
+									},
+									"minecraft:density_limit": {
+										"surface": 1
+									},
+									"minecraft:weight": {
+										"default": 300
+									},
+									"minecraft:herd": {
+										"min_size": 1,
+										"max_size": 1
+									},
+									"minecraft:biome_filter": {
+										"any_of": [
+											{
+												"test": "has_biome_tag",
+												"operator": "==",
+												"value": "monster"
+											},
+											{
+												"test": "has_biome_tag",
+												"value": "frozen",
+												"operator": "=="
+											}
+										]
+									}
+								},
+								{
+									"minecraft:spawns_on_surface": {},
+									"minecraft:spawns_underground": {},
+									"minecraft:brightness_filter": {
+										"min": 0,
+										"max": 15,
+										"adjust_for_weather": true
+									},
+									"minecraft:density_limit": {
+										"surface": 1
+									},
+									"minecraft:weight": {
+										"default": 200
+									},
+									"minecraft:herd": {
+										"min_size": 1,
+										"max_size": 1
+									},
+									"minecraft:biome_filter": {
+										"any_of": [
+											{
+												"test": "has_biome_tag",
+												"value": "nether",
+												"operator": "=="
+											}
+										]
+									}
+								},
+								{
+									"minecraft:spawns_on_surface": {},
+									"minecraft:spawns_underground": {},
+									"minecraft:brightness_filter": {
+										"min": 0,
+										"max": 15,
+										"adjust_for_weather": true
+									},
+									"minecraft:density_limit": {
+										"surface": 1
+									},
+									"minecraft:weight": {
+										"default": 15
+									},
+									"minecraft:herd": {
+										"min_size": 1,
+										"max_size": 1
+									},
+									"minecraft:biome_filter": {
+										"any_of": [
+											{
+												"test": "has_biome_tag",
+												"operator": "==",
+												"value": "the_end"
+											}
+										]
+									}
+								}
+							]
+						},
+						"key": "conditions",
+						"array": [
+							{
+								"open": [
+									{
+										"minecraft:spawns_on_surface": {},
+										"minecraft:spawns_underground": {},
+										"minecraft:brightness_filter": {
+											"min": 0,
+											"max": 15,
+											"adjust_for_weather": true
+										},
+										"minecraft:density_limit": {
+											"surface": 1
+										},
+										"minecraft:weight": {
+											"default": 300
+										},
+										"minecraft:herd": {
+											"min_size": 1,
+											"max_size": 1
+										},
+										"minecraft:biome_filter": {
+											"any_of": [
+												{
+													"test": "has_biome_tag",
+													"operator": "==",
+													"value": "monster"
+												},
+												{
+													"test": "has_biome_tag",
+													"value": "frozen",
+													"operator": "=="
+												}
+											]
+										}
+									},
+									{
+										"minecraft:spawns_on_surface": {},
+										"minecraft:spawns_underground": {},
+										"minecraft:brightness_filter": {
+											"min": 0,
+											"max": 15,
+											"adjust_for_weather": true
+										},
+										"minecraft:density_limit": {
+											"surface": 1
+										},
+										"minecraft:weight": {
+											"default": 200
+										},
+										"minecraft:herd": {
+											"min_size": 1,
+											"max_size": 1
+										},
+										"minecraft:biome_filter": {
+											"any_of": [
+												{
+													"test": "has_biome_tag",
+													"value": "nether",
+													"operator": "=="
+												}
+											]
+										}
+									},
+									{
+										"minecraft:spawns_on_surface": {},
+										"minecraft:spawns_underground": {},
+										"minecraft:brightness_filter": {
+											"min": 0,
+											"max": 15,
+											"adjust_for_weather": true
+										},
+										"minecraft:density_limit": {
+											"surface": 1
+										},
+										"minecraft:weight": {
+											"default": 15
+										},
+										"minecraft:herd": {
+											"min_size": 1,
+											"max_size": 1
+										},
+										"minecraft:biome_filter": {
+											"any_of": [
+												{
+													"test": "has_biome_tag",
+													"operator": "==",
+													"value": "the_end"
+												}
+											]
+										}
+									}
+								],
+								"children": [
+									{
+										"key": "minecraft:spawns_on_surface",
+										"is_minified": true,
+										"children": {}
+									},
+									{
+										"key": "minecraft:spawns_underground",
+										"is_minified": true,
+										"children": {}
+									},
+									{
+										"key": "minecraft:brightness_filter",
+										"is_minified": true,
+										"children": {
+											"min": 0,
+											"max": 15,
+											"adjust_for_weather": true
+										}
+									},
+									{
+										"key": "minecraft:density_limit",
+										"is_minified": true,
+										"children": {
+											"surface": 1
+										}
+									},
+									{
+										"key": "minecraft:weight",
+										"is_minified": true,
+										"children": {
+											"default": 300
+										}
+									},
+									{
+										"key": "minecraft:herd",
+										"is_minified": true,
+										"children": {
+											"min_size": 1,
+											"max_size": 1
+										}
+									},
+									{
+										"key": "minecraft:biome_filter",
+										"children": [
+											{
+												"open": {
+													"any_of": [
+														{
+															"test": "has_biome_tag",
+															"operator": "==",
+															"value": "monster"
+														},
+														{
+															"test": "has_biome_tag",
+															"value": "frozen",
+															"operator": "=="
+														}
+													]
+												},
+												"key": "any_of",
+												"array": [
+													{
+														"is_minified": true,
+														"children": {
+															"test": "has_biome_tag",
+															"operator": "==",
+															"value": "monster"
+														}
+													},
+													{
+														"open": [
+															{
+																"test": "has_biome_tag",
+																"operator": "==",
+																"value": "monster"
+															},
+															{
+																"test": "has_biome_tag",
+																"value": "frozen",
+																"operator": "=="
+															}
+														],
+														"is_minified": true,
+														"children": {
+															"test": "has_biome_tag",
+															"value": "frozen",
+															"operator": "=="
+														}
+													}
+												]
+											}
+										]
+									}
+								]
+							},
+							{
+								"open": [
+									{
+										"minecraft:spawns_on_surface": {},
+										"minecraft:spawns_underground": {},
+										"minecraft:brightness_filter": {
+											"min": 0,
+											"max": 15,
+											"adjust_for_weather": true
+										},
+										"minecraft:density_limit": {
+											"surface": 1
+										},
+										"minecraft:weight": {
+											"default": 300
+										},
+										"minecraft:herd": {
+											"min_size": 1,
+											"max_size": 1
+										},
+										"minecraft:biome_filter": {
+											"any_of": [
+												{
+													"test": "has_biome_tag",
+													"operator": "==",
+													"value": "monster"
+												},
+												{
+													"test": "has_biome_tag",
+													"value": "frozen",
+													"operator": "=="
+												}
+											]
+										}
+									},
+									{
+										"minecraft:spawns_on_surface": {},
+										"minecraft:spawns_underground": {},
+										"minecraft:brightness_filter": {
+											"min": 0,
+											"max": 15,
+											"adjust_for_weather": true
+										},
+										"minecraft:density_limit": {
+											"surface": 1
+										},
+										"minecraft:weight": {
+											"default": 200
+										},
+										"minecraft:herd": {
+											"min_size": 1,
+											"max_size": 1
+										},
+										"minecraft:biome_filter": {
+											"any_of": [
+												{
+													"test": "has_biome_tag",
+													"value": "nether",
+													"operator": "=="
+												}
+											]
+										}
+									},
+									{
+										"minecraft:spawns_on_surface": {},
+										"minecraft:spawns_underground": {},
+										"minecraft:brightness_filter": {
+											"min": 0,
+											"max": 15,
+											"adjust_for_weather": true
+										},
+										"minecraft:density_limit": {
+											"surface": 1
+										},
+										"minecraft:weight": {
+											"default": 15
+										},
+										"minecraft:herd": {
+											"min_size": 1,
+											"max_size": 1
+										},
+										"minecraft:biome_filter": {
+											"any_of": [
+												{
+													"test": "has_biome_tag",
+													"operator": "==",
+													"value": "the_end"
+												}
+											]
+										}
+									}
+								],
+								"children": [
+									{
+										"key": "minecraft:spawns_on_surface",
+										"is_minified": true,
+										"children": {}
+									},
+									{
+										"key": "minecraft:spawns_underground",
+										"is_minified": true,
+										"children": {}
+									},
+									{
+										"key": "minecraft:brightness_filter",
+										"is_minified": true,
+										"children": {
+											"min": 0,
+											"max": 15,
+											"adjust_for_weather": true
+										}
+									},
+									{
+										"key": "minecraft:density_limit",
+										"is_minified": true,
+										"children": {
+											"surface": 1
+										}
+									},
+									{
+										"key": "minecraft:weight",
+										"is_minified": true,
+										"children": {
+											"default": 200
+										}
+									},
+									{
+										"key": "minecraft:herd",
+										"is_minified": true,
+										"children": {
+											"min_size": 1,
+											"max_size": 1
+										}
+									},
+									{
+										"key": "minecraft:biome_filter",
+										"children": [
+											{
+												"open": {
+													"any_of": [
+														{
+															"test": "has_biome_tag",
+															"value": "nether",
+															"operator": "=="
+														}
+													]
+												},
+												"key": "any_of",
+												"array": [
+													{
+														"open": [
+															{
+																"test": "has_biome_tag",
+																"value": "nether",
+																"operator": "=="
+															}
+														],
+														"is_minified": true,
+														"children": {
+															"test": "has_biome_tag",
+															"value": "nether",
+															"operator": "=="
+														}
+													}
+												]
+											}
+										]
+									}
+								]
+							},
+							{
+								"open": [
+									{
+										"minecraft:spawns_on_surface": {},
+										"minecraft:spawns_underground": {},
+										"minecraft:brightness_filter": {
+											"min": 0,
+											"max": 15,
+											"adjust_for_weather": true
+										},
+										"minecraft:density_limit": {
+											"surface": 1
+										},
+										"minecraft:weight": {
+											"default": 300
+										},
+										"minecraft:herd": {
+											"min_size": 1,
+											"max_size": 1
+										},
+										"minecraft:biome_filter": {
+											"any_of": [
+												{
+													"test": "has_biome_tag",
+													"operator": "==",
+													"value": "monster"
+												},
+												{
+													"test": "has_biome_tag",
+													"value": "frozen",
+													"operator": "=="
+												}
+											]
+										}
+									},
+									{
+										"minecraft:spawns_on_surface": {},
+										"minecraft:spawns_underground": {},
+										"minecraft:brightness_filter": {
+											"min": 0,
+											"max": 15,
+											"adjust_for_weather": true
+										},
+										"minecraft:density_limit": {
+											"surface": 1
+										},
+										"minecraft:weight": {
+											"default": 200
+										},
+										"minecraft:herd": {
+											"min_size": 1,
+											"max_size": 1
+										},
+										"minecraft:biome_filter": {
+											"any_of": [
+												{
+													"test": "has_biome_tag",
+													"value": "nether",
+													"operator": "=="
+												}
+											]
+										}
+									},
+									{
+										"minecraft:spawns_on_surface": {},
+										"minecraft:spawns_underground": {},
+										"minecraft:brightness_filter": {
+											"min": 0,
+											"max": 15,
+											"adjust_for_weather": true
+										},
+										"minecraft:density_limit": {
+											"surface": 1
+										},
+										"minecraft:weight": {
+											"default": 15
+										},
+										"minecraft:herd": {
+											"min_size": 1,
+											"max_size": 1
+										},
+										"minecraft:biome_filter": {
+											"any_of": [
+												{
+													"test": "has_biome_tag",
+													"operator": "==",
+													"value": "the_end"
+												}
+											]
+										}
+									}
+								],
+								"children": [
+									{
+										"key": "minecraft:spawns_on_surface",
+										"is_minified": true,
+										"children": {}
+									},
+									{
+										"key": "minecraft:spawns_underground",
+										"is_minified": true,
+										"children": {}
+									},
+									{
+										"key": "minecraft:brightness_filter",
+										"is_minified": true,
+										"children": {
+											"min": 0,
+											"max": 15,
+											"adjust_for_weather": true
+										}
+									},
+									{
+										"key": "minecraft:density_limit",
+										"is_minified": true,
+										"children": {
+											"surface": 1
+										}
+									},
+									{
+										"key": "minecraft:weight",
+										"is_minified": true,
+										"children": {
+											"default": 15
+										}
+									},
+									{
+										"key": "minecraft:herd",
+										"is_minified": true,
+										"children": {
+											"min_size": 1,
+											"max_size": 1
+										}
+									},
+									{
+										"key": "minecraft:biome_filter",
+										"children": [
+											{
+												"open": {
+													"any_of": [
+														{
+															"test": "has_biome_tag",
+															"operator": "==",
+															"value": "the_end"
+														}
+													]
+												},
+												"key": "any_of",
+												"array": [
+													{
+														"open": [
+															{
+																"test": "has_biome_tag",
+																"operator": "==",
+																"value": "the_end"
+															}
+														],
+														"is_minified": true,
+														"children": {
+															"test": "has_biome_tag",
+															"operator": "==",
+															"value": "the_end"
+														}
+													}
+												]
+											}
+										]
+									}
+								]
+							}
+						]
+					}
+				]
+			}
+		]
+	}
+}

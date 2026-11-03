@@ -1,0 +1,34 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "mh:monster_hunter",
+            "materials": {
+                "default": "entity_alphatest"
+            },
+            "textures": {
+                "default": "textures/entity/monster_hunter/hunter"
+            },
+            "geometry": {
+                "default": "geometry.mh_monster_hunter"
+            },
+            "animations": {
+                "look": "animation.mh_monster_hunter.look",
+                "walk": "animation.mh_monster_hunter.walk"
+            },
+            "scripts": {
+                "animate": [
+                    "look",
+                    "walk"
+                ]
+            },
+            "render_controllers": [
+                "controller.render.default"
+            ],
+            "spawn_egg": {
+                "base_color": "#6b4a2b",
+                "overlay_color": "#a02a24"
+            }
+        }
+    }
+}

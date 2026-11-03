@@ -1,0 +1,38 @@
+entity.daniye:oak_tree.name=Oak Tree
+entity.daniye:birch_tree.name=Birch Tree
+entity.daniye:acacia_tree.name=Acacia Tree
+entity.daniye:dark_oak_tree.name=Dark Oak Tree
+entity.daniye:big_jungle_tree.name=Big Jungle Tree (2x2)
+entity.daniye:jungle_tree.name=Jungle Tree
+entity.daniye:cherry_tree.name=Cherry Tree
+entity.daniye:mangrove_tree.name=Mangrove Tree
+entity.daniye:spruce_tree.name=Spruce Tree
+entity.daniye:big_spruce_tree.name=Big Spruce Tree
+
+tile.daniye:oak_start.name=Growing Oak Tree
+tile.daniye:birch_start.name=Growing Birch Tree
+tile.daniye:spruce_start.name=Growing Spruce Tree
+tile.daniye:jungle_start.name=Growing Jungle Tree
+tile.daniye:big_jungle_start.name=Growing Jungle Tree (2x2)
+tile.daniye:big_spruce_start.name=Growing Spruce Tree (2x2)
+tile.daniye:acacia_start.name=Growing Acacia Tree
+tile.daniye:dark_oak_start.name=Growing Dark Oak Tree
+tile.daniye:cherry_start.name=Growing Cherry Tree
+tile.daniye:mangrove_start.name=Growing Mangrove Tree
+tile.daniye:pale_oak_start.name=Growing Pale Oak Tree
+
+progressScreen.title.modifiedWorldWarning=Better Trees by Daniye
+progressScreen.message.modifiedWorldWarning.1=Every tree design in Better Trees is handcrafted by Daniye.
+progressScreen.message.modifiedWorldWarning.2=The creator of Better Trees is actually a teenager!
+progressScreen.message.modifiedWorldWarning.3=You can boat under mangrove roots.
+progressScreen.message.modifiedWorldWarning.4=Trees have a simple growing animation.
+progressScreen.message.modifiedWorldWarning.5=You can climb acacia trees to escape mobs.
+progressScreen.message.modifiedWorldWarning.6=The roofed forest is so dense that monsters can spawn even during the day.
+progressScreen.message.modifiedWorldWarning.7=In Better Trees, if a tree grows into something, it can break it, just like real trees do.
+progressScreen.message.modifiedWorldWarning.8=Look closely! These trees are designed to look just like real trees.
+
+entity.daniye:huge_red_mushroom.name=Red Mushroom
+entity.daniye:huge_brown_mushroom.name=Brown Mushroom
+entity.daniye:crimson_fungus.name=Crimson Fungus
+entity.daniye:warped_fungus.name=Warped Fungus
+entity.daniye:azalea_tree.name=Azalea Tree

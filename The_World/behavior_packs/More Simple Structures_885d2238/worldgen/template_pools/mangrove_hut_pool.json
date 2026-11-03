@@ -1,0 +1,19 @@
+{
+  "format_version": "1.21.20",
+  "minecraft:template_pool": {
+    "description": {
+      "identifier": "wypnt_mss:mangrove_hut_pool"
+    },
+    "elements": [
+      {
+        "element": {
+          "element_type": "minecraft:single_pool_element",
+          "location": "wypnt_mss/mangrove_hut",
+          "processors": "wypnt_mss:processor_list",
+          "projection": "rigid"   
+        },
+        "weight": 1
+      }
+    ]
+  }
+}

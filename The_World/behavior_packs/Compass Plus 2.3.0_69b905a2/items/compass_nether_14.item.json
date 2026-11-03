@@ -1,0 +1,21 @@
+{
+    "format_version": "1.21.60",
+    "minecraft:item": {
+        "description": {
+            "identifier": "ae_cp:compass_nether_14"
+        },
+        "components": {
+            "minecraft:icon": {
+                "textures": {
+                    "default": "ae_cp_compass_nether_14"
+                }
+            },
+            "minecraft:display_name": {
+                "value": "Compass Plus"
+            },
+            "minecraft:max_stack_size": 1,
+            "minecraft:hand_equipped": true,
+            "minecraft:allow_off_hand": true
+        }
+    }
+}

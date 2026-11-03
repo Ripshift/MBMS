@@ -1,0 +1,28 @@
+{
+    "format_version": "1.13.0",
+
+    "minecraft:scatter_feature": {
+        "description": {
+            "identifier": "vaen:scatter_desert_rocks"
+        },
+
+        "places_feature": "vaen:desert_rock_random_feature",
+
+        "scatter_chance": {
+            "numerator": 1,
+            "denominator": 250
+        },
+        "iterations": "1",
+
+        "project_input_to_floor": true,
+        "x": {
+            "distribution": "uniform",
+            "extent": [0, 3]
+        },
+        "z": {
+            "distribution": "uniform",
+            "extent": [0, 3]
+        },
+        "y": 0
+    }
+}

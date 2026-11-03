@@ -1,0 +1,39 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Iron Oxeye Aging RP",
+    "description": "Textures for the Iron Oxeye Daisy.",
+    "uuid": "b83d5e17-92c4-4f06-8e3a-1d7f4a6c9b52",
+    "version": [
+      1,
+      0,
+      5
+    ],
+    "min_engine_version": [
+      1,
+      26,
+      0
+    ]
+  },
+  "modules": [
+    {
+      "type": "resources",
+      "uuid": "d29b6f40-7a1e-4c85-b3d2-8e5a1c0f4693",
+      "version": [
+        1,
+        0,
+        5
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "uuid": "6f1c2a9e-3b47-4d58-9a1e-7c5d0e8b2a41",
+      "version": [
+        1,
+        0,
+        5
+      ]
+    }
+  ]
+}

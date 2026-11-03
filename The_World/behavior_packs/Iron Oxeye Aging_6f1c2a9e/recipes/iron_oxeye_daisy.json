@@ -1,0 +1,32 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ioa:iron_oxeye_daisy"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "NNN",
+      "NDN",
+      "NNN"
+    ],
+    "key": {
+      "N": {
+        "item": "minecraft:iron_nugget"
+      },
+      "D": {
+        "item": "minecraft:oxeye_daisy"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:iron_nugget"
+      }
+    ],
+    "result": {
+      "item": "ioa:iron_oxeye_daisy"
+    }
+  }
+}

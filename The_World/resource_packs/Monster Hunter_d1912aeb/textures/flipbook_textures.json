@@ -1,0 +1,7 @@
+[
+    {
+        "atlas_tile": "mh_charged_creeper_head_overlay",
+        "flipbook_texture": "textures/blocks/mh_skulls/creeper/creeper_armor",
+        "ticks_per_frame": 10
+    }
+]

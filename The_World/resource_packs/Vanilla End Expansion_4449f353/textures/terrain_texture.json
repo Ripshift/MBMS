@@ -1,0 +1,28 @@
+{
+  "texture_data": {
+    "raw_purpur_block": {
+      "textures": "textures/blocks/raw_purpur_block"
+    },
+    "smooth_purpur_block": {
+      "textures": "textures/blocks/smooth_purpur_block"
+    },
+    "chiseled_purpur_block": {
+      "textures": "textures/blocks/chiseled_purpur_block"
+    },
+    "end_sand": {
+      "textures": "textures/blocks/end_sand"
+    },
+    "endermite_nest": {
+      "textures": "textures/blocks/endermite_nest"
+    },
+    "purpur_ice": {
+      "textures": "textures/blocks/purpur_ice"
+    },
+    "purpur_gel_block_outer": {
+      "textures": "textures/blocks/purpur_gel_block_outer"
+    },
+    "purpur_gel_block_inner": {
+      "textures": "textures/blocks/purpur_gel_block_inner"
+    }
+  }
+}

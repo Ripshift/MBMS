@@ -1,0 +1,38 @@
+{
+   "format_version": 2,
+   "header": {
+      "description": "By Raiyon",
+      "name": "Tree Chopper §c[V2.6.0] §f1.21-v26+",
+      "uuid": "32393faf-e923-4e8e-b7a8-03eb0b9fb21b",
+      "version": [2, 6, 0],
+      "min_engine_version": [1, 20, 80]
+   },
+   "modules": [
+      {
+         "description": "arbolescabronesparte2",
+         "type": "script",
+         "language": "javascript",
+         "uuid": "f765d1e6-f5bc-4884-bfd4-7044b67433c9",
+         "version": [2, 6, 0],
+         "entry": "scripts/tree_capitator/main.js"
+      },
+      {
+         "type": "data",
+         "uuid": "04ae4e03-d4f4-48a0-b3f9-14730459b28e",
+         "version": [2, 6, 0]
+      }
+   ],
+   "metadata": {
+      "product_type": "addon"
+   },
+   "dependencies": [
+      {
+         "uuid": "a8604082-c6ec-4f1b-bb9c-16349ab95053",
+         "version": [2, 6, 0]
+      },
+      {
+         "module_name": "@minecraft/server",
+         "version": "1.16.0"
+      }
+   ]
+}

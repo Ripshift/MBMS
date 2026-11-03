@@ -1,0 +1,19 @@
+{
+  "format_version": "1.21.20",
+  "minecraft:template_pool": {
+    "description": {
+      "identifier": "wypnt_mss:pillager_cabin_pool"
+    },
+    "elements": [
+      {
+        "element": {
+          "element_type": "minecraft:single_pool_element",
+          "location": "wypnt_mss/pillager_cabin_1",
+          "processors": "wypnt_mss:processor_list",
+          "projection": "rigid"   
+        },
+        "weight": 1
+      }
+    ]
+  }
+}

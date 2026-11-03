@@ -1,0 +1,24 @@
+{
+    "format_version": "1.12",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "vaen:chiseled_purpur_block_recipe"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "##",
+            "##"
+        ],
+        "key": {
+            "#": {
+                "item": "minecraft:purpur_block"
+            }
+        },
+        "result": {
+            "item": "vaen:chiseled_purpur_block",
+            "count": 4
+        }
+    }
+}

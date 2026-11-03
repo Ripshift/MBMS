@@ -1,0 +1,15 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_smithing_transform": {
+        "description": {
+            "identifier": "bapa:smithing_blue_backpack_to_large"
+        },
+        "tags": [
+            "smithing_table"
+        ],
+        "template": "bapa:inventory_upgrade",
+        "base": "bapa:blue_backpack",
+        "addition": "bapa:storage_core",
+        "result": "bapa:blue_large_backpack"
+    }
+}

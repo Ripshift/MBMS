@@ -1,0 +1,18 @@
+{
+    "format_version": 1,
+    "header": {
+        "description": "Ambient Sounds V5 resource pack by the Big Onion Institute. Overhauled most sounds and added Mushroom, Mangrove, and underwater sounds!",
+        "name": "Ambient Sounds Resource Pack",
+        "uuid": "40eeb03b-887a-43f8-807b-0444fe532a9f",
+        "version": [0, 0, 3],
+        "min_engine_version": [ 1, 8, 0 ]
+    },
+    "modules": [
+        {
+            "description": "Ambient Sounds Resource Pack Version 4",
+            "type": "resources",
+            "uuid": "743f6949-53be-44b6-b326-398005028819",
+            "version": [0, 0, 3]
+        }
+    ]
+}

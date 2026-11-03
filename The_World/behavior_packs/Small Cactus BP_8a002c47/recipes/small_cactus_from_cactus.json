@@ -1,0 +1,25 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "smallcactus:small_cactus_from_cactus"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "ingredients": [
+      {
+        "item": "minecraft:cactus"
+      }
+    ],
+    "result": {
+      "item": "smallcactus:small_cactus",
+      "count": 4
+    },
+    "unlock": [
+      {
+        "item": "minecraft:cactus"
+      }
+    ]
+  }
+}

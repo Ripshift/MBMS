@@ -1,0 +1,87 @@
+{
+  "format_version": "1.21.20",
+  "minecraft:jigsaw": {
+    "description": {
+      "identifier": "wypnt_mss:spider_nest"
+    },
+    "biome_filters": [
+				{
+					"all_of": [
+					{
+                            "test": "has_biome_tag",
+                            "operator": "!=",
+                            "value": "ocean"
+                        },
+                        {
+                            "test": "has_biome_tag",
+                            "operator": "!=",
+                            "value": "river"
+                        },
+						{
+							"test": "has_biome_tag",
+							"operator": "!=",
+							"value": "wypnt_mss:prevent_spider_nest"
+						},
+						{
+							"any_of": [
+								{
+									"test": "has_biome_tag",
+									"operator": "==",
+									"value": "overworld"
+								},
+								{
+							"test": "has_biome_tag",
+							"operator": "==",
+							"value": "overworld_generation"
+				},
+								{
+									"test": "has_biome_tag",
+									"operator": "==",
+									"value": "bop_ks:spider_nest"
+								},
+								{
+									"test": "has_biome_tag",
+									"operator": "==",
+									"value": "bop_ks:is_cave"
+								},
+								{
+									"test": "has_biome_tag",
+									"operator": "==",
+									"value": "bop_ks:is_underground"
+								},
+{
+"test": "has_biome_tag",
+"operator": "==",
+"value": "wypnt_bab:forsaken_depths"
+},
+{
+"test": "has_biome_tag",
+"operator": "==",
+"value": "wypnt_bab:shroom_caves"
+}
+							]
+						}
+					]
+				}
+    ],
+    "step": "underground_structures",
+    "terrain_adaptation": "beard_thin",
+    "start_pool": "wypnt_mss:spider_nest_pool",
+    "start_height": {
+        "type": "uniform",
+  "min": {
+    "above_bottom": -50
+  },
+  "max": {
+    "above_bottom": 32
+  } 
+    },
+    "max_depth": 4,
+    "heightmap_projection": "world_surface",
+    "dimension_padding": {
+      "top": 10,
+      "bottom": 5
+    },
+    "liquid_settings": "apply_waterlogging"
+  }
+}

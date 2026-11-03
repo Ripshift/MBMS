@@ -1,0 +1,142 @@
+{
+  "format_version": "1.21.20",
+  "minecraft:jigsaw": {
+    "description": {
+      "identifier": "wypnt_mss:surface_dungeon"
+    },
+    "biome_filters": [
+				{
+					"all_of": [
+						{
+							"test": "has_biome_tag",
+							"operator": "!=",
+							"value": "ocean"
+						},
+						{
+							"test": "has_biome_tag",
+							"operator": "!=",
+							"value": "river"
+						},
+						{
+							"test": "has_biome_tag",
+							"operator": "!=",
+							"value": "wypnt_mss:prevent_surface_dungeon"
+						},
+						{
+							"any_of": [
+								{
+									"test": "has_biome_tag",
+									"operator": "==",
+									"value": "birch"
+								},
+								{
+									"test": "has_biome_tag",
+									"operator": "==",
+									"value": "roofed"
+								},
+								{
+									"test": "has_biome_tag",
+									"operator": "==",
+									"value": "forest"
+								},
+								{
+									"test": "has_biome_tag",
+									"operator": "==",
+									"value": "bop_ks:coniferous_forest"
+								},
+								{
+									"test": "has_biome_tag",
+									"operator": "==",
+									"value": "bop_ks:seasonal_forest"
+								},
+								{
+									"test": "has_biome_tag",
+									"operator": "==",
+									"value": "bop_ks:woodland"
+								},
+								{
+									"test": "has_biome_tag",
+									"operator": "==",
+									"value": "bop_ks:ominous_woods"
+								},
+								{
+									"test": "has_biome_tag",
+									"operator": "==",
+									"value": "bop_ks:dead_forest"
+								},
+								{
+									"test": "has_biome_tag",
+									"operator": "==",
+									"value": "taiga"
+								},
+								{
+            "test": "has_biome_tag",
+            "operator": "==",
+            "value": "wypnt_mss:has_structure_surface_dungeon"
+          },
+{
+"test": "has_biome_tag",
+"operator": "==",
+"value": "wypnt_bab:autumn_forest"
+},
+{
+"test": "has_biome_tag",
+"operator": "==",
+"value": "wypnt_bab:deciduous_forest"
+},
+{
+"test": "has_biome_tag",
+"operator": "==",
+"value": "wypnt_bab:fir_forest"
+},
+{
+"test": "has_biome_tag",
+"operator": "==",
+"value": "wypnt_bab:maple_woods"
+},
+{
+"test": "has_biome_tag",
+"operator": "==",
+"value": "wypnt_bab:oakroot_woods"
+},
+{
+"test": "has_biome_tag",
+"operator": "==",
+"value": "wypnt_bab:pale_woods"
+},
+{
+"test": "has_biome_tag",
+"operator": "==",
+"value": "wypnt_bab:standing_oak_forest"
+},
+{
+"test": "has_biome_tag",
+"operator": "==",
+"value": "wypnt_bab:taiga_pines"
+},
+{
+"test": "has_biome_tag",
+"operator": "==",
+"value": "wypnt_bab:forsaken_depths"
+}
+							]
+						}
+					]
+				}
+    ],
+    "step": "surface_structures",
+    "terrain_adaptation": "beard_thin",
+    "start_pool": "wypnt_mss:surface_dungeon_pool",
+    "start_height": {
+        "type": "constant",
+        "value": { "absolute": 0 } 
+    },
+    "max_depth": 4,
+    "heightmap_projection": "world_surface",
+    "dimension_padding": {
+      "top": 10,
+      "bottom": 5
+    },
+    "liquid_settings": "apply_waterlogging"
+  }
+}

@@ -1,0 +1,24 @@
+{
+    "format_version": "1.12",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "vaen:purpur_block_recipe"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "##",
+            "##"
+        ],
+        "key": {
+            "#": {
+                "item": "vaen:smooth_purpur_block"
+            }
+        },
+        "result": {
+            "item": "minecraft:purpur_block",
+            "count": 4
+        }
+    }
+}

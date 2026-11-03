@@ -1,0 +1,1309 @@
+{
+	"file_path": "C:\\Users\\Ian\\AppData\\Local\\Packages\\Microsoft.MinecraftUWP_8wekyb3d8bbwe\\LocalState\\games\\com.mojang\\development_resource_packs\\FarmAndPetsR\\blocks.json",
+	"file_type": "client_block",
+	"format_version": 1,
+	"file_uuid": "e70ac1dc_501d_4175_bb6a_df7306aad4ed",
+	"file_version": 0,
+	"cache_content": {
+		"open": true,
+		"comment": "",
+		"data": "",
+		"key": "global",
+		"type": "object",
+		"meta": {},
+		"children": [
+			{
+				"open": false,
+				"comment": "",
+				"data": "",
+				"key": "format_version",
+				"type": "array",
+				"meta": {},
+				"children": [
+					{
+						"open": false,
+						"comment": "",
+						"data": "1",
+						"key": "0",
+						"type": "number",
+						"meta": {},
+						"children": []
+					},
+					{
+						"open": false,
+						"comment": "",
+						"data": "1",
+						"key": "1",
+						"type": "number",
+						"meta": {},
+						"children": []
+					},
+					{
+						"open": false,
+						"comment": "",
+						"data": "0",
+						"key": "2",
+						"type": "number",
+						"meta": {},
+						"children": []
+					}
+				]
+			},
+			{
+				"open": false,
+				"comment": "",
+				"data": "",
+				"key": "boi:moss_stone",
+				"type": "object",
+				"meta": {},
+				"children": [
+					{
+						"open": false,
+						"comment": "",
+						"data": "true",
+						"key": "isotropic",
+						"type": "boolean",
+						"meta": {},
+						"children": []
+					},
+					{
+						"open": false,
+						"comment": "",
+						"data": "moss_stone",
+						"key": "textures",
+						"type": "string",
+						"meta": {},
+						"children": []
+					},
+					{
+						"open": false,
+						"comment": "",
+						"data": "stone",
+						"key": "sound",
+						"type": "string",
+						"meta": {},
+						"children": []
+					}
+				]
+			},
+			{
+				"open": false,
+				"comment": "",
+				"data": "",
+				"key": "boi:block2",
+				"type": "object",
+				"meta": {},
+				"children": [
+					{
+						"open": false,
+						"comment": "",
+						"data": "",
+						"key": "textures",
+						"type": "object",
+						"meta": {},
+						"children": [
+							{
+								"open": false,
+								"comment": "",
+								"data": "block2",
+								"key": "north",
+								"type": "string",
+								"meta": {},
+								"children": []
+							},
+							{
+								"open": false,
+								"comment": "",
+								"data": "block2",
+								"key": "south",
+								"type": "string",
+								"meta": {},
+								"children": []
+							},
+							{
+								"open": false,
+								"comment": "",
+								"data": "chain2",
+								"key": "east",
+								"type": "string",
+								"meta": {},
+								"children": []
+							},
+							{
+								"open": false,
+								"comment": "",
+								"data": "block2",
+								"key": "west",
+								"type": "string",
+								"meta": {},
+								"children": []
+							},
+							{
+								"open": false,
+								"comment": "",
+								"data": "netherbrick_pillar_top",
+								"key": "up",
+								"type": "string",
+								"meta": {},
+								"children": []
+							},
+							{
+								"open": false,
+								"comment": "",
+								"data": "netherbrick_pillar_top",
+								"key": "down",
+								"type": "string",
+								"meta": {},
+								"children": []
+							}
+						]
+					},
+					{
+						"open": false,
+						"comment": "",
+						"data": "kelp",
+						"key": "blockshape",
+						"type": "string",
+						"meta": {},
+						"children": []
+					},
+					{
+						"open": false,
+						"comment": "",
+						"data": "stone",
+						"key": "sound",
+						"type": "string",
+						"meta": {},
+						"children": []
+					}
+				]
+			},
+			{
+				"open": false,
+				"comment": "",
+				"data": "",
+				"key": "boi:snow_stone",
+				"type": "object",
+				"meta": {},
+				"children": [
+					{
+						"open": false,
+						"comment": "",
+						"data": "snow_stone",
+						"key": "textures",
+						"type": "string",
+						"meta": {},
+						"children": []
+					},
+					{
+						"open": false,
+						"comment": "",
+						"data": "stone",
+						"key": "sound",
+						"type": "string",
+						"meta": {},
+						"children": []
+					}
+				]
+			},
+			{
+				"open": false,
+				"comment": "",
+				"data": "",
+				"key": "boi:desert_stone",
+				"type": "object",
+				"meta": {},
+				"children": [
+					{
+						"open": false,
+						"comment": "",
+						"data": "desert_stone",
+						"key": "textures",
+						"type": "string",
+						"meta": {},
+						"children": []
+					},
+					{
+						"open": false,
+						"comment": "",
+						"data": "stone",
+						"key": "sound",
+						"type": "string",
+						"meta": {},
+						"children": []
+					}
+				]
+			},
+			{
+				"open": false,
+				"comment": "",
+				"data": "",
+				"key": "boi:desert_coal",
+				"type": "object",
+				"meta": {},
+				"children": [
+					{
+						"open": false,
+						"comment": "",
+						"data": "desert_coal",
+						"key": "textures",
+						"type": "string",
+						"meta": {},
+						"children": []
+					},
+					{
+						"open": false,
+						"comment": "",
+						"data": "stone",
+						"key": "sound",
+						"type": "string",
+						"meta": {},
+						"children": []
+					}
+				]
+			},
+			{
+				"open": false,
+				"comment": "",
+				"data": "",
+				"key": "boi:desert_diamond",
+				"type": "object",
+				"meta": {},
+				"children": [
+					{
+						"open": false,
+						"comment": "",
+						"data": "desert_diamond",
+						"key": "textures",
+						"type": "string",
+						"meta": {},
+						"children": []
+					},
+					{
+						"open": false,
+						"comment": "",
+						"data": "square",
+						"key": "blockshape",
+						"type": "string",
+						"meta": {},
+						"children": []
+					},
+					{
+						"open": false,
+						"comment": "",
+						"data": "stone",
+						"key": "sound",
+						"type": "string",
+						"meta": {},
+						"children": []
+					}
+				]
+			},
+			{
+				"open": false,
+				"comment": "",
+				"data": "",
+				"key": "boi:desert_iron",
+				"type": "object",
+				"meta": {},
+				"children": [
+					{
+						"open": false,
+						"comment": "",
+						"data": "desert_iron",
+						"key": "textures",
+						"type": "string",
+						"meta": {},
+						"children": []
+					},
+					{
+						"open": false,
+						"comment": "",
+						"data": "stone",
+						"key": "sound",
+						"type": "string",
+						"meta": {},
+						"children": []
+					}
+				]
+			},
+			{
+				"open": false,
+				"comment": "",
+				"data": "",
+				"key": "boi:desert_gold",
+				"type": "object",
+				"meta": {},
+				"children": [
+					{
+						"open": false,
+						"comment": "",
+						"data": "desert_gold",
+						"key": "textures",
+						"type": "string",
+						"meta": {},
+						"children": []
+					},
+					{
+						"open": false,
+						"comment": "",
+						"data": "stone",
+						"key": "sound",
+						"type": "string",
+						"meta": {},
+						"children": []
+					}
+				]
+			},
+			{
+				"open": false,
+				"comment": "",
+				"data": "",
+				"key": "boi:desert_lapis",
+				"type": "object",
+				"meta": {},
+				"children": [
+					{
+						"open": false,
+						"comment": "",
+						"data": "desert_lapis",
+						"key": "textures",
+						"type": "string",
+						"meta": {},
+						"children": []
+					},
+					{
+						"open": false,
+						"comment": "",
+						"data": "stone",
+						"key": "sound",
+						"type": "string",
+						"meta": {},
+						"children": []
+					}
+				]
+			},
+			{
+				"open": false,
+				"comment": "",
+				"data": "",
+				"key": "boi:desert_redstone",
+				"type": "object",
+				"meta": {},
+				"children": [
+					{
+						"open": false,
+						"comment": "",
+						"data": "desert_redstone",
+						"key": "textures",
+						"type": "string",
+						"meta": {},
+						"children": []
+					},
+					{
+						"open": false,
+						"comment": "",
+						"data": "stone",
+						"key": "sound",
+						"type": "string",
+						"meta": {},
+						"children": []
+					}
+				]
+			},
+			{
+				"open": false,
+				"comment": "",
+				"data": "",
+				"key": "boi:prismarine_crystal_ore",
+				"type": "object",
+				"meta": {},
+				"children": [
+					{
+						"open": false,
+						"comment": "",
+						"data": "prismarine_crystal_ore",
+						"key": "textures",
+						"type": "string",
+						"meta": {},
+						"children": []
+					},
+					{
+						"open": false,
+						"comment": "",
+						"data": "stone",
+						"key": "sound",
+						"type": "string",
+						"meta": {},
+						"children": []
+					}
+				]
+			},
+			{
+				"open": false,
+				"comment": "",
+				"data": "",
+				"key": "boi:prismarine_ore",
+				"type": "object",
+				"meta": {},
+				"children": [
+					{
+						"open": false,
+						"comment": "",
+						"data": "prismarine_ore",
+						"key": "textures",
+						"type": "string",
+						"meta": {},
+						"children": []
+					},
+					{
+						"open": false,
+						"comment": "",
+						"data": "stone",
+						"key": "sound",
+						"type": "string",
+						"meta": {},
+						"children": []
+					}
+				]
+			},
+			{
+				"open": false,
+				"comment": "",
+				"data": "",
+				"key": "boi:stone_stalactite",
+				"type": "object",
+				"meta": {},
+				"children": [
+					{
+						"open": false,
+						"comment": "",
+						"data": "stone",
+						"key": "textures",
+						"type": "string",
+						"meta": {},
+						"children": []
+					},
+					{
+						"open": false,
+						"comment": "",
+						"data": "hopper",
+						"key": "blockshape",
+						"type": "string",
+						"meta": {},
+						"children": []
+					},
+					{
+						"open": false,
+						"comment": "",
+						"data": "stone",
+						"key": "sound",
+						"type": "string",
+						"meta": {},
+						"children": []
+					}
+				]
+			},
+			{
+				"open": false,
+				"comment": "",
+				"data": "",
+				"key": "bieldd:mud",
+				"type": "object",
+				"meta": {},
+				"children": [
+					{
+						"open": false,
+						"comment": "",
+						"data": "mud",
+						"key": "textures",
+						"type": "string",
+						"meta": {},
+						"children": []
+					},
+					{
+						"open": false,
+						"comment": "",
+						"data": "grass",
+						"key": "sound",
+						"type": "string",
+						"meta": {},
+						"children": []
+					}
+				]
+			},
+			{
+				"open": false,
+				"comment": "",
+				"data": "",
+				"key": "boi:tudor_block",
+				"type": "object",
+				"meta": {},
+				"children": [
+					{
+						"open": false,
+						"comment": "",
+						"data": "tudor_block",
+						"key": "textures",
+						"type": "string",
+						"meta": {},
+						"children": []
+					},
+					{
+						"open": false,
+						"comment": "",
+						"data": "stone",
+						"key": "sound",
+						"type": "string",
+						"meta": {},
+						"children": []
+					}
+				]
+			},
+			{
+				"open": false,
+				"comment": "",
+				"data": "",
+				"key": "boi:tudor_pillar",
+				"type": "object",
+				"meta": {},
+				"children": [
+					{
+						"open": false,
+						"comment": "",
+						"data": "tudor_pillar",
+						"key": "textures",
+						"type": "string",
+						"meta": {},
+						"children": []
+					},
+					{
+						"open": false,
+						"comment": "",
+						"data": "stone",
+						"key": "sound",
+						"type": "string",
+						"meta": {},
+						"children": []
+					}
+				]
+			},
+			{
+				"open": false,
+				"comment": "",
+				"data": "",
+				"key": "boi:tudor_cross",
+				"type": "object",
+				"meta": {},
+				"children": [
+					{
+						"open": false,
+						"comment": "",
+						"data": "tudor_cross",
+						"key": "textures",
+						"type": "string",
+						"meta": {},
+						"children": []
+					},
+					{
+						"open": false,
+						"comment": "",
+						"data": "stone",
+						"key": "sound",
+						"type": "string",
+						"meta": {},
+						"children": []
+					}
+				]
+			},
+			{
+				"open": false,
+				"comment": "",
+				"data": "",
+				"key": "boi:cobblestone_brick",
+				"type": "object",
+				"meta": {},
+				"children": [
+					{
+						"open": false,
+						"comment": "",
+						"data": "cobblestone_brick",
+						"key": "textures",
+						"type": "string",
+						"meta": {},
+						"children": []
+					},
+					{
+						"open": false,
+						"comment": "",
+						"data": "stone",
+						"key": "sound",
+						"type": "string",
+						"meta": {},
+						"children": []
+					}
+				]
+			},
+			{
+				"open": false,
+				"comment": "",
+				"data": "",
+				"key": "boi:cobblestone_brick_mossy",
+				"type": "object",
+				"meta": {},
+				"children": [
+					{
+						"open": false,
+						"comment": "",
+						"data": "cobblestone_brick_mossy",
+						"key": "textures",
+						"type": "string",
+						"meta": {},
+						"children": []
+					},
+					{
+						"open": false,
+						"comment": "",
+						"data": "stone",
+						"key": "sound",
+						"type": "string",
+						"meta": {},
+						"children": []
+					}
+				]
+			},
+			{
+				"open": false,
+				"comment": "",
+				"data": "",
+				"key": "boi:netherbrick_pillar",
+				"type": "object",
+				"meta": {},
+				"children": [
+					{
+						"open": false,
+						"comment": "",
+						"data": "",
+						"key": "textures",
+						"type": "object",
+						"meta": {},
+						"children": [
+							{
+								"open": false,
+								"comment": "",
+								"data": "netherbrick_pillar",
+								"key": "side",
+								"type": "string",
+								"meta": {},
+								"children": []
+							},
+							{
+								"open": false,
+								"comment": "",
+								"data": "netherbrick_pillar_top",
+								"key": "up",
+								"type": "string",
+								"meta": {},
+								"children": []
+							},
+							{
+								"open": false,
+								"comment": "",
+								"data": "netherbrick_pillar_top",
+								"key": "down",
+								"type": "string",
+								"meta": {},
+								"children": []
+							}
+						]
+					},
+					{
+						"open": false,
+						"comment": "",
+						"data": "stone",
+						"key": "sound",
+						"type": "string",
+						"meta": {},
+						"children": []
+					}
+				]
+			},
+			{
+				"open": false,
+				"comment": "",
+				"data": "",
+				"key": "boi:netherbrick_chiseled",
+				"type": "object",
+				"meta": {},
+				"children": [
+					{
+						"open": false,
+						"comment": "",
+						"data": "netherbrick_pillar_top",
+						"key": "textures",
+						"type": "string",
+						"meta": {},
+						"children": []
+					},
+					{
+						"open": false,
+						"comment": "",
+						"data": "stone",
+						"key": "sound",
+						"type": "string",
+						"meta": {},
+						"children": []
+					}
+				]
+			},
+			{
+				"open": false,
+				"comment": "",
+				"data": "",
+				"key": "boi:chain_block",
+				"type": "object",
+				"meta": {},
+				"children": [
+					{
+						"open": false,
+						"comment": "",
+						"data": "chain",
+						"key": "textures",
+						"type": "string",
+						"meta": {},
+						"children": []
+					},
+					{
+						"open": false,
+						"comment": "",
+						"data": "stem",
+						"key": "blockshape",
+						"type": "string",
+						"meta": {},
+						"children": []
+					},
+					{
+						"open": false,
+						"comment": "",
+						"data": "stone",
+						"key": "sound",
+						"type": "string",
+						"meta": {},
+						"children": []
+					}
+				]
+			},
+			{
+				"open": false,
+				"comment": "",
+				"data": "",
+				"key": "boi:obsidian_brick",
+				"type": "object",
+				"meta": {},
+				"children": [
+					{
+						"open": false,
+						"comment": "",
+						"data": "obsidian_brick",
+						"key": "textures",
+						"type": "string",
+						"meta": {},
+						"children": []
+					},
+					{
+						"open": false,
+						"comment": "",
+						"data": "stone",
+						"key": "sound",
+						"type": "string",
+						"meta": {},
+						"children": []
+					}
+				]
+			},
+			{
+				"open": false,
+				"comment": "",
+				"data": "",
+				"key": "boi:obsidian_pillar",
+				"type": "object",
+				"meta": {},
+				"children": [
+					{
+						"open": false,
+						"comment": "",
+						"data": "",
+						"key": "textures",
+						"type": "object",
+						"meta": {},
+						"children": [
+							{
+								"open": false,
+								"comment": "",
+								"data": "obsidian_pillar",
+								"key": "side",
+								"type": "string",
+								"meta": {},
+								"children": []
+							},
+							{
+								"open": false,
+								"comment": "",
+								"data": "obsidian_pillar_top",
+								"key": "up",
+								"type": "string",
+								"meta": {},
+								"children": []
+							},
+							{
+								"open": false,
+								"comment": "",
+								"data": "obsidian_pillar_top",
+								"key": "down",
+								"type": "string",
+								"meta": {},
+								"children": []
+							}
+						]
+					},
+					{
+						"open": false,
+						"comment": "",
+						"data": "stone",
+						"key": "sound",
+						"type": "string",
+						"meta": {},
+						"children": []
+					}
+				]
+			},
+			{
+				"open": false,
+				"comment": "",
+				"data": "",
+				"key": "boi:mushroom_planks_light",
+				"type": "object",
+				"meta": {},
+				"children": [
+					{
+						"open": false,
+						"comment": "",
+						"data": "mushroom_planks1",
+						"key": "textures",
+						"type": "string",
+						"meta": {},
+						"children": []
+					},
+					{
+						"open": false,
+						"comment": "",
+						"data": "wood",
+						"key": "sound",
+						"type": "string",
+						"meta": {},
+						"children": []
+					}
+				]
+			},
+			{
+				"open": false,
+				"comment": "",
+				"data": "",
+				"key": "boi:mushroom_planks_red",
+				"type": "object",
+				"meta": {},
+				"children": [
+					{
+						"open": false,
+						"comment": "",
+						"data": "mushroom_planks2",
+						"key": "textures",
+						"type": "string",
+						"meta": {},
+						"children": []
+					},
+					{
+						"open": false,
+						"comment": "",
+						"data": "wood",
+						"key": "sound",
+						"type": "string",
+						"meta": {},
+						"children": []
+					}
+				]
+			},
+			{
+				"open": false,
+				"comment": "",
+				"data": "",
+				"key": "boi:mushroom_planks_dark",
+				"type": "object",
+				"meta": {},
+				"children": [
+					{
+						"open": false,
+						"comment": "",
+						"data": "mushroom_planks3",
+						"key": "textures",
+						"type": "string",
+						"meta": {},
+						"children": []
+					},
+					{
+						"open": false,
+						"comment": "",
+						"data": "wood",
+						"key": "sound",
+						"type": "string",
+						"meta": {},
+						"children": []
+					}
+				]
+			},
+			{
+				"open": false,
+				"comment": "",
+				"data": "",
+				"key": "boi:mushroom_pillar_brown",
+				"type": "object",
+				"meta": {},
+				"children": [
+					{
+						"open": false,
+						"comment": "",
+						"data": "",
+						"key": "textures",
+						"type": "object",
+						"meta": {},
+						"children": [
+							{
+								"open": false,
+								"comment": "",
+								"data": "mushroom_pillar1",
+								"key": "side",
+								"type": "string",
+								"meta": {},
+								"children": []
+							},
+							{
+								"open": false,
+								"comment": "",
+								"data": "mushroom_pillar1_top",
+								"key": "up",
+								"type": "string",
+								"meta": {},
+								"children": []
+							},
+							{
+								"open": false,
+								"comment": "",
+								"data": "mushroom_pillar1_top",
+								"key": "down",
+								"type": "string",
+								"meta": {},
+								"children": []
+							}
+						]
+					},
+					{
+						"open": false,
+						"comment": "",
+						"data": "wood",
+						"key": "sound",
+						"type": "string",
+						"meta": {},
+						"children": []
+					}
+				]
+			},
+			{
+				"open": false,
+				"comment": "",
+				"data": "",
+				"key": "boi:mushroom_pillar_red",
+				"type": "object",
+				"meta": {},
+				"children": [
+					{
+						"open": false,
+						"comment": "",
+						"data": "",
+						"key": "textures",
+						"type": "object",
+						"meta": {},
+						"children": [
+							{
+								"open": false,
+								"comment": "",
+								"data": "mushroom_pillar2",
+								"key": "side",
+								"type": "string",
+								"meta": {},
+								"children": []
+							},
+							{
+								"open": false,
+								"comment": "",
+								"data": "mushroom_pillar2_top",
+								"key": "up",
+								"type": "string",
+								"meta": {},
+								"children": []
+							},
+							{
+								"open": false,
+								"comment": "",
+								"data": "mushroom_pillar2_top",
+								"key": "down",
+								"type": "string",
+								"meta": {},
+								"children": []
+							}
+						]
+					},
+					{
+						"open": false,
+						"comment": "",
+						"data": "wood",
+						"key": "sound",
+						"type": "string",
+						"meta": {},
+						"children": []
+					}
+				]
+			},
+			{
+				"open": false,
+				"comment": "",
+				"data": "",
+				"key": "boi:skull_lantern",
+				"type": "object",
+				"meta": {},
+				"children": [
+					{
+						"open": false,
+						"comment": "",
+						"data": "skull_lantern",
+						"key": "textures",
+						"type": "string",
+						"meta": {},
+						"children": []
+					},
+					{
+						"open": false,
+						"comment": "",
+						"data": "lantern",
+						"key": "blockshape",
+						"type": "string",
+						"meta": {},
+						"children": []
+					},
+					{
+						"open": false,
+						"comment": "",
+						"data": "stone",
+						"key": "sound",
+						"type": "string",
+						"meta": {},
+						"children": []
+					}
+				]
+			},
+			{
+				"open": false,
+				"comment": "",
+				"data": "",
+				"key": "boi:rope",
+				"type": "object",
+				"meta": {},
+				"children": [
+					{
+						"open": false,
+						"comment": "",
+						"data": "rope",
+						"key": "textures",
+						"type": "string",
+						"meta": {},
+						"children": []
+					},
+					{
+						"open": false,
+						"comment": "",
+						"data": "iron_fence",
+						"key": "blockshape",
+						"type": "string",
+						"meta": {},
+						"children": []
+					},
+					{
+						"open": false,
+						"comment": "",
+						"data": "stone",
+						"key": "sound",
+						"type": "string",
+						"meta": {},
+						"children": []
+					}
+				]
+			},
+			{
+				"open": false,
+				"comment": "",
+				"data": "",
+				"key": "boi:chain",
+				"type": "object",
+				"meta": {},
+				"children": [
+					{
+						"open": false,
+						"comment": "",
+						"data": "",
+						"key": "textures",
+						"type": "object",
+						"meta": {},
+						"children": [
+							{
+								"open": false,
+								"comment": "",
+								"data": "chain",
+								"key": "north",
+								"type": "string",
+								"meta": {},
+								"children": []
+							},
+							{
+								"open": false,
+								"comment": "",
+								"data": "chain",
+								"key": "south",
+								"type": "string",
+								"meta": {},
+								"children": []
+							},
+							{
+								"open": false,
+								"comment": "",
+								"data": "chain2",
+								"key": "east",
+								"type": "string",
+								"meta": {},
+								"children": []
+							},
+							{
+								"open": false,
+								"comment": "",
+								"data": "chain",
+								"key": "west",
+								"type": "string",
+								"meta": {},
+								"children": []
+							},
+							{
+								"open": false,
+								"comment": "",
+								"data": "chain",
+								"key": "up",
+								"type": "string",
+								"meta": {},
+								"children": []
+							},
+							{
+								"open": false,
+								"comment": "",
+								"data": "chain",
+								"key": "down",
+								"type": "string",
+								"meta": {},
+								"children": []
+							}
+						]
+					},
+					{
+						"open": false,
+						"comment": "",
+						"data": "kelp",
+						"key": "blockshape",
+						"type": "string",
+						"meta": {},
+						"children": []
+					},
+					{
+						"open": false,
+						"comment": "",
+						"data": "lantern",
+						"key": "sound",
+						"type": "string",
+						"meta": {},
+						"children": []
+					}
+				]
+			},
+			{
+				"open": true,
+				"comment": "",
+				"data": "",
+				"key": "boi:snow_brick",
+				"type": "object",
+				"meta": {},
+				"children": [
+					{
+						"open": false,
+						"comment": "",
+						"data": "snow_brick",
+						"key": "textures",
+						"type": "string",
+						"meta": {},
+						"children": []
+					},
+					{
+						"open": false,
+						"comment": "",
+						"data": "snow",
+						"key": "sound",
+						"type": "string",
+						"meta": {},
+						"children": []
+					},
+					{
+						"open": false,
+						"comment": "",
+						"data": "0.9",
+						"key": "brightness_gamma",
+						"type": "string",
+						"meta": {},
+						"children": []
+					}
+				]
+			},
+			{
+				"open": false,
+				"comment": "",
+				"data": "",
+				"key": "bieldd:algodao",
+				"type": "object",
+				"meta": {},
+				"children": [
+					{
+						"open": false,
+						"comment": "",
+						"data": "algodao",
+						"key": "textures",
+						"type": "string",
+						"meta": {},
+						"children": []
+					},
+					{
+						"open": false,
+						"comment": "",
+						"data": "stone",
+						"key": "sound",
+						"type": "string",
+						"meta": {},
+						"children": []
+					}
+				]
+			}
+		]
+	}
+}

@@ -1,0 +1,31 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.cave_ambience": {
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "walking": "(1.0)"
+            }
+          ],
+          "on_entry": [
+            "/playsound boi.amb.cave_sounds @a[y=~-64,r=60]"
+
+
+          ]
+        },
+        "walking": {
+          "transitions": [
+            {
+              "default": "(1.0)"
+            }
+          ],
+          "on_entry": [
+            "/playsound boi.amb.cave_sounds @a[y=~-64,r=60]"
+          ]
+        }
+      }
+    }
+  }
+}

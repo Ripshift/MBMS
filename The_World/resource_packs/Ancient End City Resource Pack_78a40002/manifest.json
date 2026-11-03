@@ -1,0 +1,36 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Ancient End City Resource Pack",
+    "description": "Resources required by the Ancient End City behavior pack by Cubeir.",
+    "uuid": "78a40002-5520-4b64-85d5-6e71f1775f0c",
+    "version": [
+      1,
+      0,
+      5
+    ],
+    "min_engine_version": [
+      1,
+      21,
+      60
+    ]
+  },
+  "modules": [
+    {
+      "type": "resources",
+      "uuid": "04c85db6-5688-4d47-be42-02f275da2b85",
+      "version": [
+        1,
+        0,
+        5
+      ]
+    }
+  ],
+  "metadata": {
+    "authors": [
+      "Cubeir"
+    ],
+    "license": "All Rights Reserved.",
+    "product_type": "addon"
+  }
+}

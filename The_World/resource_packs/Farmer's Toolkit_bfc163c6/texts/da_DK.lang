@@ -1,0 +1,10 @@
+item.fato:shepherds_crook=Hyrdestav
+item.fato:shepherds_crook.pull=Træk
+item.fato:sickle=Segl
+item.fato:farmers_hat=Bondens Hat
+item.fato:watering_can=Vandkande
+item.fato:watering_can_filled=Fyldt Vandkande
+
+tile.fato:rabbit_trap.name=Kanin-fælde
+tile.fato:fish_trap.name=Fiskefælde
+item.fato:fish_trap=Fiskefælde

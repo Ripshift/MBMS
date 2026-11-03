@@ -1,0 +1,82 @@
+{
+	"entity": {
+		"BP/entities/Ambience/Ambient_sound_controller.json": {
+			"events": [
+				"sound",
+				"despawn"
+			],
+			"custom_components": [],
+			"bridge_core_tags": [],
+			"identifiers": [
+				"boi:ambient_sound_controller"
+			],
+			"animation_references": [],
+			"families": [
+				"inanimate"
+			],
+			"custom_commands": []
+		},
+		"BP/entities/Utility/FUNCTION_MASTER.json": {
+			"events": [],
+			"custom_components": [],
+			"bridge_core_tags": [],
+			"identifiers": [
+				"boi:function_master"
+			],
+			"animation_references": [
+				"walk"
+			],
+			"families": [
+				"inanimate"
+			],
+			"custom_commands": []
+		},
+		"BP/entities/Utility/FUNCTION_MASTER_SPAWN.json": {
+			"events": [
+				"transform"
+			],
+			"custom_components": [],
+			"bridge_core_tags": [],
+			"identifiers": [
+				"boi:function_master_spawn"
+			],
+			"animation_references": [],
+			"families": []
+		},
+		"BP/entities/Utility/FUNCTION_MASTER_SPAWN_intermediate.json": {
+			"events": [
+				"transform"
+			],
+			"custom_components": [],
+			"bridge_core_tags": [],
+			"identifiers": [
+				"boi:function_master_spawn_intermediate"
+			],
+			"animation_references": [],
+			"families": []
+		},
+		"BP/entities/Ambience/Ambient_sound_controller2.json": {
+			"events": [
+				"sound",
+				"despawn"
+			],
+			"custom_components": [],
+			"bridge_core_tags": [],
+			"identifiers": [
+				"boi:ambient_sound_controller"
+			],
+			"animation_references": [],
+			"families": [],
+			"custom_commands": []
+		}
+	},
+	"sound_definition": {
+		"RP/sounds/sound_definitions.json": {
+			"ids": []
+		}
+	},
+	"function": {
+		"78347717_17ed_4915_b148_0acdad31ec0a": {},
+		"0ed44b4c_d7d5_43a0_a9c7_8d96f456bda0": {}
+	}
+}

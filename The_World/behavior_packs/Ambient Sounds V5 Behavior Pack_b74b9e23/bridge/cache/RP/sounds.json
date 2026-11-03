@@ -1,0 +1,1324 @@
+{
+	"file_path": "C:\\Users\\fiddy\\AppData\\Local\\Packages\\Microsoft.MinecraftUWP_8wekyb3d8bbwe\\LocalState\\games\\com.mojang\\development_resource_packs\\AmbientSou\\sounds.json",
+	"file_type": "client_sound",
+	"format_version": 1,
+	"file_uuid": "8669c42f_b547_4434_a481_1e37e7318609",
+	"file_version": 0,
+	"cache_content": {
+		"children": [
+			{
+				"key": "entity_sounds",
+				"is_minified": true,
+				"children": {
+					"defaults": {
+						"volume": 1,
+						"pitch": [
+							0.8,
+							1.2
+						],
+						"events": {
+							"fall.big": {
+								"sound": "damage.fallbig",
+								"volume": 0.75,
+								"pitch": 1
+							},
+							"fall.small": {
+								"sound": "damage.fallsmall",
+								"volume": 0.75,
+								"pitch": 1
+							},
+							"splash": {
+								"sound": "random.splash",
+								"pitch": [
+									0.6,
+									1.4
+								]
+							},
+							"swim": {
+								"sound": "random.swim",
+								"pitch": [
+									0.6,
+									1.4
+								]
+							},
+							"fizz": {
+								"sound": "random.fizz",
+								"volume": 0.7,
+								"pitch": [
+									1.2,
+									2
+								]
+							},
+							"drink": {
+								"sound": "random.drink",
+								"volume": 0.5,
+								"pitch": [
+									0.9,
+									1
+								]
+							},
+							"eat": {
+								"sound": "random.eat",
+								"volume": [
+									0.5,
+									1.5
+								],
+								"pitch": [
+									0.8,
+									1.2
+								]
+							},
+							"ambient": {},
+							"flop": {},
+							"hurt": "game.player.hurt",
+							"death": "game.player.die",
+							"ambient.in.water": {},
+							"hurt.in.water": {},
+							"death.in.water": {}
+						}
+					}
+				}
+			},
+			{
+				"key": "interactive_sounds",
+				"children": [
+					{
+						"key": "block_sounds",
+						"is_minified": true,
+						"children": {
+							"normal": {
+								"events": {
+									"default": {},
+									"fall": {
+										"sounds": "fall.stone",
+										"volume": 1
+									},
+									"step": {
+										"sound": "step.stone",
+										"volume": 1
+									},
+									"jump": {
+										"sound": "jump.stone",
+										"volume": 0.25
+									},
+									"land": {
+										"sound": "land.stone",
+										"volume": 0.5
+									}
+								},
+								"volume": 1,
+								"pitch": 1
+							},
+							"gravel": {
+								"events": {
+									"default": {},
+									"fall": {
+										"sounds": "fall.gravel",
+										"volume": 1
+									},
+									"step": {
+										"sound": "step.gravel",
+										"volume": 1
+									},
+									"jump": {
+										"sound": "jump.gravel",
+										"volume": 0.25
+									},
+									"land": {
+										"sound": "land.gravel",
+										"volume": 0.5
+									}
+								},
+								"volume": 1,
+								"pitch": 1
+							},
+							"wood": {
+								"events": {
+									"default": {},
+									"fall": {
+										"sounds": "fall.wood",
+										"volume": 1
+									},
+									"step": {
+										"sound": "step.wood",
+										"volume": 0.7
+									},
+									"jump": {
+										"sound": "jump.wood",
+										"volume": 0.25
+									},
+									"land": {
+										"sound": "land.wood",
+										"volume": 0.5
+									}
+								},
+								"volume": 1,
+								"pitch": 1
+							},
+							"grass": {
+								"events": {
+									"default": {},
+									"fall": {
+										"sounds": "fall.grass",
+										"volume": 1
+									},
+									"step": {
+										"sound": "step.grass",
+										"volume": 1
+									},
+									"jump": {
+										"sound": "jump.grass",
+										"volume": 0.25
+									},
+									"land": {
+										"sound": "land.grass",
+										"volume": 0.5
+									}
+								},
+								"volume": 1,
+								"pitch": 1
+							},
+							"stone": {
+								"events": {
+									"default": {},
+									"fall": {
+										"sounds": "fall.stone",
+										"volume": 1
+									},
+									"step": {
+										"sound": "step.stone",
+										"volume": 0.7
+									},
+									"jump": {
+										"sound": "jump.stone",
+										"volume": 0.25
+									},
+									"land": {
+										"sound": "land.stone",
+										"volume": 0.5
+									}
+								},
+								"volume": 1,
+								"pitch": 1
+							},
+							"cloth": {
+								"events": {
+									"default": {},
+									"fall": {
+										"sounds": "fall.cloth",
+										"volume": 1
+									},
+									"step": {
+										"sound": "step.cloth",
+										"volume": 1
+									},
+									"jump": {
+										"sound": "jump.cloth",
+										"volume": 0.25
+									},
+									"land": {
+										"sound": "land.cloth",
+										"volume": 0.5
+									}
+								},
+								"volume": 1,
+								"pitch": 1
+							},
+							"glass": {
+								"events": {
+									"default": {},
+									"fall": {
+										"sounds": "fall.stone",
+										"volume": 1
+									},
+									"step": {
+										"sound": "step.stone",
+										"volume": 1
+									},
+									"jump": {
+										"sound": "jump.stone",
+										"volume": 0.25
+									},
+									"land": {
+										"sound": "land.stone",
+										"volume": 0.5
+									}
+								},
+								"volume": 1,
+								"pitch": 1
+							},
+							"sand": {
+								"events": {
+									"default": {},
+									"fall": {
+										"sounds": "fall.sand",
+										"volume": 1
+									},
+									"step": {
+										"sound": "step.sand",
+										"volume": 0.4
+									},
+									"jump": {
+										"sound": "jump.sand",
+										"volume": 0.25
+									},
+									"land": {
+										"sound": "land.sand",
+										"volume": 0.5
+									}
+								},
+								"volume": 1,
+								"pitch": 1
+							},
+							"snow": {
+								"events": {
+									"default": {},
+									"fall": {
+										"sounds": "fall.snow",
+										"volume": 1
+									},
+									"step": {
+										"sound": "step.snow",
+										"volume": 1
+									},
+									"jump": {
+										"sound": "jump.snow",
+										"volume": 0.25
+									},
+									"land": {
+										"sound": "land.snow",
+										"volume": 0.5
+									}
+								},
+								"volume": 1,
+								"pitch": 1
+							},
+							"ladder": {
+								"events": {
+									"default": {},
+									"fall": {
+										"sounds": "fall.ladder",
+										"volume": 1
+									},
+									"step": {
+										"sound": "step.ladder",
+										"volume": 1
+									},
+									"jump": {
+										"sound": "jump.ladder",
+										"volume": 0.25
+									},
+									"land": {
+										"sound": "land.ladder",
+										"volume": 0.5
+									}
+								},
+								"volume": 1,
+								"pitch": 1
+							},
+							"slime": {
+								"events": {
+									"default": {},
+									"fall": {
+										"sounds": "fall.slime",
+										"volume": 1
+									},
+									"step": {
+										"sound": "step.slime",
+										"volume": 1
+									},
+									"jump": {
+										"sound": "jump.slime",
+										"volume": 0.25
+									},
+									"land": {
+										"sound": "land.slime",
+										"volume": 0.5
+									}
+								},
+								"volume": 1,
+								"pitch": 1
+							},
+							"anvil": {
+								"events": {
+									"default": {},
+									"fall": {
+										"sounds": "fall.anvil",
+										"volume": 1
+									},
+									"step": {
+										"sound": "step.anvil",
+										"volume": 1
+									},
+									"jump": {
+										"sound": "jump.anvil",
+										"volume": 0.25
+									},
+									"land": {
+										"sound": "land.anvil",
+										"volume": 0.5
+									}
+								},
+								"volume": 0.35,
+								"pitch": 1
+							},
+							"metal": {
+								"events": {
+									"default": {},
+									"fall": {
+										"sounds": "fall.stone",
+										"volume": 1
+									},
+									"step": {
+										"sound": "step.stone",
+										"volume": 1
+									},
+									"jump": {
+										"sound": "jump.stone",
+										"volume": 0.25
+									},
+									"land": {
+										"sound": "land.stone",
+										"volume": 0.5
+									}
+								},
+								"volume": 1,
+								"pitch": 1.5
+							},
+							"turtle_egg": {
+								"events": {
+									"default": {},
+									"fall": {
+										"sounds": "fall.egg",
+										"volume": 1
+									},
+									"step": {
+										"sound": "step.stone",
+										"volume": 0.7
+									},
+									"jump": {
+										"sound": "jump.stone",
+										"volume": 0.25
+									},
+									"land": {
+										"sound": "fall.egg",
+										"volume": 0.7
+									}
+								},
+								"volume": 1,
+								"pitch": 0.9
+							},
+							"bamboo": {
+								"events": {
+									"default": {},
+									"fall": {
+										"sounds": "block.bamboo.fall",
+										"volume": 1
+									},
+									"step": {
+										"sound": "block.bamboo.step",
+										"volume": 1
+									},
+									"jump": {
+										"sound": "jump.wood",
+										"volume": 0.25
+									},
+									"land": {
+										"sound": "block.bamboo.fall",
+										"volume": 1
+									}
+								},
+								"volume": 1,
+								"pitch": 1
+							},
+							"lantern": {
+								"events": {
+									"default": {},
+									"fall": {
+										"sounds": "block.lantern.fall",
+										"volume": 1
+									},
+									"step": {
+										"sound": "block.lantern.step",
+										"volume": 1
+									},
+									"jump": {
+										"sound": "jump.metal",
+										"volume": 0.25
+									},
+									"land": {
+										"sound": "block.lantern.fall",
+										"volume": 1
+									}
+								},
+								"volume": 1,
+								"pitch": 1
+							},
+							"scaffolding": {
+								"events": {
+									"default": {},
+									"fall": {
+										"sounds": "block.scaffolding.fall",
+										"volume": 1
+									},
+									"step": {
+										"sound": "block.scaffolding.step",
+										"volume": 1
+									},
+									"jump": {
+										"sound": "jump.wood",
+										"volume": 0.25
+									},
+									"land": {
+										"sound": "block.scaffolding.fall",
+										"volume": 1
+									}
+								},
+								"volume": 1,
+								"pitch": 1
+							}
+						}
+					},
+					{
+						"open": {
+							"block_sounds": {
+								"normal": {
+									"events": {
+										"default": {},
+										"fall": {
+											"sounds": "fall.stone",
+											"volume": 1
+										},
+										"step": {
+											"sound": "step.stone",
+											"volume": 1
+										},
+										"jump": {
+											"sound": "jump.stone",
+											"volume": 0.25
+										},
+										"land": {
+											"sound": "land.stone",
+											"volume": 0.5
+										}
+									},
+									"volume": 1,
+									"pitch": 1
+								},
+								"gravel": {
+									"events": {
+										"default": {},
+										"fall": {
+											"sounds": "fall.gravel",
+											"volume": 1
+										},
+										"step": {
+											"sound": "step.gravel",
+											"volume": 1
+										},
+										"jump": {
+											"sound": "jump.gravel",
+											"volume": 0.25
+										},
+										"land": {
+											"sound": "land.gravel",
+											"volume": 0.5
+										}
+									},
+									"volume": 1,
+									"pitch": 1
+								},
+								"wood": {
+									"events": {
+										"default": {},
+										"fall": {
+											"sounds": "fall.wood",
+											"volume": 1
+										},
+										"step": {
+											"sound": "step.wood",
+											"volume": 0.7
+										},
+										"jump": {
+											"sound": "jump.wood",
+											"volume": 0.25
+										},
+										"land": {
+											"sound": "land.wood",
+											"volume": 0.5
+										}
+									},
+									"volume": 1,
+									"pitch": 1
+								},
+								"grass": {
+									"events": {
+										"default": {},
+										"fall": {
+											"sounds": "fall.grass",
+											"volume": 1
+										},
+										"step": {
+											"sound": "step.grass",
+											"volume": 1
+										},
+										"jump": {
+											"sound": "jump.grass",
+											"volume": 0.25
+										},
+										"land": {
+											"sound": "land.grass",
+											"volume": 0.5
+										}
+									},
+									"volume": 1,
+									"pitch": 1
+								},
+								"stone": {
+									"events": {
+										"default": {},
+										"fall": {
+											"sounds": "fall.stone",
+											"volume": 1
+										},
+										"step": {
+											"sound": "step.stone",
+											"volume": 0.7
+										},
+										"jump": {
+											"sound": "jump.stone",
+											"volume": 0.25
+										},
+										"land": {
+											"sound": "land.stone",
+											"volume": 0.5
+										}
+									},
+									"volume": 1,
+									"pitch": 1
+								},
+								"cloth": {
+									"events": {
+										"default": {},
+										"fall": {
+											"sounds": "fall.cloth",
+											"volume": 1
+										},
+										"step": {
+											"sound": "step.cloth",
+											"volume": 1
+										},
+										"jump": {
+											"sound": "jump.cloth",
+											"volume": 0.25
+										},
+										"land": {
+											"sound": "land.cloth",
+											"volume": 0.5
+										}
+									},
+									"volume": 1,
+									"pitch": 1
+								},
+								"glass": {
+									"events": {
+										"default": {},
+										"fall": {
+											"sounds": "fall.stone",
+											"volume": 1
+										},
+										"step": {
+											"sound": "step.stone",
+											"volume": 1
+										},
+										"jump": {
+											"sound": "jump.stone",
+											"volume": 0.25
+										},
+										"land": {
+											"sound": "land.stone",
+											"volume": 0.5
+										}
+									},
+									"volume": 1,
+									"pitch": 1
+								},
+								"sand": {
+									"events": {
+										"default": {},
+										"fall": {
+											"sounds": "fall.sand",
+											"volume": 1
+										},
+										"step": {
+											"sound": "step.sand",
+											"volume": 0.4
+										},
+										"jump": {
+											"sound": "jump.sand",
+											"volume": 0.25
+										},
+										"land": {
+											"sound": "land.sand",
+											"volume": 0.5
+										}
+									},
+									"volume": 1,
+									"pitch": 1
+								},
+								"snow": {
+									"events": {
+										"default": {},
+										"fall": {
+											"sounds": "fall.snow",
+											"volume": 1
+										},
+										"step": {
+											"sound": "step.snow",
+											"volume": 1
+										},
+										"jump": {
+											"sound": "jump.snow",
+											"volume": 0.25
+										},
+										"land": {
+											"sound": "land.snow",
+											"volume": 0.5
+										}
+									},
+									"volume": 1,
+									"pitch": 1
+								},
+								"ladder": {
+									"events": {
+										"default": {},
+										"fall": {
+											"sounds": "fall.ladder",
+											"volume": 1
+										},
+										"step": {
+											"sound": "step.ladder",
+											"volume": 1
+										},
+										"jump": {
+											"sound": "jump.ladder",
+											"volume": 0.25
+										},
+										"land": {
+											"sound": "land.ladder",
+											"volume": 0.5
+										}
+									},
+									"volume": 1,
+									"pitch": 1
+								},
+								"slime": {
+									"events": {
+										"default": {},
+										"fall": {
+											"sounds": "fall.slime",
+											"volume": 1
+										},
+										"step": {
+											"sound": "step.slime",
+											"volume": 1
+										},
+										"jump": {
+											"sound": "jump.slime",
+											"volume": 0.25
+										},
+										"land": {
+											"sound": "land.slime",
+											"volume": 0.5
+										}
+									},
+									"volume": 1,
+									"pitch": 1
+								},
+								"anvil": {
+									"events": {
+										"default": {},
+										"fall": {
+											"sounds": "fall.anvil",
+											"volume": 1
+										},
+										"step": {
+											"sound": "step.anvil",
+											"volume": 1
+										},
+										"jump": {
+											"sound": "jump.anvil",
+											"volume": 0.25
+										},
+										"land": {
+											"sound": "land.anvil",
+											"volume": 0.5
+										}
+									},
+									"volume": 0.35,
+									"pitch": 1
+								},
+								"metal": {
+									"events": {
+										"default": {},
+										"fall": {
+											"sounds": "fall.stone",
+											"volume": 1
+										},
+										"step": {
+											"sound": "step.stone",
+											"volume": 1
+										},
+										"jump": {
+											"sound": "jump.stone",
+											"volume": 0.25
+										},
+										"land": {
+											"sound": "land.stone",
+											"volume": 0.5
+										}
+									},
+									"volume": 1,
+									"pitch": 1.5
+								},
+								"turtle_egg": {
+									"events": {
+										"default": {},
+										"fall": {
+											"sounds": "fall.egg",
+											"volume": 1
+										},
+										"step": {
+											"sound": "step.stone",
+											"volume": 0.7
+										},
+										"jump": {
+											"sound": "jump.stone",
+											"volume": 0.25
+										},
+										"land": {
+											"sound": "fall.egg",
+											"volume": 0.7
+										}
+									},
+									"volume": 1,
+									"pitch": 0.9
+								},
+								"bamboo": {
+									"events": {
+										"default": {},
+										"fall": {
+											"sounds": "block.bamboo.fall",
+											"volume": 1
+										},
+										"step": {
+											"sound": "block.bamboo.step",
+											"volume": 1
+										},
+										"jump": {
+											"sound": "jump.wood",
+											"volume": 0.25
+										},
+										"land": {
+											"sound": "block.bamboo.fall",
+											"volume": 1
+										}
+									},
+									"volume": 1,
+									"pitch": 1
+								},
+								"lantern": {
+									"events": {
+										"default": {},
+										"fall": {
+											"sounds": "block.lantern.fall",
+											"volume": 1
+										},
+										"step": {
+											"sound": "block.lantern.step",
+											"volume": 1
+										},
+										"jump": {
+											"sound": "jump.metal",
+											"volume": 0.25
+										},
+										"land": {
+											"sound": "block.lantern.fall",
+											"volume": 1
+										}
+									},
+									"volume": 1,
+									"pitch": 1
+								},
+								"scaffolding": {
+									"events": {
+										"default": {},
+										"fall": {
+											"sounds": "block.scaffolding.fall",
+											"volume": 1
+										},
+										"step": {
+											"sound": "block.scaffolding.step",
+											"volume": 1
+										},
+										"jump": {
+											"sound": "jump.wood",
+											"volume": 0.25
+										},
+										"land": {
+											"sound": "block.scaffolding.fall",
+											"volume": 1
+										}
+									},
+									"volume": 1,
+									"pitch": 1
+								}
+							},
+							"entity_sounds": {
+								"defaults": {
+									"volume": 0.25,
+									"pitch": 1,
+									"events": {
+										"fall": {
+											"default": {
+												"sound": {},
+												"volume": 1,
+												"pitch": 0.75
+											}
+										},
+										"jump": {
+											"default": {
+												"sound": {},
+												"volume": 0.25,
+												"pitch": 0.75
+											}
+										}
+									}
+								},
+								"entities": {
+									"horse": {
+										"volume": 0.15,
+										"pitch": 1,
+										"events": {
+											"step": {
+												"wood": "mob.horse.wood",
+												"default": "mob.horse.soft"
+											},
+											"heavy.step": {
+												"default": "mob.horse.wood"
+											},
+											"gallop": {
+												"default": "mob.horse.gallop"
+											}
+										}
+									},
+									"donkey": {
+										"volume": 0.15,
+										"pitch": 1,
+										"events": {
+											"step": {
+												"wood": "mob.horse.wood",
+												"default": "mob.horse.soft"
+											},
+											"heavy.step": {
+												"default": "mob.horse.wood"
+											},
+											"gallop": {
+												"default": "mob.horse.gallop"
+											}
+										}
+									},
+									"mule": {
+										"volume": 0.15,
+										"pitch": 1,
+										"events": {
+											"step": {
+												"wood": "mob.horse.wood",
+												"default": "mob.horse.soft"
+											},
+											"heavy.step": {
+												"default": "mob.horse.wood"
+											},
+											"gallop": {
+												"default": "mob.horse.gallop"
+											}
+										}
+									},
+									"skeleton_horse": {
+										"volume": 0.15,
+										"pitch": 1,
+										"events": {
+											"step": {
+												"wood": "mob.horse.wood",
+												"default": "mob.horse.soft"
+											},
+											"heavy.step": {
+												"default": "mob.horse.wood"
+											},
+											"gallop": {
+												"default": "mob.horse.gallop"
+											}
+										}
+									},
+									"zombie_horse": {
+										"volume": 0.15,
+										"pitch": 1,
+										"events": {
+											"step": {
+												"wood": "mob.horse.wood",
+												"default": "mob.horse.soft"
+											},
+											"heavy.step": {
+												"default": "mob.horse.wood"
+											},
+											"gallop": {
+												"default": "mob.horse.gallop"
+											}
+										}
+									},
+									"rabbit": {
+										"volume": 0.0375,
+										"pitch": 1.5
+									}
+								}
+							}
+						},
+						"key": "entity_sounds",
+						"children": [
+							{
+								"open": {
+									"defaults": {
+										"volume": 0.25,
+										"pitch": 1,
+										"events": {
+											"fall": {
+												"default": {
+													"sound": {},
+													"volume": 1,
+													"pitch": 0.75
+												}
+											},
+											"jump": {
+												"default": {
+													"sound": {},
+													"volume": 0.25,
+													"pitch": 0.75
+												}
+											}
+										}
+									},
+									"entities": {
+										"horse": {
+											"volume": 0.15,
+											"pitch": 1,
+											"events": {
+												"step": {
+													"wood": "mob.horse.wood",
+													"default": "mob.horse.soft"
+												},
+												"heavy.step": {
+													"default": "mob.horse.wood"
+												},
+												"gallop": {
+													"default": "mob.horse.gallop"
+												}
+											}
+										},
+										"donkey": {
+											"volume": 0.15,
+											"pitch": 1,
+											"events": {
+												"step": {
+													"wood": "mob.horse.wood",
+													"default": "mob.horse.soft"
+												},
+												"heavy.step": {
+													"default": "mob.horse.wood"
+												},
+												"gallop": {
+													"default": "mob.horse.gallop"
+												}
+											}
+										},
+										"mule": {
+											"volume": 0.15,
+											"pitch": 1,
+											"events": {
+												"step": {
+													"wood": "mob.horse.wood",
+													"default": "mob.horse.soft"
+												},
+												"heavy.step": {
+													"default": "mob.horse.wood"
+												},
+												"gallop": {
+													"default": "mob.horse.gallop"
+												}
+											}
+										},
+										"skeleton_horse": {
+											"volume": 0.15,
+											"pitch": 1,
+											"events": {
+												"step": {
+													"wood": "mob.horse.wood",
+													"default": "mob.horse.soft"
+												},
+												"heavy.step": {
+													"default": "mob.horse.wood"
+												},
+												"gallop": {
+													"default": "mob.horse.gallop"
+												}
+											}
+										},
+										"zombie_horse": {
+											"volume": 0.15,
+											"pitch": 1,
+											"events": {
+												"step": {
+													"wood": "mob.horse.wood",
+													"default": "mob.horse.soft"
+												},
+												"heavy.step": {
+													"default": "mob.horse.wood"
+												},
+												"gallop": {
+													"default": "mob.horse.gallop"
+												}
+											}
+										},
+										"rabbit": {
+											"volume": 0.0375,
+											"pitch": 1.5
+										}
+									}
+								},
+								"key": "defaults",
+								"is_minified": true,
+								"children": {
+									"volume": 0.25,
+									"pitch": 1,
+									"events": {
+										"fall": {
+											"default": {
+												"sound": {},
+												"volume": 1,
+												"pitch": 0.75
+											}
+										},
+										"jump": {
+											"default": {
+												"sound": {},
+												"volume": 0.25,
+												"pitch": 0.75
+											}
+										}
+									}
+								}
+							},
+							{
+								"open": {
+									"defaults": {
+										"volume": 0.25,
+										"pitch": 1,
+										"events": {
+											"fall": {
+												"default": {
+													"sound": {},
+													"volume": 1,
+													"pitch": 0.75
+												}
+											},
+											"jump": {
+												"default": {
+													"sound": {},
+													"volume": 0.25,
+													"pitch": 0.75
+												}
+											}
+										}
+									},
+									"entities": {
+										"horse": {
+											"volume": 0.15,
+											"pitch": 1,
+											"events": {
+												"step": {
+													"wood": "mob.horse.wood",
+													"default": "mob.horse.soft"
+												},
+												"heavy.step": {
+													"default": "mob.horse.wood"
+												},
+												"gallop": {
+													"default": "mob.horse.gallop"
+												}
+											}
+										},
+										"donkey": {
+											"volume": 0.15,
+											"pitch": 1,
+											"events": {
+												"step": {
+													"wood": "mob.horse.wood",
+													"default": "mob.horse.soft"
+												},
+												"heavy.step": {
+													"default": "mob.horse.wood"
+												},
+												"gallop": {
+													"default": "mob.horse.gallop"
+												}
+											}
+										},
+										"mule": {
+											"volume": 0.15,
+											"pitch": 1,
+											"events": {
+												"step": {
+													"wood": "mob.horse.wood",
+													"default": "mob.horse.soft"
+												},
+												"heavy.step": {
+													"default": "mob.horse.wood"
+												},
+												"gallop": {
+													"default": "mob.horse.gallop"
+												}
+											}
+										},
+										"skeleton_horse": {
+											"volume": 0.15,
+											"pitch": 1,
+											"events": {
+												"step": {
+													"wood": "mob.horse.wood",
+													"default": "mob.horse.soft"
+												},
+												"heavy.step": {
+													"default": "mob.horse.wood"
+												},
+												"gallop": {
+													"default": "mob.horse.gallop"
+												}
+											}
+										},
+										"zombie_horse": {
+											"volume": 0.15,
+											"pitch": 1,
+											"events": {
+												"step": {
+													"wood": "mob.horse.wood",
+													"default": "mob.horse.soft"
+												},
+												"heavy.step": {
+													"default": "mob.horse.wood"
+												},
+												"gallop": {
+													"default": "mob.horse.gallop"
+												}
+											}
+										},
+										"rabbit": {
+											"volume": 0.0375,
+											"pitch": 1.5
+										}
+									}
+								},
+								"key": "entities",
+								"is_minified": true,
+								"children": {
+									"horse": {
+										"volume": 0.15,
+										"pitch": 1,
+										"events": {
+											"step": {
+												"wood": "mob.horse.wood",
+												"default": "mob.horse.soft"
+											},
+											"heavy.step": {
+												"default": "mob.horse.wood"
+											},
+											"gallop": {
+												"default": "mob.horse.gallop"
+											}
+										}
+									},
+									"donkey": {
+										"volume": 0.15,
+										"pitch": 1,
+										"events": {
+											"step": {
+												"wood": "mob.horse.wood",
+												"default": "mob.horse.soft"
+											},
+											"heavy.step": {
+												"default": "mob.horse.wood"
+											},
+											"gallop": {
+												"default": "mob.horse.gallop"
+											}
+										}
+									},
+									"mule": {
+										"volume": 0.15,
+										"pitch": 1,
+										"events": {
+											"step": {
+												"wood": "mob.horse.wood",
+												"default": "mob.horse.soft"
+											},
+											"heavy.step": {
+												"default": "mob.horse.wood"
+											},
+											"gallop": {
+												"default": "mob.horse.gallop"
+											}
+										}
+									},
+									"skeleton_horse": {
+										"volume": 0.15,
+										"pitch": 1,
+										"events": {
+											"step": {
+												"wood": "mob.horse.wood",
+												"default": "mob.horse.soft"
+											},
+											"heavy.step": {
+												"default": "mob.horse.wood"
+											},
+											"gallop": {
+												"default": "mob.horse.gallop"
+											}
+										}
+									},
+									"zombie_horse": {
+										"volume": 0.15,
+										"pitch": 1,
+										"events": {
+											"step": {
+												"wood": "mob.horse.wood",
+												"default": "mob.horse.soft"
+											},
+											"heavy.step": {
+												"default": "mob.horse.wood"
+											},
+											"gallop": {
+												"default": "mob.horse.gallop"
+											}
+										}
+									},
+									"rabbit": {
+										"volume": 0.0375,
+										"pitch": 1.5
+									}
+								}
+							}
+						]
+					}
+				]
+			}
+		]
+	}
+}

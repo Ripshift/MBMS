@@ -1,0 +1,215 @@
+{
+  "format_version": "1.21.40",
+  "cut_red_sandstone_double_slab": {
+    "sound": "stone",
+    "textures": {
+      "down": "cut_red_sandstone_slab_top",
+      "side": "cut_red_sandstone_double_slab",
+      "up": "cut_red_sandstone_slab_top"
+    }
+  },
+  "cut_sandstone_double_slab": {
+    "sound": "stone",
+    "textures": {
+      "down": "cut_sandstone_slab_top",
+      "side": "cut_sandstone_double_slab",
+      "up": "cut_sandstone_slab_top"
+    }
+  },
+  "polished_andesite_double_slab": {
+    "sound": "stone",
+    "textures": {
+      "down": "polished_andesite_slab",
+      "side": "polished_andesite_double_slab",
+      "up": "polished_andesite_slab"
+    }
+  },
+  "polished_diorite_double_slab": {
+    "sound": "stone",
+    "textures": {
+      "down": "polished_diorite_slab",
+      "side": "polished_diorite_double_slab",
+      "up": "polished_diorite_slab"
+    }
+  },
+  "polished_granite_double_slab": {
+    "sound": "stone",
+    "textures": {
+      "down": "polished_granite_slab",
+      "side": "polished_granite_double_slab",
+      "up": "polished_granite_slab"
+    }
+  },
+  "prismarine_brick_double_slab": {
+    "sound": "stone",
+    "textures": {
+      "down": "prismarine_brick_slab",
+      "side": "prismarine_brick_double_slab",
+      "up": "prismarine_brick_slab"
+    }
+  },
+  "polished_blackstone_double_slab": {
+    "sound": "stone",
+    "textures": {
+      "down": "polished_blackstone",
+      "side": "polished_blackstone_double_slab",
+      "up": "polished_blackstone"
+    }
+  },
+  "polished_deepslate_double_slab": {
+    "isotropic": false,
+    "sound": "deepslate",
+    "textures": {
+      "down": "polished_deepslate",
+      "side": "polished_deepslate_double_slab",
+      "up": "polished_deepslate"
+    }
+  },
+  "polished_tuff_double_slab": {
+    "sound": "polished_tuff",
+    "textures": {
+      "down": "polished_tuff",
+      "side": "polished_tuff_double_slab",
+      "up": "polished_tuff"
+    }
+  },
+  "quartz_double_slab": {
+    "sound": "stone",
+    "textures": {
+      "down": "quartz_slab_bottom",
+      "side": "quartz_double_slab",
+      "up": "quartz_slab_top"
+    }
+  },
+  "red_sandstone_double_slab": {
+    "sound": "stone",
+    "textures": {
+      "down": "red_sandstone_slab_bottom",
+      "side": "red_sandstone_double_slab",
+      "up": "red_sandstone_slab_top"
+    }
+  },
+  "sandstone_double_slab": {
+    "sound": "stone",
+    "textures": {
+      "down": "sandstone_slab_bottom",
+      "side": "sandstone_double_slab",
+      "up": "sandstone_slab_top"
+    }
+  },
+  "redstone_ore": {
+    "sound": "stone",
+    "textures": "redstone_ore_off"
+  },
+  "deepslate_redstone_ore": {
+    "isotropic": false,
+    "sound": "deepslate",
+    "textures": "deepslate_redstone_ore_off"
+  },
+  "furnace": {
+    "sound": "stone",
+    "textures": {
+      "down": "furnace_bottom",
+      "east": "furnace_side",
+      "north": "furnace_side",
+      "south": "furnace_front_off",
+      "up": "furnace_top",
+      "west": "furnace_side"
+    }
+  },
+  "lit_furnace": {
+    "sound": "stone",
+    "textures": {
+      "down": "furnace_bottom",
+      "east": "furnace_front_on",
+      "north": "furnace_side",
+      "south": "furnace_side",
+      "up": "furnace_top",
+      "west": "furnace_side"
+    }
+  },
+  "blast_furnace": {
+    "sound": "stone",
+    "textures": {
+      "down": "blast_furnace_bottom",
+      "east": "blast_furnace_side",
+      "north": "blast_furnace_side",
+      "south": "blast_furnace_front_off",
+      "up": "blast_furnace_top",
+      "west": "blast_furnace_side"
+    }
+  },
+  "lit_blast_furnace": {
+    "sound": "stone",
+    "textures": {
+      "down": "blast_furnace_bottom",
+      "east": "blast_furnace_front_on",
+      "north": "blast_furnace_side",
+      "south": "blast_furnace_side",
+      "up": "blast_furnace_top",
+      "west": "blast_furnace_side"
+    }
+  },
+  "beehive": {
+    "textures": {
+      "down": "beehive_bottom",
+      "east": "beehive_side",
+      "north": "beehive_side",
+      "south": "beehive_front",
+      "up": "beehive_top",
+      "west": "beehive_side"
+    }
+  },
+  "melon_block": {
+    "sound": "wood",
+    "textures": {
+      "down": "melon_bottom",
+      "side": "melon_side",
+      "up": "melon_top"
+    }
+  },
+  "pumpkin": {
+    "sound": "wood",
+    "textures": {
+      "down": "pumpkin_bottom",
+      "east": "pumpkin_side",
+      "north": "pumpkin_side",
+      "south": "pumpkin_face",
+      "up": "pumpkin_top",
+      "west": "pumpkin_side"
+    }
+  },
+  "carved_pumpkin": {
+    "sound": "wood",
+    "textures": {
+      "down": "pumpkin_bottom",
+      "east": "pumpkin_side",
+      "north": "pumpkin_side",
+      "south": "pumpkin_face",
+      "up": "pumpkin_top",
+      "west": "pumpkin_side"
+    }
+  },
+  "lit_pumpkin": {
+    "sound": "wood",
+    "textures": {
+      "down": "pumpkin_bottom",
+      "east": "pumpkin_side",
+      "north": "pumpkin_side",
+      "south": "pumpkin_face",
+      "up": "pumpkin_top",
+      "west": "pumpkin_side"
+    }
+  },
+  "lectern": {
+    "sound": "wood",
+    "textures": {
+      "down": "lectern_bottom",
+      "east": "lectern_base",
+      "north": "lectern_front",
+      "south": "lectern_sides",
+      "up": "lectern_top",
+      "west": "lectern_sides"
+    }
+  }
+}

@@ -1,0 +1,71 @@
+[
+    {
+        "flipbook_texture": "textures/ae_sg/items/grave_finder_spin",
+        "atlas_tile": "ae_sg_grave_finder",
+        "ticks_per_frame": 2,
+        "frames": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15
+        ]
+    },
+    {
+        "flipbook_texture": "textures/ae_sg/items/grave_finder_spin_nether",
+        "atlas_tile": "ae_sg_grave_finder_nether",
+        "ticks_per_frame": 2,
+        "frames": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15
+        ]
+    },
+    {
+        "flipbook_texture": "textures/ae_sg/items/grave_finder_spin_end",
+        "atlas_tile": "ae_sg_grave_finder_end",
+        "ticks_per_frame": 2,
+        "frames": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15
+        ]
+    }
+]

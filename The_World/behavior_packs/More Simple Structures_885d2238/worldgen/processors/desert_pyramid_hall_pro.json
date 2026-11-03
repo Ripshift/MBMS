@@ -1,0 +1,99 @@
+{
+	"format_version": "1.21.20",
+	"minecraft:processor_list": {
+		"description": {
+			"identifier": "wypnt_mss:desert_pyramid_hall_processor"
+		},
+    "processors": [ 
+      { 
+        "processor_type": "minecraft:rule", 
+        "rules": [ 
+          { 
+            "input_predicate": { 
+              "predicate_type": "minecraft:random_block_match", 
+              "block": "minecraft:decorated_pot", 
+              "probability": 0.92 
+            }, 
+            "output_state": { 
+              "name": "minecraft:air" 
+            } 
+          },
+          { 
+            "input_predicate": { 
+              "predicate_type": "minecraft:random_block_match", 
+              "block": "wypnt_mss:spike_trap", 
+              "probability": 0.98 
+            }, 
+            "output_state": { 
+              "name": "minecraft:sandstone" 
+            } 
+          },
+          { 
+            "input_predicate": { 
+              "predicate_type": "minecraft:random_block_match", 
+              "block": "minecraft:web", 
+              "probability": 0.38 
+            }, 
+            "output_state": { 
+              "name": "minecraft:air" 
+            } 
+          },    
+            { 
+              "input_predicate": { 
+                "predicate_type": "minecraft:random_block_match", 
+                "block": "minecraft:lantern", 
+                "probability": 0.8 
+              }, 
+              "output_state": { 
+                "name": "minecraft:air" 
+              } 
+            },
+              { 
+              "input_predicate": { 
+                "predicate_type": "minecraft:random_block_match", 
+                "block": "minecraft:candle", 
+                "probability": 0.25 
+              }, 
+              "output_state": { 
+                "name": "minecraft:candle", 
+                "states": { "candles": 1, "lit": true } 
+              } 
+            },
+            { 
+              "input_predicate": { 
+                "predicate_type": "minecraft:random_block_match", 
+                "block": "minecraft:candle", 
+                "probability": 0.25 
+              }, 
+              "output_state": { 
+                "name": "minecraft:candle", 
+                "states": { "candles": 2, "lit": false } 
+              } 
+            },
+            { 
+              "input_predicate": { 
+                "predicate_type": "minecraft:random_block_match", 
+                "block": "minecraft:candle", 
+                "probability": 0.25 
+              }, 
+              "output_state": { 
+                "name": "minecraft:candle", 
+                "states": { "candles": 3, "lit": true } 
+              } 
+            },
+            { 
+              "input_predicate": { 
+                "predicate_type": "minecraft:random_block_match", 
+                "block": "minecraft:candle", 
+                "probability": 0.25 
+              }, 
+              "output_state": { 
+                "name": "minecraft:candle", 
+                "states": { "candles": 4, "lit": false } 
+              } 
+            }
+        ] 
+      } 
+    ] 
+  } 
+} 

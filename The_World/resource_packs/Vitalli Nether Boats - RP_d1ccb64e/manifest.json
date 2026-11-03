@@ -1,0 +1,35 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Vitalli Nether Boats - RP",
+    "description": "Resources for the fireproof Crimson and Warped boats and chest boats. By ArthuroVitalli.",
+    "uuid": "d1ccb64e-a5c1-4fc1-9f31-eeaae2ff2f62",
+    "version": [
+      1,
+      1,
+      14
+    ],
+    "min_engine_version": [
+      1,
+      26,
+      0
+    ]
+  },
+  "modules": [
+    {
+      "type": "resources",
+      "uuid": "d363136d-9d7c-4c97-b22f-bb8082d4c6b0",
+      "version": [
+        1,
+        1,
+        14
+      ]
+    }
+  ],
+  "metadata": {
+    "authors": [
+      "ArthuroVitalli"
+    ],
+    "product_type": "addon"
+  }
+}

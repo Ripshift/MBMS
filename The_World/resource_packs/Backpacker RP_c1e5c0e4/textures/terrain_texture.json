@@ -1,0 +1,50 @@
+{
+  "resource_pack_name": "vanilla",
+  "texture_name": "atlas.terrain",
+  "padding": 8,
+  "num_mip_levels": 4,
+  "texture_data": {
+    "backpack": {
+      "textures": "textures/blocks/backpack"
+    },
+    "blue_backpack": {
+      "textures": "textures/blocks/blue_backpack"
+    },
+    "green_backpack": {
+      "textures": "textures/blocks/green_backpack"
+    },
+    "purple_backpack": {
+      "textures": "textures/blocks/purple_backpack"
+    },
+    "red_backpack": {
+      "textures": "textures/blocks/red_backpack"
+    },
+    "large_backpack": {
+      "textures": "textures/blocks/large_backpack"
+    },
+    "blue_large_backpack": {
+      "textures": "textures/blocks/blue_large_backpack"
+    },
+    "green_large_backpack": {
+      "textures": "textures/blocks/green_large_backpack"
+    },
+    "purple_large_backpack": {
+      "textures": "textures/blocks/purple_large_backpack"
+    },
+    "red_large_backpack": {
+      "textures": "textures/blocks/red_large_backpack"
+    },
+    "blue_axolotl_backpack": {
+      "textures": "textures/blocks/blue_axolotl_backpack"
+    },
+    "bapa_acc": {
+      "textures": "textures/blocks/bapa_acc"
+    },
+    "bapa_lantern": {
+      "textures": "textures/blocks/lantern"
+    },
+    "bapa_soul_lantern": {
+      "textures": "textures/blocks/soul_lantern"
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "rebo:dirt_from_leaves"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "012",
+      "345",
+      "678"
+    ],
+    "key": {
+      "0": {
+        "item": "minecraft:leaves"
+      },
+      "1": {
+        "item": "minecraft:leaves"
+      },
+      "2": {
+        "item": "minecraft:leaves"
+      },
+      "3": {
+        "item": "minecraft:leaves"
+      },
+      "4": {
+        "item": "minecraft:rotten_flesh"
+      },
+      "5": {
+        "item": "minecraft:leaves"
+      },
+      "6": {
+        "item": "minecraft:leaves"
+      },
+      "7": {
+        "item": "minecraft:leaves"
+      },
+      "8": {
+        "item": "minecraft:leaves"
+      }
+    },
+    "result": {
+      "item": "minecraft:dirt",
+      "data": 0,
+      "count": 2
+    },
+    "group": "nature"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "labo:crimson_boat_recipe"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "P P",
+      "PPP"
+    ],
+    "key": {
+      "P": {
+        "item": "minecraft:crimson_planks"
+      }
+    },
+    "unlock": {
+      "context": "PlayerInWater"
+    },
+    "result": {
+      "item": "labo:crimson_boat",
+      "count": 1
+    }
+  }
+}

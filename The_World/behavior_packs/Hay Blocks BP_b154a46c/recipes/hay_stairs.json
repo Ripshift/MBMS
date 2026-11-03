@@ -1,0 +1,30 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "hay:hay_stairs"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "#  ",
+      "## ",
+      "###"
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:hay_block"
+      }
+    ],
+    "key": {
+      "#": {
+        "item": "minecraft:hay_block"
+      }
+    },
+    "result": {
+      "item": "hay:hay_stairs",
+      "count": 4
+    }
+  }
+}

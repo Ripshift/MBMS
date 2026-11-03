@@ -1,0 +1,54 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Hay Blocks BP",
+    "description": "Hay stairs, slabs (with double slabs) and carpet.",
+    "uuid": "b154a46c-60db-48ae-a62d-0a8bb6064d02",
+    "version": [
+      1,
+      5,
+      1
+    ],
+    "min_engine_version": [
+      1,
+      26,
+      0
+    ]
+  },
+  "modules": [
+    {
+      "type": "data",
+      "uuid": "a130d960-2f5b-48a8-8d71-4f04a670c047",
+      "version": [
+        1,
+        5,
+        1
+      ]
+    },
+    {
+      "type": "script",
+      "language": "javascript",
+      "entry": "scripts/main.js",
+      "uuid": "af560083-0111-49d4-a902-f4dc4c9e449f",
+      "version": [
+        1,
+        5,
+        1
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "uuid": "344cb6fa-3d7a-4c67-b7cb-5c36406ef507",
+      "version": [
+        1,
+        5,
+        1
+      ]
+    },
+    {
+      "module_name": "@minecraft/server",
+      "version": "2.6.0"
+    }
+  ]
+}

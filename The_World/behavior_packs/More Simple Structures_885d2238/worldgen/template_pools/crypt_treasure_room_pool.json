@@ -1,0 +1,55 @@
+{
+  "format_version": "1.21.20",
+  "minecraft:template_pool": {
+    "description": {
+      "identifier": "wypnt_mss:crypt_treasure_room_pool"
+    },
+    "elements": [
+      {
+        "element": {
+          "element_type": "minecraft:single_pool_element",
+          "location": "wypnt_mss/crypt/crypt_treasure_room_1",
+          "processors": "wypnt_mss:crypt_treasure_processor",
+          "projection": "rigid"   
+        },
+        "weight": 1
+      },
+      {
+        "element": {
+          "element_type": "minecraft:single_pool_element",
+          "location": "wypnt_mss/crypt/crypt_room_1",
+          "processors": "wypnt_mss:crypt_processor",
+          "projection": "rigid"   
+        },
+        "weight": 4
+      },
+      {
+        "element": {
+          "element_type": "minecraft:single_pool_element",
+          "location": "wypnt_mss/crypt/crypt_hall_1",
+          "processors": "wypnt_mss:crypt_processor",
+          "projection": "rigid"   
+        },
+        "weight": 3
+      },
+      {
+        "element": {
+          "element_type": "minecraft:single_pool_element",
+          "location": "wypnt_mss/crypt/crypt_hall_2",
+          "processors": "wypnt_mss:crypt_processor",
+          "projection": "rigid"   
+        },
+        "weight": 3
+      },
+      {
+        "element": {
+          "element_type": "minecraft:single_pool_element",
+          "location": "wypnt_mss/crypt/crypt_hall_4",
+          "processors": "wypnt_mss:crypt_processor",
+          "projection": "rigid"   
+        },
+        "weight": 3
+      }
+    ]
+  }
+}

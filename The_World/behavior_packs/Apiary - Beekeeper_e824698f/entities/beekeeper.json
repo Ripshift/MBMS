@@ -1,0 +1,715 @@
+{
+  "format_version": "1.21.60",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "apiary:beekeeper",
+      "is_spawnable": true,
+      "is_summonable": true
+    },
+    "component_groups": {
+      "adult": {
+        "minecraft:collision_box": {
+          "width": 0.6,
+          "height": 1.9
+        }
+      },
+      "make_and_receive_love": {},
+      "beekeeper_schedule": {
+        "minecraft:scheduler": {
+          "min_delay_secs": 0,
+          "max_delay_secs": 10,
+          "scheduled_events": [
+            {
+              "event": "minecraft:schedule_work_beekeeper",
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "hourly_clock_time",
+                    "operator": ">=",
+                    "value": 0
+                  },
+                  {
+                    "test": "hourly_clock_time",
+                    "operator": "<",
+                    "value": 8000
+                  }
+                ]
+              }
+            },
+            {
+              "event": "minecraft:schedule_gather_villager",
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "hourly_clock_time",
+                    "operator": ">=",
+                    "value": 8000
+                  },
+                  {
+                    "test": "hourly_clock_time",
+                    "operator": "<",
+                    "value": 10000
+                  }
+                ]
+              }
+            },
+            {
+              "event": "minecraft:schedule_work_beekeeper",
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "hourly_clock_time",
+                    "operator": ">=",
+                    "value": 10000
+                  },
+                  {
+                    "test": "hourly_clock_time",
+                    "operator": "<",
+                    "value": 11000
+                  }
+                ]
+              }
+            },
+            {
+              "event": "minecraft:schedule_home_villager",
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "hourly_clock_time",
+                    "operator": ">=",
+                    "value": 11000
+                  },
+                  {
+                    "test": "hourly_clock_time",
+                    "operator": "<",
+                    "value": 12000
+                  }
+                ]
+              }
+            },
+            {
+              "event": "minecraft:schedule_bed_villager",
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "hourly_clock_time",
+                    "operator": ">=",
+                    "value": 12000
+                  },
+                  {
+                    "test": "hourly_clock_time",
+                    "operator": "<",
+                    "value": 24000
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "work_schedule_beekeeper": {
+        "minecraft:behavior.move_to_block": {
+          "priority": 7,
+          "speed_multiplier": 0.5,
+          "tick_interval": 40,
+          "start_chance": 1.0,
+          "target_blocks": [
+            "minecraft:beehive"
+          ],
+          "target_selection_method": "nearest",
+          "search_range": 16,
+          "search_height": 4,
+          "goal_radius": 1.8,
+          "stay_duration": 200,
+          "on_reach": [
+            {
+              "event": "minecraft:resupply_trades",
+              "target": "self"
+            }
+          ]
+        }
+      },
+      "home_schedule_villager": {},
+      "gather_schedule_villager": {
+        "minecraft:behavior.mingle": {
+          "priority": 7,
+          "speed_multiplier": 0.5,
+          "duration": 30,
+          "cooldown_time": 10,
+          "mingle_distance": 2,
+          "mingle_partner_type": "apiary:beekeeper"
+        }
+      },
+      "wander_schedule_villager": {
+        "minecraft:behavior.explore_outskirts": {
+          "priority": 9,
+          "speed_multiplier": 0.6,
+          "max_wait_time": 10,
+          "explore_dist": 6,
+          "min_dist_from_target": 2.5
+        }
+      },
+      "bed_schedule_villager": {
+        "minecraft:behavior.sleep": {
+          "priority": 3,
+          "speed_multiplier": 0.6,
+          "timeout_cooldown": 10,
+          "sleep_collider_height": 0.3,
+          "sleep_collider_width": 1,
+          "sleep_y_offset": 0.6
+        }
+      },
+      "trade_resupply_component_group": {
+        "minecraft:trade_resupply": {}
+      },
+      "minecraft:celebrate": {
+        "minecraft:behavior.celebrate_survive": {
+          "priority": 5,
+          "duration": 30,
+          "fireworks_interval": {
+            "range_min": 2,
+            "range_max": 7
+          },
+          "on_celebration_end_event": {
+            "event": "minecraft:stop_celebrating",
+            "target": "self"
+          }
+        },
+        "minecraft:behavior.move_outdoors": {
+          "priority": 2,
+          "speed_multiplier": 0.8,
+          "timeout_cooldown": 8
+        }
+      },
+      "become_zombie": {
+        "minecraft:transformation": {
+          "into": "minecraft:zombie_villager_v2",
+          "keep_level": true
+        }
+      },
+      "become_witch": {
+        "minecraft:transformation": {
+          "into": "minecraft:witch",
+          "delay": 0.5
+        }
+      }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [
+          "villager",
+          "beekeeper",
+          "mob"
+        ]
+      },
+      "minecraft:health": {
+        "value": 20,
+        "max": 20
+      },
+      "minecraft:follow_range": {
+        "value": 128
+      },
+      "minecraft:movement": {
+        "value": 0.5
+      },
+      "minecraft:navigation.walk": {
+        "can_path_over_water": false,
+        "avoid_water": true,
+        "avoid_damage_blocks": true,
+        "can_open_doors": true,
+        "can_pass_doors": true
+      },
+      "minecraft:movement.basic": {},
+      "minecraft:jump.static": {},
+      "minecraft:can_climb": {},
+      "minecraft:physics": {},
+      "minecraft:collision_box": {
+        "width": 0.6,
+        "height": 1.9
+      },
+      "minecraft:pushable": {
+        "is_pushable": true,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:breathable": {
+        "total_supply": 15,
+        "suffocate_time": 0
+      },
+      "minecraft:hurt_on_condition": {
+        "damage_conditions": [
+          {
+            "filters": {
+              "test": "in_lava",
+              "subject": "self",
+              "operator": "==",
+              "value": true
+            },
+            "cause": "lava",
+            "damage_per_tick": 4
+          }
+        ]
+      },
+      "minecraft:nameable": {},
+      "minecraft:persistent": {},
+      "minecraft:leashable": {
+        "soft_distance": 4.0,
+        "hard_distance": 6.0,
+        "max_distance": 10.0
+      },
+      "minecraft:conditional_bandwidth_optimization": {},
+      "minecraft:annotation.open_door": {},
+      "minecraft:is_hidden_when_invisible": {},
+      "minecraft:skin_id": {
+        "value": 0
+      },
+      "minecraft:mark_variant": {
+        "value": 0
+      },
+      "minecraft:home": {
+        "restriction_type": "random_movement",
+        "restriction_radius": 16
+      },
+      "minecraft:inventory": {
+        "inventory_size": 8,
+        "private": true
+      },
+      "minecraft:equipment": {
+        "table": "loot_tables/entities/apiary_beekeeper_equipment.json",
+        "slot_drop_chance": [
+          {
+            "slot": "slot.weapon.mainhand",
+            "drop_chance": 0
+          },
+          {
+            "slot": "slot.weapon.offhand",
+            "drop_chance": 0
+          }
+        ]
+      },
+      "minecraft:hide": {},
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "on_damage": {
+              "filters": [
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "lightning"
+                },
+                {
+                  "test": "is_difficulty",
+                  "operator": "!=",
+                  "value": "peaceful"
+                }
+              ],
+              "event": "become_witch"
+            },
+            "deals_damage": "no"
+          },
+          {
+            "on_damage": {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "has_damage",
+                    "value": "fatal"
+                  }
+                ],
+                "any_of": [
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "zombie"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "husk"
+                  }
+                ]
+              },
+              "event": "become_zombie"
+            }
+          }
+        ]
+      },
+      "minecraft:dweller": {
+        "dwelling_type": "village",
+        "dweller_role": "inhabitant",
+        "can_find_poi": true,
+        "can_migrate": true,
+        "first_founding_reward": 5,
+        "update_interval_base": 60,
+        "update_interval_variant": 40
+      },
+      "minecraft:economy_trade_table": {
+        "display_name": "entity.apiary:beekeeper.name",
+        "table": "trading/economy_trades/beekeeper_trades.json",
+        "new_screen": true,
+        "persist_trades": true,
+        "cured_discount": [
+          -25,
+          -20
+        ],
+        "max_cured_discount": [
+          -25,
+          -20
+        ]
+      },
+      "minecraft:shareables": {
+        "items": [
+          {
+            "item": "minecraft:bread",
+            "want_amount": 3,
+            "surplus_amount": 6,
+            "stored_in_inventory": true
+          },
+          {
+            "item": "minecraft:carrot",
+            "want_amount": 12,
+            "surplus_amount": 24,
+            "stored_in_inventory": true
+          },
+          {
+            "item": "minecraft:potato",
+            "want_amount": 12,
+            "surplus_amount": 24,
+            "stored_in_inventory": true
+          },
+          {
+            "item": "minecraft:beetroot",
+            "want_amount": 12,
+            "surplus_amount": 24,
+            "stored_in_inventory": true
+          },
+          {
+            "item": "minecraft:honeycomb",
+            "want_amount": 16,
+            "surplus_amount": 32,
+            "stored_in_inventory": true
+          }
+        ]
+      },
+      "minecraft:preferred_path": {
+        "default_block_cost": 3,
+        "jump_cost": 20,
+        "max_fall_blocks": 1,
+        "preferred_path_blocks": [
+          {
+            "cost": 0,
+            "blocks": [
+              "grass_path"
+            ]
+          },
+          {
+            "cost": 1,
+            "blocks": [
+              "cobblestone",
+              "stone",
+              "stone_bricks",
+              "oak_planks",
+              "spruce_planks",
+              "birch_planks",
+              "oak_slab",
+              "cobblestone_slab",
+              "stone_brick_slab",
+              "glass"
+            ]
+          },
+          {
+            "cost": 50,
+            "blocks": [
+              "bed",
+              "beehive",
+              "bee_nest",
+              "lectern",
+              "composter",
+              "barrel"
+            ]
+          }
+        ]
+      },
+      "minecraft:behavior.hide": {
+        "priority": 0,
+        "poi_type": "bed",
+        "duration": 30,
+        "speed_multiplier": 0.8
+      },
+      "minecraft:behavior.float": {
+        "priority": 0
+      },
+      "minecraft:behavior.panic": {
+        "priority": 1,
+        "speed_multiplier": 0.6
+      },
+      "minecraft:behavior.trade_with_player": {
+        "priority": 2,
+        "filters": {
+          "all_of": [
+            {
+              "test": "in_water",
+              "value": false
+            }
+          ],
+          "any_of": [
+            {
+              "test": "on_ground",
+              "value": true
+            },
+            {
+              "test": "is_sleeping",
+              "value": true
+            }
+          ]
+        }
+      },
+      "minecraft:behavior.avoid_mob_type": {
+        "priority": 4,
+        "entity_types": [
+          {
+            "filters": {
+              "any_of": [
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "zombie"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "zombie_villager"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "illager"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "vex"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "zoglin"
+                }
+              ]
+            },
+            "max_dist": 8,
+            "walk_speed_multiplier": 0.6,
+            "sprint_speed_multiplier": 0.6
+          }
+        ]
+      },
+      "minecraft:behavior.pickup_items": {
+        "priority": 4,
+        "max_dist": 3,
+        "goal_radius": 2,
+        "speed_multiplier": 0.5,
+        "can_pickup_to_hand_or_equipment": false
+      },
+      "minecraft:behavior.trade_interest": {
+        "priority": 5,
+        "within_radius": 6,
+        "carried_item_switch_time": 2,
+        "cooldown": 2,
+        "interest_time": 45,
+        "remove_item_time": 1
+      },
+      "minecraft:behavior.move_indoors": {
+        "priority": 6,
+        "speed_multiplier": 0.8,
+        "timeout_cooldown": 8
+      },
+      "minecraft:behavior.look_at_trading_player": {
+        "priority": 7
+      },
+      "minecraft:behavior.look_at_player": {
+        "priority": 9
+      },
+      "minecraft:behavior.share_items": {
+        "priority": 10,
+        "max_dist": 3,
+        "goal_radius": 2,
+        "speed_multiplier": 0.5,
+        "entity_types": [
+          {
+            "filters": {
+              "subject": "other",
+              "test": "is_family",
+              "value": "villager"
+            }
+          }
+        ]
+      },
+      "minecraft:behavior.move_towards_dwelling_restriction": {
+        "priority": 11,
+        "speed_multiplier": 0.6
+      },
+      "minecraft:behavior.random_stroll": {
+        "priority": 11,
+        "speed_multiplier": 0.6
+      }
+    },
+    "events": {
+      "minecraft:entity_spawned": {
+        "add": {
+          "component_groups": [
+            "adult",
+            "make_and_receive_love",
+            "beekeeper_schedule"
+          ]
+        }
+      },
+      "minecraft:schedule_work_beekeeper": {
+        "remove": {
+          "component_groups": [
+            "home_schedule_villager",
+            "gather_schedule_villager",
+            "wander_schedule_villager",
+            "bed_schedule_villager",
+            "trade_resupply_component_group"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "make_and_receive_love",
+            "work_schedule_beekeeper"
+          ]
+        }
+      },
+      "minecraft:schedule_gather_villager": {
+        "remove": {
+          "component_groups": [
+            "home_schedule_villager",
+            "wander_schedule_villager",
+            "bed_schedule_villager",
+            "work_schedule_beekeeper",
+            "trade_resupply_component_group"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "make_and_receive_love",
+            "gather_schedule_villager"
+          ]
+        }
+      },
+      "minecraft:schedule_home_villager": {
+        "remove": {
+          "component_groups": [
+            "gather_schedule_villager",
+            "wander_schedule_villager",
+            "bed_schedule_villager",
+            "work_schedule_beekeeper",
+            "trade_resupply_component_group"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "make_and_receive_love",
+            "home_schedule_villager"
+          ]
+        }
+      },
+      "minecraft:schedule_wander_villager": {
+        "remove": {
+          "component_groups": [
+            "home_schedule_villager",
+            "gather_schedule_villager",
+            "bed_schedule_villager",
+            "work_schedule_beekeeper",
+            "trade_resupply_component_group"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "make_and_receive_love",
+            "wander_schedule_villager"
+          ]
+        }
+      },
+      "minecraft:schedule_bed_villager": {
+        "remove": {
+          "component_groups": [
+            "make_and_receive_love",
+            "home_schedule_villager",
+            "gather_schedule_villager",
+            "wander_schedule_villager",
+            "work_schedule_beekeeper",
+            "trade_resupply_component_group"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "bed_schedule_villager"
+          ]
+        }
+      },
+      "minecraft:resupply_trades": {
+        "add": {
+          "component_groups": [
+            "trade_resupply_component_group"
+          ]
+        }
+      },
+      "minecraft:start_celebrating": {
+        "add": {
+          "component_groups": [
+            "minecraft:celebrate"
+          ]
+        }
+      },
+      "minecraft:stop_celebrating": {
+        "remove": {
+          "component_groups": [
+            "minecraft:celebrate"
+          ]
+        }
+      },
+      "become_zombie": {
+        "sequence": [
+          {
+            "filters": {
+              "test": "is_difficulty",
+              "value": "normal"
+            },
+            "randomize": [
+              {
+                "weight": 50,
+                "add": {
+                  "component_groups": [
+                    "become_zombie"
+                  ]
+                }
+              },
+              {
+                "weight": 50
+              }
+            ]
+          },
+          {
+            "filters": {
+              "test": "is_difficulty",
+              "value": "hard"
+            },
+            "add": {
+              "component_groups": [
+                "become_zombie"
+              ]
+            }
+          }
+        ]
+      },
+      "become_witch": {
+        "add": {
+          "component_groups": [
+            "become_witch"
+          ]
+        }
+      }
+    }
+  }
+}

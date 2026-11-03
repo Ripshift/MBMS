@@ -1,0 +1,39 @@
+{
+  "format_version": "1.20.30",
+  "minecraft:attachable": {
+    "description": {
+      "identifier": "fato:shepherds_crook",
+      "item": {
+        "fato:shepherds_crook": "query.is_owner_identifier_any('minecraft:player')"
+      },
+      "materials": {
+        "default": "entity",
+        "enchanted": "entity_alphatest_glint"
+      },
+      "textures": {
+        "default": "textures/items/shepherds_crook",
+        "enchanted": "textures/misc/enchanted_item_glint"
+      },
+      "geometry": {
+        "default": "geometry.shepherds_crook"
+      },
+
+      "animations": {
+        "hold_first_person": "animation.steve_head.hold_first_person",
+        "hold_third_person": "animation.steve_head.hold_third_person",
+        "use_item": "animation.player.first_person.use_crook"
+      },
+      "scripts": {
+        "animate": [
+          {
+            "hold_first_person": "context.is_first_person == 1.0"
+          },
+          {
+            "hold_third_person": "context.is_first_person == 0.0"
+          }
+        ]
+      },
+      "render_controllers": ["controller.render.item_default"]
+    }
+  }
+}

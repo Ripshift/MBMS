@@ -1,0 +1,46 @@
+{
+  "format_version": "1.21.20",
+  "minecraft:template_pool": {
+    "description": {
+      "identifier": "wypnt_mss:pillager_camp_tent_pool"
+    },
+    "elements": [
+      {
+        "element": {
+          "element_type": "minecraft:single_pool_element",
+          "location": "wypnt_mss/pillager_camp/pillager_camp_tent_1",
+          "processors": "wypnt_mss:pillager_camp_processor",
+          "projection": "rigid"   
+        },
+        "weight": 1
+      },
+      {
+        "element": {
+          "element_type": "minecraft:single_pool_element",
+          "location": "wypnt_mss/pillager_camp/pillager_camp_tent_2",
+          "processors": "wypnt_mss:pillager_camp_processor",
+          "projection": "rigid"   
+        },
+        "weight": 1
+      },
+      {
+        "element": {
+          "element_type": "minecraft:single_pool_element",
+          "location": "wypnt_mss/pillager_camp/pillager_camp_tent_3",
+          "processors": "wypnt_mss:pillager_camp_processor",
+          "projection": "rigid"   
+        },
+        "weight": 1
+      },
+      {
+        "element": {
+          "element_type": "minecraft:single_pool_element",
+          "location": "wypnt_mss/pillager_camp/pillager_camp_tent_4",
+          "processors": "wypnt_mss:pillager_camp_processor",
+          "projection": "rigid"   
+        },
+        "weight": 1
+      }
+    ]
+  }
+}

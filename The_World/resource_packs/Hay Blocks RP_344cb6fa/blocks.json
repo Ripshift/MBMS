@@ -1,0 +1,22 @@
+{
+  "format_version": [
+    1,
+    1,
+    0
+  ],
+  "hay:hay_stairs": {
+    "sound": "grass"
+  },
+  "hay:hay_sideways_stairs": {
+    "sound": "grass"
+  },
+  "hay:hay_slab": {
+    "sound": "grass"
+  },
+  "hay:hay_double_slab": {
+    "sound": "grass"
+  },
+  "hay:hay_carpet": {
+    "sound": "grass"
+  }
+}

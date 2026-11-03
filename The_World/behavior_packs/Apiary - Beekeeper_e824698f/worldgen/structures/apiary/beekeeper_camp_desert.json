@@ -1,0 +1,49 @@
+{
+  "format_version": "1.21.20",
+  "minecraft:jigsaw": {
+    "description": {
+      "identifier": "apiary:beekeeper_camp_desert"
+    },
+    "biome_filters": [
+      {
+        "all_of": [
+          {
+            "test": "has_biome_tag",
+            "operator": "!=",
+            "value": "ocean"
+          },
+          {
+            "test": "has_biome_tag",
+            "operator": "!=",
+            "value": "river"
+          },
+          {
+            "any_of": [
+              {
+                "test": "has_biome_tag",
+                "operator": "==",
+                "value": "desert"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "step": "surface_structures",
+    "terrain_adaptation": "beard_thin",
+    "start_pool": "apiary:beekeeper_camp_desert_pool",
+    "start_height": {
+      "type": "constant",
+      "value": {
+        "absolute": -1
+      }
+    },
+    "max_depth": 1,
+    "heightmap_projection": "world_surface",
+    "dimension_padding": {
+      "top": 10,
+      "bottom": 5
+    },
+    "liquid_settings": "apply_waterlogging"
+  }
+}

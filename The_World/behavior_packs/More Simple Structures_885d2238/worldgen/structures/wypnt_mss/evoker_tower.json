@@ -1,0 +1,117 @@
+{
+  "format_version": "1.21.20",
+  "minecraft:jigsaw": {
+    "description": {
+      "identifier": "wypnt_mss:evoker_tower"
+    },
+    "biome_filters": [
+				{
+					"all_of": [
+						{
+							"test": "has_biome_tag",
+							"operator": "!=",
+							"value": "ocean"
+						},
+						{
+							"test": "has_biome_tag",
+							"operator": "!=",
+							"value": "river"
+						},
+						{
+							"test": "has_biome_tag",
+							"operator": "!=",
+							"value": "wypnt_mss:prevent_evoker_tower"
+						},
+						{
+							"any_of": [
+								{
+									"test": "has_biome_tag",
+									"operator": "==",
+									"value": "swamp"
+								},
+								{
+									"test": "has_biome_tag",
+									"operator": "==",
+									"value": "swampland"
+								},
+								{
+									"test": "has_biome_tag",
+									"operator": "==",
+									"value": "roofed"
+								},
+								{
+									"test": "has_biome_tag",
+									"operator": "==",
+									"value": "taiga"
+								},
+								{
+            "test": "has_biome_tag",
+            "operator": "==",
+            "value": "wypnt_mss:has_structure_evoker_tower"
+          },
+								{
+									"test": "has_biome_tag",
+									"operator": "==",
+									"value": "bop_ks:ominous_woods"
+								},
+								{
+									"test": "has_biome_tag",
+									"operator": "==",
+									"value": "bop_ks:dead_forest"
+								},
+								{
+									"test": "has_biome_tag",
+									"operator": "==",
+									"value": "bop_ks:old_growth_dead_forest"
+								},
+								{
+									"test": "has_biome_tag",
+									"operator": "==",
+									"value": "bop_ks:is_swamp"
+								},
+								{
+									"test": "has_biome_tag",
+									"operator": "==",
+									"value": "bop_ks:bog"
+								},
+{
+"test": "has_biome_tag",
+"operator": "==",
+"value": "wypnt_bab:bog_swamp"
+},
+{
+"test": "has_biome_tag",
+"operator": "==",
+"value": "wypnt_bab:forsaken_depths"
+},
+{
+"test": "has_biome_tag",
+"operator": "==",
+"value": "wypnt_bab:pale_woods"
+},
+{
+"test": "has_biome_tag",
+"operator": "==",
+"value": "wypnt_bab:oakroot_woods"
+}
+							]
+						}
+					]
+				}
+    ],
+    "step": "surface_structures",
+    "terrain_adaptation": "beard_thin",
+    "start_pool": "wypnt_mss:evoker_tower_pool",
+    "start_height": {
+        "type": "constant",
+        "value": { "absolute": 0 } 
+    },
+    "max_depth": 4,
+    "heightmap_projection": "world_surface",
+    "dimension_padding": {
+      "top": 10,
+      "bottom": 5
+    },
+    "liquid_settings": "apply_waterlogging"
+  }
+}

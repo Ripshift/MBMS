@@ -1,0 +1,26 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "minecraft:dolphin",
+      "textures": {
+        "default": "textures/entity/dolphin/dolphin0",
+        "default2": "textures/entity/dolphin/dolphin1",
+        "default3": "textures/entity/dolphin/dolphin2",
+        "default4": "textures/entity/dolphin/dolphin3",
+        "default5": "textures/entity/dolphin/dolphin4",
+        "default6": "textures/entity/dolphin/dolphin5",
+        "default7": "textures/entity/dolphin/dolphin6",
+        "default8": "textures/entity/dolphin/dolphin7"
+      },
+      "render_controllers": [
+        "controller.render.dolphin"
+      ],
+      "scripts": {
+        "initialize": [
+          "v.Xvar = math.random_integer(0, 7);"
+        ]
+      }
+    }
+  }
+}

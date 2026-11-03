@@ -1,0 +1,30 @@
+{
+  "format_version": "1.26.0",
+  "minecraft:block": {
+    "description": {
+      "identifier": "vaen:endermite_nest",
+      "menu_category": {
+        "category": "nature"
+      }
+    },
+    "components": {
+      "minecraft:geometry": "minecraft:geometry.full_block",
+      "minecraft:map_color": "#788085",
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 0.5
+      },
+      "minecraft:destructible_by_explosion": {
+        "explosion_resistance": 0.5
+      },
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "endermite_nest",
+          "render_method": "opaque"
+        }
+      },
+      "minecraft:loot": "loot_tables/blocks/endermite_nest.json",
+      "minecraft:destruction_particles": {},
+      "tag:minecraft:is_shovel_item_destructible": {}
+    }
+  }
+}

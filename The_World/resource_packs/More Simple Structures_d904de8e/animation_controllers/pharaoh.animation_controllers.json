@@ -1,0 +1,118 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.coreblockstudios_mss.pharaoh.move": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [
+						{
+							"move": "query.modified_move_speed"
+						},
+						{
+							"bob": "query.is_alive&&!query.is_emerging"
+						}
+					],
+					"transitions": [
+						{
+							"summon": "query.is_casting"
+						},
+						{
+							"has_target": "query.has_target&&!query.is_emerging"
+						},
+						{
+							"inactive": "query.mark_variant == 1 && !query.is_emerging&&!query.has_target"
+						},
+						{
+							"awakened": "query.is_emerging&&query.all_animations_finished"
+						}
+					],
+					"blend_transition": 0.15
+				},
+				"inactive": {
+					"animations": [
+						"inactive"
+					],
+					"transitions": [
+						{
+							"awakened": "query.is_emerging&&query.all_animations_finished"
+						},
+						{
+							"default": "query.mark_variant != 1"
+						},
+						{
+							"summon": "query.is_casting&&query.all_animations_finished"
+						}
+					],
+					"blend_transition": 0.1
+				},
+				"awakened": {
+					"animations": [
+						"awakened"
+					],
+					"transitions": [
+						{
+							"summon": "query.is_casting&&query.all_animations_finished"
+						},
+						{
+							"has_target": "query.has_target&&!query.is_emerging"
+						},
+						{
+							"inactive": "query.mark_variant == 1 && !query.is_emerging&&!query.has_target"
+						},
+						{
+							"default": "!query.is_emerging"
+						}
+					],
+					"blend_transition": 0.1
+				},
+				"has_target": {
+					"animations": [
+						"zombie_attack_bare_hand",
+						{
+							"move": "query.modified_move_speed"
+						},
+						{
+							"bob": "query.is_alive&&!query.is_emerging"
+						}
+					],
+					"transitions": [
+						{
+							"summon": "query.is_casting&&query.all_animations_finished"
+						},
+						{
+							"awakened": "query.is_emerging"
+						},
+						{
+							"inactive": "query.mark_variant == 1 && !query.is_emerging&&!query.has_target"
+						},
+						{
+							"default": "!query.has_target&&query.all_animations_finished"
+						}
+					],
+					"blend_transition": 0.25
+				},
+				"summon": {
+					"animations": [
+						"summon"
+					],
+					"transitions": [
+						{
+							"awakened": "query.is_emerging && !query.is_casting"
+						},
+						{
+							"has_target": "query.has_target&&!query.is_emerging && !query.is_casting"
+						},
+						{
+							"inactive": "query.mark_variant == 1 && !query.is_emerging&&!query.has_target && !query.is_casting"
+						},
+						{
+							"default": "!query.is_casting"
+						}
+					],
+					"blend_transition": 0.1
+				}
+			}
+		}
+	}
+}

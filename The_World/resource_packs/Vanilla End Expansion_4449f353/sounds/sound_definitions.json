@@ -1,0 +1,37 @@
+{
+   "format_version" : "1.20.20",
+   "sound_definitions" : {
+      "music.game.end" : {
+         "__use_legacy_max_distance" : "true",
+         "category" : "music",
+         "max_distance" : null,
+         "min_distance" : null,
+         "sounds" : [
+            {
+               "load_on_low_memory" : true,
+               "name" : "sounds/music/game/end/end",
+               "stream" : true,
+               "volume" : 0.20
+            },
+            {
+               "load_on_low_memory" : true,
+               "name" : "sounds/music/game/end_expansion/proxima_centauri",
+               "stream" : true,
+               "volume" : 0.20
+            },
+            {
+               "load_on_low_memory" : true,
+               "name" : "sounds/music/game/end_expansion/opals",
+               "stream" : true,
+               "volume" : 0.20
+            },
+            {
+               "load_on_low_memory" : true,
+               "name" : "sounds/music/game/end_expansion/nosebleed",
+               "stream" : true,
+               "volume" : 0.20
+            }
+         ]
+      }
+   }
+}

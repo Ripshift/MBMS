@@ -1,0 +1,40 @@
+{
+    "format_version": "1.21.0",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "bapa:backpack_recipe"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "LBL",
+            "RCR",
+            "###"
+        ],
+        "key": {
+            "L": {
+                "item": "minecraft:lead"
+            },
+            "B": {
+                "item": "minecraft:bundle"
+            },
+            "R": {
+                "item": "minecraft:rabbit_hide"
+            },
+            "C": {
+                "item": "minecraft:chest"
+            },
+            "#": {
+                "item": "minecraft:leather"
+            }
+        },
+        "result": {
+            "item": "bapa:backpack",
+            "count": 1
+        },
+        "unlock": {
+            "context": "AlwaysUnlocked"
+        }
+    }
+}

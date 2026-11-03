@@ -1,0 +1,2294 @@
+{
+  "tiers": [
+    {
+      "groups": [
+        {
+          "num_to_select": 0,
+          "trades": [
+            {
+              "wants": [
+                {
+                  "item": "minecraft:lapis_block",
+                  "quantity": 1
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 2
+                }
+              ],
+              "max_uses": 8
+            }
+          ]
+        },
+        {
+          "num_to_select": 3,
+          "trades": [
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 4
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:blue_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§9Wildflower Bundle"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 3
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 9
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:pink_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§dCherry Grove Bundle"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 3
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 6
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:lime_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§aSeeds of the World Bundle"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 3
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 10
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:lime_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§2Arborist's Sampler"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 3
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 7
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:white_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§dFlorist's Delivery"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 3
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 9
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:green_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§aLush Cave Bundle"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 3
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 12
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:light_gray_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§7Pale Garden Bundle"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 3
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 8
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:green_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§6Jungle Expedition"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 3
+            }
+          ]
+        },
+        {
+          "num_to_select": 3,
+          "trades": [
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 7
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:green_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§2Swamp Herbalist Bundle"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 3
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 8
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:yellow_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§eDesert Curio Bundle"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 3
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 11
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:cyan_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§3Ocean Explorer Bundle"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 3
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 11
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:orange_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§cMesa Prospector Bundle"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 3
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 8
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:red_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§4Mangrove Swamp Bundle"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 3
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 10
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:brown_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§6Dappled Forest Bundle"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 3
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 9
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§iDripstone Cave Bundle"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 3
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 9
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:white_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§bFrostbound Bundle"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 3
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 8
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:brown_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§cMushroom Isle Bundle"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 3
+            }
+          ]
+        },
+        {
+          "num_to_select": 3,
+          "trades": [
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 4
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:gray_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§7Stone Mason's Crate"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 3
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 4
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:orange_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§6Terracotta Palette"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 3
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 8
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:white_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§cD§6y§ee§ar'§bs §9P§do§ct"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 3
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 5
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:light_blue_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§bGlass Gallery"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 3
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 5
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:light_gray_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§fConcrete Mix"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 3
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 5
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§6Wood Sampler"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 3
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 8
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:orange_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§nCopper Collection"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 3
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 10
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:yellow_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§fLamplighter's Satchel"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 3
+            }
+          ]
+        },
+        {
+          "num_to_select": 2,
+          "trades": [
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 9
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:green_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§eCampsite Bundle"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 3
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 10
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:purple_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§aWitch's Bag"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 3
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 12
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:red_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§cNether Tourist Bundle"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 3
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 13
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:black_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§dEnd Souvenir Bundle"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 3
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 15
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:cyan_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§bSculk Sampler"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 3
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 12
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:yellow_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§6Beekeeper's Bundle"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 3
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 6
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:white_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§ePicnic Basket"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 3
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 10
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:orange_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§5Spooky Season Bundle"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 3
+            }
+          ]
+        },
+        {
+          "num_to_select": 1,
+          "trades": [
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 18
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:brown_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§nArchaeologist's Satchel"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 2
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 18
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:brown_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§nArchaeologist's Satchel"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 2
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 18
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:brown_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§nArchaeologist's Satchel"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 2
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 18
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:brown_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§nArchaeologist's Satchel"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 2
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 18
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:brown_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§nArchaeologist's Satchel"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 2
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 18
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:brown_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§nArchaeologist's Satchel"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 2
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 18
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:brown_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§nArchaeologist's Satchel"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 2
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 18
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:brown_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§nArchaeologist's Satchel"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 2
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 18
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:brown_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§nArchaeologist's Satchel"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 2
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 18
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:brown_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§nArchaeologist's Satchel"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 2
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 18
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:brown_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§nArchaeologist's Satchel"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 2
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 18
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:brown_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§nArchaeologist's Satchel"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 2
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 18
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:brown_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§nArchaeologist's Satchel"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 2
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 18
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:brown_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§nArchaeologist's Satchel"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 2
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 18
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:brown_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§nArchaeologist's Satchel"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 2
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 18
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:brown_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§nArchaeologist's Satchel"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 2
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 18
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:brown_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§nArchaeologist's Satchel"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 2
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 18
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:brown_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§nArchaeologist's Satchel"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 2
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 18
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:brown_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§nArchaeologist's Satchel"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 2
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 18
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:brown_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§nArchaeologist's Satchel"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 2
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 18
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:brown_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§nArchaeologist's Satchel"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 2
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 18
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:brown_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§nArchaeologist's Satchel"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 2
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 18
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:brown_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§nArchaeologist's Satchel"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 2
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 18
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:brown_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§nArchaeologist's Satchel"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 2
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 18
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:brown_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§nArchaeologist's Satchel"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 2
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 18
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:brown_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§nArchaeologist's Satchel"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 2
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 18
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:brown_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§nArchaeologist's Satchel"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 2
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 18
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:brown_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§nArchaeologist's Satchel"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 2
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 18
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:brown_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§nArchaeologist's Satchel"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 2
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 18
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:brown_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§nArchaeologist's Satchel"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 2
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 18
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:brown_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§nArchaeologist's Satchel"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 2
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 18
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:brown_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§nArchaeologist's Satchel"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 2
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 18
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:brown_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§nArchaeologist's Satchel"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 2
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 18
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:brown_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§nArchaeologist's Satchel"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 2
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 18
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:brown_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§nArchaeologist's Satchel"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 2
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 18
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:brown_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§nArchaeologist's Satchel"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 2
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 18
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:brown_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§nArchaeologist's Satchel"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 2
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 18
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:brown_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§nArchaeologist's Satchel"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 2
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 18
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:brown_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§nArchaeologist's Satchel"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 2
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 18
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:brown_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§nArchaeologist's Satchel"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 2
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 18
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:brown_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§nArchaeologist's Satchel"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 2
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 18
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:brown_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§nArchaeologist's Satchel"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 2
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 18
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:brown_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§nArchaeologist's Satchel"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 2
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 18
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:brown_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§nArchaeologist's Satchel"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 2
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 18
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:brown_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§nArchaeologist's Satchel"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 2
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 18
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:brown_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§nArchaeologist's Satchel"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 2
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 18
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:brown_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§nArchaeologist's Satchel"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 2
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 18
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:brown_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§nArchaeologist's Satchel"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 2
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 18
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:brown_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§nArchaeologist's Satchel"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 2
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 27
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:black_bundle",
+                  "quantity": 1,
+                  "functions": [
+                    {
+                      "function": "set_name",
+                      "name": "§6Traveler's Treasure Pack"
+                    },
+                    {
+                      "function": "set_lore",
+                      "lore": [
+                        "§r§7§oSealed by the Wanderer"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "max_uses": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
