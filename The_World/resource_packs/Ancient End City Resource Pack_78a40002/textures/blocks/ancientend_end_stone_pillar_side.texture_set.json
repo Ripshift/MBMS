@@ -1,8 +1,0 @@
-{
-  "format_version": "1.21.30",
-  "minecraft:texture_set": {
-    "color": "ancientend_end_stone_pillar_side",
-    "metalness_emissive_roughness_subsurface": "ancientend_end_stone_pillar_side_mers",
-    "heightmap": "ancientend_end_stone_pillar_side_heightmap"
-  }
-}

@@ -1,8 +1,0 @@
-{
-  "format_version": "1.21.30",
-  "minecraft:texture_set": {
-    "color": "ancientend_polished_purpur",
-    "metalness_emissive_roughness_subsurface": "ancientend_polished_purpur_mers",
-    "heightmap": "ancientend_polished_purpur_heightmap"
-  }
-}

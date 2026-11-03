@@ -1,9 +1,0 @@
-{
-  "resource_pack_name": "iron_oxeye_aging",
-  "texture_name": "atlas.items",
-  "texture_data": {
-    "ioa_iron_oxeye_daisy": {
-      "textures": "textures/items/iron_oxeye_daisy"
-    }
-  }
-}

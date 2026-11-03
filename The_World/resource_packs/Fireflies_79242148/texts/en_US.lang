@@ -1,9 +1,0 @@
-pack.name=§7[v1.0] §bFireflies! §rby §eiKorbon§f - §2RP
-pack.description=Adds the removed firefly mob to the game! §cFor versions 1.21.60+ only!§r
-
-entity.korbonff:firefly.name=Firefly
-entity.korbonff:firefly_single.name=Firefly
-item.spawn_egg.entity.korbonff:firefly.name=Spawn Firefly
-tile.korbonff:firefly_jar.name=Firefly Jar
-
-action.interact.catch=Catch Firefly

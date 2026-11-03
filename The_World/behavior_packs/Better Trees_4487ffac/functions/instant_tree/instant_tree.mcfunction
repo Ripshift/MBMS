@@ -1,1 +1,0 @@
-execute as @e[family=tree,tag=!tagged] run function instant_tree/instant_tree_function

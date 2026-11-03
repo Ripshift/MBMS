@@ -1,8 +1,0 @@
-{
-  "format_version": "1.21.30",
-  "minecraft:texture_set": {
-    "color": "ancientend_cracked_purpur_bricks",
-    "metalness_emissive_roughness_subsurface": "ancientend_cracked_purpur_bricks_mers",
-    "heightmap": "ancientend_cracked_purpur_bricks_heightmap"
-  }
-}

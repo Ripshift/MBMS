@@ -1,8 +1,0 @@
-{
-  "format_version": "1.21.30",
-  "minecraft:texture_set": {
-    "color": "ancientend_polished_end_stone",
-    "metalness_emissive_roughness_subsurface": "ancientend_polished_end_stone_mers",
-    "heightmap": "ancientend_polished_end_stone_heightmap"
-  }
-}
