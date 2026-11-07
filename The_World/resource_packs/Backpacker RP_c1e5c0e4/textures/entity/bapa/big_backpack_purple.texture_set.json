@@ -1,9 +1,0 @@
-﻿{
-    "format_version": "1.21.30",
-    "minecraft:texture_set": {
-        "color": "big_backpack_purple",
-        "metalness_emissive_roughness_subsurface": "big_backpack_mer",
-        "heightmap": "big_backpack_heightmap"
-    }
-}
-

@@ -1,7 +1,0 @@
-{
-	"format_version": "1.16.100",
-	"minecraft:texture_set": {
-		"color": "pharaoh",
-		"metalness_emissive_roughness": "pharaoh_mer"
-	}
-}

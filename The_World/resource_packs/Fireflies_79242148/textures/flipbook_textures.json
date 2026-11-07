@@ -1,8 +1,0 @@
-[
-	{
-		"flipbook_texture": "textures/blocks/firefly_jar",
-		"atlas_tile": "korbonff:firefly_jar",
-		"ticks_per_frame": 4,
-		"blend_frames": true
-	}
-]

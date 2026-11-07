@@ -1,9 +1,0 @@
-{
-  "resource_pack_name": "smallcactus",
-  "texture_name": "atlas.items",
-  "texture_data": {
-    "smallcactus_cactus_juice": {
-      "textures": "textures/items/cactus_juice"
-    }
-  }
-}
