@@ -1,0 +1,58 @@
+{
+  "name": "bedrock-hub",
+  "productName": "Bedrock Hub",
+  "version": "3.1.5",
+  "description": "A hub for Minecraft Bedrock: a mod library, the Bedrock Console Bridge, a Bedrock server and a world manager",
+  "private": true,
+  "main": "src/main.js",
+  "license": "GPL-3.0-only",
+  "scripts": {
+    "start": "electron .",
+    "test": "node --test",
+    "dist": "electron-builder --win portable --publish never"
+  },
+  "devDependencies": {
+    "electron": "^44.7.0",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "com.bedrockhub.app",
+    "productName": "Bedrock Hub",
+    "copyright": "GPL-3.0-only",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "src/**/*",
+      "renderer/**/*",
+      "assets/**/*",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "bridge/HMBC.jar",
+        "to": "bridge/HMBC.jar"
+      },
+      {
+        "from": "engine",
+        "to": "engine",
+        "filter": [
+          "*.py"
+        ]
+      }
+    ],
+    "win": {
+      "target": [
+        "portable"
+      ],
+      "icon": "assets/icon.png",
+      "signAndEditExecutable": false
+    },
+    "portable": {
+      "artifactName": "Bedrock Hub.exe"
+    }
+  },
+  "dependencies": {
+    "isomorphic-git": "1.44.3"
+  }
+}

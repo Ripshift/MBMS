@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Download Bedrock Hub for Windows: Everything Minecraft Bedrock in One Free App</title>
+  <meta name="description" content="Download Bedrock Hub 3.1.5, a free portable Windows hub for everything Minecraft Bedrock: a mod library, a Bedrock Console Bridge for friends on consoles, a Bedrock server and a world manager. Requirements, setup steps and checksum.">
+  <link rel="canonical" href="https://bedrockhub.example/download.html">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#14171c">
+  <link rel="icon" type="image/png" href="img/icon.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Bedrock Hub">
+  <meta property="og:title" content="Download Bedrock Hub for Windows">
+  <meta property="og:description" content="A free, portable hub for everything Minecraft Bedrock, for Windows 10 and 11.">
+  <meta property="og:url" content="https://bedrockhub.example/download.html">
+  <meta property="og:image" content="https://bedrockhub.example/img/app-library.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://bedrockhub.example/" },
+          { "@type": "ListItem", "position": 2, "name": "Download", "item": "https://bedrockhub.example/download.html" }
+        ]
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://bedrockhub.example/#app",
+        "name": "Bedrock Hub",
+        "applicationCategory": "GameApplication",
+        "operatingSystem": "Windows 10, Windows 11 (64-bit)",
+        "softwareVersion": "3.1.5",
+        "fileSize": "113 MB",
+        "downloadUrl": "https://bedrockhub.example/downloads/Bedrock-Hub-3.1.5.exe",
+        "softwareRequirements": "Python 3.8 or newer for the mod library and worlds; Java 21 for the Bedrock Console Bridge; Minecraft Bedrock Dedicated Server for the server",
+        "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+        "isAccessibleForFree": true,
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-head">
+    <div class="wrap">
+      <a class="brand" href="./"><img src="img/icon.png" alt="" width="32" height="32">Bedrock Hub</a>
+      <nav class="nav" aria-label="Main">
+        <a href="./">Bedrock Hub</a>
+        <a href="download.html" aria-current="page">Download</a>
+        <a href="babs.html">BABS</a>
+        <a href="faq.html">FAQ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section>
+      <div class="wrap">
+        <nav class="crumbs" aria-label="Breadcrumb"><a href="./">Bedrock Hub</a> / Download</nav>
+        <h1>Download Bedrock Hub</h1>
+        <p class="lede">One portable file for Windows. No installer and no account to make with us. Download it, open it, and add your mods.</p>
+
+        <div class="download-card">
+          <img src="img/icon.png" alt="Bedrock Hub icon" width="72" height="72">
+          <div>
+            <h2>Bedrock Hub 3.1.5</h2>
+            <ul class="meta">
+              <li>Windows 10 and 11, 64-bit</li>
+              <li>Portable .exe</li>
+              <li>113 MB</li>
+              <li>GPL-3.0</li>
+            </ul>
+          </div>
+          <a class="btn primary" href="downloads/Bedrock-Hub-3.1.5.exe" download>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 19h16"/></svg>
+            Download .exe
+          </a>
+        </div>
+        <p class="hash">SHA-256 checksum, to check your download wasn't changed:<br><code>F9A6ABE824A184E71449908BB14DB8697177FEAFDFFCAE062E200FC46ECE1AA1</code></p>
+        <p class="fine">In PowerShell: <code>Get-FileHash .\Bedrock-Hub-3.1.5.exe</code></p>
+
+        <div class="note">
+          <strong>Windows may warn you the first time.</strong> Bedrock Hub isn't code-signed yet, so SmartScreen can show "Windows protected your PC". Choose <em>More info</em>, then <em>Run anyway</em>. Check the checksum above first if you want to be sure.
+        </div>
+        <p class="fine" style="margin-top:20px">Looking for the Android server companion? <a href="babs.html">Learn about BABS</a>. It is a separate app and isn't included in this Windows download.</p>
+      </div>
+    </section>
+
+    <section id="requirements">
+      <div class="wrap">
+        <h2>What you need</h2>
+        <p class="lede">Bedrock Hub works part by part, so you only need what the parts you use need.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th scope="col">Needed for</th><th scope="col">Requirement</th><th scope="col">Notes</th></tr></thead>
+            <tbody>
+              <tr><td>Everything</td><td>Windows 10 or 11, 64-bit</td><td>A home PC or a cloud VM, such as Azure.</td></tr>
+              <tr><td>Mod library</td><td>Python 3.8 or newer</td><td>On the PATH. Only the standard library is used. The world manager uses it too. Without it, the Xbox, Server and Console pages still work.</td></tr>
+              <tr><td>Bedrock Console Bridge</td><td>Java 21</td><td>In <code>%USERPROFILE%\HMBC-Tools\jdk</code>, or set <code>HMBC_JAVA</code> to your <code>java.exe</code>.</td></tr>
+              <tr><td>Bedrock Console Bridge</td><td>A Microsoft account</td><td>The account your friends add. It shows your server as a game they can join.</td></tr>
+              <tr><td>Bedrock server</td><td>Minecraft Bedrock Dedicated Server</td><td>Free from minecraft.net. Bedrock Hub keeps it in <code>%USERPROFILE%\HMBC-Server</code> and installs new versions for you.</td></tr>
+              <tr><td>Players from outside your network</td><td>Open UDP ports</td><td>The server's port (19132 by default) and, for Friends-list joins, inbound UDP 49152 to 65535.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="setup">
+      <div class="wrap">
+        <h2>Setting it up</h2>
+        <div class="grid-2">
+          <div class="panel">
+            <h3>First run</h3>
+            <ol class="plain">
+              <li>Put <code>Bedrock-Hub-3.1.5.exe</code> anywhere, such as your desktop, and open it.</li>
+              <li>On the <strong>Mod Library</strong> page, press <strong>Add mods</strong> to bring in your add-ons.</li>
+              <li>On the <strong>Bridge</strong> page, sign the bridge in with the code it shows.</li>
+              <li>On the <strong>Server</strong> page, type your public IP address.</li>
+              <li>On the <strong>Worlds</strong> page, load a world, add its mods and press <strong>Host</strong>.</li>
+              <li>Press <strong>Start</strong>, then run <strong>Status and setup test</strong> to check everything.</li>
+            </ol>
+          </div>
+          <div class="panel">
+            <h3>Where your files live</h3>
+            <ul class="ticks">
+              <li><code>%USERPROFILE%\HMBC-Library</code>: your mod library</li>
+              <li><code>%USERPROFILE%\HMBC-Bridge</code>: the Microsoft sign-in and bridge settings</li>
+              <li><code>%USERPROFILE%\HMBC-Server</code>: the server, its settings and worlds</li>
+              <li><code>%APPDATA%\Bedrock Hub</code>: app settings and logs</li>
+            </ul>
+            <p class="fine" style="margin-top:12px">Updating Bedrock Hub is just replacing the .exe. These folders stay as they are.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="source">
+      <div class="wrap">
+        <h2>Source code and licence</h2>
+        <p>Bedrock Hub is free software under the <a href="https://www.gnu.org/licenses/gpl-3.0.html" rel="noopener">GNU General Public License v3.0</a>. You can use, study, share and change it. The Bedrock Console Bridge is based on <a href="https://github.com/MCXboxBroadcast/Broadcaster" rel="noopener">MCXboxBroadcast</a> by rtm516 and contributors.</p>
+        <div class="actions">
+          <a class="btn" href="https://github.com/YOUR-ACCOUNT/bedrock-hub" rel="noopener">View the source code</a>
+          <a class="btn" href="faq.html">Questions? Read the FAQ</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-foot">
+    <div class="wrap">
+      <div>
+        <p><strong>Bedrock Hub</strong> is free software under the GPL-3.0 licence, based on <a href="https://github.com/MCXboxBroadcast/Broadcaster" rel="noopener">MCXboxBroadcast</a> by rtm516 and contributors.</p>
+        <p>Not an official Minecraft product. Not approved by or associated with Mojang or Microsoft. Minecraft and Xbox are trademarks of Microsoft.</p>
+      </div>
+      <nav aria-label="Footer">
+        <a href="./">Bedrock Hub</a>
+        <a href="download.html">Download</a>
+        <a href="babs.html">BABS</a>
+        <a href="faq.html">FAQ</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

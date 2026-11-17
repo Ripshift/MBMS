@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BABS: Bridged Android Bedrock Server</title>
+  <meta name="description" content="Meet BABS, the Android companion in the Bedrock Hub ecosystem. Run a Bedrock Dedicated Server and the Bedrock Console Bridge on a phone or tablet.">
+  <link rel="canonical" href="https://bedrockhub.example/babs.html">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#14171c">
+  <link rel="icon" type="image/png" href="img/icon.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Bedrock Hub">
+  <meta property="og:title" content="BABS: Bridged Android Bedrock Server">
+  <meta property="og:description" content="An Android companion for hosting a Bedrock server and letting console friends join from their Friends list.">
+  <meta property="og:url" content="https://bedrockhub.example/babs.html">
+  <meta property="og:image" content="https://bedrockhub.example/img/app-library.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Bedrock Hub", "item": "https://bedrockhub.example/" },
+          { "@type": "ListItem", "position": 2, "name": "BABS", "item": "https://bedrockhub.example/babs.html" }
+        ]
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://bedrockhub.example/babs.html#app",
+        "name": "BABS (Bridged Android Bedrock Server)",
+        "applicationCategory": "GameApplication",
+        "operatingSystem": "Android 10 or later",
+        "softwareVersion": "0.10.0",
+        "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+        "isAccessibleForFree": true,
+        "description": "An Android app that runs a Minecraft Bedrock Dedicated Server and the Bedrock Console Bridge on a phone or tablet."
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-head">
+    <div class="wrap">
+      <a class="brand" href="./"><img src="img/icon.png" alt="" width="32" height="32">Bedrock Hub</a>
+      <nav class="nav" aria-label="Main">
+        <a href="./">Bedrock Hub</a>
+        <a href="download.html">Download</a>
+        <a href="babs.html" aria-current="page">BABS</a>
+        <a href="faq.html">FAQ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section>
+      <div class="wrap">
+        <nav class="crumbs" aria-label="Breadcrumb"><a href="./">Bedrock Hub</a> / BABS</nav>
+        <p class="eyebrow">The Android member of the ecosystem</p>
+        <h1>BABS: Bridged Android Bedrock Server</h1>
+        <p class="lede">Host a Minecraft Bedrock Dedicated Server and the Bedrock Console Bridge from an Android phone or tablet. Friends on Xbox, PlayStation and Switch can join from their Friends list.</p>
+
+        <div class="grid-2">
+          <div class="panel">
+            <h2>Built for hosting</h2>
+            <ul class="ticks">
+              <li>Start, stop and restart the Bedrock server and Console Bridge.</li>
+              <li>See server and bridge status, and use the live console.</li>
+              <li>Bring in worlds and add packs to the world the server runs.</li>
+              <li>Import and export Bedrock worlds.</li>
+              <li>Keep the server and bridge running with an Android foreground service.</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h2>How it fits with Bedrock Hub</h2>
+            <p><a href="./">Bedrock Hub</a> is the all-in-one Windows app for add-ons, worlds and server hosting. BABS focuses on hosting from Android; the apps are separate and have their own features.</p>
+            <p>Unlike Bedrock Hub, BABS doesn't include a mod library. Instead, bring pack files directly into the world its server runs.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="requirements">
+      <div class="wrap">
+        <p class="eyebrow">Before hosting</p>
+        <h2>Device and network notes</h2>
+        <div class="grid-2">
+          <div class="panel">
+            <h3>Android device</h3>
+            <ul class="ticks">
+              <li>Android 10 or later; designed for phones and tablets.</li>
+              <li>A recent flagship device and 8 GB or more of RAM are recommended for the emulated server.</li>
+              <li>Allow roughly 1 GB of storage for the Linux environment and server, plus room for worlds and updates.</li>
+              <li>Android battery optimization can interrupt hosting, so sustained background use may need device settings adjusted.</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>Network and performance</h3>
+            <ul class="ticks">
+              <li>The Bedrock server is an x86_64 program; on ARM phones, BABS runs it through box64 emulation, which can be slower than a desktop.</li>
+              <li>For friends outside your home network, the server needs a reachable public address and UDP ports forwarded on your router.</li>
+              <li>Mobile networks using carrier-grade NAT generally won't accept the inbound connections the server needs. Wi-Fi is the practical setup.</li>
+              <li>The server is downloaded to the device after accepting Minecraft's EULA; it isn't bundled with BABS.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="note">
+          <strong>Development status.</strong> BABS is still being developed. The current build has been checked on an x86_64 Android emulator; real ARM-device performance and console-player connections still need validation. This site does not yet provide a BABS download.
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="wrap">
+        <h2>Explore Bedrock Hub</h2>
+        <p class="lede">Manage add-ons, worlds, your server and console friends together in the Windows app.</p>
+        <div class="actions">
+          <a class="btn primary" href="download.html">Download Bedrock Hub</a>
+          <a class="btn" href="./">Explore Bedrock Hub</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-foot">
+    <div class="wrap">
+      <div>
+        <p><strong>BABS</strong> is free software under the GPL-3.0 licence. Its Console Bridge is based on <a href="https://github.com/MCXboxBroadcast/Broadcaster" rel="noopener">MCXboxBroadcast</a> by rtm516 and contributors.</p>
+        <p>Not official Minecraft products. Not approved by or associated with Mojang or Microsoft. Minecraft and Xbox are trademarks of Microsoft.</p>
+      </div>
+      <nav aria-label="Footer">
+        <a href="./">Bedrock Hub</a>
+        <a href="download.html">Download</a>
+        <a href="babs.html">BABS</a>
+        <a href="faq.html">FAQ</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

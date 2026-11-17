@@ -1,0 +1,766 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bedrock Hub</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <aside class="side" id="side" aria-label="Main">
+    <div class="side-head">
+      <div class="brand-box">
+        <h1 class="brand">BEDROCK HUB</h1>
+        <p class="brand-sub">for Minecraft Bedrock</p>
+      </div>
+      <button type="button" class="side-toggle" id="side-toggle" title="Collapse the sidebar (Ctrl+B)" aria-label="Collapse the sidebar">&laquo;</button>
+    </div>
+
+    <nav class="nav" id="nav">
+      <button type="button" data-page="library" class="nav-item">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M4 7.5l8 4.5 8-4.5M12 12v9"/></svg>
+        <span class="nav-text">Mod Library</span><span class="nav-badge" id="badge-library"></span>
+      </button>
+      <button type="button" data-page="worlds" class="nav-item">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg>
+        <span class="nav-text">Worlds</span><span class="nav-badge" id="badge-worlds"></span>
+      </button>
+      <button type="button" data-page="xbox" class="nav-item" title="Bedrock Console Bridge">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4.5 4-7 8-7s7 2.500 8 7"/></svg>
+        <span class="nav-text">Bridge</span><span class="nav-badge" id="badge-xbox"></span>
+      </button>
+      <button type="button" data-page="server" class="nav-item">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="7" rx="1.5"/><rect x="3" y="13" width="18" height="7" rx="1.5"/><path d="M7 7.5h.01M7 16.5h.01"/></svg>
+        <span class="nav-text">Server</span><span class="nav-badge"></span>
+      </button>
+      <button type="button" data-page="console" class="nav-item">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 9l3 3-3 3M13 15h4"/></svg>
+        <span class="nav-text">Console</span><span class="nav-badge" id="badge-console"></span>
+      </button>
+      <button type="button" data-page="settings" class="nav-item">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/></svg>
+        <span class="nav-text">Settings</span><span class="nav-badge"></span>
+      </button>
+    </nav>
+
+    <div class="side-foot" role="toolbar" aria-label="Server controls">
+      <p class="pill side-pill" id="side-pill" data-s="off" role="status"><i class="pip" aria-hidden="true"></i><span>Server: <span id="side-state">Off</span></span></p>
+      <p class="pill side-pill" id="side-bridge" data-s="off" role="status"><i class="pip" aria-hidden="true"></i><span>Bridge: <span id="side-bridge-state">Off</span></span></p>
+      <p class="side-world" id="side-world"></p>
+      <button type="button" id="start" class="success" title="Start the server and the Bedrock Console Bridge, or whichever of them isn't running">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path class="fill" d="M8 5l11 7-11 7z"/></svg><span id="start-text">Start</span>
+      </button>
+      <div class="side-row">
+        <button type="button" id="refresh" title="Restart whatever is running.">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 6.3M20 5v6h-6"/></svg><span id="refresh-text">Restart</span>
+        </button>
+        <button type="button" id="stop" title="Save the world and stop the server and bridge">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect class="fill" x="7" y="7" width="10" height="10" rx="1"/></svg><span id="stop-text">Stop</span>
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <div class="shell">
+    <header class="page-head">
+      <div class="page-titles">
+        <h2 class="page-title" id="page-title">Server</h2>
+        <p class="page-sub" id="page-sub"></p>
+      </div>
+      <p class="overall-text" id="overall-text" role="status">Not running</p>
+      <button type="button" class="bell" id="bell" aria-label="Notifications" title="Notifications">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 16V11a6 6 0 1 1 12 0v5l2 2H4zM10 21h4"/></svg>
+        <span class="bell-count" id="bell-count" hidden></span>
+      </button>
+    </header>
+
+    <div class="banner" id="restart-banner" role="status" hidden>
+      <span>Mods or server settings changed while the server is running. Restart it to apply them. The bridge stays online.</span>
+      <button type="button" class="primary" id="restart-apply">Restart server</button>
+    </div>
+    <p class="message global-message" id="message" role="alert" hidden></p>
+
+    <main class="content" id="content">
+
+      <!-- SERVER: cards from HMBC -->
+      <section class="page" id="page-server" aria-labelledby="page-title">
+        <section class="card server-card" aria-labelledby="server-title">
+          <div class="thumb" id="world-thumb">
+            <img id="world-img" alt="" hidden>
+            <span class="thumb-empty" id="world-empty" aria-hidden="true"></span>
+          </div>
+          <div class="card-main">
+            <div class="card-head">
+              <h3 id="server-title">Server and world</h3>
+              <p class="sub" id="world-caption">No world loaded</p>
+            </div>
+            <div class="field">
+              <label for="host">Public IP address of this VM</label>
+              <input id="host" autocomplete="off" spellcheck="false" placeholder="4.154.185.78">
+            </div>
+            <p class="field-note" id="server-note" role="status">Players connect to this address. It comes from the Azure portal and should be set to Static.</p>
+            <div class="row">
+              <button type="button" id="server-start" class="success">Start server</button>
+              <button type="button" id="server-stop">Stop server</button>
+              <button type="button" id="manage-worlds">Choose a world</button>
+              <button type="button" id="manage-mods">Manage its mods</button>
+              <button type="button" id="open-status">Status and setup test</button>
+              <button type="button" id="update-server">Check for updates</button>
+            </div>
+          </div>
+        </section>
+
+        <div class="cards-row">
+          <section class="card link-card" aria-labelledby="server-links">
+            <div class="card-main">
+              <h3 id="server-links">Connected to this server</h3>
+              <button type="button" class="link-row" id="link-xbox"><b>Console Bridge</b><span id="link-xbox-text"></span></button>
+              <button type="button" class="link-row" id="link-world"><b>Hosted world</b><span id="link-world-text"></span></button>
+              <button type="button" class="link-row" id="link-library"><b>Mod library</b><span id="link-library-text"></span></button>
+            </div>
+          </section>
+          <section class="card stats-card" aria-labelledby="stats-title">
+            <div class="card-head">
+              <h3 id="stats-title">Minecraft server</h3>
+              <p class="pill" id="server-pill" data-s="off" role="status"><i class="pip" aria-hidden="true"></i><span id="server-state">Off</span></p>
+            </div>
+            <p class="hint" id="server-detail"></p>
+            <dl class="stats" id="stats">
+              <div><dt>Players</dt><dd id="st-players">-</dd></div>
+              <div><dt>Uptime</dt><dd id="st-uptime">-</dd></div>
+              <div><dt>Online now</dt><dd id="st-online">-</dd></div>
+              <div><dt>Version</dt><dd id="st-version">-</dd></div>
+              <div><dt>Game mode</dt><dd id="st-mode">-</dd></div>
+              <div><dt>World</dt><dd id="st-world">-</dd></div>
+              <div><dt>Last saved</dt><dd id="st-saved">-</dd></div>
+              <div><dt>Address</dt><dd id="st-address">-</dd></div>
+            </dl>
+          </section>
+        </div>
+
+        <section class="card column server-options" id="server-options" aria-labelledby="options-title">
+          <div class="card-head">
+            <h3 id="options-title">Server options</h3>
+            <p class="sub">Saved in server.properties. Changes apply when the server restarts, except the allow list, which switches straight away.</p>
+          </div>
+          <p class="message" id="options-error" role="alert" hidden></p>
+          <div class="toggles">
+            <label class="toggle"><input type="checkbox" data-prop="allow-cheats"><span><b>Allow cheats</b><small>Commands such as /give and /gamemode can be used.</small></span></label>
+            <label class="toggle"><input type="checkbox" data-prop="allow-list"><span><b>Only players on the allow list can join</b><small id="allowlist-note">Manage it under Allow list below.</small></span></label>
+            <label class="toggle"><input type="checkbox" data-prop="force-gamemode"><span><b>Use the game mode set for the server</b><small>Off: players get the game mode the world was saved with.</small></span></label>
+            <label class="toggle"><input type="checkbox" data-prop="texturepack-required"><span><b>Players must use the world's resource packs</b><small>Players who don't accept the download can't join.</small></span></label>
+            <label class="toggle"><input type="checkbox" data-prop="enable-lan-visibility"><span><b>Show on the local network</b><small>Players on the same network see it in their Friends list. Turn it off if it clashes with another server on this computer.</small></span></label>
+            <label class="toggle"><input type="checkbox" data-prop="disable-player-interaction"><span><b>Players ignore each other when using the world</b><small>Asks players' games to ignore other players when placing and breaking blocks. The server doesn't enforce it.</small></span></label>
+            <label class="toggle"><input type="checkbox" data-prop="disable-custom-skins" data-invert><span><b>Allow custom skins</b><small>Off: players can only use skins from the Minecraft store or the game itself.</small></span></label>
+          </div>
+          <div class="field idle-field">
+            <label for="idle-timeout">Kick idle players after this many minutes</label>
+            <input id="idle-timeout" type="number" min="0" max="999999" step="1" inputmode="numeric" data-prop="player-idle-timeout">
+            <p class="field-note">0 turns it off, so players can stay idle as long as they like.</p>
+          </div>
+          <details class="advanced">
+            <summary>Advanced</summary>
+            <div class="toggles">
+              <label class="toggle"><input type="checkbox" data-prop="online-mode"><span><b>Players must sign in with a Microsoft account</b><small>Keep this on for a server on the internet. Players joining from outside your network always have to sign in anyway.</small></span></label>
+              <label class="toggle"><input type="checkbox" data-prop="server-authoritative-movement-strict"><span><b>Strict movement checks</b><small>The server trusts players' positions less. Players with lag get pulled back more often, especially near moving blocks.</small></span></label>
+              <label class="toggle"><input type="checkbox" data-prop="server-authoritative-dismount-strict"><span><b>Strict dismount checks</b><small>Players with lag get their position corrected after leaving a mount or vehicle.</small></span></label>
+              <label class="toggle"><input type="checkbox" data-prop="server-authoritative-entity-interactions-strict"><span><b>Strict interaction checks</b><small>Stricter about players hitting and using mobs and each other. Players with lag notice it most.</small></span></label>
+              <label class="toggle"><input type="checkbox" data-prop="client-side-chunk-generation-enabled"><span><b>Players' games draw distant land</b><small>Takes work off the server by letting players' games build what's far away.</small></span></label>
+              <label class="toggle"><input type="checkbox" data-prop="content-log-file-enabled"><span><b>Save the Content Log to a file</b><small>The Console's Content Log tab works either way.</small></span></label>
+              <label class="toggle"><input type="checkbox" data-prop="allow-player-joining"><span><b>Let players join</b><small>Off: only scripts in add-ons can let players in.</small></span></label>
+              <label class="toggle"><input type="checkbox" data-prop="disable-client-vibrant-visuals"><span><b>Turn off Vibrant Visuals for players</b><small>Their games use the next best graphics setting.</small></span></label>
+            </div>
+          </details>
+        </section>
+
+        <section class="card column allowlist-card" id="allowlist-card" aria-labelledby="allowlist-title">
+          <div class="card-head">
+            <h3 id="allowlist-title">Allow list</h3>
+            <p class="sub" id="allowlist-status"></p>
+          </div>
+          <p class="message" id="allowlist-error" role="alert" hidden></p>
+          <form class="inline" id="allowlist-form">
+            <input id="allowlist-name" autocomplete="off" spellcheck="false" maxlength="30" placeholder="Gamertag" aria-label="Gamertag to add">
+            <button type="submit" class="primary" id="allowlist-add">Add</button>
+          </form>
+          <div class="row allowlist-online" id="allowlist-online" hidden></div>
+          <ul class="requests allowlist" id="allowlist-players"></ul>
+          <p class="field-note">Gamertags only need to match. The server links each one to their Microsoft account the first time that player joins. Removing someone doesn't disconnect them if they're online now.</p>
+        </section>
+      </section>
+
+      <!-- XBOX: the bridge, on its own -->
+      <section class="page" id="page-xbox" hidden>
+        <div class="toolbar">
+          <p class="toolbar-note">The Microsoft account that puts your server on friends' lists. It can run without the server, so you can sign in and answer friend requests at any time.</p>
+          <button type="button" id="bridge-stop">Stop bridge</button>
+          <button type="button" id="bridge-start" class="success">Start bridge</button>
+        </div>
+        <div class="xbox-layout">
+          <section class="card account-card" data-service="bridge" data-lamp="dim" aria-labelledby="account-title">
+            <div class="avatar" id="avatar">
+              <img id="avatar-img" alt="" hidden>
+              <span id="avatar-initial" aria-hidden="true">?</span>
+            </div>
+            <div class="card-main">
+              <div class="card-head">
+                <h3 id="account-title">Microsoft account</h3>
+                <p class="gamertag" id="gamertag">Not signed in</p>
+              </div>
+              <p class="pill" role="status"><i class="pip" aria-hidden="true"></i><span class="headline"></span></p>
+              <p class="hint"></p>
+              <dl class="details"></dl>
+              <div class="row"><button type="button" id="login">Sign in with Microsoft</button></div>
+              <div class="friends" id="friends">
+                <div class="friends-head">
+                  <h4>Friend requests</h4>
+                  <label class="check"><input type="checkbox" id="auto-accept"> Accept automatically</label>
+                </div>
+                <p class="field-note" id="friends-note"></p>
+                <ul class="requests" id="requests"></ul>
+                <p class="message" id="friends-error" role="alert" hidden></p>
+              </div>
+              <div class="signin" hidden>
+                <p class="signin-label">Open the sign-in page and enter this code:</p>
+                <output class="code"></output>
+                <div class="row">
+                  <button type="button" class="copy">Copy code</button>
+                  <button type="button" class="open primary">Open sign-in page</button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+        </div>
+      </section>
+
+      <!-- LIBRARY: every mod and every version, with no world needed -->
+      <section class="page" id="page-library" hidden>
+        <p class="engine-note message" id="library-engine" hidden></p>
+        <div class="view" id="lib-browse">
+          <div class="lib-bar">
+            <p class="lib-stats" id="lib-stats" role="status"></p>
+            <span class="spacer"></span>
+            <button type="button" id="lib-open">Open library folder</button>
+            <button type="button" id="lib-rescan">Rescan</button>
+            <button type="button" id="lib-add-folder">Add folder</button>
+            <button type="button" id="lib-add-files" class="primary">Add mods</button>
+          </div>
+          <div class="banner lib-banner" id="lib-old" hidden>
+            <span id="lib-old-text"></span>
+            <span class="row">
+              <button type="button" id="lib-old-skip">Not now</button>
+              <button type="button" id="lib-old-go" class="primary">Bring them in</button>
+            </span>
+          </div>
+          <div class="banner lib-banner" id="lib-outside" hidden>
+            <span id="lib-outside-text"></span>
+            <button type="button" id="lib-outside-go" class="primary">Add them to the library</button>
+          </div>
+          <div class="toolbar">
+            <input id="lib-search" class="search" autocomplete="off" spellcheck="false" placeholder="Search names, authors, tags and notes" aria-label="Search the library">
+            <div class="seg" role="tablist" aria-label="Filter" id="lib-filters"></div>
+            <span class="spacer"></span>
+            <select id="lib-kind" aria-label="Type">
+              <option value="">All types</option>
+              <option value="behavior">Behavior packs</option>
+              <option value="resource">Resource packs</option>
+              <option value="skin">Skin packs</option>
+            </select>
+            <select id="lib-tag" aria-label="Tag" hidden></select>
+            <select id="lib-sort" aria-label="Sort">
+              <option value="name">Name</option>
+              <option value="recent">Recently updated</option>
+              <option value="added">Recently added</option>
+              <option value="used">Most used</option>
+              <option value="versions">Most versions</option>
+            </select>
+          </div>
+          <button type="button" class="warn-chip" id="lib-problems" hidden></button>
+          <div class="lib-grid" id="lib-grid"></div>
+          <p class="empty" id="lib-empty" hidden></p>
+        </div>
+
+        <div class="view" id="lib-detail" hidden>
+          <div><button type="button" class="link" id="lib-back">&laquo; Back to the library</button></div>
+          <section class="card lib-head" id="lib-head"></section>
+          <div class="seg lib-tabs" role="tablist" aria-label="About this mod" id="lib-tabs">
+            <button type="button" role="tab" data-tab="overview">Overview</button>
+            <button type="button" role="tab" data-tab="changes">What changed</button>
+            <button type="button" role="tab" data-tab="worlds">Where it's used</button>
+          </div>
+          <div class="view" id="lib-body"></div>
+        </div>
+      </section>
+
+      <!-- WORLDS -->
+      <section class="page" id="page-worlds" hidden>
+        <div class="toolbar">
+          <div class="seg" role="tablist" aria-label="Worlds view" id="worlds-seg">
+            <button type="button" role="tab" data-view="list" class="on">Worlds</button>
+            <button type="button" role="tab" data-view="backups" id="tab-backups">Backups</button>
+          </div>
+          <p class="toolbar-note" id="worlds-note"></p>
+          <button type="button" id="worlds-cloud" hidden>GitHub Cloud</button>
+          <button type="button" id="world-import-file">Load .mcworld file</button>
+          <button type="button" id="world-import-folder" class="primary">Load world folder</button>
+        </div>
+        <p class="engine-note message" id="worlds-engine" hidden></p>
+        <div class="view" id="worlds-list">
+          <div class="grid world-grid" id="world-grid"></div>
+          <p class="empty" id="worlds-empty" hidden>No worlds in the server's folder yet. Load one with the buttons above.</p>
+        </div>
+        <div class="view" id="worlds-backups" hidden>
+          <p class="note" id="backups-note"></p>
+          <div class="issue-list" id="backup-list"></div>
+          <p class="empty" id="backups-empty" hidden>No backups yet. Press Back up on a world to make one.</p>
+        </div>
+
+      </section>
+
+      <!-- ONE WORLD'S MODS: reached from Worlds -->
+      <section class="page" id="page-mods" hidden>
+        <div><button type="button" class="link" id="mods-back">&laquo; Back to worlds</button></div>
+        <div class="toolbar">
+          <label class="inline-label" for="mods-world">World</label>
+          <select id="mods-world"></select>
+          <span class="chip" id="mods-world-chip" hidden></span>
+          <span class="spacer"></span>
+          <div class="seg" role="tablist" aria-label="Mods view" id="mods-seg">
+            <button type="button" role="tab" data-view="packs" class="on">In this world</button>
+            <button type="button" role="tab" data-view="library">Add from library</button>
+            <button type="button" role="tab" data-view="compat">Compatibility</button>
+            <button type="button" role="tab" data-view="updates">Updates</button>
+            <button type="button" role="tab" data-view="order">Load order</button>
+          </div>
+        </div>
+        <p class="engine-note message" id="mods-engine" hidden></p>
+
+        <div class="view" id="view-packs">
+        <section class="card column" id="world-editor" aria-labelledby="editor-title" hidden>
+          <div class="card-head spread">
+            <div>
+              <h3 id="editor-title">Packs</h3>
+              <p class="sub" id="editor-hint"></p>
+            </div>
+            <div class="row">
+              <span class="dirty" id="editor-dirty" hidden>Unsaved changes</span>
+              <button type="button" id="editor-restore">Restore original</button>
+              <button type="button" id="editor-revert">Revert</button>
+              <button type="button" id="editor-save" class="primary">Save</button>
+            </div>
+          </div>
+          <div class="editor-lists">
+            <div><h4>Behavior packs</h4><ul class="pack-list" id="editor-behavior"></ul></div>
+            <div><h4>Resource packs</h4><ul class="pack-list" id="editor-resource"></ul></div>
+          </div>
+        </section>
+        </div>
+
+        <div class="view" id="view-library" hidden>
+          <div class="toolbar">
+            <input id="mods-search" class="search" autocomplete="off" spellcheck="false" placeholder="Search names, tags and notes" aria-label="Search mods">
+            <select id="mods-show" aria-label="Show">
+              <option value="all">All mods</option>
+              <option value="world">In the selected world</option>
+              <option value="server">In the server folder</option>
+              <option value="not">Not installed</option>
+              <option value="updates">Updates available</option>
+              <option value="ticked">Ticked</option>
+              <option value="problems">Has problems</option>
+              <option value="unnamed">Unnamed packs</option>
+              <option value="fav">Favorites</option>
+            </select>
+            <select id="mods-sort" aria-label="Sort">
+              <option>Name</option><option>Favorites first</option><option>Recently changed</option><option>Status</option>
+            </select>
+            <select id="mods-select" aria-label="Select">
+              <option value="">Select...</option>
+              <option value="all">Tick everything shown</option>
+              <option value="none">Untick everything</option>
+              <option value="updates">Tick new and updates</option>
+              <option value="fav">Tick favorites</option>
+              <option value="world">Tick mods in this world</option>
+            </select>
+            <select id="mods-profile" aria-label="Profiles"></select>
+            <span class="spacer"></span>
+            <button type="button" id="mods-rescan">Rescan</button>
+          </div>
+          <button type="button" class="warn-chip" id="scan-problems" hidden></button>
+          <div class="grid mod-grid" id="mod-grid"></div>
+          <p class="empty" id="mods-empty" hidden></p>
+        </div>
+
+        <div class="view" id="view-compat" hidden>
+          <p class="summary" id="compat-summary" role="status"></p>
+          <div class="issue-list" id="issue-list"></div>
+        </div>
+
+        <div class="view" id="view-updates" hidden>
+          <div class="toolbar">
+            <p class="summary" id="updates-summary" role="status"></p>
+            <span class="spacer"></span>
+            <label class="check"><input type="checkbox" id="updates-ignored"> Show ignored</label>
+            <button type="button" id="update-ignore">Ignore selected</button>
+            <button type="button" id="update-selected">Update selected</button>
+            <button type="button" id="update-all" class="primary">Update all</button>
+          </div>
+          <div class="split">
+            <div class="issue-list" id="update-list"></div>
+            <section class="card column detail" id="update-detail" aria-label="What will change"></section>
+          </div>
+        </div>
+
+        <div class="view" id="view-order" hidden>
+          <div class="toolbar">
+            <p class="summary" id="order-summary" role="status"></p>
+            <span class="spacer"></span>
+            <button type="button" id="order-up">Move up</button>
+            <button type="button" id="order-down">Move down</button>
+            <button type="button" id="order-fix">Fix problems only</button>
+            <button type="button" id="order-sort">Sort everything</button>
+            <button type="button" id="order-reset">Reset</button>
+            <button type="button" id="order-save" class="primary">Save order to world</button>
+          </div>
+          <div class="split thirds">
+            <section class="card column"><h3>Behavior packs</h3><ol class="pack-list numbered" id="order-behavior"></ol></section>
+            <section class="card column"><h3>Resource packs</h3><ol class="pack-list numbered" id="order-resource"></ol></section>
+            <section class="card column detail"><h3>Why this order</h3><div class="why" id="order-why"></div></section>
+          </div>
+        </div>
+
+        <div class="action-bar" id="mods-actions" role="toolbar" aria-label="Actions for ticked mods">
+          <span class="action-count" id="mods-count">0 ticked</span>
+          <span class="spacer"></span>
+          <button type="button" id="act-uninstall" class="danger-ghost" title="Delete the copies in the server's shared pack folders. Your source files stay.">Uninstall from server</button>
+          <button type="button" id="act-install" title="Copy into the server's shared pack folders, without switching them on in a world.">Install to server</button>
+          <button type="button" id="act-remove">Remove from world</button>
+          <button type="button" id="act-add" class="primary">Add to world</button>
+        </div>
+      </section>
+
+      <!-- CONSOLE: from HMBC -->
+      <section class="page page-fill" id="page-console" hidden>
+        <div class="toolbar">
+          <div class="seg" role="tablist" aria-label="Console view" id="console-seg">
+            <button type="button" role="tab" data-view="log" class="on">Console</button>
+            <button type="button" role="tab" data-view="content" id="tab-content">Content Log</button>
+          </div>
+          <span class="spacer"></span>
+          <button type="button" id="open-log-file">Open server.log</button>
+        </div>
+
+        <section class="card column fill" id="console-log">
+          <p class="note">Live output from the server, the bridge and the mod tools. Commands go to the Minecraft server with full operator rights.</p>
+          <pre id="log" tabindex="0" aria-label="Log output"></pre>
+          <div class="field">
+            <label for="command">Server command</label>
+            <div class="inline">
+              <input id="command" autocomplete="off" spellcheck="false" placeholder="list">
+              <button type="button" id="send-command" class="primary">Send</button>
+            </div>
+          </div>
+          <p class="field-note" id="command-note" role="status"></p>
+        </section>
+
+        <section class="card column fill" id="console-content" hidden>
+          <p class="note">What the server reports about your add-ons and worlds since the last Start, the same as the Content Log in the game.</p>
+          <div class="content-tools">
+            <select id="content-level" aria-label="Show">
+              <option value="all">Everything</option>
+              <option value="error">Errors</option>
+              <option value="warning">Warnings</option>
+              <option value="info">Info</option>
+            </select>
+            <input id="content-search" autocomplete="off" spellcheck="false" placeholder="Search" aria-label="Search the Content Log">
+            <button type="button" id="content-copy">Copy all</button>
+            <button type="button" id="content-clear">Clear</button>
+          </div>
+          <p class="content-empty" id="content-empty" role="status"></p>
+          <ul class="content-list" id="content-list" tabindex="0" aria-label="Content Log entries"></ul>
+          <p class="field-note" id="content-note" role="status"></p>
+        </section>
+      </section>
+
+      <!-- SETTINGS -->
+      <section class="page" id="page-settings" hidden>
+        <p class="engine-note message" id="settings-engine" hidden></p>
+        <section class="card column">
+          <h3>Appearance</h3>
+          <p class="sub">Accent colour for buttons and highlights.</p>
+          <div class="swatches" id="swatches"></div>
+        </section>
+
+        <section class="card column">
+          <h3>Library</h3>
+          <p class="sub">Imported add-ons are extracted into pack folders here. Worlds and the server get their copies from the library, and old versions aren't kept.</p>
+          <p class="note" id="lib-storage"></p>
+          <div class="row"><button type="button" id="settings-open-library">Open library folder</button></div>
+          <div class="field">
+            <label for="set-skip">Folders to skip when adding a folder of mods</label>
+            <input id="set-skip" autocomplete="off" spellcheck="false" data-setting="skip_folders">
+          </div>
+        </section>
+
+        <section class="card column">
+          <h3>Adding mods</h3>
+          <div class="toggles">
+            <label class="toggle"><input type="checkbox" data-setting="force_world_copy"><span><b>Copy packs into the world's own folders</b><small>The world keeps its own copy and moves with it. Off: worlds share the copy in the server folder.</small></span></label>
+            <label class="toggle"><input type="checkbox" data-setting="confirm_plan"><span><b>Preview before installing</b><small>Lists what will be installed, updated or skipped first.</small></span></label>
+            <label class="toggle"><input type="checkbox" data-setting="confirm_errors"><span><b>Ask when the compatibility check finds errors</b><small>Otherwise installing goes ahead.</small></span></label>
+            <label class="toggle"><input type="checkbox" data-setting="force"><span><b>Reinstall the same version</b><small>Applies to Install to server. Otherwise same and newer versions are skipped.</small></span></label>
+            <label class="toggle"><input type="checkbox" data-setting="update_worlds"><span><b>Update world versions when updating</b><small>Worlds that already use a mod get its new version number.</small></span></label>
+            <label class="toggle"><input type="checkbox" data-setting="scan_on_startup"><span><b>Scan the library on startup</b></span></label>
+            <label class="toggle"><input type="checkbox" data-setting="check_changes"><span><b>Look for changed mods</b><small>Compares your library with what's installed, for the Updates tab.</small></span></label>
+          </div>
+        </section>
+
+        <section class="card column">
+          <h3>Compatibility and load order</h3>
+          <div class="toggles">
+            <label class="toggle"><input type="checkbox" data-setting="auto_order"><span><b>Place new mods in the recommended slot</b></span></label>
+            <label class="toggle"><input type="checkbox" data-setting="auto_fix_order"><span><b>Fix load-order problems automatically</b><small>Applied when mods are added. Moving packs by hand turns this off until you press Fix or Sort.</small></span></label>
+            <label class="toggle"><input type="checkbox" data-setting="last_wins"><span><b>The last pack in a world's list wins conflicts</b></span></label>
+          </div>
+          <div class="field">
+            <label for="set-version">Game version to check against</label>
+            <input id="set-version" autocomplete="off" spellcheck="false" data-setting="game_version" placeholder="Empty uses the server's version">
+          </div>
+        </section>
+
+        <section class="card column">
+          <h3>Backups</h3>
+          <div class="toggles">
+            <label class="toggle"><input type="checkbox" data-setting="backup_world"><span><b>Back up the world before adding mods</b></span></label>
+            <label class="toggle"><input type="checkbox" data-setting="backup_json"><span><b>Keep the original pack lists</b><small>Lets you use Restore original on a world.</small></span></label>
+          </div>
+          <div class="field">
+            <label for="set-backup">Backup folder</label>
+            <div class="inline">
+              <input id="set-backup" autocomplete="off" spellcheck="false" data-setting="backup_dir" placeholder="Empty uses the server's backups folder">
+              <button type="button" id="backup-browse">Browse</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="card column" id="autosave-card">
+          <h3>AutoSave</h3>
+          <p class="sub">When the server starts a world, a copy of it is taken first. When the server stops, another copy goes next to it. Each session replaces both, so there's always one copy from before the last session and one from after. They're listed under Worlds, then Backups.</p>
+          <label class="toggle"><input type="checkbox" id="autosave-on"><span><b>AutoSave each session</b><small id="autosave-where"></small></span></label>
+        </section>
+
+        <section class="card column" id="cloud-card">
+          <div class="card-head spread">
+            <h3>GitHub Cloud</h3>
+            <span class="chip" id="cloud-chip">Off</span>
+          </div>
+          <p class="sub">Optional. Each world's AutoSave copies go to a private GitHub repo you choose, so another computer with Bedrock Hub can carry on where you stopped. Packs aren't uploaded. When a world is downloaded, its packs come from your Mod Library.</p>
+          <div class="cloud-body" id="cloud-body"></div>
+          <p class="message" id="cloud-error" role="alert" hidden></p>
+        </section>
+
+        <section class="card column" id="library-cloud-card">
+          <div class="card-head spread">
+            <h3>Mod Library backup</h3>
+            <span class="chip" id="library-cloud-chip">Off</span>
+          </div>
+          <p class="sub">Back up the extracted Mod Library to a separate private GitHub repo. Sync now uploads the latest library; Restore from GitHub replaces the local library and keeps the previous folder as a safety backup.</p>
+          <div class="cloud-body" id="library-cloud-body"></div>
+          <p class="message" id="library-cloud-error" role="alert" hidden></p>
+        </section>
+
+        <section class="card column" id="settings-cloud-card">
+          <div class="card-head spread">
+            <h3>Settings and sign-in backup</h3>
+            <span class="chip" id="settings-cloud-chip">Off</span>
+          </div>
+          <p class="sub">Use a separate private GitHub repo to transfer app and server settings between devices. The backup is encrypted with your passphrase; Windows protects it on this device. Sign in to GitHub on each new device first.</p>
+          <div class="cloud-body" id="settings-cloud-body"></div>
+          <p class="message" id="settings-cloud-error" role="alert" hidden></p>
+        </section>
+
+        <section class="card column">
+          <h3>About</h3>
+          <dl class="details" id="about"></dl>
+        </section>
+      </section>
+    </main>
+
+    <footer class="statusbar">
+      <span class="status-text" id="status-text" role="status">Ready</span>
+      <span class="spacer"></span>
+      <div class="progress" id="progress" hidden>
+        <span id="progress-label"></span>
+        <div class="meter" role="progressbar" aria-labelledby="progress-label" aria-valuemin="0" aria-valuemax="100"><i id="progress-fill"></i></div>
+        <span id="progress-pct"></span>
+      </div>
+      <div class="meter busy-meter" id="busy-meter" hidden aria-hidden="true"><i></i></div>
+    </footer>
+  </div>
+
+  <aside class="nc" id="nc" aria-label="Notifications" hidden>
+    <div class="nc-head">
+      <h3>Notifications</h3>
+      <button type="button" class="link" id="nc-read">Mark all read</button>
+      <button type="button" class="link" id="nc-clear">Clear all</button>
+    </div>
+    <ul class="nc-list" id="nc-list"></ul>
+    <p class="empty" id="nc-empty">Nothing new.</p>
+  </aside>
+
+  <!-- Windows from HMBC -->
+  <dialog id="dlg-status" aria-labelledby="dlg-status-title">
+    <div class="dialog-body wide">
+      <h2 id="dlg-status-title">Status</h2>
+      <p class="overall" id="status-overall" role="status"></p>
+      <ul class="status-list" id="status-list"></ul>
+      <h3>Setup test</h3>
+      <p class="note">Checks the pieces a friend's join depends on, from this VM. It takes a few seconds.</p>
+      <div class="row"><button type="button" id="run-checks" class="primary">Run setup test</button></div>
+      <p class="message" id="checks-message" role="status" hidden></p>
+      <ul class="check-list" id="check-list"></ul>
+      <p class="note" id="check-final" hidden></p>
+      <div class="dialog-actions"><button type="button" data-close>Close</button></div>
+    </div>
+  </dialog>
+
+  <dialog id="dlg-xbox" aria-labelledby="dlg-xbox-title">
+    <div class="dialog-body">
+      <h2 id="dlg-xbox-title">Sign in with Microsoft</h2>
+      <p class="note">This Microsoft account hosts your friends-list session. Friends add it as a friend in Minecraft, then see your server in their Friends tab.</p>
+      <section class="xbox-row" data-xbox="bridge" aria-label="Friends-list account">
+        <p class="xbox-status" role="status"></p>
+        <div class="signin" hidden>
+          <output class="code"></output>
+          <div class="row">
+            <button type="button" class="copy">Copy code</button>
+            <button type="button" class="open primary">Open sign-in page</button>
+          </div>
+        </div>
+      </section>
+      <p class="message" id="xbox-error" role="alert" hidden></p>
+      <div class="dialog-actions">
+        <button type="button" id="xbox-start" class="primary" hidden>Start the bridge</button>
+        <button type="button" data-close>Close</button>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Windows from the Mod Loader -->
+  <dialog id="dlg-plan" aria-labelledby="plan-title">
+    <div class="dialog-body">
+      <h2 id="plan-title"></h2>
+      <p class="note" id="plan-note"></p>
+      <ul class="status-list" id="plan-problems"></ul>
+      <div class="table-wrap">
+        <table class="table">
+          <thead><tr><th>Pack</th><th>Type</th><th>Action</th><th>Details</th></tr></thead>
+          <tbody id="plan-rows"></tbody>
+        </table>
+      </div>
+      <div class="dialog-actions">
+        <button type="button" data-close>Cancel</button>
+        <button type="button" id="plan-go" class="primary">Go ahead</button>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog id="dlg-report" aria-labelledby="report-title">
+    <div class="dialog-body">
+      <h2 id="report-title"></h2>
+      <p class="note" id="report-note"></p>
+      <ul class="status-list" id="report-rows"></ul>
+      <div class="dialog-actions">
+        <button type="button" id="report-retry" hidden>Try again</button>
+        <button type="button" data-close class="primary">Close</button>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog id="dlg-import" aria-labelledby="import-title">
+    <div class="dialog-body">
+      <h2 id="import-title">Add to the library</h2>
+      <p class="note" id="import-note"></p>
+      <div class="table-wrap">
+        <table class="table">
+          <thead><tr><th></th><th>Mod</th><th>Version</th><th>Library has</th><th>What happens</th></tr></thead>
+          <tbody id="import-rows"></tbody>
+        </table>
+      </div>
+      <fieldset class="import-mode" id="import-mode">
+        <legend>What about the originals?</legend>
+        <label class="toggle"><input type="radio" name="import-mode" value="copy" checked><span><b>Copy</b><small>The library gets its own copy. The originals stay where they are.</small></span></label>
+        <label class="toggle"><input type="radio" name="import-mode" value="move"><span><b>Move</b><small>The library gets a copy, then the originals go to the Recycle Bin.</small></span></label>
+      </fieldset>
+      <p class="field-note" id="import-locked"></p>
+      <div class="dialog-actions">
+        <button type="button" data-close>Cancel</button>
+        <button type="button" id="import-go" class="primary">Add to library</button>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog id="dlg-cloud" aria-labelledby="cloud-dlg-title">
+    <div class="dialog-body">
+      <h2 id="cloud-dlg-title">Newer saves in GitHub Cloud</h2>
+      <p class="note" id="cloud-dlg-note">These worlds were saved on another computer since this one last had them. Download one to carry on from there. This computer's copy is kept as a backup.</p>
+      <div class="issue-list" id="cloud-dlg-list"></div>
+      <div class="dialog-actions"><button type="button" data-close class="primary">Later</button></div>
+    </div>
+  </dialog>
+
+  <dialog id="dlg-world-pick" aria-labelledby="world-pick-title">
+    <div class="dialog-body">
+      <h2 id="world-pick-title"></h2>
+      <div class="lib-world-list" id="world-pick-list"></div>
+      <div class="dialog-actions"><button type="button" data-close>Cancel</button></div>
+    </div>
+  </dialog>
+
+  <dialog id="dlg-pack" aria-labelledby="pack-title">
+    <div class="dialog-body">
+      <div class="pack-head">
+        <div class="mod-icon large" id="pack-icon"></div>
+        <div class="card-head">
+          <h2 id="pack-title"></h2>
+          <p class="sub" id="pack-sub"></p>
+        </div>
+      </div>
+      <p id="pack-guess"></p>
+      <dl class="details" id="pack-details"></dl>
+      <div class="pack-sections" id="pack-sections"></div>
+      <div class="field" id="pack-note-field">
+        <label for="pack-tags">Tags, separated by commas</label>
+        <input id="pack-tags" autocomplete="off" spellcheck="false">
+        <label for="pack-note">Notes</label>
+        <textarea id="pack-note" rows="2"></textarea>
+      </div>
+      <div class="dialog-actions">
+        <button type="button" id="pack-open">Open its location</button>
+        <button type="button" id="pack-label">Set my own label</button>
+        <button type="button" data-close class="primary">Close</button>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog id="dlg-prompt" aria-labelledby="prompt-title">
+    <form class="dialog-body" method="dialog" id="prompt-form">
+      <h2 id="prompt-title"></h2>
+      <div class="field">
+        <label for="prompt-input" id="prompt-label"></label>
+        <input id="prompt-input" autocomplete="off" spellcheck="false">
+      </div>
+      <div class="dialog-actions">
+        <button type="button" data-close>Cancel</button>
+        <button type="submit" class="primary" id="prompt-ok">Save</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="renderer.js"></script>
+  <script src="hub.js"></script>
+  <script src="library.js"></script>
+  <script src="cloud.js"></script>
+</body>
+</html>
