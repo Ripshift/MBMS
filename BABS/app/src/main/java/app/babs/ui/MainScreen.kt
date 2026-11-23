@@ -119,6 +119,11 @@ class Actions(
     val onDismissPack: () -> Unit,
     val onRemovePack: (folder: String, pack: WorldPack) -> Unit,
     val onMovePack: (folder: String, pack: WorldPack, by: Int) -> Unit,
+    // The mod library
+    val onImportToLibrary: () -> Unit,
+    val onAddFromLibrary: (folder: String, uuids: Set<String>) -> Unit,
+    val onDeleteFromLibrary: (uuid: String) -> Unit,
+    val onCollectLibrary: () -> Unit,
     // Worlds tab: clone, rename, back up, backups
     val onCloneWorld: (folder: String, name: String) -> Unit,
     val onRenameWorld: (folder: String, name: String) -> Unit,

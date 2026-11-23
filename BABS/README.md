@@ -9,7 +9,7 @@ and stats grid, from `renderer/styles.css`) and installs packs the way its add-o
 
 Scope: **the server and the bridge**, plus Bedrock Hub's world manager (host, clone, rename, back up, AutoSave
 and backups), GitHub Cloud (the same repo and format as Bedrock Hub's) and each world's packs (add, remove,
-reorder). There's no mod library yet. For that, use Bedrock Hub.
+reorder), with a lite mod library to reuse packs across worlds. For Bedrock Hub's full Mod Library, use Bedrock Hub.
 
 ## The hard part: Bedrock Server is x86_64 only
 
@@ -108,7 +108,7 @@ struggles. Performance and box64 still have to be checked on a real ARM device.
 
 **Real device.** `dist\BABS-<version>-debug.apk` is a copy of the debug build to sideload. Copy it to the phone
 and open it (Android asks to allow installs from that app once), or with USB debugging on:
-`adb install -r dist\BABS-0.12.0-debug.apk`. It's signed with the debug key, so later builds install over it
+`adb install -r dist\BABS-0.13.0-debug.apk`. It's signed with the debug key, so later builds install over it
 without losing data, but a release build would need an uninstall first.
 
 ## How it's built
@@ -393,6 +393,13 @@ so a newer save from the other is spotted. Link the same repo on the PC and the 
   anything not uploaded yet. Uploads and downloads run in the service with their own wake lock.
 - While it's linked, AutoSave copies every session even if its switch is off, since those copies are what's
   uploaded. A download names any packs the world uses that this phone doesn't have.
+
+**Mod library** (Worlds tab, `PackInstaller` in `core/PackInstaller.kt`) is a lite take on Bedrock Hub's: one copy
+of each pack in `files/library/behavior/` and `files/library/resource/`, named as in a world. Every pack added to
+a world is kept there too, **Import a pack** adds one without a world, and **Copy in from worlds** gathers the
+packs the worlds already have. A world's Packs page has **Add from the mod library**, which adds and orders them
+the same as adding from a file. Delete takes a pack out of the library only; worlds keep their copies. After a
+GitHub Cloud download, packs the world lists but doesn't have are put back from the library, as Bedrock Hub does.
 
 **Backups** (Worlds tab) lists AutoSave's copies and everything in `backups/` that holds a world (zips,
 `.mcworld` files and world folders), newest first. **Load** always loads one as a new world, so nothing is

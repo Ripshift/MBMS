@@ -654,15 +654,19 @@ object CloudSync {
         autosave.saveMeta(world, local.put("name", meta.optString("name", world)).put("syncedRev", meta.optInt("rev")).put("changed", false))
         autosave.restoreWorld(world)
         status[world] = CloudState.Same
-        // Cloud saves leave packs out. The world keeps its own; any it doesn't have are named.
-        val have = PackInstaller.installedIds(File(serverDir, "worlds/$world"))
+        // Cloud saves leave packs out. The world keeps its own, the mod library puts back what it has, and the rest are named.
+        val worldDir = File(serverDir, "worlds/$world")
         val packs = meta.optJSONArray("packs") ?: JSONArray()
+        val listed = (0 until packs.length()).mapNotNull { packs.optJSONObject(it)?.optString("uuid")?.ifEmpty { null } }
+        val restored = PackInstaller.restoreFromLibrary(PackInstaller.libraryDir(app), worldDir, listed)
+        if (restored.isNotEmpty()) Hub.log(Source.Babs, "Put back from the mod library: ${restored.joinToString()}")
+        val have = PackInstaller.installedIds(worldDir)
         val missing = (0 until packs.length()).mapNotNull { packs.optJSONObject(it) }
             .filter { it.optString("uuid").lowercase() !in have }
             .map { it.optString("name").ifEmpty { it.optString("uuid") } }
         Hub.log(Source.Babs, "GitHub Cloud: downloaded \"${meta.optString("name", world)}\"")
         if (missing.isNotEmpty()) {
-            Hub.log(Source.Babs, "\"${meta.optString("name", world)}\" uses packs this phone doesn't have: ${missing.joinToString()}. Add them on its Packs page")
+            Hub.log(Source.Babs, "\"${meta.optString("name", world)}\" uses packs this phone doesn't have: ${missing.joinToString()}. Add them on its Packs page, and they're kept in the mod library for next time")
         }
         Hub.updateServerSettings { ServerConfig(serverDir).load(it.restartNeeded) }
     }

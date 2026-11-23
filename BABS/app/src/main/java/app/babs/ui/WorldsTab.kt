@@ -42,6 +42,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.selection.toggleable
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Checkbox
+import app.babs.core.LibraryPack
 import app.babs.core.Backup
 import app.babs.core.ComponentStatus
 import app.babs.core.Hub
@@ -89,6 +94,7 @@ internal fun WorldsTab(server: ComponentStatus, actions: Actions) {
         WorldsCard(settings, server.state, actions, onManage = { managing = it })
         CloudWorldsCard(server.state, settings.currentWorld, actions)
         BackupsCard(actions)
+        ModLibraryCard(actions)
     }
 }
 
@@ -403,12 +409,24 @@ private fun WorldPage(world: World, settings: ServerSettings, state: RunState, a
     }
     val hosted = world.folder == settings.currentWorld
     var removing by remember { mutableStateOf<WorldPack?>(null) }
+    var choosing by rememberSaveable { mutableStateOf(false) }
+
+    if (choosing) {
+        LibraryPicker(
+            have = packs.orEmpty().map { it.uuid }.toSet(),
+            onAdd = {
+                choosing = false
+                actions.onAddFromLibrary(world.folder, it)
+            },
+            onDismiss = { choosing = false },
+        )
+    }
 
     removing?.let { pack ->
         ConfirmDialog(
             title = "Remove ${pack.name}?",
-            text = "It comes out of \"${world.displayName}\" and the world's copy of it is deleted. BABS has no mod library, " +
-                "so to put it back, add its .mcaddon or .mcpack again." +
+            text = "It comes out of \"${world.displayName}\" and the world's copy of it is deleted. If it's in the mod " +
+                "library, you can add it back from there." +
                 if (hosted && state == RunState.Running) " The server drops it when it restarts." else "",
             confirm = "Remove",
             onConfirm = {
@@ -476,6 +494,7 @@ private fun WorldPage(world: World, settings: ServerSettings, state: RunState, a
                 }
                 else -> {
                     Button(shape = MaterialTheme.shapes.small, onClick = { actions.onAddPack(world.folder) }) { Text("Add pack to this world") }
+                    OutlinedButton(shape = MaterialTheme.shapes.small, onClick = { choosing = true }) { Text("Add from the mod library") }
                     Hint(
                         "A .mcaddon or .mcpack. Newer versions replace older ones, and new packs go where the load order " +
                             "rules put them, as in Bedrock Hub. The server loads packs when it starts.",
@@ -630,6 +649,125 @@ private fun NewWorldDialog(existing: List<String>, running: Boolean, onCreate: (
                 onClick = { onCreate(trimmed, seed.trim()) },
                 enabled = trimmed.isNotEmpty() && problem == null && seedProblem == null,
             ) { Text(if (running) "Create and restart" else "Create") }
+        },
+        dismissButton = { TextButton(colors = linkColors(), onClick = onDismiss) { Text("Cancel") } },
+    )
+}
+
+/** The mod library's packs, read again whenever packs change. */
+@Composable
+private fun libraryPacks(): List<LibraryPack>? {
+    val context = LocalContext.current
+    val changes by Hub.packsChanged.collectAsStateWithLifecycle()
+    val import by Hub.packImport.collectAsStateWithLifecycle()
+    val packs by produceState<List<LibraryPack>?>(null, changes, import.done) {
+        value = withContext(Dispatchers.IO) { runCatching { PackInstaller.library(PackInstaller.libraryDir(context)) }.getOrDefault(emptyList()) }
+    }
+    return packs
+}
+
+/**
+ * A very small take on Bedrock Hub's Mod Library: every pack added to a world is kept here once, and goes into
+ * any other world from its Packs page. Import adds one without a world.
+ */
+@Composable
+private fun ModLibraryCard(actions: Actions) {
+    val packs = libraryPacks()
+    val import by Hub.packImport.collectAsStateWithLifecycle()
+    var deleting by remember { mutableStateOf<LibraryPack?>(null) }
+    var showAll by rememberSaveable { mutableStateOf(false) }
+
+    deleting?.let { pack ->
+        ConfirmDialog(
+            title = "Delete ${pack.name}?",
+            text = "It comes out of the mod library. Worlds that use it keep their own copies.",
+            confirm = "Delete",
+            onConfirm = {
+                deleting = null
+                actions.onDeleteFromLibrary(pack.uuid)
+            },
+            onDismiss = { deleting = null },
+        )
+    }
+
+    SectionCard("Mod library") {
+        Hint("Packs you've added to a world are kept here, ready for your other worlds. Add them from a world's Packs page.")
+        when {
+            packs == null -> LinearProgressIndicator(modifier = Modifier.fillMaxWidth())
+            packs.isEmpty() -> Hint("Empty.")
+            else -> {
+                val shown = if (showAll) packs else packs.take(8)
+                shown.forEach { pack ->
+                    Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.fillMaxWidth()) {
+                        Column(Modifier.weight(1f)) {
+                            Text(pack.name, style = MaterialTheme.typography.bodyMedium)
+                            Hint((if (pack.behavior) "Behavior pack" else "Resource pack") + if (pack.version.isNotEmpty()) ", ${pack.version}" else "")
+                        }
+                        TextButton(colors = linkColors(), onClick = { deleting = pack }) { Text("Delete", color = HubColors.Err) }
+                    }
+                }
+                if (packs.size > 8) {
+                    TextButton(colors = linkColors(), onClick = { showAll = !showAll }, contentPadding = PaddingValues(0.dp)) {
+                        Text(if (showAll) "Show fewer" else "Show all ${packs.size}")
+                    }
+                }
+            }
+        }
+        val busy = import.busy
+        if (busy != null) {
+            Text(busy, style = MaterialTheme.typography.bodyMedium)
+            LinearProgressIndicator(modifier = Modifier.fillMaxWidth())
+        } else {
+            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                OutlinedButton(shape = MaterialTheme.shapes.small, onClick = actions.onImportToLibrary) { Text("Import a pack") }
+                TextButton(colors = linkColors(), onClick = actions.onCollectLibrary) { Text("Copy in from worlds") }
+            }
+        }
+    }
+}
+
+/** Pick library packs to add to a world. Packs the world already has are left out. */
+@Composable
+private fun LibraryPicker(have: Set<String>, onAdd: (Set<String>) -> Unit, onDismiss: () -> Unit) {
+    val packs = libraryPacks()
+    var picked by remember { mutableStateOf(emptySet<String>()) }
+    val offered = packs?.filter { it.uuid !in have }
+    AlertDialog(
+        onDismissRequest = onDismiss,
+        title = { Text("Add from the mod library") },
+        text = {
+            Column(Modifier.verticalScroll(rememberScrollState())) {
+                when {
+                    offered == null -> LinearProgressIndicator(modifier = Modifier.fillMaxWidth())
+                    offered.isEmpty() -> Text(
+                        if (packs.isNullOrEmpty()) "The library is empty. Packs you add to a world, or import on the Worlds tab, show here."
+                        else "This world already has every pack in the library.",
+                        style = MaterialTheme.typography.bodyMedium,
+                    )
+                    else -> offered.forEach { pack ->
+                        val on = pack.uuid in picked
+                        Row(
+                            Modifier
+                                .fillMaxWidth()
+                                .toggleable(value = on, role = Role.Checkbox, onValueChange = { picked = if (it) picked + pack.uuid else picked - pack.uuid })
+                                .padding(vertical = 4.dp),
+                            verticalAlignment = Alignment.CenterVertically,
+                        ) {
+                            Checkbox(checked = on, onCheckedChange = null)
+                            Spacer(Modifier.width(12.dp))
+                            Column {
+                                Text(pack.name, style = MaterialTheme.typography.bodyMedium)
+                                Hint((if (pack.behavior) "Behavior pack" else "Resource pack") + if (pack.version.isNotEmpty()) ", ${pack.version}" else "")
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        confirmButton = {
+            TextButton(colors = linkColors(), enabled = picked.isNotEmpty(), onClick = { onAdd(picked) }) {
+                Text(if (picked.size > 1) "Add ${picked.size}" else "Add")
+            }
         },
         dismissButton = { TextButton(colors = linkColors(), onClick = onDismiss) { Text("Cancel") } },
     )

@@ -125,6 +125,12 @@ class MainActivity : ComponentActivity() {
         }
     }
 
+    /** Import to library: a .mcaddon or .mcpack kept in the mod library without adding it to a world. */
+    private val openLibraryPack = OpenDocumentAt()
+    private val pickLibraryPack = registerForActivityResult(openLibraryPack) { uri ->
+        if (uri != null) PackInstaller.importToLibrary(this, uri)
+    }
+
     private lateinit var layout: Layout
     private lateinit var prefs: Prefs
     private lateinit var config: ServerConfig
@@ -236,6 +242,31 @@ class MainActivity : ComponentActivity() {
             onDismissPack = PackInstaller::dismiss,
             onRemovePack = { folder, pack -> changePacks(folder) { PackInstaller.remove(it, pack.uuid, pack.behavior) } },
             onMovePack = { folder, pack, by -> changePacks(folder) { PackInstaller.move(it, pack.uuid, pack.behavior, by) } },
+            onImportToLibrary = {
+                openLibraryPack.startAt = DocumentsContract.buildDocumentUri(
+                    "com.android.externalstorage.documents", "primary:${Environment.DIRECTORY_DOWNLOADS}",
+                )
+                runCatching { pickLibraryPack.launch(arrayOf("*/*")) }
+                    .onFailure { Hub.log(Source.Babs, "Couldn't open the file picker: ${it.message}") }
+            },
+            onAddFromLibrary = { folder, uuids ->
+                val hosted = folder == Hub.serverSettings.value.currentWorld
+                PackInstaller.addFromLibrary(this, uuids, File(worldsDir, folder), serverRunning && hosted)
+            },
+            onDeleteFromLibrary = { uuid ->
+                lifecycleScope.launch {
+                    withContext(Dispatchers.IO) { runCatching { PackInstaller.deleteFromLibrary(PackInstaller.libraryDir(this@MainActivity), uuid) } }
+                        .onFailure { Hub.log(Source.Babs, "Couldn't delete it from the mod library: ${it.message}") }
+                    Hub.bumpPacks()
+                }
+            },
+            onCollectLibrary = {
+                lifecycleScope.launch {
+                    withContext(Dispatchers.IO) { runCatching { PackInstaller.collectFromWorlds(PackInstaller.libraryDir(this@MainActivity), worldsDir) } }
+                        .onFailure { Hub.log(Source.Babs, "Couldn't copy packs into the mod library: ${it.message}") }
+                    Hub.bumpPacks()
+                }
+            },
             onCloneWorld = { folder, name -> WorldOps.clone(layout.serverDir, folder, name) },
             onRenameWorld = { folder, name -> WorldOps.rename(layout.serverDir, folder, name) },
             onBackupWorld = { folder -> WorldOps.backup(layout.serverDir, folder) },
