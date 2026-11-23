@@ -11,8 +11,8 @@ android {
         applicationId = "app.babs"
         minSdk = 29
         targetSdk = 37
-        versionCode = 13
-        versionName = "0.13.0"
+        versionCode = 14
+        versionName = "0.14.0"
 
         // Phones and tablets are arm64. x86_64 is the emulator, which runs the server without box64.
         ndk { abiFilters += listOf("arm64-v8a", "x86_64") }
