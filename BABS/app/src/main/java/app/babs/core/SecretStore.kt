@@ -22,6 +22,11 @@ class SecretStore(context: Context) {
         get() = runCatching { prefs.getString(KEY_TOKEN, null)?.let(::decrypt) }.getOrNull().orEmpty()
         set(value) = prefs.edit { if (value.isEmpty()) remove(KEY_TOKEN) else putString(KEY_TOKEN, encrypt(value)) }
 
+    /** The settings vault's passphrase, kept so backups don't ask for it each time, as Bedrock Hub keeps it. */
+    var vaultPassphrase: String
+        get() = runCatching { prefs.getString(KEY_VAULT, null)?.let(::decrypt) }.getOrNull().orEmpty()
+        set(value) = prefs.edit { if (value.isEmpty()) remove(KEY_VAULT) else putString(KEY_VAULT, encrypt(value)) }
+
     private fun key(): SecretKey {
         val store = KeyStore.getInstance("AndroidKeyStore").apply { load(null) }
         (store.getKey(ALIAS, null) as? SecretKey)?.let { return it }
@@ -53,5 +58,6 @@ class SecretStore(context: Context) {
     private companion object {
         const val ALIAS = "babs_github"
         const val KEY_TOKEN = "github_token"
+        const val KEY_VAULT = "vault_passphrase"
     }
 }

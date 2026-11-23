@@ -108,7 +108,7 @@ struggles. Performance and box64 still have to be checked on a real ARM device.
 
 **Real device.** `dist\BABS-<version>-debug.apk` is a copy of the debug build to sideload. Copy it to the phone
 and open it (Android asks to allow installs from that app once), or with USB debugging on:
-`adb install -r dist\BABS-0.13.0-debug.apk`. It's signed with the debug key, so later builds install over it
+`adb install -r dist\BABS-0.14.0-debug.apk`. It's signed with the debug key, so later builds install over it
 without losing data, but a release build would need an uninstall first.
 
 ## How it's built
@@ -123,7 +123,10 @@ app/src/main/java/app/babs/
   core/Worlds.kt           Clone, rename, back up, backups, AutoSave, world names and level.dat's LevelName
   core/CloudSync.kt        GitHub Cloud: the repo's format, uploads and downloads, and around each session
   core/GitHub.kt           GitHub's REST API: sign-in, repos, and git blobs sent and fetched as streams
-  core/SecretStore.kt      The GitHub token, encrypted with a key in Android's keystore
+  core/SecretStore.kt      The GitHub token and vault passphrase, encrypted with a key in Android's keystore
+  core/HubRepos.kt         Bedrock Hub's Mod Library and settings repos through GitHub's Git Data API
+  core/SettingsVault.kt    Bedrock Hub's encrypted settings bundle: the vault, and what goes in it
+  core/Scrypt.kt           scrypt, for the vault's key
   core/ContentLog.kt       The Content Log: what the server reports about packs, ported from Bedrock Hub
   core/LogFile.kt          The console saved to files/logs, and the export for Share log
   core/ManagedProcess.kt   One child process: output into the console, commands in, graceful stop
@@ -394,12 +397,29 @@ so a newer save from the other is spotted. Link the same repo on the PC and the 
 - While it's linked, AutoSave copies every session even if its switch is off, since those copies are what's
   uploaded. A download names any packs the world uses that this phone doesn't have.
 
-**Mod library** (Worlds tab, `PackInstaller` in `core/PackInstaller.kt`) is a lite take on Bedrock Hub's: one copy
-of each pack in `files/library/behavior/` and `files/library/resource/`, named as in a world. Every pack added to
+**Mod library** (Worlds tab, `PackInstaller` in `core/PackInstaller.kt`) is a lite take on Bedrock Hub's, in its
+layout: one folder per pack in `files/library/`, named "<name>_<first 8 of its uuid>", beside Bedrock Hub's
+`library.json`, which BABS carries but doesn't use. Every pack added to
 a world is kept there too, **Import a pack** adds one without a world, and **Copy in from worlds** gathers the
 packs the worlds already have. A world's Packs page has **Add from the mod library**, which adds and orders them
 the same as adding from a file. Delete takes a pack out of the library only; worlds keep their copies. After a
 GitHub Cloud download, packs the world lists but doesn't have are put back from the library, as Bedrock Hub does.
+
+**Bedrock Hub's other repos** (Settings, GitHub Cloud; `core/HubRepos.kt`, `core/SettingsVault.kt`), in the same
+formats, so the PC and the phone share them:
+
+- **Mod Library repo** (`src/librarycloud.js`): `library/` is the library folder as it is. **Back up now** sends
+  only what GitHub doesn't have; with **Keep old versions** (Bedrock Hub's Add mode) a pack folder that changed is
+  kept first under `versions/<uuid>/<version>-<old tree id>`. **Restore** downloads the repo as one archive and
+  replaces the phone's library, keeping the old one as `library-before-restore`.
+- **Settings repo** (`src/settingscloud.js`, `settingsprofile.js`, `settingsvault.js`): one encrypted bundle at
+  `bedrock-hub/settings.enc`, AES-256-GCM with a key from the passphrase by scrypt (N 2^15, r 8, p 1; scrypt is in
+  `core/Scrypt.kt`, checked against Node's). It holds `server.properties`, the allow list and permissions, the
+  bridge's public address (`MC_HOST`) and auto-accept (`HMBC_AUTO_FRIEND`), the account, the repos and, if chosen,
+  the bridge's Xbox sign-in (`cache/`). A backup from the phone keeps what only the PC has (its Mod Library
+  preferences) from the last backup. **Restore** needs the server and bridge stopped and keeps what it replaces
+  in `files/settings-safety-*`. The repo must be private, and the passphrase is kept with the keystore.
+- **Update token** takes a new token for the same account and keeps every linked repo, as Bedrock Hub's does.
 
 **Backups** (Worlds tab) lists AutoSave's copies and everything in `backups/` that holds a world (zips,
 `.mcworld` files and world folders), newest first. **Load** always loads one as a new world, so nothing is

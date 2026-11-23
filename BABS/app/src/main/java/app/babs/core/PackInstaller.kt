@@ -139,27 +139,26 @@ object PackInstaller {
     // ---------------------------------------------------------------- the mod library
 
     /**
-     * The mod library: one copy of each pack, in `files/library/behavior/` and `files/library/resource/`, named as
-     * in a world ("<name>_<first 8 of its uuid>"). Packs added to a world are kept here, and Import adds without a
-     * world. From here a pack goes into any world, and GitHub Cloud puts a downloaded world's packs back from it.
+     * The mod library, laid out as Bedrock Hub's (`engine/hub_library.py`), so its GitHub repo works on both: one
+     * folder per pack in `files/library/`, named "<name>_<first 8 of its uuid>", beside Bedrock Hub's library.json,
+     * which BABS leaves alone. Packs added to a world are kept here, and Import adds without a world. From here a
+     * pack goes into any world, and GitHub Cloud puts a downloaded world's packs back from it.
      */
     fun libraryDir(context: Context) = File(context.filesDir, "library")
 
-    fun library(dir: File): List<LibraryPack> = listOf(true, false).flatMap { behavior ->
-        File(dir, if (behavior) "behavior" else "resource").listFiles { f -> f.isDirectory && !f.name.startsWith(".") }.orEmpty()
-            .mapNotNull { readPack(it, mutableListOf()) }
-            .map { LibraryPack(it.name, it.uuid, it.version.joinToString("."), it.behavior, it.dir.name) }
-    }.sortedBy { it.name.lowercase() }
+    fun library(dir: File): List<LibraryPack> = libraryPacks(dir)
+        .map { LibraryPack(it.name, it.uuid, it.version.joinToString("."), it.behavior, it.dir.name) }
+        .sortedBy { it.name.lowercase() }
 
     /** Copies a pack into the library, replacing an older copy of the same pack. */
     private fun keep(pack: Pack, library: File) {
-        val parent = File(library, if (pack.behavior) "behavior" else "resource").apply { mkdirs() }
-        val old = parent.listFiles { f -> f.isDirectory }.orEmpty().filter { it.name.endsWith("_" + pack.uuid.take(8)) }
-        val tmp = File(parent, ".${pack.uuid.take(8)}_tmp")
+        val parent = library.apply { mkdirs() }
+        val old = allLibraryPacks(library).filter { it.uuid == pack.uuid }.map { it.dir }
+        val tmp = File(parent, ".hubtmp-${pack.uuid.take(8)}")
         tmp.deleteRecursively()
         if (!pack.dir.copyRecursively(tmp, overwrite = true)) throw IOException("the copy didn't finish")
         old.forEach { it.deleteRecursively() }
-        val final = File(parent, "${safeName(pack.name)}_${pack.uuid.take(8)}")
+        val final = File(parent, "${safeName(pack.name, 48).ifEmpty { "Mod" }}_${pack.uuid.take(8)}")
         final.deleteRecursively()
         if (!tmp.renameTo(final)) {
             tmp.deleteRecursively()
@@ -228,8 +227,9 @@ object PackInstaller {
 
     /** Deletes a pack from the library. Worlds that use it keep their own copies. Blocking. */
     fun deleteFromLibrary(library: File, uuid: String) {
-        val pack = libraryPacks(library).firstOrNull { it.uuid == uuid.lowercase() } ?: return
-        if (!pack.dir.deleteRecursively()) throw IOException("Couldn't delete ${pack.name}")
+        val copies = allLibraryPacks(library).filter { it.uuid == uuid.lowercase() }
+        val pack = copies.firstOrNull() ?: return
+        copies.forEach { if (!it.dir.deleteRecursively()) throw IOException("Couldn't delete ${pack.name}") }
         Hub.log(Source.Babs, "Deleted ${pack.name} from the mod library. Worlds that use it keep their copies")
     }
 
@@ -262,9 +262,17 @@ object PackInstaller {
         return added
     }
 
-    private fun libraryPacks(library: File): List<Pack> = listOf("behavior", "resource").flatMap { sub ->
-        File(library, sub).listFiles { f -> f.isDirectory && !f.name.startsWith(".") }.orEmpty().mapNotNull { readPack(it, mutableListOf()) }
-    }
+    /** The library's packs, the newest copy of each where Bedrock Hub left more than one. */
+    private fun libraryPacks(library: File): List<Pack> = allLibraryPacks(library)
+        .groupBy { it.uuid }.values.map { copies -> copies.maxWith(compareBy({ it.version.getOrElse(0) { 0 } }, { it.version.getOrElse(1) { 0 } }, { it.version.getOrElse(2) { 0 } })) }
+
+    private fun allLibraryPacks(library: File): List<Pack> =
+        library.listFiles { f -> f.isDirectory && !f.name.startsWith(".") }.orEmpty()
+            .flatMap { top ->
+                // A pack folder, or a folder holding a .mcaddon's packs, as Bedrock Hub's library can have
+                readPack(top, mutableListOf())?.let { listOf(it) }
+                    ?: top.listFiles { f -> f.isDirectory }.orEmpty().mapNotNull { readPack(it, mutableListOf()) }
+            }
 
     /**
      * Takes a pack out of a world, as Bedrock Hub's Remove from world does: its entry in the world's list, and the
@@ -449,10 +457,11 @@ object PackInstaller {
     }
 
     /** As the add-on engine's safe_name: no colour codes or characters folders can't have, up to 40. */
-    private fun safeName(name: String): String = name.replace(Regex("§."), "")
+    private fun safeName(name: String, limit: Int = 40): String = name.replace(Regex("§."), "")
         .replace(Regex("[<>:\"/\\\\|?*\\x00-\\x1f]"), "")
+        .trim(' ', '.')
         .replace(Regex("\\s+"), " ")
-        .trim(' ', '.').take(40).trim(' ', '.').ifEmpty { "pack" }
+        .take(limit).trim(' ', '.').ifEmpty { "pack" }
 
     /** [1, 2, 3] or "1.2.3" (format 3 manifests) as a list of three numbers. */
     private fun versionList(raw: Any?): List<Int> = when (raw) {

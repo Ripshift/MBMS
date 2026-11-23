@@ -63,6 +63,20 @@ data class CloudView(
     val prompt: CloudPrompt? = null,
     /** A public repo waiting for the person to agree to it. */
     val confirmPublic: String = "",
+    val confirmPublicLibrary: Boolean = false,
+    // Bedrock Hub's Mod Library repo
+    val libraryRepo: String = "",
+    val libraryRepoUrl: String = "",
+    val libraryAddMode: Boolean = true,
+    val libraryLastSync: Long? = null,
+    // Bedrock Hub's settings repo
+    val settingsRepo: String = "",
+    val settingsRepoUrl: String = "",
+    val settingsIncludeXbox: Boolean = false,
+    val settingsLastSync: Long? = null,
+    val vaultUnlocked: Boolean = false,
+    /** Goes up each time settings are restored, so the screen reads BABS's own settings again. */
+    val settingsRestored: Int = 0,
 ) {
     val linked get() = signedIn && repo.isNotEmpty()
     val newer get() = worlds.count { it.state == CloudState.CloudNewer || it.state == CloudState.CloudOnly || it.state == CloudState.Both }
@@ -354,6 +368,8 @@ object CloudSync {
     @Volatile private var prompt: CloudPrompt? = null
     @Volatile private var lastCheck: Long? = null
     @Volatile private var confirmPublic = ""
+    @Volatile private var settingsRestored = 0
+    @Volatile private var confirmPublicLibrary = false
 
     fun init(context: Context) {
         if (::app.isInitialized) return
@@ -408,7 +424,12 @@ object CloudSync {
                 signedIn = login.isNotEmpty() && token.isNotEmpty(), login = login, repo = repo, repoUrl = repoUrl, repoPrivate = repoPrivate,
                 autoUpload = autoUpload, keepHistory = keepHistory, deviceFlow = GitHub.clientId.isNotEmpty(), signIn = signIn,
                 worlds = worlds, lastCheck = lastCheck, error = error, busy = busy, prompt = prompt,
-                confirmPublic = confirmPublic,
+                confirmPublic = confirmPublic, confirmPublicLibrary = confirmPublicLibrary,
+                libraryRepo = libraryRepo, libraryRepoUrl = repoUrlOf(libraryRepo), libraryAddMode = libraryAddMode,
+                libraryLastSync = prefs.getLong("library_last_sync", 0).takeIf { it > 0 },
+                settingsRepo = settingsRepo, settingsRepoUrl = repoUrlOf(settingsRepo), settingsIncludeXbox = settingsIncludeXbox,
+                settingsLastSync = prefs.getLong("settings_last_sync", 0).takeIf { it > 0 },
+                vaultUnlocked = secrets.vaultPassphrase.isNotEmpty(), settingsRestored = settingsRestored,
             ),
         )
     }
@@ -423,7 +444,10 @@ object CloudSync {
         publish()
         val who = try { GitHub.whoAmI(token) } finally { busy = "" }
         secrets.githubToken = token
-        if (login.isNotEmpty() && login != who.login) forgetRepo()
+        if (login.isNotEmpty() && login != who.login) {
+            forgetRepo()
+            forgetHubRepos()
+        }
         login = who.login
         error = ""
         Hub.log(Source.Babs, "GitHub Cloud: signed in as ${who.login}")
@@ -460,6 +484,7 @@ object CloudSync {
                 work()
             } catch (e: PublicRepo) {
                 confirmPublic = e.name
+                confirmPublicLibrary = e.library
                 publish()
             } catch (e: Exception) {
                 if (e is kotlinx.coroutines.CancellationException) throw e
@@ -482,6 +507,7 @@ object CloudSync {
         secrets.githubToken = ""
         login = ""
         forgetRepo()
+        forgetHubRepos()
         Hub.log(Source.Babs, "GitHub Cloud: signed out")
         publish()
     }
@@ -495,7 +521,7 @@ object CloudSync {
     }
 
     /** The repo is public, which the person has to agree to first, as Bedrock Hub asks. */
-    class PublicRepo(val name: String) : Exception("$name is public. Anyone can see its contents, and world saves can hold private things")
+    class PublicRepo(val name: String, val library: Boolean = false) : Exception("$name is public. Anyone can see its contents, and world saves can hold private things")
 
     /** Links an existing repo, or creates a private one. Throws [PublicRepo] for a public one unless [allowPublic]. */
     suspend fun link(name: String, create: Boolean, allowPublic: Boolean) = withContext(Dispatchers.IO) {
@@ -724,4 +750,314 @@ object CloudSync {
     }
 
     private const val CHECK_TIMEOUT_MS = 20_000L
+
+    // ---------------------------------------------------------------- Update token, as Bedrock Hub's
+
+    /** A new token for the account already signed in. Every linked repo and the settings vault stay as they are. */
+    suspend fun updateToken(raw: String) = withContext(Dispatchers.IO) {
+        if (login.isEmpty()) return@withContext useToken(raw)
+        val token = raw.trim()
+        if (!Regex("^[\\w-]{20,255}$").matches(token)) throw GitHubException("That doesn't look like a GitHub token.")
+        busy = "Checking the token"
+        publish()
+        try {
+            val who = GitHub.whoAmI(token)
+            if (!who.login.equals(login, ignoreCase = true)) {
+                throw GitHubException("That token is for ${who.login}, but BABS is linked as $login. Use a token from $login, or sign out to switch accounts.")
+            }
+            for (name in listOf(repo, libraryRepo, settingsRepo).filter { it.isNotEmpty() }) GitHub.checkRepo(token, name)
+            secrets.githubToken = token
+            error = ""
+            Hub.log(Source.Babs, "GitHub Cloud: updated the token for $login. Linked repos were kept")
+        } finally {
+            busy = ""
+            publish()
+        }
+    }
+
+    // ---------------------------------------------------------------- Bedrock Hub's Mod Library and settings repos
+
+    private var libraryRepo: String
+        get() = prefs.getString("library_repo", "").orEmpty()
+        set(value) = prefs.edit { putString("library_repo", value) }
+    private var settingsRepo: String
+        get() = prefs.getString("settings_repo", "").orEmpty()
+        set(value) = prefs.edit { putString("settings_repo", value) }
+    var libraryAddMode: Boolean
+        get() = prefs.getBoolean("library_add_mode", true)
+        set(value) { prefs.edit { putBoolean("library_add_mode", value) }; publish() }
+    var settingsIncludeXbox: Boolean
+        get() = prefs.getBoolean("settings_include_xbox", false)
+        set(value) { prefs.edit { putBoolean("settings_include_xbox", value) }; publish() }
+
+    private fun repoUrlOf(name: String) = if (name.isEmpty()) "" else "https://github.com/$name"
+
+    private fun forgetHubRepos() {
+        libraryRepo = ""
+        settingsRepo = ""
+        secrets.vaultPassphrase = ""
+        prefs.edit { remove("library_last_sync"); remove("settings_last_sync") }
+    }
+
+    private fun signedInToken(): String {
+        if (login.isEmpty() || token.isEmpty()) throw GitHubException("Sign in to GitHub first.")
+        return token
+    }
+
+    /** Links a repo for the Mod Library or the settings. Each of the three has to be a different repo. */
+    private fun findRepo(name: String, create: Boolean, description: String): GitHubRepo {
+        val token = signedInToken()
+        val found = if (create) GitHub.createRepo(token, name.trim()) else GitHub.checkRepo(token, name.trim())
+        if (create) runCatching {
+            GitHub.call("/repos/${found.fullName}", token, "PATCH", JSONObject().put("description", description))
+        }
+        return found
+    }
+
+    private fun distinct(found: GitHubRepo, others: List<String>) {
+        if (others.any { it.isNotEmpty() && it.equals(found.fullName, ignoreCase = true) }) {
+            throw GitHubException("Choose a different repo from the world, Mod Library and settings repos.")
+        }
+    }
+
+    suspend fun linkLibrary(name: String, create: Boolean, allowPublic: Boolean) = withContext(Dispatchers.IO) {
+        busy = if (create) "Creating ${name.trim()}" else "Checking ${name.trim()}"
+        publish()
+        try {
+            val found = findRepo(name, create, "Minecraft Bedrock Mod Library backup by Bedrock Hub")
+            distinct(found, listOf(repo, settingsRepo))
+            if (!found.private && !allowPublic) throw PublicRepo(found.fullName, library = true)
+            if (!libraryRepo.equals(found.fullName, ignoreCase = true)) prefs.edit { remove("library_last_sync") }
+            libraryRepo = found.fullName
+            error = ""
+            Hub.log(Source.Babs, "GitHub Cloud: Mod Library repo is ${found.fullName}")
+        } finally {
+            busy = ""
+            publish()
+        }
+    }
+
+    fun unlinkLibrary() {
+        libraryRepo = ""
+        prefs.edit { remove("library_last_sync") }
+        publish()
+    }
+
+    /** The settings repo has to be private, as Bedrock Hub requires. */
+    suspend fun linkSettings(name: String, create: Boolean) = withContext(Dispatchers.IO) {
+        busy = if (create) "Creating ${name.trim()}" else "Checking ${name.trim()}"
+        publish()
+        try {
+            val found = findRepo(name, create, "Passphrase-encrypted Bedrock Hub settings and account backup")
+            if (!found.private) throw GitHubException("The settings repository must be private. Make it private on GitHub, then link it again.")
+            distinct(found, listOf(repo, libraryRepo))
+            if (!settingsRepo.equals(found.fullName, ignoreCase = true)) {
+                secrets.vaultPassphrase = ""
+                prefs.edit { remove("settings_last_sync") }
+            }
+            settingsRepo = found.fullName
+            error = ""
+            Hub.log(Source.Babs, "GitHub Cloud: settings repo is ${found.fullName}")
+        } finally {
+            busy = ""
+            publish()
+        }
+    }
+
+    fun unlinkSettings() {
+        settingsRepo = ""
+        secrets.vaultPassphrase = ""
+        prefs.edit { remove("settings_last_sync") }
+        publish()
+    }
+
+    fun forgetVault() {
+        secrets.vaultPassphrase = ""
+        publish()
+    }
+
+    /**
+     * Unlocks the vault on this phone: with a backup in the repo the passphrase has to open it; without one it sets
+     * the passphrase, typed twice.
+     */
+    suspend fun unlockVault(passphrase: String, confirmation: String) = withContext(Dispatchers.IO) {
+        if (settingsRepo.isEmpty()) throw GitHubException("Link a private settings repo first.")
+        busy = "Unlocking the settings vault"
+        publish()
+        try {
+            val bundle = SettingsRepo.bundle(GitRepo(signedInToken(), settingsRepo))
+            if (bundle != null) SettingsProfile.check(SettingsVault.decrypt(bundle, passphrase))
+            else {
+                if (passphrase != confirmation) throw GitHubException("Type the new passphrase twice the same. It protects the settings vault.")
+                SettingsVault.encrypt(JSONObject().put("format", SettingsProfile.FORMAT), passphrase) // checks its length
+            }
+            secrets.vaultPassphrase = passphrase
+            error = ""
+            Hub.log(Source.Babs, if (bundle != null) "GitHub settings vault unlocked on this phone" else "Settings vault passphrase set. Back up to create the encrypted backup")
+        } finally {
+            busy = ""
+            publish()
+        }
+    }
+
+    private fun phoneCloud() = JSONObject()
+        .put("autosave", Prefs(app).autoSave)
+        .put("repo", repo).put("repoUrl", repoUrlOf(repo)).put("cloneUrl", if (repo.isEmpty()) "" else "https://github.com/$repo.git")
+        .put("autoUpload", autoUpload).put("keepHistory", keepHistory)
+        .put("libraryRepo", libraryRepo).put("libraryRepoUrl", repoUrlOf(libraryRepo))
+        .put("libraryCloneUrl", if (libraryRepo.isEmpty()) "" else "https://github.com/$libraryRepo.git")
+        .put("libraryUpdateMode", if (libraryAddMode) "add" else "replace")
+
+    /** Encrypts this phone's settings into the settings repo, keeping what only the PC has from the last backup. */
+    suspend fun syncSettings() = queue.withLock {
+        withContext(Dispatchers.IO) {
+            try {
+                if (settingsRepo.isEmpty()) throw GitHubException("Link a private settings repo first.")
+                val passphrase = secrets.vaultPassphrase.ifEmpty { throw GitHubException("Unlock the settings vault on this phone first.") }
+                busy = "Encrypting the settings"
+                publish()
+                val git = GitRepo(signedInToken(), settingsRepo)
+                if (!GitHub.checkRepo(token, settingsRepo).private) throw GitHubException("The settings repository must be private.")
+                val existing = SettingsRepo.bundle(git)?.let { SettingsProfile.check(SettingsVault.decrypt(it, passphrase)) }
+                val p = Prefs(app)
+                val profile = SettingsProfile.build(
+                    SettingsProfile.Phone(
+                        serverDir = serverDir, bridgeDir = File(app.filesDir, "bridge"),
+                        publicAddress = p.publicAddress, autoAccept = p.autoAcceptFriends,
+                        gamertag = p.lastGamertag, gamerpic = p.lastGamerpic,
+                        cloud = phoneCloud(), login = login, token = token, includeXbox = settingsIncludeXbox,
+                    ),
+                    existing,
+                )
+                busy = "Saving the settings in GitHub"
+                publish()
+                SettingsRepo.upload(git, SettingsVault.encrypt(profile, passphrase))
+                prefs.edit { putLong("settings_last_sync", System.currentTimeMillis()) }
+                error = ""
+                Hub.log(Source.Babs, "GitHub settings: encrypted settings uploaded to $settingsRepo" + if (settingsIncludeXbox) ". The bridge's Xbox sign-in is included" else "")
+            } catch (e: Exception) {
+                if (e is kotlinx.coroutines.CancellationException) throw e
+                error = "Couldn't back up settings: ${e.message}"
+                Hub.log(Source.Babs, error)
+            } finally {
+                busy = ""
+                publish()
+            }
+        }
+    }
+
+    /**
+     * Replaces this phone's server settings, allow list, bridge address and auto-accept, account and (when the
+     * backup has it) the bridge's Xbox sign-in with the settings repo's backup, and links its world and Mod Library
+     * repos. The server and bridge have to be stopped. What it replaces is kept in files/settings-safety-*.
+     */
+    suspend fun restoreSettings() = queue.withLock {
+        withContext(Dispatchers.IO) {
+            try {
+                if (settingsRepo.isEmpty()) throw GitHubException("Link a private settings repo first.")
+                val running = listOf(Hub.server.value.state, Hub.bridge.value.state).any { it == RunState.Running || it == RunState.Starting || it == RunState.Stopping }
+                if (running) throw GitHubException("Stop the server and the bridge first.")
+                val passphrase = secrets.vaultPassphrase.ifEmpty { throw GitHubException("Unlock the settings vault on this phone first.") }
+                busy = "Downloading the settings"
+                publish()
+                val bundle = SettingsRepo.bundle(GitRepo(signedInToken(), settingsRepo))
+                    ?: throw GitHubException("The settings repo does not contain a Bedrock Hub backup yet.")
+                val profile = SettingsProfile.check(SettingsVault.decrypt(bundle, passphrase))
+                busy = "Restoring the settings"
+                publish()
+                val safety = SettingsProfile.applyFiles(profile, serverDir, File(app.filesDir, "bridge"), app.filesDir)
+
+                val p = Prefs(app)
+                val env = profile.getJSONObject("env")
+                p.publicAddress = env.optString("MC_HOST")
+                p.autoAcceptFriends = env.optString("HMBC_AUTO_FRIEND", "true") != "false"
+                profile.optJSONObject("account")?.let { a ->
+                    val tag = a.optString("gamertag")
+                    if (tag.isNotEmpty()) {
+                        p.lastGamertag = tag
+                        p.lastGamerpic = a.optString("pictureUrl")
+                        Hub.setAccount(tag, p.lastGamerpic)
+                    }
+                }
+                val cloud = profile.getJSONObject("cloud")
+                (cloud.opt("autosave") as? Boolean)?.let { p.autoSave = it }
+                (cloud.opt("autoUpload") as? Boolean)?.let { prefs.edit { putBoolean("auto_upload", it) } }
+                (cloud.opt("keepHistory") as? Boolean)?.let { prefs.edit { putBoolean("keep_history", it) } }
+                cloud.optString("libraryUpdateMode").takeIf { it == "add" || it == "replace" }?.let { mode -> prefs.edit { putBoolean("library_add_mode", mode == "add") } }
+
+                // The repos it names, checked with this sign-in
+                val worldRepo = cloud.optString("repo")
+                val libRepo = cloud.optString("libraryRepo")
+                if (libRepo.isNotEmpty() && !libRepo.equals(settingsRepo, ignoreCase = true)) {
+                    runCatching { GitHub.checkRepo(token, libRepo) }
+                        .onSuccess { libraryRepo = it.fullName }
+                        .onFailure { Hub.log(Source.Babs, "Couldn't link the Mod Library repo from the settings backup: ${it.message}") }
+                }
+                settingsRestored++
+                prefs.edit { putLong("settings_last_sync", System.currentTimeMillis()) }
+                error = ""
+                Hub.updateServerSettings { ServerConfig(serverDir).load(it.restartNeeded) }
+                Hub.log(Source.Babs, "GitHub settings: restored from $settingsRepo. What it replaced is kept in ${safety.name}" +
+                    if (profile.optJSONObject("xbox") != null) ". The bridge's Xbox sign-in came with it" else "")
+                if (worldRepo.isNotEmpty() && !worldRepo.equals(repo, ignoreCase = true) && !worldRepo.equals(settingsRepo, ignoreCase = true)) {
+                    publish()
+                    runCatching { link(worldRepo, create = false, allowPublic = true) }
+                        .onFailure { Hub.log(Source.Babs, "Couldn't link the world repo from the settings backup: ${it.message}") }
+                }
+            } catch (e: Exception) {
+                if (e is kotlinx.coroutines.CancellationException) throw e
+                error = "Couldn't restore settings: ${e.message}"
+                Hub.log(Source.Babs, error)
+            } finally {
+                busy = ""
+                publish()
+            }
+        }
+    }
+
+    /** Sends the phone's Mod Library to its repo, in Bedrock Hub's layout. */
+    suspend fun syncLibrary() = queue.withLock {
+        withContext(Dispatchers.IO) {
+            try {
+                if (libraryRepo.isEmpty()) throw GitHubException("Link a Mod Library repo first.")
+                val library = PackInstaller.libraryDir(app)
+                if (!library.isDirectory) throw GitHubException("The mod library is empty.")
+                val hashes = Cloud.Hashes(File(app.filesDir, "cloud-hashes.json"))
+                val done = LibraryRepo.upload(GitRepo(signedInToken(), libraryRepo), library, libraryAddMode, hashes) { busy = it; publish() }
+                hashes.save { File(it).exists() }
+                prefs.edit { putLong("library_last_sync", System.currentTimeMillis()) }
+                error = ""
+                Hub.log(Source.Babs, "GitHub Mod Library: backed up to $libraryRepo" + if (done.skipped > 0) ". ${done.skipped} files over 95 MB were skipped" else "")
+            } catch (e: Exception) {
+                if (e is kotlinx.coroutines.CancellationException) throw e
+                error = "Couldn't back up the Mod Library: ${e.message}"
+                Hub.log(Source.Babs, error)
+            } finally {
+                busy = ""
+                publish()
+            }
+        }
+    }
+
+    /** Replaces the phone's Mod Library with the repo's, keeping the one it replaces as library-before-restore. */
+    suspend fun restoreLibrary() = queue.withLock {
+        withContext(Dispatchers.IO) {
+            try {
+                if (libraryRepo.isEmpty()) throw GitHubException("Link a Mod Library repo first.")
+                val count = LibraryRepo.restore(
+                    GitRepo(signedInToken(), libraryRepo), PackInstaller.libraryDir(app), File(app.filesDir, "library-download"),
+                ) { busy = it; publish() }
+                error = ""
+                Hub.bumpPacks()
+                Hub.log(Source.Babs, "GitHub Mod Library: restored $count packs from $libraryRepo. The phone's old library is kept as library-before-restore")
+            } catch (e: Exception) {
+                if (e is kotlinx.coroutines.CancellationException) throw e
+                error = "Couldn't restore the Mod Library: ${e.message}"
+                Hub.log(Source.Babs, error)
+            } finally {
+                busy = ""
+                publish()
+            }
+        }
+    }
 }

@@ -56,6 +56,9 @@ import androidx.compose.animation.core.tween
 import androidx.compose.runtime.saveable.rememberSaveable
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.flow.drop
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.withContext
 
 class MainActivity : ComponentActivity() {
@@ -301,6 +304,17 @@ class MainActivity : ComponentActivity() {
                 HubColors.palette = if (prefs.minecraftTheme) MinecraftPalette else HubPalette
             },
         )
+        // A settings restore from GitHub changed BABS's own settings, so the screen reads them again.
+        lifecycleScope.launch {
+            Hub.cloud.map { it.settingsRestored }.distinctUntilChanged().drop(1).collect {
+                settings = settings.copy(
+                    publicAddress = prefs.publicAddress,
+                    autoAcceptFriends = prefs.autoAcceptFriends,
+                    autoSave = prefs.autoSave,
+                )
+                reloadServerSettings()
+            }
+        }
         HubColors.palette = if (prefs.minecraftTheme) MinecraftPalette else HubPalette
         // Babs winks once per launch, not when the screen is recreated (turning the phone, coming back to it).
         val firstLaunch = savedInstanceState == null
