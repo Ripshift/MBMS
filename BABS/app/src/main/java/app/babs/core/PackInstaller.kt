@@ -17,6 +17,9 @@ import java.util.zip.ZipInputStream
 /** A pack in a world, as world_behavior_packs.json or world_resource_packs.json lists it. */
 data class WorldPack(val name: String, val uuid: String, val version: String, val behavior: Boolean)
 
+/** A pack kept in the mod library, ready to add to any world. */
+data class LibraryPack(val name: String, val uuid: String, val version: String, val behavior: Boolean, val folder: String)
+
 /** An Add Pack to World in progress, or what the last one did. */
 data class PackImport(val busy: String? = null, val error: String? = null, val done: String? = null, val warnings: List<String> = emptyList())
 
@@ -64,6 +67,29 @@ object PackInstaller {
         }
     }
 
+    /** Opens a .mcaddon, .mcpack or .zip into [work] and reads its packs. Throws when there's nothing usable. */
+    private fun unpack(context: Context, uri: Uri, work: File, skipped: MutableList<String>): List<Pack> {
+        val unpacked = File(work, "x").apply { mkdirs() }
+        (context.contentResolver.openInputStream(uri) ?: throw IOException("Couldn't open the file")).use { unzip(it, unpacked) }
+        // A .mcaddon often holds .mcpack files, sometimes another level down.
+        repeat(3) {
+            unpacked.walkTopDown().filter { it.isFile && it.extension.lowercase() in ARCHIVES }.toList().forEach { inner ->
+                runCatching { inner.inputStream().use { unzip(it, File(inner.parentFile, inner.nameWithoutExtension + "_unpacked")) } }
+                inner.delete()
+            }
+        }
+        val packs = unpacked.walkTopDown().filter { it.isFile && it.name.equals("manifest.json", true) }.mapNotNull { manifest ->
+            readPack(manifest.parentFile!!, skipped)
+        }.distinctBy { it.uuid }.toList()
+        if (packs.isEmpty()) {
+            throw IOException(
+                if (skipped.isNotEmpty()) "Nothing to add: ${skipped.joinToString()}"
+                else "That isn't a Minecraft pack (no manifest.json). Pick a .mcaddon or .mcpack",
+            )
+        }
+        return packs
+    }
+
     fun add(context: Context, uri: Uri, worldDir: File, serverRunning: Boolean) {
         if (job?.isActive == true) return
         job = scope.launch {
@@ -73,26 +99,11 @@ object PackInstaller {
                 if (!File(worldDir, "level.dat").exists()) {
                     throw IOException("The server's world hasn't been made yet. Start the server once, then add packs")
                 }
-                val unpacked = File(work, "x").apply { mkdirs() }
-                (context.contentResolver.openInputStream(uri) ?: throw IOException("Couldn't open the file")).use { unzip(it, unpacked) }
-                // A .mcaddon often holds .mcpack files, sometimes another level down.
-                repeat(3) {
-                    unpacked.walkTopDown().filter { it.isFile && it.extension.lowercase() in ARCHIVES }.toList().forEach { inner ->
-                        runCatching { inner.inputStream().use { unzip(it, File(inner.parentFile, inner.nameWithoutExtension + "_unpacked")) } }
-                        inner.delete()
-                    }
-                }
-
                 val skipped = mutableListOf<String>()
-                val packs = unpacked.walkTopDown().filter { it.isFile && it.name.equals("manifest.json", true) }.mapNotNull { manifest ->
-                    readPack(manifest.parentFile!!, skipped)
-                }.distinctBy { it.uuid }.toList()
-                if (packs.isEmpty()) {
-                    throw IOException(
-                        if (skipped.isNotEmpty()) "Nothing to add: ${skipped.joinToString()}"
-                        else "That isn't a Minecraft pack (no manifest.json). Pick a .mcaddon or .mcpack",
-                    )
-                }
+                val packs = unpack(context, uri, work, skipped)
+                // Every pack added to a world is kept in the library too, so it can go in other worlds.
+                val library = libraryDir(context)
+                packs.forEach { pack -> runCatching { keep(pack, library) }.onFailure { Hub.log(Source.Babs, "Couldn't keep ${pack.name} in the mod library: ${it.message}") } }
 
                 val existing = installed(worldDir).associateBy { it.uuid }
                 packs.forEachIndexed { i, pack ->
@@ -124,6 +135,136 @@ object PackInstaller {
     }
 
     fun dismiss() = Hub.updatePackImport { PackImport() }
+
+    // ---------------------------------------------------------------- the mod library
+
+    /**
+     * The mod library: one copy of each pack, in `files/library/behavior/` and `files/library/resource/`, named as
+     * in a world ("<name>_<first 8 of its uuid>"). Packs added to a world are kept here, and Import adds without a
+     * world. From here a pack goes into any world, and GitHub Cloud puts a downloaded world's packs back from it.
+     */
+    fun libraryDir(context: Context) = File(context.filesDir, "library")
+
+    fun library(dir: File): List<LibraryPack> = listOf(true, false).flatMap { behavior ->
+        File(dir, if (behavior) "behavior" else "resource").listFiles { f -> f.isDirectory && !f.name.startsWith(".") }.orEmpty()
+            .mapNotNull { readPack(it, mutableListOf()) }
+            .map { LibraryPack(it.name, it.uuid, it.version.joinToString("."), it.behavior, it.dir.name) }
+    }.sortedBy { it.name.lowercase() }
+
+    /** Copies a pack into the library, replacing an older copy of the same pack. */
+    private fun keep(pack: Pack, library: File) {
+        val parent = File(library, if (pack.behavior) "behavior" else "resource").apply { mkdirs() }
+        val old = parent.listFiles { f -> f.isDirectory }.orEmpty().filter { it.name.endsWith("_" + pack.uuid.take(8)) }
+        val tmp = File(parent, ".${pack.uuid.take(8)}_tmp")
+        tmp.deleteRecursively()
+        if (!pack.dir.copyRecursively(tmp, overwrite = true)) throw IOException("the copy didn't finish")
+        old.forEach { it.deleteRecursively() }
+        val final = File(parent, "${safeName(pack.name)}_${pack.uuid.take(8)}")
+        final.deleteRecursively()
+        if (!tmp.renameTo(final)) {
+            tmp.deleteRecursively()
+            throw IOException("couldn't put it in place")
+        }
+    }
+
+    /** Import to library: keeps the packs from a .mcaddon or .mcpack without adding them to a world. */
+    fun importToLibrary(context: Context, uri: Uri) {
+        if (job?.isActive == true) return
+        job = scope.launch {
+            val work = File(context.cacheDir, "pack-import-${System.currentTimeMillis()}")
+            try {
+                Hub.updatePackImport { PackImport(busy = "Opening the pack") }
+                val skipped = mutableListOf<String>()
+                val packs = unpack(context, uri, work, skipped)
+                packs.forEach { keep(it, libraryDir(context)) }
+                val names = packs.joinToString { it.name }
+                Hub.log(Source.Babs, "Added to the mod library: $names")
+                Hub.bumpPacks()
+                Hub.updatePackImport { PackImport(done = "Added $names to the library.", warnings = skipped.map { "Left out $it" }) }
+            } catch (e: Throwable) {
+                if (e is kotlinx.coroutines.CancellationException) throw e
+                val message = e.message ?: e.javaClass.simpleName
+                Hub.log(Source.Babs, "Importing the pack failed: $message")
+                Hub.updatePackImport { PackImport(error = message) }
+            } finally {
+                work.deleteRecursively()
+            }
+        }
+    }
+
+    /** Adds library packs to a world, the same as adding them from a file. */
+    fun addFromLibrary(context: Context, uuids: Set<String>, worldDir: File, serverRunning: Boolean) {
+        if (job?.isActive == true || uuids.isEmpty()) return
+        job = scope.launch {
+            try {
+                if (!File(worldDir, "level.dat").exists()) {
+                    throw IOException("The server's world hasn't been made yet. Start the server once, then add packs")
+                }
+                val packs = libraryPacks(libraryDir(context)).filter { it.uuid in uuids }
+                if (packs.isEmpty()) throw IOException("Those packs aren't in the library any more")
+                val existing = installed(worldDir).associateBy { it.uuid }
+                packs.forEachIndexed { i, pack ->
+                    Hub.updatePackImport { PackImport(busy = "Adding ${pack.name} (${i + 1} of ${packs.size})") }
+                    copyIn(pack, worldDir, existing[pack.uuid]?.dir)
+                }
+                listOf(true, false).forEach { behavior -> register(worldDir, packs.filter { it.behavior == behavior }, behavior) }
+                val names = packs.joinToString { it.name }
+                Hub.log(Source.Babs, "Added to \"${worldDir.name}\" from the library: $names${if (serverRunning) ". Restart the server to load them" else ""}")
+                if (serverRunning) Hub.updateServerSettings { it.copy(restartNeeded = true) }
+                Hub.updatePackImport {
+                    PackImport(
+                        done = "Added $names." + if (serverRunning) " Restart the server to load ${if (packs.size == 1) "it" else "them"}." else "",
+                        warnings = packs.filter { it.betaApis }.map { "${it.name} uses Beta APIs. Turn on that experiment for the world in Minecraft, or it won't run" },
+                    )
+                }
+            } catch (e: Throwable) {
+                if (e is kotlinx.coroutines.CancellationException) throw e
+                val message = e.message ?: e.javaClass.simpleName
+                Hub.log(Source.Babs, "Adding the pack failed: $message")
+                Hub.updatePackImport { PackImport(error = message) }
+            }
+        }
+    }
+
+    /** Deletes a pack from the library. Worlds that use it keep their own copies. Blocking. */
+    fun deleteFromLibrary(library: File, uuid: String) {
+        val pack = libraryPacks(library).firstOrNull { it.uuid == uuid.lowercase() } ?: return
+        if (!pack.dir.deleteRecursively()) throw IOException("Couldn't delete ${pack.name}")
+        Hub.log(Source.Babs, "Deleted ${pack.name} from the mod library. Worlds that use it keep their copies")
+    }
+
+    /**
+     * Puts back the packs a world lists but doesn't have, from the library, as Bedrock Hub does after a GitHub Cloud
+     * download (cloud saves leave packs out). Leaves the world's lists alone. Blocking. Returns the names put back.
+     */
+    fun restoreFromLibrary(library: File, worldDir: File, uuids: Collection<String>): List<String> {
+        val have = installedIds(worldDir)
+        val wanted = uuids.map { it.lowercase() }.filter { it !in have }.toSet()
+        if (wanted.isEmpty()) return emptyList()
+        return libraryPacks(library).filter { it.uuid in wanted }.mapNotNull { pack ->
+            runCatching { copyIn(pack, worldDir, null) }.map { pack.name }.getOrNull()
+        }
+    }
+
+    /** Copies every pack the worlds have into the library, for packs added before there was one. Blocking. Returns how many. */
+    fun collectFromWorlds(library: File, worldsDir: File): Int {
+        val have = libraryPacks(library).map { it.uuid }.toMutableSet()
+        var added = 0
+        worldsDir.listFiles { f -> f.isDirectory }.orEmpty().forEach { world ->
+            installed(world).filter { it.uuid !in have }.forEach { pack ->
+                runCatching { keep(pack, library) }.onSuccess {
+                    have += pack.uuid
+                    added++
+                }
+            }
+        }
+        Hub.log(Source.Babs, if (added == 0) "The mod library already has every pack your worlds use" else "Copied $added packs from your worlds into the mod library")
+        return added
+    }
+
+    private fun libraryPacks(library: File): List<Pack> = listOf("behavior", "resource").flatMap { sub ->
+        File(library, sub).listFiles { f -> f.isDirectory && !f.name.startsWith(".") }.orEmpty().mapNotNull { readPack(it, mutableListOf()) }
+    }
 
     /**
      * Takes a pack out of a world, as Bedrock Hub's Remove from world does: its entry in the world's list, and the
