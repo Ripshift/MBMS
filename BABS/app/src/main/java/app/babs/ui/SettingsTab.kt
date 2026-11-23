@@ -258,6 +258,9 @@ internal fun SettingsTab(arch: String, usesBox64: Boolean, appVersion: String, s
             }
         }
 
+        SectionTitle("GitHub Cloud")
+        CloudSettingsCard(actions)
+
         SectionTitle("App")
         SectionCard("Keep running") {
             Text(

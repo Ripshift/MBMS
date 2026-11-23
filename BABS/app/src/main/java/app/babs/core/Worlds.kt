@@ -166,7 +166,7 @@ class AutoSave(serverDir: File) {
     val root = File(serverDir, "backups/AutoSave")
     private val worldsDir = File(serverDir, "worlds")
 
-    private fun folderOf(world: String): File {
+    fun folderOf(world: String): File {
         require(world.isNotBlank() && world != "." && world != ".." && !world.contains('/')) { "That isn't a world folder" }
         return File(root, world)
     }
@@ -198,22 +198,70 @@ class AutoSave(serverDir: File) {
             throw IOException("couldn't put the copy in place")
         }
 
-        val metaFile = File(dir, "world.json")
-        val meta = runCatching { JSONObject(metaFile.readText()) }.getOrElse { JSONObject().put("rev", 0).put("syncedRev", 0) }
+        val meta = meta(world)
         val name = runCatching { File(source, "levelname.txt").readText().trim() }.getOrNull()?.ifEmpty { null }
         meta.put("folder", world)
         meta.put("name", name ?: meta.optString("name").ifEmpty { world })
         meta.put(if (kind == "pregameplay") "pre" else "post", JSONObject().put("at", System.currentTimeMillis()).put("device", device))
         if (kind == "postgameplay") meta.put("changed", true) // not in GitHub Cloud yet, as Bedrock Hub marks it
-        val part = File(dir, "world.json.tmp")
-        part.writeText(meta.toString(2))
-        if (!part.renameTo(metaFile)) metaFile.writeText(meta.toString(2))
+        saveMeta(world, meta)
         Hub.log(Source.Babs, "AutoSave: saved \"${meta.optString("name")}\" ${if (kind == "pregameplay") "before" else "after"} this session")
         return true
     }
 
+    fun has(world: String, kind: String) = File(folderOf(world), "$kind/level.dat").isFile
+
+    /** world.json, or a new one with nothing uploaded yet. */
+    fun meta(world: String): JSONObject = runCatching { JSONObject(File(folderOf(world), "world.json").readText()) }
+        .getOrElse { JSONObject().put("folder", world).put("name", world).put("rev", 0).put("syncedRev", 0) }
+
+    fun saveMeta(world: String, meta: JSONObject) {
+        val dir = folderOf(world).apply { mkdirs() }
+        val part = File(dir, "world.json.tmp")
+        part.writeText(meta.toString(2))
+        if (!part.renameTo(File(dir, "world.json"))) {
+            File(dir, "world.json").writeText(meta.toString(2))
+            part.delete()
+        }
+    }
+
+    /** Worlds with at least one copy. */
+    fun worlds(): List<String> = root.listFiles { f -> f.isDirectory }.orEmpty()
+        .filter { w -> KINDS.any { has(w.name, it) } }.map { it.name }
+
+    /**
+     * Puts the world back from its postgameplay copy, for a newer save from another device, as Bedrock Hub's
+     * restoreWorld. What it replaces is kept as "replaced", and the world keeps its own pack folders, which cloud
+     * saves leave out.
+     */
+    fun restoreWorld(world: String) {
+        val save = File(folderOf(world), "postgameplay")
+        if (!File(save, "level.dat").isFile) throw IOException("There is no save to load")
+        val target = File(worldsDir, world)
+        val replaced = File(folderOf(world), "replaced")
+        worldsDir.mkdirs()
+        if (target.exists()) {
+            replaced.deleteRecursively()
+            if (!target.renameTo(replaced)) throw IOException("Couldn't move the world aside")
+        }
+        try {
+            if (!save.copyRecursively(target, overwrite = true)) throw IOException("The copy didn't finish")
+        } catch (e: Exception) {
+            target.deleteRecursively()
+            if (replaced.exists()) replaced.renameTo(target)
+            throw e
+        }
+        for (dir in PACK_DIRS) {
+            val kept = File(replaced, dir)
+            if (!File(target, dir).exists() && kept.exists()) kept.copyRecursively(File(target, dir), overwrite = true)
+        }
+        Hub.log(Source.Babs, "AutoSave: loaded \"${meta(world).optString("name", world)}\" from its latest save. The copy it replaced is kept as a backup")
+    }
+
     companion object {
-        private val device = "${Build.MANUFACTURER} ${Build.MODEL}".trim()
+        val KINDS = listOf("pregameplay", "postgameplay")
+        val PACK_DIRS = listOf("behavior_packs", "resource_packs")
+        val device = "${Build.MANUFACTURER} ${Build.MODEL}".trim()
     }
 }
 

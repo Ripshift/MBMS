@@ -31,6 +31,8 @@ import app.babs.core.ServerConfig
 import app.babs.core.WorldExporter
 import app.babs.core.SessionNames
 import app.babs.core.AutoSave
+import app.babs.core.CloudSync
+import java.util.concurrent.atomic.AtomicInteger
 import java.io.File
 import java.io.IOException
 import java.net.InetSocketAddress
@@ -67,6 +69,8 @@ class ServerService : Service() {
         layout = Layout(this)
         server = ManagedProcess(Source.Server, scope)
         bridge = ManagedProcess(Source.Bridge, scope)
+        CloudSync.init(this)
+        watchCloud()
     }
 
     override fun onBind(intent: Intent?): IBinder? = null
@@ -80,6 +84,12 @@ class ServerService : Service() {
             exportWorld(intent)
             return START_NOT_STICKY
         }
+        if ((action == ACTION_CLOUD_UPLOAD || action == ACTION_CLOUD_DOWNLOAD) && intent != null) {
+            val world = intent.getStringExtra(EXTRA_FOLDER)
+            if (world == null) stopIfIdle() else cloudWork(world, download = action == ACTION_CLOUD_DOWNLOAD)
+            return START_NOT_STICKY
+        }
+        if (action == ACTION_START || action == ACTION_RESTART_SERVER) cloudChoice = intent?.getStringExtra(EXTRA_CLOUD_CHOICE)
         scope.launch {
             lock.withLock {
                 when (action) {
@@ -102,7 +112,7 @@ class ServerService : Service() {
 
     @Volatile private var stopRequested = false
 
-    private val anythingAlive: Boolean get() = server.isAlive || bridge.isAlive || probe?.isAlive == true || exporting || restartPending || autosaving
+    private val anythingAlive: Boolean get() = server.isAlive || bridge.isAlive || probe?.isAlive == true || exporting || restartPending || autosaving || cloudBusy.get() > 0
 
     /** An export runs outside the lock, so Stop still works while a big world is copied. */
     @Volatile private var exporting = false
@@ -126,6 +136,44 @@ class ServerService : Service() {
         }
     }
     private var probe: ManagedProcess? = null
+
+    /** GitHub Cloud uploads and downloads, which run outside the lock like exports, one at a time in CloudSync. */
+    private val cloudBusy = AtomicInteger(0)
+
+    /** The answer to "use the cloud save?" for the next start: "cloud", "local", or null to ask. */
+    @Volatile private var cloudChoice: String? = null
+
+    private fun cloudWork(world: String, download: Boolean) {
+        if (download && server.isAlive && ServerConfig(layout.serverDir).properties()["level-name"] == world) {
+            Hub.log(Source.Babs, "Stop the server before downloading the world it has open")
+            stopIfIdle()
+            return
+        }
+        cloudBusy.incrementAndGet()
+        // A partial wake lock of its own, so an upload finishes with the screen off and nothing running.
+        val wake = getSystemService(PowerManager::class.java).newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "BABS:cloud")
+            .apply { acquire(CLOUD_WAKE_MS) }
+        scope.launch {
+            try {
+                if (download) CloudSync.download(world) else CloudSync.upload(world)
+            } finally {
+                runCatching { if (wake.isHeld) wake.release() }
+                cloudBusy.decrementAndGet()
+                lock.withLock { stopIfIdle() }
+            }
+        }
+    }
+
+    /** Bedrock Hub checks GitHub Cloud every 15 minutes, and uploads anything not uploaded yet. Here while BABS runs a server. */
+    private fun watchCloud() {
+        scope.launch {
+            while (isActive) {
+                delay(CLOUD_CHECK_MS)
+                if (!CloudSync.linked || autosaving || cloudBusy.get() > 0) continue
+                for (world in CloudSync.check()) cloudWork(world, download = false)
+            }
+        }
+    }
 
     /** Runs here rather than in the activity so the download and apt survive the screen turning off. */
     private suspend fun install() {
@@ -182,7 +230,7 @@ class ServerService : Service() {
                     Hub.updateServerSettings { config.load() }
                 }.onSuccess { Hub.log(Source.Babs, "Set the server up for a phone: view distance 10, simulation distance 4, snappy compression") }
             }
-            if (wasRunning) startServer(layout.serverLaunch())
+            if (wasRunning) startServer(layout.serverLaunch(), askCloud = false)
             else if (Hub.server.value.state == RunState.NotInstalled) Hub.setServer(RunState.Stopped)
         } catch (e: Exception) {
             val message = e.message ?: e.javaClass.simpleName
@@ -273,7 +321,9 @@ class ServerService : Service() {
     @Volatile private var autosaveJob: Job? = null
     @Volatile private var autosaving = false
 
-    private suspend fun startServer(launch: Launch) {
+    private suspend fun startServer(launch: Launch, askCloud: Boolean = true) {
+        val choice = cloudChoice
+        cloudChoice = null
         if (!waitForServerPort()) {
             Hub.setServer(RunState.Stopped)
             return
@@ -290,7 +340,16 @@ class ServerService : Service() {
         }
         Hub.clearContentLog()
         sessionWorld = null
-        if (Prefs(this).autoSave) {
+        // A newer save from another device comes first, or the person is asked, as Bedrock Hub asks before a start.
+        if (askCloud && CloudSync.linked) {
+            Hub.setServer(RunState.Starting, "Checking GitHub Cloud")
+            if (CloudSync.beforeStart(world, choice) == CloudSync.Before.Ask) {
+                Hub.setServer(RunState.Stopped, "A newer save is in GitHub Cloud")
+                Hub.log(Source.Babs, "GitHub Cloud has a newer save of \"$world\". Choose which to use, then start again")
+                return
+            }
+        }
+        if (Prefs(this).autoSave || CloudSync.linked) {
             Hub.setServer(RunState.Starting, "AutoSave: copying the world first")
             withContext(Dispatchers.IO) {
                 runCatching { AutoSave(layout.serverDir).before(world) }
@@ -347,11 +406,12 @@ class ServerService : Service() {
     private fun saveAfterSession() {
         val world = sessionWorld ?: return
         sessionWorld = null
-        if (!Prefs(this).autoSave) return
+        if (!Prefs(this).autoSave && !CloudSync.linked) return
         autosaving = true
         autosaveJob = scope.launch(Dispatchers.IO) {
             try {
                 AutoSave(layout.serverDir).after(world)
+                if (CloudSync.afterStop(world)) cloudWork(world, download = false)
             } catch (e: Exception) {
                 Hub.log(Source.Babs, "AutoSave couldn't save the world after this session: ${e.message}")
             } finally {
@@ -386,7 +446,7 @@ class ServerService : Service() {
             lock.withLock {
                 restartPending = false
                 if (!server.isAlive && !stopRequested) {
-                    layout.serverMissing()?.let { Hub.setServer(RunState.NotInstalled, it) } ?: startServer(layout.serverLaunch())
+                    layout.serverMissing()?.let { Hub.setServer(RunState.NotInstalled, it) } ?: startServer(layout.serverLaunch(), askCloud = false)
                 }
                 stopIfIdle()
             }
@@ -783,6 +843,15 @@ class ServerService : Service() {
         private const val AUTO_RESTART_LIMIT = 3
         private const val AUTO_RESTART_WINDOW_MS = 10 * 60_000L
         private const val EXTRA_FOLDER = "folder"
+        private const val ACTION_CLOUD_UPLOAD = "app.babs.CLOUD_UPLOAD"
+        private const val ACTION_CLOUD_DOWNLOAD = "app.babs.CLOUD_DOWNLOAD"
+        private const val EXTRA_CLOUD_CHOICE = "cloud_choice"
+        private const val CLOUD_CHECK_MS = 15 * 60_000L
+        private const val CLOUD_WAKE_MS = 30 * 60_000L
+
+        /** Sends a world's AutoSave copies to GitHub Cloud, or brings its latest save down and loads it. */
+        fun cloudUpload(context: Context, folder: String) = send(context, ACTION_CLOUD_UPLOAD) { putExtra(EXTRA_FOLDER, folder) }
+        fun cloudDownload(context: Context, folder: String) = send(context, ACTION_CLOUD_DOWNLOAD) { putExtra(EXTRA_FOLDER, folder) }
 
         /** Saves the world in worlds/[folder] as a .mcworld at [uri], holding the server's saves if it has it open. */
         fun exportWorld(context: Context, folder: String, uri: android.net.Uri) = send(context, ACTION_EXPORT_WORLD) {
@@ -813,7 +882,8 @@ class ServerService : Service() {
         fun install(context: Context) = send(context, ACTION_INSTALL)
         /** Installs the server, or updates it to the newest version. */
         fun downloadServer(context: Context) = send(context, ACTION_SERVER_DOWNLOAD)
-        fun start(context: Context) = send(context, ACTION_START)
+        /** [cloudChoice] answers GitHub Cloud's question about a newer save: "cloud" or "local". */
+        fun start(context: Context, cloudChoice: String? = null) = send(context, ACTION_START) { putExtra(EXTRA_CLOUD_CHOICE, cloudChoice) }
         fun stop(context: Context) = send(context, ACTION_STOP)
         fun restart(context: Context) = send(context, ACTION_RESTART)
         fun command(context: Context, command: String) =

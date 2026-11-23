@@ -211,6 +211,9 @@ object PackInstaller {
         return name.replace(Regex("§."), "").substringBefore('\t').trim()
     }
 
+    /** The uuids of the packs in the world's own folders. */
+    fun installedIds(worldDir: File): Set<String> = installed(worldDir).map { it.uuid }.toSet()
+
     /** Packs already in the world's folders, by uuid. */
     private fun installed(worldDir: File): List<Pack> = listOf("behavior_packs", "resource_packs").flatMap { folder ->
         File(worldDir, folder).listFiles { f -> f.isDirectory }.orEmpty().mapNotNull { readPack(it, mutableListOf()) }

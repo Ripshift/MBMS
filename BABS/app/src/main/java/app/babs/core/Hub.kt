@@ -179,6 +179,12 @@ object Hub {
 
     fun bumpPacks() = _packsChanged.update { it + 1 }
 
+    /** GitHub Cloud: sign-in, the linked repo and how each world compares with it. */
+    private val _cloud = MutableStateFlow(CloudView())
+    val cloud: StateFlow<CloudView> = _cloud.asStateFlow()
+
+    fun setCloud(view: CloudView) { _cloud.value = view }
+
     fun log(source: Source, text: String) {
         if (source == Source.Server) {
             _serverLines.tryEmit(text)

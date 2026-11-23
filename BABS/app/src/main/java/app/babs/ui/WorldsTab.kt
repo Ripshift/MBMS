@@ -87,6 +87,7 @@ internal fun WorldsTab(server: ComponentStatus, actions: Actions) {
         if (settings.restartNeeded && server.state == RunState.Running) RestartBanner(actions.onRestartServer)
         WorldTaskStatus(actions)
         WorldsCard(settings, server.state, actions, onManage = { managing = it })
+        CloudWorldsCard(server.state, settings.currentWorld, actions)
         BackupsCard(actions)
     }
 }

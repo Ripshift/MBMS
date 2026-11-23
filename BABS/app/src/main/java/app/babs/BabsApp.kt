@@ -7,6 +7,7 @@ import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.os.Build
 import android.os.PowerManager
+import app.babs.core.CloudSync
 import app.babs.core.Hub
 import app.babs.core.LogFile
 import app.babs.core.Source
@@ -18,6 +19,7 @@ class BabsApp : Application() {
     override fun onCreate() {
         super.onCreate()
         LogFile.init(this)
+        CloudSync.init(this)
         val channel = NotificationChannel(
             CHANNEL_ID,
             getString(R.string.channel_name),
