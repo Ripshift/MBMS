@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The app icon's grass block, cropped to the block itself, for the top bar. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="40dp"
+    android:height="40dp"
+    android:viewportWidth="40"
+    android:viewportHeight="40">
+    <path android:fillColor="#8B5A2B" android:pathData="M0,0h40v40h-40z" />
+    <path android:fillColor="#5DAE3A" android:pathData="M0,0h40v12h-40z" />
+    <path android:fillColor="#5DAE3A" android:pathData="M6,12h6v5h-6zM22,12h6v7h-6zM32,12h4v4h-4z" />
+    <path android:fillColor="#6E4521" android:pathData="M8,26h5v5h-5zM24,30h5v5h-5zM30,21h4v4h-4z" />
+</vector>
