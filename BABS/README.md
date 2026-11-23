@@ -7,8 +7,8 @@ BABS is the phone member of a family: the Mod Loader and HMBC came first, and Be
 is the current desktop app that brings them together. BABS follows Bedrock Hub's look (its colours, cards, pips
 and stats grid, from `renderer/styles.css`) and installs packs the way its add-on engine does.
 
-Scope: **the server and the bridge**, plus bringing in worlds and adding packs to the world the server runs.
-There's no mod library. For that, use Bedrock Hub.
+Scope: **the server and the bridge**, plus Bedrock Hub's world manager (host, clone, rename, back up, AutoSave
+and backups) and each world's packs (add, remove, reorder). There's no mod library yet. For that, use Bedrock Hub.
 
 ## The hard part: Bedrock Server is x86_64 only
 
@@ -103,7 +103,7 @@ struggles. Performance and box64 still have to be checked on a real ARM device.
 
 **Real device.** `dist\BABS-<version>-debug.apk` is a copy of the debug build to sideload. Copy it to the phone
 and open it (Android asks to allow installs from that app once), or with USB debugging on:
-`adb install -r dist\BABS-0.10.0-debug.apk`. It's signed with the debug key, so later builds install over it
+`adb install -r dist\BABS-0.11.0-debug.apk`. It's signed with the debug key, so later builds install over it
 without losing data, but a release build would need an uninstall first.
 
 ## How it's built
@@ -115,6 +115,8 @@ app/src/main/java/app/babs/
   core/Layout.kt           Folders, CPU type, what's missing, and the proot command lines for both
   core/BridgeApi.kt        HMBC's localhost endpoint: /health, /session (hide or show), /friends (requests, auto-accept)
   core/ServerConfig.kt     server.properties (edited line by line), allowlist.json, the worlds folder
+  core/Worlds.kt           Clone, rename, back up, backups, AutoSave, world names and level.dat's LevelName
+  core/ContentLog.kt       The Content Log: what the server reports about packs, ported from Bedrock Hub
   core/LogFile.kt          The console saved to files/logs, and the export for Share log
   core/ManagedProcess.kt   One child process: output into the console, commands in, graceful stop
   core/Prefs.kt            Settings kept between runs (EULA accepted, public address)
@@ -123,10 +125,11 @@ app/src/main/java/app/babs/
   setup/Installer.kt       Downloads Ubuntu, unpacks it, installs Java and box64 with apt
   setup/ServerInstaller.kt Finds the newest Bedrock server, downloads it, installs or updates it
   setup/Tar.kt             Unpacks the rootfs tarball on Android
-  ui/MainScreen.kt         The four tabs, the actions they call, shared dialogs
+  ui/MainScreen.kt         The five tabs, the actions they call, shared dialogs
+  ui/WorldsTab.kt          Worlds, a world's packs, bringing in worlds, backups
   ui/BridgeTab.kt          Sign-in, account, who can see the game, friend requests
-  ui/ServerTab.kt          Install and download cards, status, Start / Restart / Stop, allow list warning, worlds
-  ui/ConsoleTab.kt         Everything (filters, Share) or Server console (commands and chat)
+  ui/ServerTab.kt          Install and download cards, status, Start / Restart / Stop, allow list warning
+  ui/ConsoleTab.kt         Everything (filters, Share), Server (commands and chat) or Content Log
   ui/SettingsTab.kt        Server (game settings, allow list, version), Bridge (public address), App
   ui/Components.kt         Cards, the console view and dialogs used across tabs
 ```
@@ -242,7 +245,12 @@ never sees that path or any other Android variable. Until the rootfs exists, Sta
 
 ### Screen
 
-Four tabs along the bottom, with the bridge's and the server's state as dots in the top bar on all of them:
+Five tabs along the bottom, in Bedrock Hub's sidebar order, with the bridge's and the server's state as dots in
+the top bar on all of them:
+
+- **Worlds**: Bedrock Hub's Worlds page. Every world, with the hosted one ticked; tap another to host it. Each has
+  **Packs** (its own page, below) and a menu with Host, Manage packs, Clone, Rename, Back up, Export as .mcworld
+  and Delete. Then New world, bringing in a world, and **Backups**.
 
 - **Bridge**: the sign-in card, the bridge's status with Restart bridge (or New code when one ran out), the Xbox
   account with Sign out, who can see the game and the public address, and friend requests. A new sign-in code
@@ -253,12 +261,13 @@ Four tabs along the bottom, with the bridge's and the server's state as dots in 
   world, last saved (`level.dat`'s time) and address (the phone's address on its network, and the public address
   if set). Being a phone, it also shows memory (`VmRSS` of every process whose command line names
   `bedrock_server` or `HMBC.jar`, read from BABS's own `/proc` entries) and the battery. Then Start / Restart /
-  Stop for both, the allow list warning, worlds, and the server's last few lines.
-- **Console**: **Everything** (all output, filters for bridge, server or BABS, Share, Clear) or **Server console**
-  (only the server's lines, with a box for commands, or chat that sends `say`, and quick commands). It follows new
-  lines until you scroll up, then shows a ↓ button back to the latest.
-- **Settings**: Server (game settings, allow list, version and updates), Bridge (public address), and App (Keep
-  running, Share log, About).
+  Stop for both, the allow list warning, a link to Worlds, and the server's last few lines.
+- **Console**: **Everything** (all output, filters for bridge, server or BABS, Share, Clear), **Server**
+  (only the server's lines, with a box for commands, or chat that sends `say`, and quick commands) or **Content
+  Log**. It follows new lines until you scroll up, then shows a ↓ button back to the latest. The tab is badged with
+  the Content Log's error count.
+- **Settings**: Server (game settings, allow list, phone performance, AutoSave, version and updates), Bridge
+  (public address), and App (Keep running, Share log, About).
 
 **Friend requests.** HMBC has `/friends` (the requests it last saw and whether it accepts them by itself),
 `/friends/approve`, `/friends/deny` and `/friends/auto`, all on localhost with `X-HMBC: 1` for changes. BABS reads
@@ -276,7 +285,7 @@ sends `allowlist reload`. No restart either way.
 **Server settings** are edited in `server.properties` line by line, keeping Mojang's comments. The server only
 reads them at start, so a change while it runs shows a **Restart now** banner, which restarts only the server.
 
-**Worlds** are the folders in `worlds/`, named by `levelname.txt`. Picking one sets `level-name` and restarts
+**Worlds** are the folders in `worlds/`, named by `levelname.txt`. Hosting one sets `level-name` and restarts
 the server if it's running. **New world** sets `level-name` (and `level-seed` if given) to a name that has no
 folder yet, and the server makes it when it starts.
 
@@ -299,8 +308,8 @@ The folder name, which is the server's `level-name`, is the world's name without
 characters, made unique with " (2)" and so on. When it's done, **Play it** switches the server to it.
 Marketplace worlds are encrypted for Minecraft and won't load on a server.
 
-**Add Pack to World** (Packs card on the Server tab, `core/PackInstaller.kt`) puts a .mcaddon, .mcpack or .zip
-into the world the server runs, the same way as Bedrock Hub's `engine/addon_engine.py`:
+**Add pack to this world** (a world's Packs page, `core/PackInstaller.kt`) puts a .mcaddon, .mcpack or .zip
+into that world, the same way as Bedrock Hub's `engine/addon_engine.py`:
 
 - Archives inside archives are unpacked (a .mcaddon usually holds a .mcpack per pack), then every folder with a
   `manifest.json` is a pack. Its kind comes from the module types: `resources` is a resource pack; `data`,
@@ -326,10 +335,49 @@ top (7); of two packs changing the same files, the smaller tweak goes on top (4)
 another goes after it (3); overhauls and frameworks at the bottom, small add-ons, sound and UI in the middle,
 performance, animation and texture packs on top (2). Bedrock Hub also compares the identifiers packs define;
 BABS compares their files only. Entries for packs that aren't in the world's folders stay first, untouched.
-The Packs card lists packs in this order, and the console says when it changes.
+A world's Packs page lists packs in this order, and the console says when it changes.
 
-**Removing a world** (Remove, next to Export) deletes its folder after asking, with **Export first** offered.
-The server's current world can't be removed; switch to another first.
+**Deleting a world** (its menu on the Worlds tab) deletes its folder after asking, with **Back up first**
+offered. The hosted world can't be deleted; host another first. AutoSave's copies of it are kept.
+
+**Clone, Rename and Back up** work as in Bedrock Hub (`core/Worlds.kt`, from `engine/hub_rpc.py`):
+
+- **Folder names** follow Bedrock Hub's `folder_for`: the name without colour codes and characters folders can't
+  have, and without `=`, `#` and `!`, since the server stops reading `level-name` at an `=`. Taken names get
+  " (2)" and so on, so a world keeps its folder name when it moves between the two apps.
+- **The name in the game** is written to `levelname.txt` and to `LevelName` in `level.dat`, changing only that
+  string and keeping every other byte (Bedrock Hub's `with_level_name`). If `level.dat` can't be read back after,
+  only `levelname.txt` changes, and the console says so.
+- **Clone** copies into a hidden `worlds/.babs-clone-…` folder, renames it at the end and checks the space
+  first. **Rename** moves the folder and, for the hosted world, updates `level-name`. **Back up** writes
+  `backups/<name>_<yyyyMMdd-HHmmss>.zip` with the world in a folder inside, as Bedrock Hub's `backup_world` does.
+- The hosted world's files are in use while the server runs, so all three wait until it's stopped, as Bedrock
+  Hub refuses them then too. **Export** works while it runs.
+
+**AutoSave** (`AutoSave` in `core/Worlds.kt`, from Bedrock Hub's `src/autosave.js`, in the same place and format):
+before the server starts a world, BABS copies it to `backups/AutoSave/<world>/pregameplay`, and once the server
+has stopped it, to `postgameplay` beside it. The next session replaces both, so there is always one copy from
+before the last session and one from after. `world.json` says when each was taken and on which phone. A world
+that crashes while loading isn't copied after (the copy is only taken once "Server started." was seen), so the
+copy from before that session stays as it was. A start waits for the last session's copy to finish. On by
+default; turn it off in Settings.
+
+**Backups** (Worlds tab) lists AutoSave's copies and everything in `backups/` that holds a world (zips,
+`.mcworld` files and world folders), newest first. **Load** always loads one as a new world, so nothing is
+overwritten; **Delete** asks first.
+
+**A world's packs** (Packs on the Worlds tab) is Bedrock Hub's Manage mods page for one world: its behavior and
+resource packs in load order, each with ↑ and ↓ to move it and Remove, and **Add pack to this world**. Remove
+takes the pack out of the world's list and deletes the world's copy; BABS has no mod library, so the dialog says
+to add the file again to get it back. Moves keep `world_*_packs.json.bak_addonloader` like any other change, and
+the next pack added keeps your order except where a load-order rule needs a pack after another. A change to the
+hosted world while it runs shows **Restart now**.
+
+**Content Log** (Console tab, `core/ContentLog.kt`, from Bedrock Hub's `src/contentlog.js`): before each Start BABS
+sets `content-log-console-output-enabled=true`, as Bedrock Hub does, so the server prints what it would show in
+the game's Content Log. Lines with a `[Category]` after the time and level become entries, a repeat counts up
+instead of adding a row, and the lines after a script error are kept as its stack trace (tap the entry). It's
+cleared at each Start and keeps up to 1000 entries. Filter by level, search, Share as text, or Clear.
 
 **Public address**: **Find and set it** asks api.ipify.org (or ipv4.icanhazip.com if that doesn't answer) for the
 address the internet sees, and saves it. Only the request is sent. It warns when that address can't work: on

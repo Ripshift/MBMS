@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Babs winking: the mascot with his right eye (on the viewer's right) closed, for the splash screen. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48">
+    <!-- Ears -->
+    <path
+        android:fillColor="#FF8892A2"
+        android:pathData="M1.5,22 a10.5,12.5 0 1,0 21,0 a10.5,12.5 0 1,0 -21,0 z" />
+    <path
+        android:fillColor="#FF8892A2"
+        android:pathData="M25.5,22 a10.5,12.5 0 1,0 21,0 a10.5,12.5 0 1,0 -21,0 z" />
+    <path
+        android:fillColor="#FFC99AA6"
+        android:pathData="M5.5,22.5 a6.5,8.5 0 1,0 13,0 a6.5,8.5 0 1,0 -13,0 z" />
+    <path
+        android:fillColor="#FFC99AA6"
+        android:pathData="M29.5,22.5 a6.5,8.5 0 1,0 13,0 a6.5,8.5 0 1,0 -13,0 z" />
+    <!-- Head -->
+    <path
+        android:fillColor="#FFA9B2C0"
+        android:pathData="M11,23 a13,13 0 1,0 26,0 a13,13 0 1,0 -26,0 z" />
+    <!-- Trunk, curling up at the end -->
+    <path
+        android:strokeColor="#FFA9B2C0"
+        android:strokeWidth="5.5"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000"
+        android:pathData="M24,30 C24,38 22.5,42.5 26.5,44 C29.5,45 31.5,42.5 30,40.5" />
+    <!-- Cap, in Bedrock Hub's blue -->
+    <path
+        android:fillColor="#FF3D8BFD"
+        android:pathData="M15,15 C16.5,8.5 31.5,8.5 33,15 C28,13.5 20,13.5 15,15 z" />
+    <path
+        android:fillColor="#FF2B6FD1"
+        android:pathData="M22.5,9.6 a1.5,1.5 0 1,0 3,0 a1.5,1.5 0 1,0 -3,0 z" />
+    <!-- Eyes, with a glint -->
+    <path
+        android:fillColor="#FF14171C"
+        android:pathData="M17.3,22 a1.9,2.2 0 1,0 3.8,0 a1.9,2.2 0 1,0 -3.8,0 z" />
+    <path
+        android:strokeColor="#FF14171C"
+        android:strokeWidth="1.5"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000"
+        android:pathData="M26.7,22.6 Q28.8,20.6 30.9,22.6" />
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M18.6,21.2 a0.6,0.6 0 1,0 1.2,0 a0.6,0.6 0 1,0 -1.2,0 z" />
+
+    <!-- Cheeks -->
+    <path
+        android:fillColor="#66E08A9A"
+        android:pathData="M14.8,27.5 a2.2,1.4 0 1,0 4.4,0 a2.2,1.4 0 1,0 -4.4,0 z" />
+    <path
+        android:fillColor="#66E08A9A"
+        android:pathData="M28.8,27.5 a2.2,1.4 0 1,0 4.4,0 a2.2,1.4 0 1,0 -4.4,0 z" />
+</vector>
