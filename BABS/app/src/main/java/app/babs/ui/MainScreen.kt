@@ -128,6 +128,12 @@ class Actions(
     val onDismissWorldTask: () -> Unit,
     val onAutoSave: (Boolean) -> Unit,
     val onShareContentLog: () -> Unit,
+    // GitHub Cloud: these run in the service, so they finish with the screen off
+    val onCloudUpload: (folder: String) -> Unit,
+    val onCloudDownload: (folder: String) -> Unit,
+    val onCloudCheck: () -> Unit,
+    /** The answer to "Newer save in GitHub Cloud": "cloud", "local", or null to not start. */
+    val onCloudChoice: (String?) -> Unit,
     // Export / back up
     val onExportWorld: (folder: String, name: String) -> Unit,
     val onDismissExport: () -> Unit,
@@ -176,6 +182,8 @@ fun MainScreen(
     // The Console is badged while the Content Log has errors, as Bedrock Hub's sidebar is.
     val content by Hub.contentLog.collectAsStateWithLifecycle()
     val contentErrors = content.count { it.level == ContentEntry.Level.Error }
+
+    CloudPromptDialog(actions)
 
     val minecraft = HubColors.minecraft
     // The Minecraft theme's dirt sits behind everything; the Scaffold is see-through to show it.

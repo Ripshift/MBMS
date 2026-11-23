@@ -11,6 +11,7 @@ import app.babs.core.PackInstaller
 import app.babs.core.WorldExporter
 import app.babs.core.WorldOps
 import app.babs.core.ContentLog
+import app.babs.core.CloudSync
 import android.os.Environment
 import java.io.File
 import android.content.pm.PackageManager
@@ -246,6 +247,13 @@ class MainActivity : ComponentActivity() {
                 settings = settings.copy(autoSave = it)
             },
             onShareContentLog = ::shareContentLog,
+            onCloudUpload = { ServerService.cloudUpload(this, it) },
+            onCloudDownload = { ServerService.cloudDownload(this, it) },
+            onCloudCheck = { checkCloud(force = true) },
+            onCloudChoice = { choice ->
+                CloudSync.dismissPrompt()
+                if (choice != null) withNotifications { ServerService.start(this, choice) }
+            },
             onExportWorld = { folder, name ->
                 exportFolder = folder
                 runCatching { saveWorld.launch(WorldExporter.fileName(name)) }
@@ -292,6 +300,21 @@ class MainActivity : ComponentActivity() {
         settings = settings.copy(
             unrestricted = getSystemService(PowerManager::class.java).isIgnoringBatteryOptimizations(packageName),
         )
+        checkCloud(force = false)
+    }
+
+    /**
+     * Looks for newer saves in GitHub Cloud and uploads what isn't there yet, as Bedrock Hub does at launch. Coming
+     * back to BABS checks at most every 15 minutes.
+     */
+    private fun checkCloud(force: Boolean) {
+        if (!CloudSync.linked) return
+        val now = System.currentTimeMillis()
+        if (!force && now - lastCloudCheck < CLOUD_CHECK_MS) return
+        lastCloudCheck = now
+        lifecycleScope.launch {
+            for (world in CloudSync.check()) ServerService.cloudUpload(this@MainActivity, world)
+        }
     }
 
     private val serverRunning: Boolean
@@ -495,6 +518,9 @@ class MainActivity : ComponentActivity() {
     }
 
     private companion object {
+        /** Shared by every MainActivity, so turning the phone doesn't check again. */
+        var lastCloudCheck = 0L
+        const val CLOUD_CHECK_MS = 15 * 60_000L
         const val KEY_EXPORT_FOLDER = "export_folder"
         const val KEY_PACK_FOLDER = "pack_folder"
     }

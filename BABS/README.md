@@ -8,7 +8,8 @@ is the current desktop app that brings them together. BABS follows Bedrock Hub's
 and stats grid, from `renderer/styles.css`) and installs packs the way its add-on engine does.
 
 Scope: **the server and the bridge**, plus Bedrock Hub's world manager (host, clone, rename, back up, AutoSave
-and backups) and each world's packs (add, remove, reorder). There's no mod library yet. For that, use Bedrock Hub.
+and backups), GitHub Cloud (the same repo and format as Bedrock Hub's) and each world's packs (add, remove,
+reorder). There's no mod library yet. For that, use Bedrock Hub.
 
 ## The hard part: Bedrock Server is x86_64 only
 
@@ -94,6 +95,10 @@ $env:JAVA_HOME = "C:\Program Files\Android\Android Studio\jbr"
 .\gradlew.bat installDebug         # onto a running emulator or USB device
 ```
 
+**Sign in with GitHub.** GitHub Cloud's device sign-in needs a GitHub OAuth app's client id (with Device Flow
+turned on in the app's settings). Put `babsGithubClientId=<id>` in `gradle.properties` or
+`~\.gradle\gradle.properties`. Without it, BABS asks for a token instead, which works the same.
+
 AGP 9.5, Kotlin 2.4, Jetpack Compose, compileSdk/targetSdk 37, minSdk 29 (Android 10). The APK is built for
 `arm64-v8a` (phones and tablets) and `x86_64` (the emulator).
 
@@ -103,7 +108,7 @@ struggles. Performance and box64 still have to be checked on a real ARM device.
 
 **Real device.** `dist\BABS-<version>-debug.apk` is a copy of the debug build to sideload. Copy it to the phone
 and open it (Android asks to allow installs from that app once), or with USB debugging on:
-`adb install -r dist\BABS-0.11.0-debug.apk`. It's signed with the debug key, so later builds install over it
+`adb install -r dist\BABS-0.12.0-debug.apk`. It's signed with the debug key, so later builds install over it
 without losing data, but a release build would need an uninstall first.
 
 ## How it's built
@@ -116,6 +121,9 @@ app/src/main/java/app/babs/
   core/BridgeApi.kt        HMBC's localhost endpoint: /health, /session (hide or show), /friends (requests, auto-accept)
   core/ServerConfig.kt     server.properties (edited line by line), allowlist.json, the worlds folder
   core/Worlds.kt           Clone, rename, back up, backups, AutoSave, world names and level.dat's LevelName
+  core/CloudSync.kt        GitHub Cloud: the repo's format, uploads and downloads, and around each session
+  core/GitHub.kt           GitHub's REST API: sign-in, repos, and git blobs sent and fetched as streams
+  core/SecretStore.kt      The GitHub token, encrypted with a key in Android's keystore
   core/ContentLog.kt       The Content Log: what the server reports about packs, ported from Bedrock Hub
   core/LogFile.kt          The console saved to files/logs, and the export for Share log
   core/ManagedProcess.kt   One child process: output into the console, commands in, graceful stop
@@ -130,7 +138,8 @@ app/src/main/java/app/babs/
   ui/BridgeTab.kt          Sign-in, account, who can see the game, friend requests
   ui/ServerTab.kt          Install and download cards, status, Start / Restart / Stop, allow list warning
   ui/ConsoleTab.kt         Everything (filters, Share), Server (commands and chat) or Content Log
-  ui/SettingsTab.kt        Server (game settings, allow list, version), Bridge (public address), App
+  ui/SettingsTab.kt        Server (game settings, allow list, version), Bridge (public address), GitHub Cloud, App
+  ui/CloudUi.kt            GitHub Cloud's Settings card, its Worlds tab card and the "newer save" question
   ui/Components.kt         Cards, the console view and dialogs used across tabs
 ```
 
@@ -267,7 +276,7 @@ the top bar on all of them:
   Log**. It follows new lines until you scroll up, then shows a ↓ button back to the latest. The tab is badged with
   the Content Log's error count.
 - **Settings**: Server (game settings, allow list, phone performance, AutoSave, version and updates), Bridge
-  (public address), and App (Keep running, Share log, About).
+  (public address), GitHub Cloud, and App (Keep running, Share log, About).
 
 **Friend requests.** HMBC has `/friends` (the requests it last saw and whether it accepts them by itself),
 `/friends/approve`, `/friends/deny` and `/friends/auto`, all on localhost with `X-HMBC: 1` for changes. BABS reads
@@ -361,6 +370,29 @@ before the last session and one from after. `world.json` says when each was take
 that crashes while loading isn't copied after (the copy is only taken once "Server started." was seen), so the
 copy from before that session stays as it was. A start waits for the last session's copy to finish. On by
 default; turn it off in Settings.
+
+**GitHub Cloud** (`core/CloudSync.kt`, from Bedrock Hub's `src/cloud.js` and `src/cloudmanager.js`) saves each
+world's AutoSave copies to a GitHub repo, in Bedrock Hub's layout: `<world>/world.json`, `<world>/pregameplay/`
+and `<world>/postgameplay/` on `main`, without pack folders (`.gitignore` says so too) and without files over
+95 MB. `world.json`'s `rev` goes up with every upload, and each phone or PC remembers the `syncedRev` it last saw,
+so a newer save from the other is spotted. Link the same repo on the PC and the phone.
+
+- There's no git on Android, so BABS uses GitHub's REST Git Data API: it sends only files GitHub doesn't already
+  have (by git's SHA-1, cached in `files/cloud-hashes.json`), paced to stay under GitHub's limit for new content,
+  builds the world's tree, and commits it on top of the branch. Another device's upload in between is fine, as
+  only this world's folder changes; it starts again from the newer commit once. **Keep older saves** off makes
+  each commit parentless and forces the branch, as Bedrock Hub's forced push does.
+- Sign-in is a pasted fine-grained token (Contents read and write on the repo), or GitHub's device sign-in when
+  the build has a client id. The token is encrypted with an Android keystore key. A public repo is only linked
+  after a warning.
+- Before a start, BABS checks the world. With a newer save in the cloud it asks: **Use the cloud save** (download
+  it and load it, keeping the replaced copy under Backups as "replaced"), **Keep this phone's** (the next upload
+  wins), or Cancel. A check that fails or takes over 20 s starts with this phone's copy.
+- After each session, the AutoSave copy notes the world's packs and is uploaded if **Upload automatically** is
+  on. BABS also checks when it comes to the front and every 15 minutes while the service runs, and uploads
+  anything not uploaded yet. Uploads and downloads run in the service with their own wake lock.
+- While it's linked, AutoSave copies every session even if its switch is off, since those copies are what's
+  uploaded. A download names any packs the world uses that this phone doesn't have.
 
 **Backups** (Worlds tab) lists AutoSave's copies and everything in `backups/` that holds a world (zips,
 `.mcworld` files and world folders), newest first. **Load** always loads one as a new world, so nothing is
