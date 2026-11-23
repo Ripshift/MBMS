@@ -9,6 +9,8 @@ import android.provider.DocumentsContract
 import app.babs.core.WorldImporter
 import app.babs.core.PackInstaller
 import app.babs.core.WorldExporter
+import app.babs.core.WorldOps
+import app.babs.core.ContentLog
 import android.os.Environment
 import java.io.File
 import android.content.pm.PackageManager
@@ -92,6 +94,7 @@ class MainActivity : ComponentActivity() {
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         outState.putString(KEY_EXPORT_FOLDER, exportFolder)
+        outState.putString(KEY_PACK_FOLDER, packFolder)
     }
     private val saveWorld = registerForActivityResult(ActivityResultContracts.CreateDocument("application/octet-stream")) { uri ->
         val folder = exportFolder
@@ -106,12 +109,18 @@ class MainActivity : ComponentActivity() {
         exportFolder = null
     }
 
-    /** Add Pack to World: a .mcaddon or .mcpack, which usually comes from a browser's downloads. */
+    /**
+     * Add pack to a world: a .mcaddon or .mcpack, which usually comes from a browser's downloads. Which world is kept
+     * in the saved state, as for Export, since Android may recreate this screen while the picker is open.
+     */
     private val openPack = OpenDocumentAt()
+    private var packFolder: String? = null
     private val pickPack = registerForActivityResult(openPack) { uri ->
-        if (uri != null) {
-            val world = File(worldsDir, Hub.serverSettings.value.currentWorld)
-            PackInstaller.add(this, uri, world, serverRunning)
+        val folder = packFolder
+        packFolder = null
+        if (uri != null && folder != null) {
+            val hosted = folder == Hub.serverSettings.value.currentWorld
+            PackInstaller.add(this, uri, File(worldsDir, folder), serverRunning && hosted)
         }
     }
 
@@ -132,6 +141,7 @@ class MainActivity : ComponentActivity() {
         layout = Layout(this)
         prefs = Prefs(this)
         exportFolder = savedInstanceState?.getString(KEY_EXPORT_FOLDER)
+        packFolder = savedInstanceState?.getString(KEY_PACK_FOLDER)
         if (Hub.account.value == null) Hub.setAccount(prefs.lastGamertag, prefs.lastGamerpic)
         config = ServerConfig(layout.serverDir)
         settings = AppSettings(
@@ -141,6 +151,7 @@ class MainActivity : ComponentActivity() {
             unrestricted = false,
             eulaAccepted = prefs.eulaAccepted,
             autoRestart = prefs.autoRestart,
+            autoSave = prefs.autoSave,
         )
         // Unless an install is running, the files on disk say whether Linux is installed.
         if (Hub.setup.value.stage != SetupStage.Working) {
@@ -212,7 +223,8 @@ class MainActivity : ComponentActivity() {
             },
             onCancelImport = WorldImporter::cancel,
             onDismissImport = WorldImporter::dismiss,
-            onAddPack = {
+            onAddPack = { folder ->
+                packFolder = folder
                 openPack.startAt = DocumentsContract.buildDocumentUri(
                     "com.android.externalstorage.documents", "primary:${Environment.DIRECTORY_DOWNLOADS}",
                 )
@@ -221,6 +233,19 @@ class MainActivity : ComponentActivity() {
                     .onFailure { Hub.log(Source.Babs, "Couldn't open the file picker: ${it.message}") }
             },
             onDismissPack = PackInstaller::dismiss,
+            onRemovePack = { folder, pack -> changePacks(folder) { PackInstaller.remove(it, pack.uuid, pack.behavior) } },
+            onMovePack = { folder, pack, by -> changePacks(folder) { PackInstaller.move(it, pack.uuid, pack.behavior, by) } },
+            onCloneWorld = { folder, name -> WorldOps.clone(layout.serverDir, folder, name) },
+            onRenameWorld = { folder, name -> WorldOps.rename(layout.serverDir, folder, name) },
+            onBackupWorld = { folder -> WorldOps.backup(layout.serverDir, folder) },
+            onLoadBackup = { backup, name -> WorldOps.loadBackup(layout.serverDir, backup, name) },
+            onDeleteBackup = { backup -> WorldOps.deleteBackup(layout.serverDir, backup) },
+            onDismissWorldTask = WorldOps::dismiss,
+            onAutoSave = {
+                prefs.autoSave = it
+                settings = settings.copy(autoSave = it)
+            },
+            onShareContentLog = ::shareContentLog,
             onExportWorld = { folder, name ->
                 exportFolder = folder
                 runCatching { saveWorld.launch(WorldExporter.fileName(name)) }
@@ -309,6 +334,22 @@ class MainActivity : ComponentActivity() {
             Hub.log(Source.Babs, "The server will run the world \"$folder\"")
             reloadServerSettings()
             if (serverRunning) ServerService.restartServer(this@MainActivity)
+        }
+    }
+
+    /**
+     * Removes or moves a pack in a world's list. A change to the world the server runs takes effect when it
+     * restarts, so that shows the Restart now banner.
+     */
+    private fun changePacks(folder: String, change: (File) -> Unit) {
+        lifecycleScope.launch {
+            val ok = withContext(Dispatchers.IO) { runCatching { change(File(worldsDir, folder)) } }
+                .onFailure { Hub.log(Source.Babs, "Couldn't change the packs: ${it.message}") }
+                .isSuccess
+            Hub.bumpPacks()
+            if (ok && serverRunning && folder == Hub.serverSettings.value.currentWorld) {
+                Hub.updateServerSettings { it.copy(restartNeeded = true) }
+            }
         }
     }
 
@@ -421,6 +462,30 @@ class MainActivity : ComponentActivity() {
         }
     }
 
+    /** Shares the Content Log as text, the same as Bedrock Hub's Copy all. */
+    private fun shareContentLog() {
+        lifecycleScope.launch {
+            val file = runCatching {
+                withContext(Dispatchers.IO) {
+                    File(File(cacheDir, "share").apply { mkdirs() }, "content-log.txt").apply {
+                        writeText(ContentLog.toText(Hub.contentLog.value) + "\n")
+                    }
+                }
+            }.getOrElse {
+                Hub.log(Source.Babs, "Couldn't prepare the Content Log: ${it.message}")
+                return@launch
+            }
+            val uri = FileProvider.getUriForFile(this@MainActivity, "app.babs.files", file)
+            val send = Intent(Intent.ACTION_SEND)
+                .setType("text/plain")
+                .putExtra(Intent.EXTRA_STREAM, uri)
+                .putExtra(Intent.EXTRA_SUBJECT, "Bedrock server Content Log")
+                .addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+            send.clipData = ClipData.newRawUri("Content Log", uri)
+            startActivity(Intent.createChooser(send, "Share the Content Log"))
+        }
+    }
+
     /** Asks Android to leave BABS out of battery optimisation, or opens the list if that dialog isn't available. */
     @SuppressLint("BatteryLife")
     private fun askUnrestricted() {
@@ -431,6 +496,7 @@ class MainActivity : ComponentActivity() {
 
     private companion object {
         const val KEY_EXPORT_FOLDER = "export_folder"
+        const val KEY_PACK_FOLDER = "pack_folder"
     }
 
     private fun withNotifications(action: () -> Unit) {

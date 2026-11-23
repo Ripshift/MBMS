@@ -125,6 +125,58 @@ object PackInstaller {
 
     fun dismiss() = Hub.updatePackImport { PackImport() }
 
+    /**
+     * Takes a pack out of a world, as Bedrock Hub's Remove from world does: its entry in the world's list, and the
+     * world's own copy of it in behavior_packs or resource_packs. Blocking. Returns the pack's name.
+     */
+    fun remove(worldDir: File, uuid: String, behavior: Boolean): String {
+        val id = uuid.lowercase()
+        val copy = installed(worldDir).firstOrNull { it.uuid == id && it.behavior == behavior }
+        val name = copy?.name ?: id.take(8)
+        editList(worldDir, behavior) { entries -> entries.filterNot { it.optString("pack_id").lowercase() == id } }
+        if (copy != null && !copy.dir.deleteRecursively()) throw IOException("Couldn't delete the world's copy of $name")
+        Hub.log(Source.Babs, "Removed $name from \"${worldDir.name}\"")
+        return name
+    }
+
+    /**
+     * Moves a pack [by] places in the world's list, -1 for earlier (loses to more) and 1 for later (wins over
+     * more). The next pack added keeps this order, except where a rule needs a pack after another. Blocking.
+     */
+    fun move(worldDir: File, uuid: String, behavior: Boolean, by: Int) {
+        val id = uuid.lowercase()
+        editList(worldDir, behavior) { entries ->
+            val list = entries.toMutableList()
+            val from = list.indexOfFirst { it.optString("pack_id").lowercase() == id }
+            val to = from + by
+            if (from < 0 || to !in list.indices) return@editList entries
+            list.add(to, list.removeAt(from))
+            list
+        }
+    }
+
+    /** Rewrites a world's pack list, keeping the original once as <file>.bak_addonloader, as the Mod Loader does. */
+    private fun editList(worldDir: File, behavior: Boolean, change: (List<JSONObject>) -> List<JSONObject>) {
+        val name = if (behavior) "world_behavior_packs.json" else "world_resource_packs.json"
+        val file = File(worldDir, name)
+        if (!file.exists()) return
+        val data = runCatching { JSONArray(file.readText().removePrefix("\uFEFF")) }.getOrElse {
+            throw IOException("The world's $name can't be read, so it was left alone")
+        }
+        val entries = (0 until data.length()).mapNotNull { data.optJSONObject(it) }
+        val changed = change(entries)
+        if (changed == entries) return
+        val backup = File(worldDir, "$name.bak_addonloader")
+        if (!backup.exists()) file.copyTo(backup)
+        val text = JSONArray(changed).toString(2)
+        val part = File(worldDir, "$name.part")
+        part.writeText(text)
+        if (!part.renameTo(file)) {
+            file.writeText(text)
+            part.delete()
+        }
+    }
+
     /** The pack in [dir], or null with the reason in [skipped] when it isn't one a world can use. */
     private fun readPack(dir: File, skipped: MutableList<String>): Pack? {
         val json = runCatching { JSONObject(File(dir, "manifest.json").readText().removePrefix("﻿")) }.getOrNull() ?: run {

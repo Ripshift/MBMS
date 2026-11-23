@@ -214,6 +214,16 @@ internal fun SettingsTab(arch: String, usesBox64: Boolean, appVersion: String, s
                 )
             }
 
+            SectionCard("AutoSave") {
+                SwitchRow(
+                    title = "Copy the world before and after each session",
+                    detail = "When the server starts a world and again when it stops, as Bedrock Hub does. The two copies " +
+                        "are under Worlds, Backups, and load as a new world. Each is a full copy, so it takes space",
+                    checked = settings.autoSave,
+                    onChange = actions.onAutoSave,
+                )
+            }
+
             SectionCard("Version") {
                 Text(files.installed?.let { "Bedrock server $it" } ?: "Not downloaded yet", style = MaterialTheme.typography.bodyLarge)
                 Hint(

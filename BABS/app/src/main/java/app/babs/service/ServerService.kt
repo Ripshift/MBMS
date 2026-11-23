@@ -30,6 +30,7 @@ import app.babs.setup.ServerInstaller
 import app.babs.core.ServerConfig
 import app.babs.core.WorldExporter
 import app.babs.core.SessionNames
+import app.babs.core.AutoSave
 import java.io.File
 import java.io.IOException
 import java.net.InetSocketAddress
@@ -101,7 +102,7 @@ class ServerService : Service() {
 
     @Volatile private var stopRequested = false
 
-    private val anythingAlive: Boolean get() = server.isAlive || bridge.isAlive || probe?.isAlive == true || exporting || restartPending
+    private val anythingAlive: Boolean get() = server.isAlive || bridge.isAlive || probe?.isAlive == true || exporting || restartPending || autosaving
 
     /** An export runs outside the lock, so Stop still works while a big world is copied. */
     @Volatile private var exporting = false
@@ -266,10 +267,35 @@ class ServerService : Service() {
         }.isSuccess
     }
 
+    /** The world the server has up, set at "Server started." so a world that crashes while loading isn't copied after. */
+    @Volatile private var sessionWorld: String? = null
+    /** AutoSave's copy after a session, which runs after the server has let go of the world's files. */
+    @Volatile private var autosaveJob: Job? = null
+    @Volatile private var autosaving = false
+
     private suspend fun startServer(launch: Launch) {
         if (!waitForServerPort()) {
             Hub.setServer(RunState.Stopped)
             return
+        }
+        // The last session's copy has to finish before the server opens the world again.
+        autosaveJob?.join()
+        val config = ServerConfig(layout.serverDir)
+        val props = config.properties()
+        val world = props["level-name"] ?: "Bedrock level"
+        // The Console's Content Log needs the server to print it, as Bedrock Hub turns on before each start.
+        if (props["content-log-console-output-enabled"] != "true") {
+            runCatching { config.setProperties(mapOf("content-log-console-output-enabled" to "true")) }
+                .onSuccess { Hub.log(Source.Babs, "Turned on the server's Content Log output (content-log-console-output-enabled=true)") }
+        }
+        Hub.clearContentLog()
+        sessionWorld = null
+        if (Prefs(this).autoSave) {
+            Hub.setServer(RunState.Starting, "AutoSave: copying the world first")
+            withContext(Dispatchers.IO) {
+                runCatching { AutoSave(layout.serverDir).before(world) }
+                    .onFailure { Hub.log(Source.Babs, "AutoSave couldn't save the world before this session: ${it.message}") }
+            }
         }
         Hub.setServer(RunState.Starting, "Loading the world")
         Hub.setPlayers(emptyList())
@@ -278,6 +304,7 @@ class ServerService : Service() {
                 launch, layout.serverDir,
                 onLine = { line ->
                     if (line.contains("Server started.")) {
+                        sessionWorld = world
                         Hub.setServerStartedAt(System.currentTimeMillis())
                         Hub.setServer(RunState.Running, "Online")
                         setSessionHidden(false)
@@ -305,6 +332,7 @@ class ServerService : Service() {
                     else Hub.setServer(RunState.Crashed, exitReason(code, signal))
                     Hub.log(Source.Babs, "Server exited ($code${signal?.let { ", signal $it" } ?: ""})")
                     setSessionHidden(true)
+                    saveAfterSession()
                     if (!requested) scheduleAutoRestart()
                     onChildExit()
                 },
@@ -312,6 +340,24 @@ class ServerService : Service() {
         }.onFailure {
             Hub.setServer(RunState.Crashed, "Couldn't start: ${it.message}")
             Hub.log(Source.Babs, "Server couldn't start: ${it.message}")
+        }
+    }
+
+    /** AutoSave's copy of the world after the session, as Bedrock Hub takes it once the server has stopped. */
+    private fun saveAfterSession() {
+        val world = sessionWorld ?: return
+        sessionWorld = null
+        if (!Prefs(this).autoSave) return
+        autosaving = true
+        autosaveJob = scope.launch(Dispatchers.IO) {
+            try {
+                AutoSave(layout.serverDir).after(world)
+            } catch (e: Exception) {
+                Hub.log(Source.Babs, "AutoSave couldn't save the world after this session: ${e.message}")
+            } finally {
+                autosaving = false
+                if (!lock.isLocked) stopIfIdle()
+            }
         }
     }
 

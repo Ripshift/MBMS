@@ -35,6 +35,11 @@ class Prefs(context: Context) {
         get() = prefs.getBoolean(KEY_AUTO_RESTART, true)
         set(value) = prefs.edit { putBoolean(KEY_AUTO_RESTART, value) }
 
+    /** AutoSave: copy the world before and after each session, into backups/AutoSave, as Bedrock Hub does. */
+    var autoSave: Boolean
+        get() = prefs.getBoolean(KEY_AUTOSAVE, true)
+        set(value) = prefs.edit { putBoolean(KEY_AUTOSAVE, value) }
+
     /** The bridge account last seen signed in, and its picture's address, shown while the bridge is off. */
     var lastGamertag: String
         get() = prefs.getString(KEY_GAMERTAG, "") ?: ""
@@ -50,6 +55,7 @@ class Prefs(context: Context) {
         set(value) = prefs.edit { putBoolean(KEY_MINECRAFT_THEME, value) }
 
     private companion object {
+        const val KEY_AUTOSAVE = "autosave"
         const val KEY_MINECRAFT_THEME = "minecraft_theme"
         const val KEY_GAMERTAG = "last_gamertag"
         const val KEY_GAMERPIC = "last_gamerpic"

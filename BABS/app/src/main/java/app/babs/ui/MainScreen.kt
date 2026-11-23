@@ -65,12 +65,16 @@ import app.babs.core.Hub
 import app.babs.core.RunState
 import app.babs.core.SetupStage
 import app.babs.core.WorldChoice
+import app.babs.core.Backup
+import app.babs.core.ContentEntry
+import app.babs.core.WorldPack
 
 /** Running, or on the way up or down: Start has nothing to do, while Restart and Stop do. */
 internal fun RunState.isActive() = this == RunState.Starting || this == RunState.Running || this == RunState.Stopping
 
 /** The tabs along the bottom. */
 internal enum class Tab(val label: String, val icon: Int) {
+    Worlds("Worlds", R.drawable.ic_tab_worlds),
     Bridge("Bridge", R.drawable.ic_tab_bridge),
     Server("Server", R.drawable.ic_tab_server),
     Console("Console", R.drawable.ic_tab_console),
@@ -110,9 +114,20 @@ class Actions(
     val onChooseImport: (WorldChoice) -> Unit,
     val onCancelImport: () -> Unit,
     val onDismissImport: () -> Unit,
-    // Add Pack to World
-    val onAddPack: () -> Unit,
+    // A world's packs
+    val onAddPack: (folder: String) -> Unit,
     val onDismissPack: () -> Unit,
+    val onRemovePack: (folder: String, pack: WorldPack) -> Unit,
+    val onMovePack: (folder: String, pack: WorldPack, by: Int) -> Unit,
+    // Worlds tab: clone, rename, back up, backups
+    val onCloneWorld: (folder: String, name: String) -> Unit,
+    val onRenameWorld: (folder: String, name: String) -> Unit,
+    val onBackupWorld: (folder: String) -> Unit,
+    val onLoadBackup: (backup: Backup, name: String) -> Unit,
+    val onDeleteBackup: (backup: Backup) -> Unit,
+    val onDismissWorldTask: () -> Unit,
+    val onAutoSave: (Boolean) -> Unit,
+    val onShareContentLog: () -> Unit,
     // Export / back up
     val onExportWorld: (folder: String, name: String) -> Unit,
     val onDismissExport: () -> Unit,
@@ -131,6 +146,7 @@ data class AppSettings(
     val unrestricted: Boolean,
     val eulaAccepted: Boolean,
     val autoRestart: Boolean = true,
+    val autoSave: Boolean = true,
 )
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -157,6 +173,9 @@ fun MainScreen(
         if (signInCode != null) tab = Tab.Bridge
     }
     val bridgeNeedsYou = signInCode != null || !friends?.requests.isNullOrEmpty()
+    // The Console is badged while the Content Log has errors, as Bedrock Hub's sidebar is.
+    val content by Hub.contentLog.collectAsStateWithLifecycle()
+    val contentErrors = content.count { it.level == ContentEntry.Level.Error }
 
     val minecraft = HubColors.minecraft
     // The Minecraft theme's dirt sits behind everything; the Scaffold is see-through to show it.
@@ -210,7 +229,10 @@ fun MainScreen(
                         selected = tab == t,
                         onClick = { tab = t },
                         icon = {
-                            BadgedBox(badge = { if (t == Tab.Bridge && bridgeNeedsYou) Badge() }) {
+                            BadgedBox(badge = {
+                                if (t == Tab.Bridge && bridgeNeedsYou) Badge()
+                                if (t == Tab.Console && contentErrors > 0) Badge { Text("$contentErrors") }
+                            }) {
                                 Icon(painterResource(t.icon), contentDescription = null)
                             }
                         },
@@ -228,8 +250,9 @@ fun MainScreen(
                 .fillMaxSize(),
         ) {
             when (tab) {
+                Tab.Worlds -> WorldsTab(server, actions)
                 Tab.Bridge -> BridgeTab(bridge, server, health, friends, settings, actions, onOpenSettings = { tab = Tab.Settings })
-                Tab.Server -> ServerTab(server, bridge, usesBox64, settings.eulaAccepted, settings.publicAddress, actions, onOpenSettings = { tab = Tab.Settings })
+                Tab.Server -> ServerTab(server, bridge, usesBox64, settings.eulaAccepted, settings.publicAddress, actions, onOpenSettings = { tab = Tab.Settings }, onOpenWorlds = { tab = Tab.Worlds })
                 Tab.Console -> ConsoleTab(serverRunning = server.state == RunState.Running, actions = actions)
                 Tab.Settings -> SettingsTab(arch, usesBox64, appVersion, settings, actions)
             }

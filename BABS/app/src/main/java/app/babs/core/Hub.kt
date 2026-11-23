@@ -157,8 +157,33 @@ object Hub {
 
     fun updateWorldExport(change: (WorldExport) -> WorldExport) = _worldExport.update(change)
 
+    /** What the server reported about packs since it last started, for the Console's Content Log. */
+    private val contentParser = ContentLog()
+    private val _contentLog = MutableStateFlow<List<ContentEntry>>(emptyList())
+    val contentLog: StateFlow<List<ContentEntry>> = _contentLog.asStateFlow()
+
+    fun clearContentLog() = synchronized(contentParser) {
+        contentParser.clear()
+        _contentLog.value = emptyList()
+    }
+
+    /** A clone, rename, backup or backup load on the Worlds tab, while it runs and just after. */
+    private val _worldTask = MutableStateFlow(WorldTask())
+    val worldTask: StateFlow<WorldTask> = _worldTask.asStateFlow()
+
+    fun updateWorldTask(change: (WorldTask) -> WorldTask) = _worldTask.update(change)
+
+    /** Counts pack removals and moves, so a world's page reads its packs again. */
+    private val _packsChanged = MutableStateFlow(0)
+    val packsChanged: StateFlow<Int> = _packsChanged.asStateFlow()
+
+    fun bumpPacks() = _packsChanged.update { it + 1 }
+
     fun log(source: Source, text: String) {
-        if (source == Source.Server) _serverLines.tryEmit(text)
+        if (source == Source.Server) {
+            _serverLines.tryEmit(text)
+            synchronized(contentParser) { if (contentParser.add(text)) _contentLog.value = contentParser.all }
+        }
         LogFile.write(source, text)
         _console.update { lines ->
             val line = synchronized(this) { ConsoleLine(nextId++, source, text) }
