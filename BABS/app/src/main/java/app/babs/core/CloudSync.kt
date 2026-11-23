@@ -320,7 +320,7 @@ class Cloud(private val token: String, private val repo: String, private val kee
             val hasLocal = local != null && (local.has("post") && !local.isNull("post") || local.has("pre") && !local.isNull("pre"))
             if (cloud == null) return if (local?.optJSONObject("post") != null) CloudState.LocalOnly else CloudState.None
             if (!hasLocal) return CloudState.CloudOnly
-            val cloudNewer = cloud.optInt("rev") > local!!.optInt("syncedRev")
+            val cloudNewer = cloud.optInt("rev") > local.optInt("syncedRev")
             val localNewer = local.optBoolean("changed")
             return when {
                 cloudNewer && localNewer -> CloudState.Both

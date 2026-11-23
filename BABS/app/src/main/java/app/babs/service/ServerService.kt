@@ -80,16 +80,16 @@ class ServerService : Service() {
         val action = intent?.action
         // Set before taking the lock, so Stop can cut short a start that is waiting for the port.
         if (action == ACTION_STOP) stopRequested = true
-        if (action == ACTION_EXPORT_WORLD && intent != null) {
+        if (action == ACTION_EXPORT_WORLD) {
             exportWorld(intent)
             return START_NOT_STICKY
         }
-        if ((action == ACTION_CLOUD_UPLOAD || action == ACTION_CLOUD_DOWNLOAD) && intent != null) {
+        if (action == ACTION_CLOUD_UPLOAD || action == ACTION_CLOUD_DOWNLOAD) {
             val world = intent.getStringExtra(EXTRA_FOLDER)
             if (world == null) stopIfIdle() else cloudWork(world, download = action == ACTION_CLOUD_DOWNLOAD)
             return START_NOT_STICKY
         }
-        if (action == ACTION_START || action == ACTION_RESTART_SERVER) cloudChoice = intent?.getStringExtra(EXTRA_CLOUD_CHOICE)
+        if (action == ACTION_START || action == ACTION_RESTART_SERVER) cloudChoice = intent.getStringExtra(EXTRA_CLOUD_CHOICE)
         scope.launch {
             lock.withLock {
                 when (action) {
