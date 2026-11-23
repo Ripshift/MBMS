@@ -108,7 +108,7 @@ object LevelDat {
             }
             pos = end
         }
-        val result = out!!
+        val result: ByteArray = out
         if (hasHeader) le(result).putInt(4, result.size - 8)
         require(skip(result, start + 3 + u16(result, start + 1), 10) == result.size) { "the new level.dat doesn't read back" }
         return result
